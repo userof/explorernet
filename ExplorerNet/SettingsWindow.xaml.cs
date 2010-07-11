@@ -25,12 +25,18 @@ namespace ExplorerNet
             _LoadSettings();
         }
 
+        /// <summary>
+        /// Загружаем настройки
+        /// </summary>
         private void _LoadSettings()
         {
             txtHeightLevel.Text = Properties.Settings.Default.HeightLevel.ToString();
             txtWidthFilepanel.Text = Properties.Settings.Default.WidthFilepanel.ToString();
         }
 
+        /// <summary>
+        /// Сохраняем настройки
+        /// </summary>
         private void _SaveSettings()
         {
             Properties.Settings.Default.HeightLevel = double.Parse(txtHeightLevel.Text);
@@ -39,23 +45,42 @@ namespace ExplorerNet
             Properties.Settings.Default.Save();
         }
 
+        /// <summary>
+        /// Закрываем окно без сохранения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Восстанавливаем настройки по умолчанию
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDefault_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Reset();
-
             _LoadSettings();
         }
 
+        /// <summary>
+        /// Сохраняем настройки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
             _SaveSettings();
         }
 
+        /// <summary>
+        /// Закрываем окно с сохранения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             _SaveSettings();

@@ -5,15 +5,43 @@ using System.Text;
 
 namespace ExplorerNet.ViewWindowApps.Templates
 {
+    /// <summary>
+    /// Шаблон для элемента Level. Обеспечивает отражения его настроек в случае хранения.
+    /// </summary>
     [Serializable]
     public class LevelTemplate
     {
+        /// <summary>
+        /// Коллекция файловых панелей
+        /// </summary>
+        private List<FilePanelTemplate> _filePanels = null;
 
-        private List<FilePanelTemplate> filePanels = null;
+        /// <summary>
+        /// Высота уровня
+        /// </summary>
+        private double _height = 0;
 
         public LevelTemplate()
         {
-            filePanels = new List<FilePanelTemplate>();
+            _filePanels = new List<FilePanelTemplate>();
         }
+
+        /// <summary>
+        /// Коллекция файловых панелей
+        /// </summary>
+        public List<FilePanelTemplate> FilePanels
+        {
+            get { return _filePanels; }
+        }
+
+        /// <summary>
+        /// Высота уровня
+        /// </summary>
+        public double Height
+        {
+            get { return _height; }
+            set { _height = value; }
+        }
+        
     }
 }

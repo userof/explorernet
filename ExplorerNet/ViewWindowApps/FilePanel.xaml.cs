@@ -22,7 +22,7 @@ namespace ExplorerNet.ViewWindowApps
         public FilePanel()
         {
             InitializeComponent();
-
+            //Загружаем сохранённую ширину
             this.Width = Properties.Settings.Default.WidthFilepanel;
         }
     }
