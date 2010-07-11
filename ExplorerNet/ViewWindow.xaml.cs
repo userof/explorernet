@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ExplorerNet.ViewWindowApps;
+
 namespace ExplorerNet
 {
     /// <summary>
@@ -21,6 +23,18 @@ namespace ExplorerNet
         public ViewWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnAddLevel_Click(object sender, RoutedEventArgs e)
+        {
+            Level newLevel = new Level();
+            spMain.Children.Add(newLevel);
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.ShowDialog();
         }
     }
 }

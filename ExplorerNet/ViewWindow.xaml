@@ -3,6 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="ViewWindow" Height="300" Width="300">
     <Grid>
-        
+        <ScrollViewer Margin="12,61,12,21">
+            <StackPanel Name="spMain" />
+        </ScrollViewer>
+
+        <Button Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="btnAddLevel" VerticalAlignment="Top" Width="75" Click="btnAddLevel_Click">Add Level</Button>
+        <Button Height="23" Margin="101,12,0,0" Name="btnSettings" VerticalAlignment="Top" Click="btnSettings_Click"  HorizontalAlignment="Left" Width="75">Settings</Button>
     </Grid>
 </Window>

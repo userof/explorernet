@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="ExplorerNet.ViewWindowApps.FilePanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             BorderBrush="Green"
+             BorderThickness="7"
+             Background="DarkKhaki">
+    <!--Height="300" Width="300"-->
+    <Grid>
+            
+    </Grid>
+</UserControl>
