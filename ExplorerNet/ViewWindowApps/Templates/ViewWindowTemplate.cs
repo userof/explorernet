@@ -41,6 +41,21 @@ namespace ExplorerNet.ViewWindowApps.Templates
             }
             FileStream fs = new FileStream(fileName, FileMode.Create);
             serializer.Serialize(fs, this);
+
+            fs.Dispose();
+        }
+
+        public static ViewWindowTemplate Load(string fileName)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(ViewWindowTemplate));
+
+            Stream reader = new FileStream(fileName, FileMode.Open);
+
+            ViewWindowTemplate result = (ViewWindowTemplate)serializer.Deserialize(reader);
+
+            reader.Dispose();
+
+            return result;
         }
 
         /// <summary>

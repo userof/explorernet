@@ -7,14 +7,15 @@
              x:Name="level"
     Height="300">
     <Grid Name="grdBorder">
+        <Thumb Name="tmbMove" Cursor="SizeNS" Height="9" Margin="0,0,0,0" VerticalAlignment="Bottom" DragDelta="tmbMove_DragDelta"></Thumb>
         <Grid Margin="21,12,0,12" Name="grid1" HorizontalAlignment="Left" Width="42" Background="Brown">
             <Button Height="23" Margin="5,14,0,0" Name="btnNewFilePanel" VerticalAlignment="Top" Click="btnNewFilePanel_Click">NewFilePanel</Button>
             <Button Height="23" Margin="6,43,0,0" Name="btnDeleteLevel" VerticalAlignment="Top" Click="btnDeleteLevel_Click">DeleteLevel</Button>
-            <Slider Margin="12,107,-107,61" Name="slider1" Orientation="Horizontal" Value="{Binding ElementName=level, Path=Height, Mode=TwoWay}" Maximum="1000" Minimum="200">
-                <Slider.RenderTransform>
+            <!--<Slider Margin="12,107,-107,61" Name="slider1" Orientation="Horizontal" Value="{Binding ElementName=level, Path=Height, Mode=TwoWay}" Maximum="1000" Minimum="200">-->
+                <!--<Slider.RenderTransform>
                     <RotateTransform Angle="90"></RotateTransform>
                 </Slider.RenderTransform>
-            </Slider>
+            </Slider>-->
         </Grid>
         <ScrollViewer Margin="80,12,23,23" Name="scrollViewer1" Background="Cyan" HorizontalScrollBarVisibility="Auto">
             <StackPanel Name="spMain" Orientation="Horizontal" />

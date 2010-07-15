@@ -112,5 +112,43 @@ namespace ExplorerNet
             currentTemplate.Save(fileName);
 
         }
+
+        private void _LoadTemplate(string fileName)
+        {
+            currentTemplate = ViewWindowTemplate.Load(fileName);
+
+            spMain.Children.Clear();
+
+            foreach (var levelTemplate in currentTemplate.Levels)
+            {
+                Level level = new Level();
+                level.Height = levelTemplate.Height;
+
+                foreach (var filePanelTemplate in levelTemplate.FilePanels)
+                {
+                    FilePanel filePanel = new FilePanel();
+                    filePanel.Width = filePanelTemplate.Width;
+                    level.spMain.Children.Add(filePanel);
+                }
+
+                spMain.Children.Add(level);
+            }
+        }
+
+        private void btnLoadTemplate_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Template"; // Default file name
+            dlg.DefaultExt = ".vtmpl"; // Default file extension
+            dlg.Filter = "Template (.vtmpl)|*.vtmpl|All Files|*.*"; // Filter files by extension
+
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                _LoadTemplate(dlg.FileName);
+            }
+        }
+
     }
 }

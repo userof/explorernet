@@ -47,5 +47,10 @@ namespace ExplorerNet.ViewWindowApps
             Panel panel = (Panel)this.Parent;
             panel.Children.Remove(this);
         }
+
+        private void tmbMove_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
+        {
+            this.Height += e.VerticalChange;
+        }
     }
 }
