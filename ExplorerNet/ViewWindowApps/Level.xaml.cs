@@ -34,7 +34,20 @@ namespace ExplorerNet.ViewWindowApps
         private void btnNewFilePanel_Click(object sender, RoutedEventArgs e)
         {
             FilePanel filePanel = new FilePanel();
+            filePanel.Height = spMain.Height;
             spMain.Children.Add(filePanel);
+
+            Binding binding = new Binding();
+            binding.Source = spMain;
+            binding.Path = new PropertyPath("Height");
+            binding.Mode = BindingMode.OneWay;
+            filePanel.SetBinding(FilePanel.HeightProperty, binding);
+
+            //Binding binding = new Binding();
+            //binding.Source = filePanel;
+            //binding.Path = new PropertyPath("Height");
+            //binding.Mode = BindingMode.OneWay;
+            //this.SetBinding(UserControl.HeightProperty, binding);
         }
 
         /// <summary>

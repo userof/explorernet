@@ -14,7 +14,10 @@ using System.Windows.Shapes;
 
 using System.IO;
 
-using System.IO.Tools; 
+using System.IO.Tools;
+
+using QuickZip.IO.PIDL.UserControls;
+using ShellDll;
 //using ExplorerNet.ViewWindowApps.FilePanelApps.IO.Tools;
 
 namespace ExplorerNet.ViewWindowApps
@@ -30,7 +33,34 @@ namespace ExplorerNet.ViewWindowApps
             //Загружаем сохранённую ширину
             this.Width = Properties.Settings.Default.WidthFilepanel;
 
+            //grdFileList.Height = double.NaN;
+
             _BuildDrives();
+
+            ////////////////test
+            //QuickZip.IO.PIDL.UserControls.DirectoryTree dt = new DirectoryTree();
+            //dt.SelectedDirectory = new DirectoryInfoEx(Environment.SpecialFolder.Desktop);
+            //Grid.SetColumn(dt, 0);
+
+            //GridSplitter gs = new GridSplitter();
+            //gs.Width = 10;
+
+            //QuickZip.IO.PIDL.UserControls.FileList fl = new FileList();
+            //Grid.SetColumn(fl, 1);
+
+            //grdFileList.Children.Add(dt);
+            //grdFileList.Children.Add(gs);
+            //grdFileList.Children.Add(fl);
+
+            //Binding b = new Binding();
+            //b.Mode = BindingMode.TwoWay;
+            //b.Source = dt;
+            //b.Path = new PropertyPath("CurrentDirectory");
+            //fl.SetBinding(DirectoryTree.SelectedDirectoryProperty, b);
+
+
+
+
         }
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
@@ -59,7 +89,10 @@ namespace ExplorerNet.ViewWindowApps
 
         private void btnDrive_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Button btnDrive = (Button)sender;
+            DriveInfo di = (DriveInfo)btnDrive.Tag;
+
+            dirTree.SelectedDirectory = new DirectoryInfoEx(di.RootDirectory.FullName);
         }
 
         private void btnDrive_MouseRightButtonDown(Object sender, MouseButtonEventArgs e)
@@ -86,6 +119,20 @@ namespace ExplorerNet.ViewWindowApps
         {
             Panel panel = (Panel)this.Parent;
             panel.Children.Remove(this);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void dirTree_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+            //if (dirTree.SelectedDirectory != null)
+            //{
+            //    txtPath.Text = dirTree.SelectedDirectory.ToString();
+            //}
         }
 	
 
