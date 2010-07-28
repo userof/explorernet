@@ -13,10 +13,18 @@ namespace ExplorerNet.ViewWindowApps.Templates
     {
         private double _width = 0;
 
+        private string _path = "";
+
         public double Width
         {
             get { return _width; }
             set { _width = value; }
+        }
+
+        public string Path
+        {
+            get { return _path; }
+            set { _path = value; }
         }
     }
 }

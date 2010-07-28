@@ -39,17 +39,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="QuickZip.IO.PIDL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\out\FileExplorer\QuickZip.IO.PIDL.dll</HintPath>
-    </Reference>
-    <Reference Include="QuickZip.IO.PIDL.UserControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\out\FileExplorer\QuickZip.IO.PIDL.UserControls.dll</HintPath>
-    </Reference>
-    <Reference Include="QuickZip.UserControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\out\FileExplorer\QuickZip.UserControls.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -153,6 +142,7 @@
     <Compile Include="CopyOrMoveWindow.xaml.cs">
       <DependentUpon>CopyOrMoveWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\FileManager.cs" />
     <Compile Include="DeleteWindow.xaml.cs">
       <DependentUpon>DeleteWindow.xaml</DependentUpon>
     </Compile>
@@ -178,6 +168,13 @@
     <Compile Include="ViewWindowApps\FilePanel.xaml.cs">
       <DependentUpon>FilePanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CustomFileSystemCover.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\DirectoryCover.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\FileCover.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\ParentDirectoryCover.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\Converter.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\IconExtractor.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\Navigation\Navigator.cs" />
     <Compile Include="ViewWindowApps\Level.xaml.cs">
       <DependentUpon>Level.xaml</DependentUpon>
     </Compile>
@@ -203,6 +200,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ViewWindowApps\FilePanelApps\FilePanelApps.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Core\Core.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\dir.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\UP.ICO" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

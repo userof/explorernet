@@ -101,6 +101,7 @@ namespace ExplorerNet
 
                             FilePanelTemplate fpTemplate = new FilePanelTemplate();
                             fpTemplate.Width = filePanel.Width;
+                            fpTemplate.Path = filePanel.Path;
 
                             lTemplate.FilePanels.Add(fpTemplate);
                         }
@@ -128,6 +129,7 @@ namespace ExplorerNet
                 {
                     FilePanel filePanel = new FilePanel();
                     filePanel.Width = filePanelTemplate.Width;
+                    filePanel.Path = filePanelTemplate.Path;
                     level.spMain.Children.Add(filePanel);
                 }
 
