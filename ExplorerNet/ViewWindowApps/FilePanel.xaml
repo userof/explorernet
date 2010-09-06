@@ -7,26 +7,19 @@
              Background="DarkKhaki"
              x:Name="filePanel"
      Width="300"  >
-    <Grid>
+    <Grid >
         <Thumb Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" HorizontalAlignment="Right" Width="9"></Thumb>
         <Grid Background="Bisque" HorizontalAlignment="Left" Width="28">
             <Button Name="btnDeleteFilePanel" Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">X</Button>
             <Button Name="btnClone" Margin="0,34,0,0" Height="25" VerticalAlignment="Top">C</Button>
             
         </Grid>
-        <StackPanel Background="Plum" Margin="34,0,12,0">
+        <Grid Background="Plum" Margin="34,0,12,21">
             <UniformGrid Background="Sienna" Name="ugDrives" Height="28" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>
-            <Grid Background="Orange" Name="grdPath" Height="26" VerticalAlignment="Top">
-                <Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
-                <Button Name="btnUp" Margin="33,0,0,0" HorizontalAlignment="Left" Width="26" Click="btnUp_Click">U</Button>
-                <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>
-                <TextBox Name="txtPath" Margin="96,0,27,0"></TextBox>
-                <Button HorizontalAlignment="Right" Width="29">G</Button>
-            </Grid>
             <!--<ScrollViewer>--> 
-                <Grid Name="grdFileList" Height="200">
+                <!--<Grid Name="grdFileList" >-->
                      
-                        <ListView Name="lvFileList" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,0,0,0">
+                        <ListView Name="lvFileList" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,63,0,0">
                             <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Icon">
@@ -56,8 +49,15 @@
                         </ListView.View>
                         </ListView>
                       
-                </Grid>
+                <!--</Grid>-->
             <!--</ScrollViewer>-->  
-        </StackPanel>
+        </Grid>
+        <Grid Background="Orange" Name="grdPath" Height="26" VerticalAlignment="Top" Margin="34,33,12,0">
+            <Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
+            <Button Name="btnUp" Margin="33,0,0,0" HorizontalAlignment="Left" Width="26" Click="btnUp_Click">U</Button>
+            <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>
+            <TextBox Name="txtPath" Margin="96,0,27,0"></TextBox>
+            <Button HorizontalAlignment="Right" Width="29">G</Button>
+        </Grid>
     </Grid>
 </UserControl>

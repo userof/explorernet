@@ -3,15 +3,31 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="SettingsWindow" Height="300" Width="300">
     <Grid>
-        <Label Height="23" Margin="12,12,0,0" Name="lblHeightLevel" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Высота уровня</Label>
-        <TextBox Height="23" Margin="0,12,42,0" Name="txtHeightLevel" VerticalAlignment="Top" HorizontalAlignment="Right" Width="53">250</TextBox>
-        
-        <Label Name="lblWidthFilepanel" Height="23" VerticalAlignment="Top" Margin="12,67,119,0">Ширина файловой панели</Label>
-        <TextBox Name="txtWidthFilepanel" Margin="0,67,42,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="53">200</TextBox>
-        
-        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,20,49" Name="btnAccept" VerticalAlignment="Bottom" Width="75" Click="btnAccept_Click">Accept</Button>
-        <Button Height="23" Margin="84,0,119,49" Name="btnOk" VerticalAlignment="Bottom" Click="btnOk_Click">Ok</Button>
-        <Button HorizontalAlignment="Right" Margin="0,0,20,20" Name="btnCancel" Width="75" Height="23" VerticalAlignment="Bottom" Click="btnCancel_Click">Cancel</Button>
-        <Button Height="23" Margin="84,0,119,20" Name="btnDefault" VerticalAlignment="Bottom" Click="btnDefault_Click">Default</Button>
+        <TabControl>
+            <TabItem Header="Level and FilePanel">
+                <Grid>
+                    <Label Height="23" Margin="12,12,0,0" Name="lblHeightLevel" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Высота уровня</Label>
+                    <TextBox Height="23" Margin="0,12,42,0" Name="txtHeightLevel" VerticalAlignment="Top" HorizontalAlignment="Right" Width="53">250</TextBox>
+
+                    <Label Name="lblWidthFilepanel" Height="23" VerticalAlignment="Top" Margin="12,67,119,0">Ширина файловой панели</Label>
+                    <TextBox Name="txtWidthFilepanel" Margin="0,67,42,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="53">200</TextBox>
+
+                    <Button Height="23" HorizontalAlignment="Right" Margin="0,0,20,49" Name="btnAccept" VerticalAlignment="Bottom" Width="75" Click="btnAccept_Click">Accept</Button>
+                    <Button Height="23" Margin="84,0,119,49" Name="btnOk" VerticalAlignment="Bottom" Click="btnOk_Click">Ok</Button>
+                    <Button HorizontalAlignment="Right" Margin="0,0,20,20" Name="btnCancel" Width="75" Height="23" VerticalAlignment="Bottom" Click="btnCancel_Click">Cancel</Button>
+                    <Button Height="23" Margin="84,0,119,20" Name="btnDefault" VerticalAlignment="Bottom" Click="btnDefault_Click">Default</Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Operation settings"> 
+                <Grid>
+                    <Grid Height="71" HorizontalAlignment="Left" Margin="30,20,0,0" Name="grid1" VerticalAlignment="Top" Width="200">
+                        <TextBlock Height="18" VerticalAlignment="Top">Если файл уже существует</TextBlock>
+                        <RadioButton Name="rbShowDialog" Margin="0,16,0,0" Height="19" VerticalAlignment="Top">Показать диалог</RadioButton>
+                        <RadioButton Name="rbRewriteFile" Margin="0,33,0,0" Height="17" VerticalAlignment="Top">Перезаписать</RadioButton>
+                        <RadioButton Name="rbSkipFile" Margin="0,50,0,0" Height="18" VerticalAlignment="Top">Пропустить</RadioButton>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

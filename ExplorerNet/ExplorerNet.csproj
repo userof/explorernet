@@ -39,6 +39,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -142,6 +143,9 @@
     <Compile Include="CopyOrMoveWindow.xaml.cs">
       <DependentUpon>CopyOrMoveWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CopyOrMoveWindowApps\FileOverwriteOptionKind.cs" />
+    <Compile Include="CopyOrMoveWindowApps\FromToFileSystemInfo.cs" />
+    <Compile Include="CopyOrMoveWindowApps\FromToFileSystemInfoes.cs" />
     <Compile Include="Core\FileManager.cs" />
     <Compile Include="DeleteWindow.xaml.cs">
       <DependentUpon>DeleteWindow.xaml</DependentUpon>

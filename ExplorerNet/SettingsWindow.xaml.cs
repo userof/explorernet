@@ -32,6 +32,23 @@ namespace ExplorerNet
         {
             txtHeightLevel.Text = Properties.Settings.Default.HeightLevel.ToString();
             txtWidthFilepanel.Text = Properties.Settings.Default.WidthFilepanel.ToString();
+
+            //switch(Properties.Settings.Default.FileOverwriteOption)
+            switch (Properties.Settings.Default.FileOverwriteOption)
+            {
+                case ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind.ShowDialog:
+                    rbShowDialog.IsChecked = true;
+                    break;
+                case ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind.Skip:
+                    rbSkipFile.IsChecked = true;
+                    break;
+                case ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind.Rewrite:
+                    rbRewriteFile.IsChecked = true;
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         /// <summary>
@@ -41,6 +58,27 @@ namespace ExplorerNet
         {
             Properties.Settings.Default.HeightLevel = double.Parse(txtHeightLevel.Text);
             Properties.Settings.Default.WidthFilepanel = double.Parse(txtWidthFilepanel.Text);
+
+            #region Сохраняем настройки перезаписи файла 
+            if (rbShowDialog.IsChecked == true)
+            {
+                Properties.Settings.Default.FileOverwriteOption = 
+                    CopyOrMoveWindowApps.FileOverwriteOptionKind.ShowDialog;
+            }
+
+            if (rbRewriteFile.IsChecked == true)
+            {
+                Properties.Settings.Default.FileOverwriteOption =
+                    CopyOrMoveWindowApps.FileOverwriteOptionKind.Rewrite;
+            }
+
+            if (rbSkipFile.IsChecked == true)
+            {
+                Properties.Settings.Default.FileOverwriteOption =
+                    CopyOrMoveWindowApps.FileOverwriteOptionKind.Skip;
+            }
+            #endregion //Сохраняем настройки перезаписи файла
+
 
             Properties.Settings.Default.Save();
         }

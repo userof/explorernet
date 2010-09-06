@@ -235,10 +235,13 @@ namespace ExplorerNet.ViewWindowApps
         /// <param name="e"></param>
         private void btnUp_Click(object sender, RoutedEventArgs e)
         {
-            if (_currentDirectory.Parent != null)
+            if (_currentDirectory != null)
             {
-                _BuildFileSystemView(_currentDirectory.Parent);
-            } 
+                if (_currentDirectory.Parent != null)
+                {
+                    _BuildFileSystemView(_currentDirectory.Parent);
+                }
+            }
         }
 
 
