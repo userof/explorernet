@@ -11,6 +11,7 @@
         <Grid Margin="21,12,0,12" Name="grid1" HorizontalAlignment="Left" Width="42" Background="Brown">
             <Button Height="23" Margin="5,14,0,0" Name="btnNewFilePanel" VerticalAlignment="Top" Click="btnNewFilePanel_Click">NewFilePanel</Button>
             <Button Height="23" Margin="6,43,0,0" Name="btnDeleteLevel" VerticalAlignment="Top" Click="btnDeleteLevel_Click">DeleteLevel</Button>
+            <Button Height="23" Margin="6,72,0,0" Name="btnClobeLevel" VerticalAlignment="Top" Click="btnClobeLevel_Click">CloneLevel</Button>
             <!--<Slider Margin="12,107,-107,61" Name="slider1" Orientation="Horizontal" Value="{Binding ElementName=level, Path=Height, Mode=TwoWay}" Maximum="1000" Minimum="200">-->
                 <!--<Slider.RenderTransform>
                     <RotateTransform Angle="90"></RotateTransform>
@@ -18,7 +19,7 @@
             </Slider>-->
         </Grid>
         <!--<ScrollViewer Margin="80,12,23,12" Name="scrollViewer1" Background="Cyan" HorizontalScrollBarVisibility="Auto">-->
-        <StackPanel Name="spMain" Orientation="Horizontal"  Margin="80,12,23,12" />
+            <StackPanel Name="spMain" Orientation="Horizontal"  Margin="80,12,23,12" />
         <!--</ScrollViewer>-->
     </Grid>
 </UserControl>

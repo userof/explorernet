@@ -65,5 +65,31 @@ namespace ExplorerNet.ViewWindowApps
         {
             this.Height += e.VerticalChange;
         }
+
+        private void CloneLevel()
+        {
+            Panel panel = (Panel)this.Parent;
+
+            Level level = new Level();
+            panel.Children.Add(level);
+
+            foreach (var child in this.spMain.Children)
+            {
+                FilePanel fp = (FilePanel)child;
+
+                FilePanel newFp = new FilePanel();
+                newFp.FilePanelSettings = fp.FilePanelSettings;
+
+                //newFp.Width = fp.Width;
+                //newFp.Path = fp.Path;
+
+                level.spMain.Children.Add(newFp);
+            }
+        }
+
+        private void btnClobeLevel_Click(object sender, RoutedEventArgs e)
+        {
+            CloneLevel();
+        }
     }
 }

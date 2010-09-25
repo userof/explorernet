@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon181.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -172,6 +175,7 @@
     <Compile Include="ViewWindowApps\FilePanel.xaml.cs">
       <DependentUpon>FilePanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\FilePanelSettings.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CustomFileSystemCover.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\DirectoryCover.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\FileCover.cs" />
@@ -213,6 +217,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\UP.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon181.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

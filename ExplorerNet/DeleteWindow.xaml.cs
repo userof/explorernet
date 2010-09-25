@@ -43,11 +43,11 @@ namespace ExplorerNet
 
                 if (fsi.GetType() == typeof(DirectoryInfo))
                 {
-                    FileSystem.DeleteDirectory(fsi.FullName, UIOption.AllDialogs, roToRecycle);
+                    FileSystem.DeleteDirectory(fsi.FullName, UIOption.OnlyErrorDialogs, roToRecycle);
                 }
                 else if (fsi.GetType() == typeof(FileInfo))
                 {
-                    FileSystem.DeleteFile(fsi.FullName, UIOption.AllDialogs, roToRecycle);
+                    FileSystem.DeleteFile(fsi.FullName, UIOption.OnlyErrorDialogs, roToRecycle);
                 }
                 else
                 {

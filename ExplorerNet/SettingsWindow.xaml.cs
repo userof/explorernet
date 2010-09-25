@@ -101,6 +101,7 @@ namespace ExplorerNet
         private void btnDefault_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Reset();
+            Properties.Settings.Default.Save();
             _LoadSettings();
         }
 

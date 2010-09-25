@@ -58,5 +58,112 @@ namespace ExplorerNet.Properties {
                 this["FileOverwriteOption"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ExplorerNet.ViewWindowApps.Templates.ViewWindowTemplate LastTemplate {
+            get {
+                return ((global::ExplorerNet.ViewWindowApps.Templates.ViewWindowTemplate)(this["LastTemplate"]));
+            }
+            set {
+                this["LastTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public double FilepanelIcoWidth {
+            get {
+                return ((double)(this["FilepanelIcoWidth"]));
+            }
+            set {
+                this["FilepanelIcoWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public double FilepanelNameWidth {
+            get {
+                return ((double)(this["FilepanelNameWidth"]));
+            }
+            set {
+                this["FilepanelNameWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public double FilepanelSizeWidth {
+            get {
+                return ((double)(this["FilepanelSizeWidth"]));
+            }
+            set {
+                this["FilepanelSizeWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
+        public double ViewWindowTop {
+            get {
+                return ((double)(this["ViewWindowTop"]));
+            }
+            set {
+                this["ViewWindowTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
+        public double ViewWindowLeft {
+            get {
+                return ((double)(this["ViewWindowLeft"]));
+            }
+            set {
+                this["ViewWindowLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public double ViewWindowHeight {
+            get {
+                return ((double)(this["ViewWindowHeight"]));
+            }
+            set {
+                this["ViewWindowHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("800")]
+        public double ViewWindowWidth {
+            get {
+                return ((double)(this["ViewWindowWidth"]));
+            }
+            set {
+                this["ViewWindowWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.WindowState ViewWindowState {
+            get {
+                return ((global::System.Windows.WindowState)(this["ViewWindowState"]));
+            }
+            set {
+                this["ViewWindowState"] = value;
+            }
+        }
     }
 }
