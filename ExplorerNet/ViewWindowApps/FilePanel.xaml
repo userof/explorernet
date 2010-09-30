@@ -21,7 +21,8 @@
                 <!--<Grid Name="grdFileList" >-->
                      
                         <ListView Name="lvFileList" PreviewMouseLeftButtonDown="lvFileList_PreviewMouseLeftButtonDown" 
-                                  AllowDrop="True" PreviewMouseMove="lvFileList_PreviewMouseMove" Drop="lvFileList_Drop" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,63,0,0">
+                                  AllowDrop="True" PreviewMouseMove="lvFileList_PreviewMouseMove" Drop="lvFileList_Drop" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,63,0,0"
+                                  PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown">
                             <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Icon" Width="30">
@@ -50,8 +51,7 @@
                             </GridView>
                         </ListView.View>
                         </ListView>
-                      
-                <!--</Grid>-->
+            <!--</Grid>-->
             <!--</ScrollViewer>-->  
         </Grid>
         <Grid Background="Orange" Name="grdPath" Height="26" VerticalAlignment="Top" Margin="34,33,12,0">

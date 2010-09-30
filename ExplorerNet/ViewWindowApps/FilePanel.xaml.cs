@@ -71,14 +71,33 @@ namespace ExplorerNet.ViewWindowApps
                 Button btnDrive = new Button();
                 btnDrive.Content = d.Name;
 
-                btnDrive.Click += new RoutedEventHandler(btnDrive_Click);
+                //btnDrive.Click += new RoutedEventHandler(btnDrive_Click);
+                btnDrive.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(btnDrive_PreviewMouseLeftButtonDown);
+
                 btnDrive.MouseRightButtonDown += new MouseButtonEventHandler(btnDrive_MouseRightButtonDown);
+                //btnDrive.PreviewMouseRightButtonDown += new MouseButtonEventHandler(btnDrive_MouseRightButtonDown);
 
                 btnDrive.Tag = d;
                 ugDrives.Children.Add(btnDrive);
             }
         }
 
+        private void btnDrive_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Button btnDrive = (Button)sender;
+            DriveInfo di = (DriveInfo)btnDrive.Tag;
+
+            if (di.IsReady)
+            {
+                _BuildFileSystemView(di.RootDirectory);
+            }
+            else
+            {
+                MessageBox.Show("The drive is not ready!", di.Name, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        /// похоже нужно будет затереть... ненужный
         /// <summary>
         /// Происходит при событии Click на кнопку диска
         /// </summary>
@@ -111,7 +130,22 @@ namespace ExplorerNet.ViewWindowApps
             Button btnDrive = (Button)sender;
             DriveInfo drive = (DriveInfo)btnDrive.Tag;
 
-            DirectoryInfo dir = drive.RootDirectory;
+
+            System.Drawing.Point dPoint = new System.Drawing.Point();
+
+            Point point = btnDrive.PointToScreen(new Point());
+
+            dPoint.X = Convert.ToInt32(point.X);
+            dPoint.Y = Convert.ToInt32(point.Y);
+
+            FileSystemInfoEx[] fsies = { new DirectoryInfoEx(drive.RootDirectory.FullName) };
+            System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
+            cmw.Popup(fsies, dPoint);
+  
+            //ExplorerNet.Tools.ShellContextMenu scm = new Tools.ShellContextMenu();
+            //scm.ShowContextMenu(drive, dPoint);
+
+
         }
 
         /// <summary>
@@ -492,6 +526,52 @@ namespace ExplorerNet.ViewWindowApps
                 SetFilePanelSettings(value);
                 //this.filePanelSettings = value;
             }
+        }
+
+        private void lvFileList_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListView lstFiles = (ListView)sender;
+            var selItems = lstFiles.SelectedItems;
+
+            List<System.IO.FileSystemInfoEx> list = new List<FileSystemInfoEx>(); 
+
+            foreach (var itm in selItems)
+            {
+                CustomFileSystemCover cc = (CustomFileSystemCover)itm;
+
+                if (cc.FileSystemElement.GetType() == typeof(DirectoryInfo))
+                {
+                    DirectoryInfoEx die = new DirectoryInfoEx(cc.FileSystemElement.FullName);
+                    list.Add(die);
+                }
+                else
+                {
+                    FileInfoEx fie = new FileInfoEx(cc.FileSystemElement.FullName);
+                    list.Add(fie);
+                }
+                
+            }
+
+            System.Drawing.Point dPoint = new System.Drawing.Point();
+            Point point = lstFiles.PointToScreen(new Point());
+
+
+            dPoint.X = Convert.ToInt32(point.X);
+            dPoint.Y = Convert.ToInt32(point.Y);
+            System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
+            cmw.Popup(list.ToArray(), dPoint);
+
+
+            //System.Drawing.Point dPoint = new System.Drawing.Point();
+
+            //Point point = lstFiles.PointToScreen(new Point());
+
+            //dPoint.X = Convert.ToInt32(point.X);
+            //dPoint.Y = Convert.ToInt32(point.Y);
+
+            //FileSystemInfoEx[] fsies = { new DirectoryInfoEx(selItems.RootDirectory.FullName) };
+            //System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
+            //cmw.Popup(fsies, dPoint);
         }
 
     }
