@@ -129,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\DriveHint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewWindowApps\Level.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,11 +178,15 @@
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\ShellContextMenu.cs" />
+    <Compile Include="Tools\SizeFileInString.cs" />
     <Compile Include="ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewWindowApps\FilePanel.xaml.cs">
       <DependentUpon>FilePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\DriveHint.xaml.cs">
+      <DependentUpon>DriveHint.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\FilePanelSettings.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CustomFileSystemCover.cs" />

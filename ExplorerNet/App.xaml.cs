@@ -27,7 +27,7 @@ namespace ExplorerNet
             Registry.SetValue(Registry.CurrentUser.ToString() + @"\Software\Classes\.enet", "", "enet_auto",
                  RegistryValueKind.String);
 
-            MessageBox.Show(e.Args[0]);
+            //MessageBox.Show(e.Args[0]);
 
             if (e.Args.Count() > 0)
             {

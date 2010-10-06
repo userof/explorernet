@@ -8,6 +8,7 @@ using System.Windows.Media.Imaging;
 using System.Drawing;
 
 using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.SystemIcons;
+using ExplorerNet.Tools;
 
 namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
 {
@@ -25,24 +26,6 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
             get { return fileSystemElement; }
         }
 
-        private string GetSizeInStr(long bytes)
-        {
-            const int scale = 1024;
-            string[] orders = new string[] { "GB", "MB", "KB", "Bytes" };
-            long max = (long)Math.Pow(scale, orders.Length - 1);
-
-
-            foreach (string order in orders)
-            {
-                if (bytes > max)
-                    return string.Format("{0:##.##} {1}", decimal.Divide(bytes, max), order);
-
-                max /= scale;
-            }
-            return "0 Bytes";
-
-        }
-
         public string Size
         {
             get
@@ -54,7 +37,7 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
                 else if (fileSystemElement.GetType() == typeof(FileInfo))
                 {
                     FileInfo fi = (FileInfo)fileSystemElement;
-                    return GetSizeInStr(fi.Length);
+                    return SizeFileInString.GetSizeInStr(fi.Length);
                 }
                 else
                 {

@@ -71,6 +71,9 @@ namespace ExplorerNet.ViewWindowApps
                 Button btnDrive = new Button();
                 btnDrive.Content = d.Name;
 
+                btnDrive.ToolTip = new DriveHint(d);
+                ToolTipService.SetBetweenShowDelay(btnDrive, 20000);
+
                 //btnDrive.Click += new RoutedEventHandler(btnDrive_Click);
                 btnDrive.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(btnDrive_PreviewMouseLeftButtonDown);
 
