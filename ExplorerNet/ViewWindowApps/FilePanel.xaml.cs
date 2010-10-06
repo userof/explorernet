@@ -138,12 +138,12 @@ namespace ExplorerNet.ViewWindowApps
             dPoint.X = Convert.ToInt32(point.X);
             dPoint.Y = Convert.ToInt32(point.Y);
 
-            FileSystemInfoEx[] fsies = { new DirectoryInfoEx(drive.RootDirectory.FullName) };
-            System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
-            cmw.Popup(fsies, dPoint);
-  
-            //ExplorerNet.Tools.ShellContextMenu scm = new Tools.ShellContextMenu();
-            //scm.ShowContextMenu(drive, dPoint);
+            //FileSystemInfoEx[] fsies = { new DirectoryInfoEx(drive.RootDirectory.FullName) };
+            //System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
+            //cmw.Popup(fsies, dPoint);
+
+            ExplorerNet.Tools.ShellContextMenu scm = new Tools.ShellContextMenu();
+            scm.ShowContextMenu(drive, dPoint);
 
 
         }
@@ -533,22 +533,25 @@ namespace ExplorerNet.ViewWindowApps
             ListView lstFiles = (ListView)sender;
             var selItems = lstFiles.SelectedItems;
 
-            List<System.IO.FileSystemInfoEx> list = new List<FileSystemInfoEx>(); 
+            //List<System.IO.FileSystemInfoEx> list = new List<FileSystemInfoEx>(); 
+            List<FileSystemInfo> list = new List<FileSystemInfo>();
 
             foreach (var itm in selItems)
             {
                 CustomFileSystemCover cc = (CustomFileSystemCover)itm;
 
-                if (cc.FileSystemElement.GetType() == typeof(DirectoryInfo))
-                {
-                    DirectoryInfoEx die = new DirectoryInfoEx(cc.FileSystemElement.FullName);
-                    list.Add(die);
-                }
-                else
-                {
-                    FileInfoEx fie = new FileInfoEx(cc.FileSystemElement.FullName);
-                    list.Add(fie);
-                }
+                list.Add(cc.FileSystemElement);
+
+                //if (cc.FileSystemElement.GetType() == typeof(DirectoryInfo))
+                //{
+                //    DirectoryInfoEx die = new DirectoryInfoEx(cc.FileSystemElement.FullName);
+                //    list.Add(die);
+                //}
+                //else
+                //{
+                //    FileInfoEx fie = new FileInfoEx(cc.FileSystemElement.FullName);
+                //    list.Add(fie);
+                //}
                 
             }
 
@@ -559,19 +562,12 @@ namespace ExplorerNet.ViewWindowApps
             dPoint.X = Convert.ToInt32(point.X);
             dPoint.Y = Convert.ToInt32(point.Y);
             System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
-            cmw.Popup(list.ToArray(), dPoint);
+            //cmw.Popup(list.ToArray(), dPoint);
+
+            ExplorerNet.Tools.ShellContextMenu scm = new Tools.ShellContextMenu();
+            scm.ShowContextMenu(list.ToArray(), dPoint);
 
 
-            //System.Drawing.Point dPoint = new System.Drawing.Point();
-
-            //Point point = lstFiles.PointToScreen(new Point());
-
-            //dPoint.X = Convert.ToInt32(point.X);
-            //dPoint.Y = Convert.ToInt32(point.Y);
-
-            //FileSystemInfoEx[] fsies = { new DirectoryInfoEx(selItems.RootDirectory.FullName) };
-            //System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
-            //cmw.Popup(fsies, dPoint);
         }
 
     }

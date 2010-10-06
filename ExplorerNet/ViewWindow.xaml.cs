@@ -81,10 +81,12 @@ namespace ExplorerNet
         /// <param name="e"></param>
         private void btnSaveTemplate_Click(object sender, RoutedEventArgs e)
         {
+            string ext = Properties.Settings.Default.FileAppExtention;
+
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "Template"; // Default file name
-            dlg.DefaultExt = ".vtmpl"; // Default file extension
-            dlg.Filter = "Template (.vtmpl)|*.vtmpl|All Files|*.*"; // Filter files by extension
+            dlg.DefaultExt = ext; // Default file extension
+            dlg.Filter = "Template (" + ext + ")|*" + ext + "|All Files|*.*"; // Filter files by extension
 
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -145,7 +147,7 @@ namespace ExplorerNet
         /// загружаем шаблон из файла и строем визуальное отображения
         /// </summary>
         /// <param name="fileName"></param>
-        private void _LoadTemplate(string fileName)
+        public void _LoadTemplate(string fileName)
         {
             currentTemplate = ViewWindowTemplate.Load(fileName);
             BuildTemplateView();
@@ -179,10 +181,12 @@ namespace ExplorerNet
 
         private void btnLoadTemplate_Click(object sender, RoutedEventArgs e)
         {
+            string ext = Properties.Settings.Default.FileAppExtention;
+
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.FileName = "Template"; // Default file name
-            dlg.DefaultExt = ".vtmpl"; // Default file extension
-            dlg.Filter = "Template (.vtmpl)|*.vtmpl|All Files|*.*"; // Filter files by extension
+            dlg.DefaultExt = ext; // Default file extension
+            dlg.Filter = "Template (" + ext + ")|*" + ext + "|All Files|*.*"; // Filter files by extension
 
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -201,7 +205,7 @@ namespace ExplorerNet
         /// загружаем расположение уровней и файловых панелей, 
         /// которое было сохранено при прежнем закрытии программы
         /// </summary>
-        private void LoadLastTemplate()
+        public void LoadLastTemplate()
         {
             //this.currentTemplate = ViewWindowTemplate.CreateDefoultTemplate();
             if (Properties.Settings.Default.LastTemplate == null)
@@ -219,7 +223,7 @@ namespace ExplorerNet
         /// сохраняем отображения уровней и файловых панелей для загрузки 
         /// при следующем запуске программы
         /// </summary>
-        private void SaveLastTemplate()
+        public void SaveLastTemplate()
         {
             SaveTemplateView();
             Properties.Settings.Default.LastTemplate = currentTemplate;
@@ -251,13 +255,20 @@ namespace ExplorerNet
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Properties.Settings.Default.Reset();
-            LoadLastTemplate();
+            //LoadLastTemplate();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveLastTemplate();
             SaveWindowPos();
+        }
+
+        private void btnResetSettings_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Properties.Settings.Default.Reset();
+            Properties.Settings.Default.Save();
         }
 
 

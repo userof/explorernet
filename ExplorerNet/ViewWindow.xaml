@@ -12,5 +12,6 @@
         <Button Height="23" HorizontalAlignment="Left" Margin="194,12,0,0" Name="btnSaveTemplate" VerticalAlignment="Top" Width="87" Click="btnSaveTemplate_Click">Save Template</Button>
         <Button Height="23" HorizontalAlignment="Left" Margin="296,12,0,0" Name="btnLoadTemplate" VerticalAlignment="Top" Width="84" Click="btnLoadTemplate_Click">Load Template</Button>
         <Button Height="23" HorizontalAlignment="Left" Margin="394,12,0,0" Name="btnClearTemplate" VerticalAlignment="Top" Width="84" Click="btnClearTemplate_Click">Clear Template</Button>
+        <Button Content="Reset Settings" Height="23" HorizontalAlignment="Left" Margin="490,12,0,0" Name="btnResetSettings" VerticalAlignment="Top" Width="87" Click="btnResetSettings_Click" />
     </Grid>
 </Window>
