@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
 
 using System.IO;
+using System.Threading;
+using System.Windows.Threading;
 
 using ExplorerNet.ViewWindowApps.FilePanelApps;
 using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers;
@@ -31,6 +33,8 @@ namespace ExplorerNet.ViewWindowApps
         private delegate Point GetPositionDelegate(IInputElement element);
 
         private DirectoryInfo _currentDirectory = null;
+
+        private FileSystemWatcher watcher = null;
 
         private static List<CustomFileSystemCover> dragList = null;
 
@@ -49,8 +53,25 @@ namespace ExplorerNet.ViewWindowApps
             //Загружаем сохранённую ширину
             this.Width = Properties.Settings.Default.WidthFilepanel;
 
+            btnMakeDirectory.ToolTip = "Make a directory (Ctrl + D)";
+
+            this.watcher = new FileSystemWatcher();
+            this.watcher.Created += new FileSystemEventHandler(watcher_Changed);
+            this.watcher.Changed += new FileSystemEventHandler(watcher_Changed);
+            this.watcher.Deleted += new FileSystemEventHandler(watcher_Changed);
+            //this.watcher.EnableRaisingEvents = true;
+
             _BuildDrives();
 
+        }
+
+        private void watcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate()
+            {
+                _BuildFileSystemView(this._currentDirectory);
+            });
+            
         }
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
@@ -202,6 +223,10 @@ namespace ExplorerNet.ViewWindowApps
 
             // Задаём в текстовом поле текущий путь
             txtPath.Text = directory.FullName;
+
+            this.watcher.Path = directory.FullName;
+            //this.watcher.Changed += new FileSystemEventHandler(watcher_Changed);
+            this.watcher.EnableRaisingEvents = true;
         }
 
         /// <summary>
@@ -257,7 +282,6 @@ namespace ExplorerNet.ViewWindowApps
                     _BuildFileSystemView(sDrive.RootDirectory);
                 }
 
-                
             }
         }
 
@@ -557,7 +581,7 @@ namespace ExplorerNet.ViewWindowApps
             Directory.CreateDirectory(this.Path + System.IO.Path.DirectorySeparatorChar + directoryName);
         }
 
-        public void MakeNewdirectoryDialog()
+        public void MakeNewDirectoryDialog()
         {
             CreateFolderWindow cfw = new CreateFolderWindow(this.FilePanelSettings.Path);
             cfw.ShowDialog();
@@ -567,7 +591,7 @@ namespace ExplorerNet.ViewWindowApps
 
         private void btnMakeDirectory_Click(object sender, RoutedEventArgs e)
         {
-            this.MakeNewdirectoryDialog();
+            this.MakeNewDirectoryDialog();
         }
 
     }

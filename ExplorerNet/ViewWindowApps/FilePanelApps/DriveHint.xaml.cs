@@ -35,19 +35,22 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         /// </summary>
         private void ShowDriveData()
         {
-            string totalShort = SizeFileInString.GetSizeInStr(drive.TotalSize);
-            string totalLong = drive.TotalSize.ToString();
+            if (drive.IsReady)
+            {
+                string totalShort = SizeFileInString.GetSizeInStr(drive.TotalSize);
+                string totalLong = drive.TotalSize.ToString();
 
-            string availableShort = SizeFileInString.GetSizeInStr(drive.AvailableFreeSpace);
-            string availableLong = drive.AvailableFreeSpace.ToString();
+                string availableShort = SizeFileInString.GetSizeInStr(drive.AvailableFreeSpace);
+                string availableLong = drive.AvailableFreeSpace.ToString();
 
-            txtSize.Text = string.Format("Free: {0} from {1} ({2} from {3})", availableShort, totalShort, availableLong, totalLong);
+                txtSize.Text = string.Format("Free: {0} from {1} ({2} from {3})", availableShort, totalShort, availableLong, totalLong);
 
-            pbSize.Maximum = drive.TotalSize;
-            pbSize.Value = drive.TotalSize - drive.AvailableFreeSpace;
+                pbSize.Maximum = drive.TotalSize;
+                pbSize.Value = drive.TotalSize - drive.AvailableFreeSpace;
 
-            txtInfo.Text = string.Format("name:{0} label:{1} type:{2}",
-                drive.Name[0].ToString(), drive.VolumeLabel, drive.DriveType);
+                txtInfo.Text = string.Format("name:{0} label:{1} type:{2}",
+                    drive.Name[0].ToString(), drive.VolumeLabel, drive.DriveType);
+            }
 
         }
 

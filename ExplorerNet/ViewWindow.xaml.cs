@@ -30,6 +30,8 @@ namespace ExplorerNet
 
         public static RoutedCommand DeleteFilesCommand = new RoutedCommand();
 
+        public static RoutedCommand MakeDirCommand = new RoutedCommand();
+
         public ViewWindow()
         {
             InitializeComponent();
@@ -40,6 +42,16 @@ namespace ExplorerNet
             KeyGesture kg = new KeyGesture(Key.Delete);
             KeyBinding kb = new KeyBinding(DeleteFilesCommand, kg);
             this.InputBindings.Add(kb);
+
+            ////////////////////////////////////////////
+            CommandBinding cbMakeDir = new CommandBinding(MakeDirCommand, ExecutedMakeDirCommand);
+            this.CommandBindings.Add(cbMakeDir);
+
+            KeyGesture kgMakeDir = new KeyGesture(Key.D, ModifierKeys.Control);
+            KeyBinding kbMakeDir = new KeyBinding(MakeDirCommand, kgMakeDir);
+
+            this.InputBindings.Add(kbMakeDir);
+
             LoadWindowPos();
         }
 
@@ -49,6 +61,15 @@ namespace ExplorerNet
             if (FilePanel.SelectedFilePanel != null)
             {
                 FilePanel.SelectedFilePanel.DeleteFiles();
+            }
+        }
+
+        private void ExecutedMakeDirCommand(object sender,
+            ExecutedRoutedEventArgs e)
+        {
+            if (FilePanel.SelectedFilePanel != null)
+            {
+                FilePanel.SelectedFilePanel.MakeNewDirectoryDialog();
             }
         }
 
