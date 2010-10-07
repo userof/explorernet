@@ -14,6 +14,7 @@
             <Button Name="btnClone" Margin="0,34,0,0" Height="25" VerticalAlignment="Top" Click="btnClone_Click">C</Button>
             <Button Name="btnWindowsExplorer" Margin="0,62,0,0" Height="25" VerticalAlignment="Top" Click="btnWindowsExplorer_Click">E</Button>
             <Button Name="btnTotalCommander" Margin="0,93,0,0" Height="25" VerticalAlignment="Top" Click="btnTotalCommander_Click">T</Button>
+            <Button Name="btnMakeDirectory" Margin="0,123,0,0" Height="25" VerticalAlignment="Top" Click="btnMakeDirectory_Click">D</Button>
         </Grid>
         <Grid Background="Plum" Margin="34,0,12,21">
             <UniformGrid Background="Sienna" Name="ugDrives" Height="28" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>

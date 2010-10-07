@@ -36,6 +36,8 @@ namespace ExplorerNet.ViewWindowApps
 
         public static FilePanel SelectedFilePanel = null;
 
+        public static FilePanel SecondSelectedFilePanel = null;
+
         static FilePanel()
         {
             dragList = new List<CustomFileSystemCover>();
@@ -98,29 +100,6 @@ namespace ExplorerNet.ViewWindowApps
             {
                 MessageBox.Show("The drive is not ready!", di.Name, MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-        }
-
-        /// похоже нужно будет затереть... ненужный
-        /// <summary>
-        /// Происходит при событии Click на кнопку диска
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnDrive_Click(object sender, RoutedEventArgs e)
-        {
-            Button btnDrive = (Button)sender;
-            DriveInfo di = (DriveInfo)btnDrive.Tag;
-
-            if (di.IsReady)
-            {
-                _BuildFileSystemView(di.RootDirectory);
-            }
-            else
-            {
-                MessageBox.Show("The drive is not ready!", di.Name, MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-
-            //dirTree.SelectedDirectory = new DirectoryInfoEx(di.RootDirectory.FullName);
         }
 
         /// <summary>
@@ -269,14 +248,13 @@ namespace ExplorerNet.ViewWindowApps
             {
                 if (Directory.Exists(value))
                 {
-                    _BuildFileSystemView(new DirectoryInfo(value));
+                    _BuildFileSystemView(new DirectoryInfo(value)); 
                 }
                 else
                 {
                     //Get system drive
                     DriveInfo sDrive = new DriveInfo(Environment.SystemDirectory); 
                     _BuildFileSystemView(sDrive.RootDirectory);
-
                 }
 
                 
@@ -417,6 +395,7 @@ namespace ExplorerNet.ViewWindowApps
 
         private void filePanel_GotFocus(object sender, RoutedEventArgs e)
         {
+            SecondSelectedFilePanel = SelectedFilePanel;
             SelectedFilePanel = (FilePanel)sender;
         }
 
@@ -571,6 +550,24 @@ namespace ExplorerNet.ViewWindowApps
             scm.ShowContextMenu(list.ToArray(), dPoint);
 
 
+        }
+
+        private void MakeNewDirectory(string directoryName)
+        {
+            Directory.CreateDirectory(this.Path + System.IO.Path.DirectorySeparatorChar + directoryName);
+        }
+
+        public void MakeNewdirectoryDialog()
+        {
+            CreateFolderWindow cfw = new CreateFolderWindow(this.FilePanelSettings.Path);
+            cfw.ShowDialog();
+            MakeNewDirectory(cfw.DirectoryName);
+            cfw.Close();
+        }
+
+        private void btnMakeDirectory_Click(object sender, RoutedEventArgs e)
+        {
+            this.MakeNewdirectoryDialog();
         }
 
     }

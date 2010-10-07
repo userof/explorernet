@@ -129,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\CreateFolderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewWindowApps\FilePanelApps\DriveHint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +189,9 @@
     <Compile Include="ViewWindowApps\FilePanel.xaml.cs">
       <DependentUpon>FilePanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\CreateFolderWindow.xaml.cs">
+      <DependentUpon>CreateFolderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\DriveHint.xaml.cs">
       <DependentUpon>DriveHint.xaml</DependentUpon>
     </Compile>
@@ -234,7 +241,6 @@
   <ItemGroup>
     <Resource Include="icon181.ico" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

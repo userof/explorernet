@@ -1,0 +1,13 @@
+﻿<Window x:Class="ExplorerNet.ViewWindowApps.FilePanelApps.CreateFolderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        WindowStartupLocation="CenterScreen"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CreateFolderWindow" Height="150" Width="300">
+    <Grid Height="121">
+        <TextBlock Margin="0,0,0,103">Input the directory name</TextBlock>
+        <TextBlock Name="txtInfo" Margin="0,26,0,77"> </TextBlock>
+        <TextBox Name="txtDirectoryName" TabIndex="0" Margin="0,52,0,0" Height="23" VerticalAlignment="Top"></TextBox>
+        <Button Name="btnOk" IsDefault="True" Margin="0,81,0,0" HorizontalAlignment="Left" Width="111" Height="24" VerticalAlignment="Top" Click="btnOk_Click">Ok</Button>
+        <Button Name="btnCancel" IsCancel="True" Margin="117,82,0,0" HorizontalAlignment="Left" Width="112" Height="23" VerticalAlignment="Top">Cancel</Button>
+    </Grid>
+</Window>

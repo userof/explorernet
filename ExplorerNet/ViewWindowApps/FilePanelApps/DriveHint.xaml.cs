@@ -27,10 +27,12 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         public DriveHint(DriveInfo drive)
         {
             InitializeComponent();
-
             this.drive = drive;
         }
 
+        /// <summary>
+        /// Заполняем элементы управления данными
+        /// </summary>
         private void ShowDriveData()
         {
             string totalShort = SizeFileInString.GetSizeInStr(drive.TotalSize);
@@ -44,8 +46,9 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             pbSize.Maximum = drive.TotalSize;
             pbSize.Value = drive.TotalSize - drive.AvailableFreeSpace;
 
-            txtInfo.Text = string.Format("name:{0} label:{1} type:{2}", 
+            txtInfo.Text = string.Format("name:{0} label:{1} type:{2}",
                 drive.Name[0].ToString(), drive.VolumeLabel, drive.DriveType);
+
         }
 
 
@@ -54,6 +57,6 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             ShowDriveData();
         }
 
-        
+
     }
 }
