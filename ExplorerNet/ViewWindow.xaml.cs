@@ -58,19 +58,33 @@ namespace ExplorerNet
         private void ExecutedDeleteFilesCommand(object sender,
             ExecutedRoutedEventArgs e)
         {
-            if (FilePanel.SelectedFilePanel != null)
+            FilePanel fp1 = ExplorerNet.ViewWindowApps.FilePanelApps.FilePanelSelector.FirstSelected;
+
+            if (fp1 != null)
             {
-                FilePanel.SelectedFilePanel.DeleteFiles();
+                fp1.DeleteFilesDialog();
             }
+
+            //if (FilePanel.SelectedFilePanel != null)
+            //{
+            //    FilePanel.SelectedFilePanel.DeleteFiles();
+            //}
         }
 
         private void ExecutedMakeDirCommand(object sender,
             ExecutedRoutedEventArgs e)
         {
-            if (FilePanel.SelectedFilePanel != null)
+            FilePanel fp1 = ExplorerNet.ViewWindowApps.FilePanelApps.FilePanelSelector.FirstSelected;
+
+            if (fp1 != null)
             {
-                FilePanel.SelectedFilePanel.MakeNewDirectoryDialog();
+                fp1.MakeNewDirectoryDialog();
             }
+
+            //if (FilePanel.SelectedFilePanel != null)
+            //{
+            //    FilePanel.SelectedFilePanel.MakeNewDirectoryDialog();
+            //}
         }
 
         /// <summary>

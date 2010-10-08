@@ -38,9 +38,13 @@ namespace ExplorerNet.ViewWindowApps
 
         private static List<CustomFileSystemCover> dragList = null;
 
-        public static FilePanel SelectedFilePanel = null;
+        private bool isFirstSelected = false;
 
-        public static FilePanel SecondSelectedFilePanel = null;
+        private bool isSecondSelected = false;
+
+        //public static FilePanel SelectedFilePanel = null;
+
+        //public static FilePanel SecondSelectedFilePanel = null;
 
         static FilePanel()
         {
@@ -53,25 +57,56 @@ namespace ExplorerNet.ViewWindowApps
             //Загружаем сохранённую ширину
             this.Width = Properties.Settings.Default.WidthFilepanel;
 
+            //каждаю новая файловая панель стаёт выделенной
+            //SelectedFilePanel = this;
+
             btnMakeDirectory.ToolTip = "Make a directory (Ctrl + D)";
 
+            //Создаём элемент наблюдающий за изменениями файловой системы
             this.watcher = new FileSystemWatcher();
+            //События, на которые будет происходить обновления отображения файлов
             this.watcher.Created += new FileSystemEventHandler(watcher_Changed);
             this.watcher.Changed += new FileSystemEventHandler(watcher_Changed);
             this.watcher.Deleted += new FileSystemEventHandler(watcher_Changed);
             //this.watcher.EnableRaisingEvents = true;
 
+            //Построения кнопок дисков
             _BuildDrives();
 
         }
 
         private void watcher_Changed(object sender, FileSystemEventArgs e)
         {
+            //Происходить обновления отображения файлов
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate()
             {
                 _BuildFileSystemView(this._currentDirectory);
             });
-            
+
+        }
+
+        /// <summary>
+        /// Обработчик события. Происходит, когда в классе FilePanelSelector 
+        /// изменяются выбранные панели
+        /// </summary>
+        private void FilePanelSelector_FilePanelChangeSelect()
+        {
+            //Изменяем цвет элементы, сигнализирую о выделении
+            this.rctSelected.Fill = Brushes.Black;
+            // Если панель имеет степень выделения, это отражается на полях
+            // isFirstSelected или isSecondSelected
+            if (FilePanelSelector.FirstSelected == this)
+            {
+                this.isFirstSelected = true;
+                //Изменяем цвет элементы, сигнализирую о выделении
+                this.rctSelected.Fill = Brushes.Green;
+            }
+            else if (FilePanelSelector.SecondSelected == this)
+            {
+                this.isSecondSelected = true;
+                //Изменяем цвет элементы, сигнализирую о выделении
+                this.rctSelected.Fill = Brushes.DarkGreen;
+            }
         }
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
@@ -93,21 +128,24 @@ namespace ExplorerNet.ViewWindowApps
             {
                 Button btnDrive = new Button();
                 btnDrive.Content = d.Name;
-
+                //Создаём подсказку для диска
                 btnDrive.ToolTip = new DriveHint(d);
                 ToolTipService.SetBetweenShowDelay(btnDrive, 20000);
 
-                //btnDrive.Click += new RoutedEventHandler(btnDrive_Click);
                 btnDrive.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(btnDrive_PreviewMouseLeftButtonDown);
 
                 btnDrive.MouseRightButtonDown += new MouseButtonEventHandler(btnDrive_MouseRightButtonDown);
-                //btnDrive.PreviewMouseRightButtonDown += new MouseButtonEventHandler(btnDrive_MouseRightButtonDown);
-
+                //Сам экземпляр диска держим в теге
                 btnDrive.Tag = d;
                 ugDrives.Children.Add(btnDrive);
             }
         }
 
+        /// <summary>
+        /// Обработчик щелчка мыши по кнопке диска
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDrive_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Button btnDrive = (Button)sender;
@@ -115,10 +153,12 @@ namespace ExplorerNet.ViewWindowApps
 
             if (di.IsReady)
             {
+                //Если диск готов, отображаем список файлов
                 _BuildFileSystemView(di.RootDirectory);
             }
             else
             {
+                //Если нет, предупреждающее сообщение
                 MessageBox.Show("The drive is not ready!", di.Name, MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
@@ -141,13 +181,8 @@ namespace ExplorerNet.ViewWindowApps
             dPoint.X = Convert.ToInt32(point.X);
             dPoint.Y = Convert.ToInt32(point.Y);
 
-            //FileSystemInfoEx[] fsies = { new DirectoryInfoEx(drive.RootDirectory.FullName) };
-            //System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
-            //cmw.Popup(fsies, dPoint);
-
             ExplorerNet.Tools.ShellContextMenu scm = new Tools.ShellContextMenu();
             scm.ShowContextMenu(drive, dPoint);
-
 
         }
 
@@ -174,7 +209,7 @@ namespace ExplorerNet.ViewWindowApps
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void dirTree_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -247,7 +282,7 @@ namespace ExplorerNet.ViewWindowApps
             {
                 FileCover cover = (FileCover)lvFileList.SelectedItem;
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo.WorkingDirectory = 
+                process.StartInfo.WorkingDirectory =
                     System.IO.Path.GetDirectoryName(cover.FileElement.FullName);
                 process.StartInfo.UseShellExecute = true;
                 process.StartInfo.FileName = cover.FileElement.FullName;
@@ -273,12 +308,12 @@ namespace ExplorerNet.ViewWindowApps
             {
                 if (Directory.Exists(value))
                 {
-                    _BuildFileSystemView(new DirectoryInfo(value)); 
+                    _BuildFileSystemView(new DirectoryInfo(value));
                 }
                 else
                 {
                     //Get system drive
-                    DriveInfo sDrive = new DriveInfo(Environment.SystemDirectory); 
+                    DriveInfo sDrive = new DriveInfo(Environment.SystemDirectory);
                     _BuildFileSystemView(sDrive.RootDirectory);
                 }
 
@@ -307,7 +342,7 @@ namespace ExplorerNet.ViewWindowApps
         private void lvFileList_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-                
+
             //if (lvFileList.SelectedItems.Count < 1) return;
 
             //dragList.Clear();
@@ -355,13 +390,13 @@ namespace ExplorerNet.ViewWindowApps
 
             List<FileSystemInfo> files = new List<FileSystemInfo>();
 
-            foreach(var itm in dragList)
+            foreach (var itm in dragList)
             {
                 if (!(itm is ParentDirectoryCover))
                 {
-                files.Add(itm.FileSystemElement);
+                    files.Add(itm.FileSystemElement);
                 }
-                
+
             }
 
             CopyOrMoveWindow cmw = new CopyOrMoveWindow(files, targetDir);
@@ -419,11 +454,15 @@ namespace ExplorerNet.ViewWindowApps
 
         private void filePanel_GotFocus(object sender, RoutedEventArgs e)
         {
-            SecondSelectedFilePanel = SelectedFilePanel;
-            SelectedFilePanel = (FilePanel)sender;
+            //SecondSelectedFilePanel = SelectedFilePanel;
+            //SelectedFilePanel = (FilePanel)sender;
+
+            //Добавляем нашу панель в коллекцию класса FilePanelSelector
+            FilePanelSelector.Add(this);
         }
 
-        public void DeleteFiles()
+        //Метод, вызывает диалог удаления файла
+        public void DeleteFilesDialog()
         {
             List<FileSystemInfo> list = new List<FileSystemInfo>();
 
@@ -448,8 +487,10 @@ namespace ExplorerNet.ViewWindowApps
 
             FilePanel fp = new FilePanel();
 
-            fp.Width = this.Width;
-            fp.Path = this.Path;
+            //fp.Width = this.Width;
+            //fp.Path = this.Path;
+
+            fp.FilePanelSettings = (FilePanelSettings)this.FilePanelSettings.Clone();
 
             panel.Children.Add(fp);
         }
@@ -474,7 +515,7 @@ namespace ExplorerNet.ViewWindowApps
             }
             else
             {
-                MessageBox.Show("File not found "+ TotalCommanderPath);
+                MessageBox.Show("File not found " + TotalCommanderPath);
             }
         }
 
@@ -523,11 +564,11 @@ namespace ExplorerNet.ViewWindowApps
 
         public FilePanelSettings FilePanelSettings
         {
-            get 
-            { 
-                return this.GetFilePanelSettings(); 
+            get
+            {
+                return this.GetFilePanelSettings();
             }
-            set 
+            set
             {
                 SetFilePanelSettings(value);
                 //this.filePanelSettings = value;
@@ -558,7 +599,7 @@ namespace ExplorerNet.ViewWindowApps
                 //    FileInfoEx fie = new FileInfoEx(cc.FileSystemElement.FullName);
                 //    list.Add(fie);
                 //}
-                
+
             }
 
             System.Drawing.Point dPoint = new System.Drawing.Point();
@@ -567,7 +608,7 @@ namespace ExplorerNet.ViewWindowApps
 
             dPoint.X = Convert.ToInt32(point.X);
             dPoint.Y = Convert.ToInt32(point.Y);
-            System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
+            //System.IO.Tools.ContextMenuWrapper cmw = new System.IO.Tools.ContextMenuWrapper();
             //cmw.Popup(list.ToArray(), dPoint);
 
             ExplorerNet.Tools.ShellContextMenu scm = new Tools.ShellContextMenu();
@@ -594,5 +635,26 @@ namespace ExplorerNet.ViewWindowApps
             this.MakeNewDirectoryDialog();
         }
 
+        private void filePanel_Unloaded(object sender, RoutedEventArgs e)
+        {
+            FilePanelSelector.Remove(this);
+        }
+
+        private void filePanel_Loaded(object sender, RoutedEventArgs e)
+        {
+            FilePanelSelector.FilePanelChangeSelect += new FilePanelSelector.FilePanelChangeSelectEventHandler(FilePanelSelector_FilePanelChangeSelect);
+            FilePanelSelector.Add(this);
+        }
+
+        public bool IsFirstSelected
+        {
+            get { return this.isFirstSelected; }
+        }
+
+        public bool IsSecondSelected
+        {
+            get { return this.isSecondSelected; }
+        }
     }
+
 }

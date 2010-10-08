@@ -6,7 +6,7 @@
              BorderThickness="7"
              Background="DarkKhaki"
              x:Name="filePanel"
-     Width="300" GotFocus="filePanel_GotFocus">
+     Width="300" GotFocus="filePanel_GotFocus" Unloaded="filePanel_Unloaded" Loaded="filePanel_Loaded">
     <Grid >
         <Thumb Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" HorizontalAlignment="Right" Width="9"></Thumb>
         <Grid Background="Bisque" HorizontalAlignment="Left" Width="28">
@@ -15,6 +15,8 @@
             <Button Name="btnWindowsExplorer" Margin="0,62,0,0" Height="25" VerticalAlignment="Top" Click="btnWindowsExplorer_Click">E</Button>
             <Button Name="btnTotalCommander" Margin="0,93,0,0" Height="25" VerticalAlignment="Top" Click="btnTotalCommander_Click">T</Button>
             <Button Name="btnMakeDirectory" Margin="0,123,0,0" Height="25" VerticalAlignment="Top" Click="btnMakeDirectory_Click">D</Button>
+            <!--Индикатор выделения-->
+            <Rectangle Name="rctSelected" Margin="0,153,0,0" Height="25" VerticalAlignment="Top" Fill="Black"></Rectangle>
         </Grid>
         <Grid Background="Plum" Margin="34,0,12,21">
             <UniformGrid Background="Sienna" Name="ugDrives" Height="28" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>

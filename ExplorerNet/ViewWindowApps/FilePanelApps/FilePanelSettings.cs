@@ -6,8 +6,20 @@ using System.Text;
 namespace ExplorerNet.ViewWindowApps.FilePanelApps
 {
     [Serializable]
-    public class FilePanelSettings
+    public class FilePanelSettings : ICloneable
     {
+        public object Clone()
+        {
+            FilePanelSettings result = new FilePanelSettings();
+            result.Width = this.Width;
+            result.IcoWidth = this.IcoWidth;
+            result.Path = this.Path;
+            result.NameWidth = this.NameWidth;
+            result.SizeWidth = this.SizeWidth;
+
+            return result;
+        }
+
         public double? Width
         { 
             get; 
