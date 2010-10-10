@@ -50,9 +50,9 @@ namespace ExplorerNet.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ShowDialog")]
-        public global::ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind FileOverwriteOption {
+        public global::ExplorerNet.CopyWindowApps.FileOverwriteOptionKind FileOverwriteOption {
             get {
-                return ((global::ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind)(this["FileOverwriteOption"]));
+                return ((global::ExplorerNet.CopyWindowApps.FileOverwriteOptionKind)(this["FileOverwriteOption"]));
             }
             set {
                 this["FileOverwriteOption"] = value;

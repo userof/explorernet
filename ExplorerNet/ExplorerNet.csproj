@@ -89,11 +89,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CopyOrMoveWindow.xaml">
+    <Page Include="CopyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="DeleteWindow.xaml">
       <SubType>Designer</SubType>
@@ -151,12 +149,10 @@
     <Compile Include="ActionWindow.xaml.cs">
       <DependentUpon>ActionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CopyOrMoveWindow.xaml.cs">
-      <DependentUpon>CopyOrMoveWindow.xaml</DependentUpon>
+    <Compile Include="CopyWindow.xaml.cs">
+      <DependentUpon>CopyWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CopyOrMoveWindowApps\FileOverwriteOptionKind.cs" />
-    <Compile Include="CopyOrMoveWindowApps\FromToFileSystemInfo.cs" />
-    <Compile Include="CopyOrMoveWindowApps\FromToFileSystemInfoes.cs" />
+    <Compile Include="CopyWindowApp\FileOverwriteOptionKind.cs" />
     <Compile Include="Core\FileManager.cs" />
     <Compile Include="DeleteWindow.xaml.cs">
       <DependentUpon>DeleteWindow.xaml</DependentUpon>

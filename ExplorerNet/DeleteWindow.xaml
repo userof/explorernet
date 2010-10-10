@@ -1,13 +1,15 @@
 ﻿<Window x:Class="ExplorerNet.DeleteWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="DeleteWindow" Height="300" Width="336">
-    <Grid Width="291">
-        <ListView Name="lvMain" Margin="0,0,0,67">
+    xmlns:local="clr-namespace:ExplorerNet"
+    WindowStartupLocation="CenterScreen"
+    Title="DeleteWindow" Height="213" Width="349">
+    <Grid Width="319" Height="165">
+        <ListView Name="lvMain" Margin="0,0,0,44">
             
         </ListView>
-        <Button Name="btnDelete" Content="Delete" Margin="0,222,0,0" HorizontalAlignment="Left" Width="79" Click="btnDelete_Click" />
-        <Button Name="btnDeleteToRecycle" Content="Delete To Recycle" Margin="85,222,0,0" HorizontalAlignment="Left" Width="108" Click="btnDeleteToRecycle_Click" />
-        <Button Name="btnCancel" Content="Cancel" Margin="199,222,0,0" HorizontalAlignment="Left" Width="90" Click="btnCancel_Click" />
+        <Button Name="btnDelete" Command="local:DeleteWindow.DeleteFilesCommand" Content="Delete (F8)" Margin="139,0,0,0" HorizontalAlignment="Left" Width="79" Height="28" VerticalAlignment="Bottom" />
+        <Button Name="btnDeleteToRecycle" Command="local:DeleteWindow.DeleteFilesToRecCommand" IsDefault="True" Content="Delete To Recycle (Del)" HorizontalAlignment="Left" Width="133" Height="28" VerticalAlignment="Bottom" />
+        <Button Name="btnCancel" IsCancel="True" Content="Cancel (Esc)" Margin="224,0,0,0" HorizontalAlignment="Left" Width="90" Click="btnCancel_Click" Height="28" VerticalAlignment="Bottom" />
     </Grid>
 </Window>

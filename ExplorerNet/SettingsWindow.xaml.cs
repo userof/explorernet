@@ -36,13 +36,13 @@ namespace ExplorerNet
             //switch(Properties.Settings.Default.FileOverwriteOption)
             switch (Properties.Settings.Default.FileOverwriteOption)
             {
-                case ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind.ShowDialog:
+                case ExplorerNet.CopyWindowApps.FileOverwriteOptionKind.ShowDialog:
                     rbShowDialog.IsChecked = true;
                     break;
-                case ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind.Skip:
+                case ExplorerNet.CopyWindowApps.FileOverwriteOptionKind.Skip:
                     rbSkipFile.IsChecked = true;
                     break;
-                case ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind.Rewrite:
+                case ExplorerNet.CopyWindowApps.FileOverwriteOptionKind.Rewrite:
                     rbRewriteFile.IsChecked = true;
                     break;
                 default:
@@ -63,19 +63,19 @@ namespace ExplorerNet
             if (rbShowDialog.IsChecked == true)
             {
                 Properties.Settings.Default.FileOverwriteOption = 
-                    CopyOrMoveWindowApps.FileOverwriteOptionKind.ShowDialog;
+                    CopyWindowApps.FileOverwriteOptionKind.ShowDialog;
             }
 
             if (rbRewriteFile.IsChecked == true)
             {
                 Properties.Settings.Default.FileOverwriteOption =
-                    CopyOrMoveWindowApps.FileOverwriteOptionKind.Rewrite;
+                    CopyWindowApps.FileOverwriteOptionKind.Rewrite;
             }
 
             if (rbSkipFile.IsChecked == true)
             {
                 Properties.Settings.Default.FileOverwriteOption =
-                    CopyOrMoveWindowApps.FileOverwriteOptionKind.Skip;
+                    CopyWindowApps.FileOverwriteOptionKind.Skip;
             }
             #endregion //Сохраняем настройки перезаписи файла
 

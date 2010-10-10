@@ -32,25 +32,46 @@ namespace ExplorerNet
 
         public static RoutedCommand MakeDirCommand = new RoutedCommand();
 
+        public static RoutedCommand CopyCommand = new RoutedCommand();
+
         public ViewWindow()
         {
             InitializeComponent();
 
-            CommandBinding cb = new CommandBinding(DeleteFilesCommand, ExecutedDeleteFilesCommand);
-            this.CommandBindings.Add(cb);
+            //Создание команды и сочетания клавиш для удаления
+            CommandBinding cbDelete = new CommandBinding(DeleteFilesCommand, ExecutedDeleteFilesCommand);
+            this.CommandBindings.Add(cbDelete);
 
-            KeyGesture kg = new KeyGesture(Key.Delete);
-            KeyBinding kb = new KeyBinding(DeleteFilesCommand, kg);
-            this.InputBindings.Add(kb);
+            KeyGesture kgDel = new KeyGesture(Key.Delete);
+            KeyBinding kbDel = new KeyBinding(DeleteFilesCommand, kgDel);
+            this.InputBindings.Add(kbDel);
 
-            ////////////////////////////////////////////
+            KeyGesture kgF8 = new KeyGesture(Key.F8);
+            KeyBinding kbF8 = new KeyBinding(DeleteFilesCommand, kgF8);
+            this.InputBindings.Add(kbF8);
+
+            //Создание команды и сочетания клавиш для создания директории
             CommandBinding cbMakeDir = new CommandBinding(MakeDirCommand, ExecutedMakeDirCommand);
             this.CommandBindings.Add(cbMakeDir);
 
-            KeyGesture kgMakeDir = new KeyGesture(Key.D, ModifierKeys.Control);
+            KeyGesture kgMakeDir = new KeyGesture(Key.F7);
             KeyBinding kbMakeDir = new KeyBinding(MakeDirCommand, kgMakeDir);
 
             this.InputBindings.Add(kbMakeDir);
+
+
+            //////////////////////////////////////////////////
+            CommandBinding cbCopy = new CommandBinding(CopyCommand, ExecutedCopyCommand);
+            this.CommandBindings.Add(cbCopy);
+
+            KeyGesture kgCopyF5 = new KeyGesture(Key.F5);
+            KeyBinding kbCopyF5 = new KeyBinding(CopyCommand, kgCopyF5);
+
+            KeyGesture kgCopyF6 = new KeyGesture(Key.F6);
+            KeyBinding kbCopyF6 = new KeyBinding(CopyCommand, kgCopyF6);
+
+            this.InputBindings.Add(kbCopyF5);
+            this.InputBindings.Add(kbCopyF6);
 
             LoadWindowPos();
         }
@@ -83,9 +104,22 @@ namespace ExplorerNet
 
             //if (FilePanel.SelectedFilePanel != null)
             //{
+            //    FilePanel.SelectedFilePanel.MakeNewDirectoryDialog
+        }
+
+
+        private void ExecutedCopyCommand(object sender,
+            ExecutedRoutedEventArgs e)
+        {
+            CopyWindow cw = new CopyWindow();
+            cw.ShowDialog();
+
+            //if (FilePanel.SelectedFilePanel != null)
+            //{
             //    FilePanel.SelectedFilePanel.MakeNewDirectoryDialog();
             //}
         }
+
 
         /// <summary>
         /// Добавляем новый уровень

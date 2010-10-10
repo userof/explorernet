@@ -8,7 +8,7 @@
     <Setting Name="WidthFilepanel" Type="System.Double" Scope="User">
       <Value Profile="(Default)">250</Value>
     </Setting>
-    <Setting Name="FileOverwriteOption" Type="ExplorerNet.CopyOrMoveWindowApps.FileOverwriteOptionKind" Scope="User">
+    <Setting Name="FileOverwriteOption" Type="ExplorerNet.CopyWindowApps.FileOverwriteOptionKind" Scope="User">
       <Value Profile="(Default)">ShowDialog</Value>
     </Setting>
     <Setting Name="LastTemplate" Type="ExplorerNet.ViewWindowApps.Templates.ViewWindowTemplate" Scope="User">

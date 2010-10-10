@@ -23,10 +23,43 @@ namespace ExplorerNet
     {
         private List<FileSystemInfo> deleteFSIList = null;
 
+        public static RoutedCommand DeleteFilesCommand = new RoutedCommand();
+
+        public static RoutedCommand DeleteFilesToRecCommand = new RoutedCommand();
+
         private DeleteWindow()
         {
             InitializeComponent();
+
+            CommandBinding cbDelete = new CommandBinding(DeleteFilesCommand, ExecutedDeleteFilesCommand);
+            this.CommandBindings.Add(cbDelete);
+
+            KeyGesture kgDel = new KeyGesture(Key.F8);
+            KeyBinding kbDel = new KeyBinding(DeleteFilesCommand, kgDel);
+            this.InputBindings.Add(kbDel);
+
+            //////////////////////////
+            CommandBinding cbDeleteToRec = new CommandBinding(DeleteFilesToRecCommand, 
+                ExecutedDeleteFilesToRecCommand);
+            this.CommandBindings.Add(cbDeleteToRec);
+
+            KeyGesture kgDelToRec = new KeyGesture(Key.Delete);
+            KeyBinding kbDelToRec = new KeyBinding(DeleteFilesToRecCommand, kgDelToRec);
+            this.InputBindings.Add(kbDelToRec);
         }
+
+        private void ExecutedDeleteFilesCommand(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Delete(false);
+            this.Close();
+        }
+
+        private void ExecutedDeleteFilesToRecCommand(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Delete(true);
+            this.Close();
+        }
+            
 
         private void Delete(bool toRecycle)
         {
