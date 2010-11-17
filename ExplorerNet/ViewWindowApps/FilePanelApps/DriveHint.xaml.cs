@@ -50,6 +50,38 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
                 txtInfo.Text = string.Format("name:{0} label:{1} type:{2}",
                     drive.Name[0].ToString(), drive.VolumeLabel, drive.DriveType);
+
+            }
+            else
+            {
+                txtInfo.Text = string.Format("name:{0} type:{1}",
+                    drive.Name[0].ToString(), drive.DriveType);
+                txtSize.Text = "The drive is not read";
+            }
+
+            switch (drive.DriveType)
+            {
+                case DriveType.CDRom:
+                    imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_cdrom.ico", UriKind.Relative));
+                    break;
+                case DriveType.Fixed:
+                    imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_fixed.ico", UriKind.Relative));
+                    break;
+                case DriveType.Network:
+                    imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_network.ico", UriKind.Relative));
+                    break;
+                case DriveType.NoRootDirectory:
+                    break;
+                case DriveType.Ram:
+                    break;
+                case DriveType.Removable:
+                    imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_removable.ico", UriKind.Relative));
+                    break;
+                case DriveType.Unknown:
+                    imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_unknown.ico", UriKind.Relative));
+                    break;
+                default:
+                    break;
             }
 
         }

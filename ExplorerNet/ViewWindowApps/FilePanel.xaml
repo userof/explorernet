@@ -6,7 +6,7 @@
              BorderThickness="7"
              Background="DarkKhaki"
              x:Name="filePanel"
-     Width="300" GotFocus="filePanel_GotFocus" Unloaded="filePanel_Unloaded" Loaded="filePanel_Loaded">
+     Width="300" GotFocus="filePanel_GotFocus" Unloaded="filePanel_Unloaded" Loaded="filePanel_Loaded" FontSize="10">
     <Grid >
         <Thumb Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" HorizontalAlignment="Right" Width="9"></Thumb>
         <Grid Background="Bisque" HorizontalAlignment="Left" Width="28">
@@ -15,17 +15,18 @@
             <Button Name="btnWindowsExplorer" Margin="0,62,0,0" Height="25" VerticalAlignment="Top" Click="btnWindowsExplorer_Click">E</Button>
             <Button Name="btnTotalCommander" Margin="0,93,0,0" Height="25" VerticalAlignment="Top" Click="btnTotalCommander_Click">T</Button>
             <Button Name="btnMakeDirectory" Margin="0,123,0,0" Height="25" VerticalAlignment="Top" Click="btnMakeDirectory_Click">D</Button>
+            <Button Name="btnCMD" Margin="0,183,0,0" ToolTip="cmd"  Height="25" VerticalAlignment="Top" Click="btnCMD_Click">CMD</Button>
             <!--Индикатор выделения-->
             <Rectangle Name="rctSelected" Margin="0,153,0,0" Height="25" VerticalAlignment="Top" Fill="Black"></Rectangle>
         </Grid>
         <Grid Background="Plum" Margin="34,0,12,21">
-            <UniformGrid Background="Sienna" Name="ugDrives" Height="28" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>
+            <UniformGrid Background="Sienna" Name="ugDrives" Height="20" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>
             <!--<ScrollViewer>--> 
                 <!--<Grid Name="grdFileList" >-->
                      
                         <ListView Name="lvFileList" PreviewMouseLeftButtonDown="lvFileList_PreviewMouseLeftButtonDown" 
-                                  AllowDrop="True" PreviewMouseMove="lvFileList_PreviewMouseMove" Drop="lvFileList_Drop" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,63,0,0"
-                                  PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown">
+                                  AllowDrop="True" PreviewMouseMove="lvFileList_PreviewMouseMove" Drop="lvFileList_Drop" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,45,0,0"
+                                  PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown" ItemsSource="{Binding}" DataContext="{Binding}">
                             <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Icon" Width="30">
@@ -39,7 +40,7 @@
                                 <GridViewColumn Header="Name">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock FontSize="14" Text="{Binding Path=Name}"></TextBlock>
+                                            <TextBlock FontSize="10" Text="{Binding Path=Name}"></TextBlock>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -47,7 +48,7 @@
                                 <GridViewColumn Header="Size">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock FontSize="14" Text="{Binding Path=Size}"></TextBlock>
+                                            <TextBlock FontSize="10" Text="{Binding Path=Size}"></TextBlock>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -57,7 +58,7 @@
             <!--</Grid>-->
             <!--</ScrollViewer>-->  
         </Grid>
-        <Grid Background="Orange" Name="grdPath" Height="26" VerticalAlignment="Top" Margin="34,33,12,0">
+        <Grid Background="Orange" Name="grdPath" Height="20" VerticalAlignment="Top" Margin="34,23,12,0">
             <Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
             <Button Name="btnUp" Margin="33,0,0,0" HorizontalAlignment="Left" Width="26" Click="btnUp_Click">U</Button>
             <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>

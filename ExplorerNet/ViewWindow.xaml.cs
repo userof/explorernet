@@ -34,6 +34,8 @@ namespace ExplorerNet
 
         public static RoutedCommand CopyCommand = new RoutedCommand();
 
+        public static RoutedCommand RenameCommand = new RoutedCommand();
+
         public ViewWindow()
         {
             InitializeComponent();
@@ -73,7 +75,23 @@ namespace ExplorerNet
             this.InputBindings.Add(kbCopyF5);
             this.InputBindings.Add(kbCopyF6);
 
+            //////////////////////////////////////////////////
+            CommandBinding cbRename = new CommandBinding(RenameCommand, ExecutedRenameCommand);
+            this.CommandBindings.Add(cbRename);
+
+            KeyGesture kgRename = new KeyGesture(Key.F2);
+            KeyBinding kbRename = new KeyBinding(RenameCommand, kgRename);
+
+            this.InputBindings.Add(kbRename);
+
             LoadWindowPos();
+        }
+
+        private void ExecutedRenameCommand(object sender,
+            ExecutedRoutedEventArgs e)
+        {
+            RenameWindow rw = new RenameWindow();
+            rw.ShowDialog();
         }
 
         private void ExecutedDeleteFilesCommand(object sender,

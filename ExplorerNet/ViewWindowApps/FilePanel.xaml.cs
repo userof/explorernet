@@ -139,7 +139,7 @@ namespace ExplorerNet.ViewWindowApps
             foreach (var d in drives)
             {
                 Button btnDrive = new Button();
-                btnDrive.Content = d.Name;
+                btnDrive.Content = d.Name[0].ToString();
                 //Создаём подсказку для диска
                 btnDrive.ToolTip = new DriveHint(d);
                 ToolTipService.SetBetweenShowDelay(btnDrive, 20000);
@@ -606,6 +606,7 @@ namespace ExplorerNet.ViewWindowApps
             {
                 SetFilePanelSettings(value);
                 //this.filePanelSettings = value;
+
             }
         }
 
@@ -621,6 +622,11 @@ namespace ExplorerNet.ViewWindowApps
 
             //List<System.IO.FileSystemInfoEx> list = new List<FileSystemInfoEx>(); 
             List<FileSystemInfo> list = new List<FileSystemInfo>();
+
+
+           // Point mousePoint = e.GetPosition(lstFiles);
+           // lstFiles.
+ 
 
             foreach (var itm in selItems)
             {
@@ -727,6 +733,19 @@ namespace ExplorerNet.ViewWindowApps
                 return result;
                 
             }
+        }
+
+        private void btnCMD_Click(object sender, RoutedEventArgs e)
+        {
+
+            System.Diagnostics.Process proc = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.WorkingDirectory = this.Path;
+            proc.StartInfo = psi;
+            proc.Start();
+            
+            
         }
     }
 
