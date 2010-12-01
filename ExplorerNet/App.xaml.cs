@@ -41,6 +41,10 @@ namespace ExplorerNet
                 vw.LoadLastTemplate();
             }
             vw.Show();
+
+            WPF.Themes.ThemeManager.ApplyTheme(this, 
+                ExplorerNet.Properties.Settings.Default.CurrentSkin);
+
         }
     }
 }

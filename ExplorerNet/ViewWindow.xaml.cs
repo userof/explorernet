@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -13,6 +14,9 @@ using System.Windows.Shapes;
 
 using ExplorerNet.ViewWindowApps;
 using ExplorerNet.ViewWindowApps.Templates;
+
+using WPF.Themes;
+using Application = System.Windows.Application;
 
 namespace ExplorerNet
 {
@@ -170,17 +174,29 @@ namespace ExplorerNet
         {
             string ext = Properties.Settings.Default.FileAppExtention;
 
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            System.Windows.Forms.SaveFileDialog dlg = new SaveFileDialog();
             dlg.FileName = "Template"; // Default file name
             dlg.DefaultExt = ext; // Default file extension
             dlg.Filter = "Template (" + ext + ")|*" + ext + "|All Files|*.*"; // Filter files by extension
 
-            Nullable<bool> result = dlg.ShowDialog();
-
-            if (result == true)
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 _SaveTemplate(dlg.FileName);
             }
+            #region комментарий
+            //Вариант кода ниже закомментирован, так как в нём не совместимость со сборкой WPF.Themes, причина не понятна
+            //Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            //dlg.FileName = "Template"; // Default file name
+            //dlg.DefaultExt = ext; // Default file extension
+            //dlg.Filter = "Template (" + ext + ")|*" + ext + "|All Files|*.*"; // Filter files by extension
+
+            //Nullable<bool> result = dlg.ShowDialog();
+
+            //if (result == true)
+            //{
+            //    _SaveTemplate(dlg.FileName);
+            //}
+            #endregion
         }
 
         /// <summary>
@@ -192,6 +208,7 @@ namespace ExplorerNet
             //Перебираем все уровни
             SaveTemplateView();
             currentTemplate.Name = System.IO.Path.GetFileNameWithoutExtension(fileName);
+            
             currentTemplate.Save(fileName);
 
         }
@@ -202,6 +219,7 @@ namespace ExplorerNet
         private void SaveTemplateView()
         {
             this.currentTemplate = new ViewWindowTemplate();
+            this.currentTemplate.Skin = Properties.Settings.Default.CurrentSkin;
             foreach (var child in spMain.Children)
             {
                 if (child.GetType() == typeof(Level)) 
@@ -247,6 +265,14 @@ namespace ExplorerNet
         {
             spMain.Children.Clear();
 
+            if (string.IsNullOrEmpty(this.currentTemplate.Skin))
+            {
+                this.currentTemplate.Skin = Properties.Settings.Default.CurrentSkin;
+            }
+
+            
+            //WPF.Themes.ThemeManager.SetTheme(this, this.currentTemplate.Skin);
+            WPF.Themes.ThemeManager.ApplyTheme(Application.Current, this.currentTemplate.Skin);
             foreach (var levelTemplate in currentTemplate.Levels)
             {
                 Level level = new Level();
@@ -269,18 +295,32 @@ namespace ExplorerNet
         private void btnLoadTemplate_Click(object sender, RoutedEventArgs e)
         {
             string ext = Properties.Settings.Default.FileAppExtention;
-
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog dlg = new OpenFileDialog();
             dlg.FileName = "Template"; // Default file name
             dlg.DefaultExt = ext; // Default file extension
             dlg.Filter = "Template (" + ext + ")|*" + ext + "|All Files|*.*"; // Filter files by extension
 
-            Nullable<bool> result = dlg.ShowDialog();
+            //Nullable<bool> result = dlg.ShowDialog();
 
-            if (result == true)
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 _LoadTemplate(dlg.FileName);
             }
+
+            #region комментарий
+            //Вариант кода ниже закомментирован, так как в нём не совместимость со сборкой WPF.Themes, причина не понятна
+            //Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            //dlg.FileName = "Template"; // Default file name
+            //dlg.DefaultExt = ext; // Default file extension
+            //dlg.Filter = "Template (" + ext + ")|*" + ext + "|All Files|*.*"; // Filter files by extension
+            //dlg.ShowDialog();
+            //Nullable<bool> result = dlg.ShowDialog();
+
+            //if (result == true)
+            //{
+            //    _LoadTemplate(dlg.FileName);
+            //}
+            #endregion
         }
 
         private void btnClearTemplate_Click(object sender, RoutedEventArgs e)
@@ -356,6 +396,20 @@ namespace ExplorerNet
             this.Close();
             Properties.Settings.Default.Reset();
             Properties.Settings.Default.Save();
+        }
+
+        private void btnRandomTheme_Click(object sender, RoutedEventArgs e)
+        {
+            var thm = WPF.Themes.ThemeManager.GetThemes();
+
+            Random r = new Random();
+            int i = r.Next(thm.Count());
+
+            //this.ApplyTheme(thm[i]);
+            Properties.Settings.Default.CurrentSkin = thm[i];
+            WPF.Themes.ThemeManager.ApplyTheme(App.Current, 
+                Properties.Settings.Default.CurrentSkin);
+
         }
 
 

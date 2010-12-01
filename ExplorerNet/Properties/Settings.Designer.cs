@@ -174,5 +174,17 @@ namespace ExplorerNet.Properties {
                 return ((string)(this["FileAppExtention"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("expressiondark")]
+        public string CurrentSkin {
+            get {
+                return ((string)(this["CurrentSkin"]));
+            }
+            set {
+                this["CurrentSkin"] = value;
+            }
+        }
     }
 }

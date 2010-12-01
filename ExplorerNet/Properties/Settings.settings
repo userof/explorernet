@@ -41,5 +41,8 @@
     <Setting Name="FileAppExtention" Type="System.String" Scope="Application">
       <Value Profile="(Default)">.enet</Value>
     </Setting>
+    <Setting Name="CurrentSkin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">expressiondark</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

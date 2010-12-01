@@ -23,6 +23,8 @@ namespace ExplorerNet.ViewWindowApps.Templates
         /// </summary>
         private string _name = "";
 
+        private string _skin = "";
+
         public ViewWindowTemplate()
         {
             _levels = new List<LevelTemplate>();
@@ -80,6 +82,12 @@ namespace ExplorerNet.ViewWindowApps.Templates
             get { return _levels; }
         }
 
+        public string Skin
+        {
+            get { return _skin; }
+            set { _skin = value; }
+        }
+
         /// <summary>
         /// Создаём шаблон по умолчанию.
         /// </summary>
@@ -88,6 +96,8 @@ namespace ExplorerNet.ViewWindowApps.Templates
         {
             ViewWindowTemplate template = new ViewWindowTemplate();
             template.Name = "defoult";
+            template.Skin = Properties.Settings.Default.CurrentSkin;
+
 
             LevelTemplate level1 = new LevelTemplate();
             level1.Height = Properties.Settings.Default.HeightLevel;
