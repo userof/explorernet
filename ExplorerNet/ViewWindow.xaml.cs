@@ -272,7 +272,15 @@ namespace ExplorerNet
 
             
             //WPF.Themes.ThemeManager.SetTheme(this, this.currentTemplate.Skin);
-            WPF.Themes.ThemeManager.ApplyTheme(Application.Current, this.currentTemplate.Skin);
+            try
+            {
+                WPF.Themes.ThemeManager.ApplyTheme(Application.Current, this.currentTemplate.Skin);
+            }
+            catch(Exception e)
+            {
+                
+            }
+            
             foreach (var levelTemplate in currentTemplate.Levels)
             {
                 Level level = new Level();

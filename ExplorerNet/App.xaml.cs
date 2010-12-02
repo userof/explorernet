@@ -20,7 +20,19 @@ namespace ExplorerNet
 
             ViewWindow vw = new ViewWindow();
 
+            try
+            {
+                WPF.Themes.ThemeManager.ApplyTheme(this,
+                ExplorerNet.Properties.Settings.Default.CurrentSkin);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+ 
             Registry.SetValue(
                 Registry.CurrentUser.ToString() + @"\Software\Classes\enet_auto\shell\open\command", "",
                 string.Format("\"{0}\"\"%1\"", path), RegistryValueKind.String);
@@ -42,8 +54,7 @@ namespace ExplorerNet
             }
             vw.Show();
 
-            WPF.Themes.ThemeManager.ApplyTheme(this, 
-                ExplorerNet.Properties.Settings.Default.CurrentSkin);
+
 
         }
     }
