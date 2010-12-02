@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using ExplorerNet.Tools;
 using ExplorerNet.ViewWindowApps;
 using ExplorerNet.ViewWindowApps.Templates;
 
@@ -207,7 +207,7 @@ namespace ExplorerNet
             //Перебираем все уровни
             SaveTemplateView();
             currentTemplate.Name = System.IO.Path.GetFileNameWithoutExtension(fileName);
-            
+            currentTemplate.Skin = new SkinManager().GetCurrentSkin();
             currentTemplate.Save(fileName);
 
         }
@@ -218,6 +218,7 @@ namespace ExplorerNet
         private void SaveTemplateView()
         {
             this.currentTemplate = new ViewWindowTemplate();
+            this.currentTemplate.Skin = new SkinManager().GetCurrentSkin();
             foreach (var child in spMain.Children)
             {
                 if (child.GetType() == typeof(Level)) 
@@ -253,6 +254,7 @@ namespace ExplorerNet
         public void _LoadTemplate(string fileName)
         {
             currentTemplate = ViewWindowTemplate.Load(fileName);
+            new SkinManager().ApplySkin(currentTemplate.Skin);
             BuildTemplateView();
         }
 
@@ -262,9 +264,6 @@ namespace ExplorerNet
         private void BuildTemplateView()
         {
             spMain.Children.Clear();
-
-
-            
             
             foreach (var levelTemplate in currentTemplate.Levels)
             {
@@ -328,14 +327,18 @@ namespace ExplorerNet
         public void LoadLastTemplate()
         {
             //this.currentTemplate = ViewWindowTemplate.CreateDefoultTemplate();
+            
+
             if (Properties.Settings.Default.LastTemplate == null)
             {
                 this.currentTemplate = ViewWindowTemplate.CreateDefoultTemplate();
+                
             }
             else
             {
                 this.currentTemplate = Properties.Settings.Default.LastTemplate;
             }
+            new SkinManager().ApplySkin(currentTemplate.Skin);
             BuildTemplateView();
         }
 
@@ -347,6 +350,7 @@ namespace ExplorerNet
         {
             SaveTemplateView();
             Properties.Settings.Default.LastTemplate = currentTemplate;
+            //Properties.Settings.Default.CurrentSkin = currentTemplate.Skin;
             Properties.Settings.Default.Save();
         }
 
@@ -393,8 +397,9 @@ namespace ExplorerNet
 
         private void btnRandomTheme_Click(object sender, RoutedEventArgs e)
         {
-
-
+            SkinManager sm = new SkinManager();
+            sm.ApplySkin(sm.GetSkins()[new Random().Next(15)]);
+            var ss = sm.GetSkins();
         }
 
 

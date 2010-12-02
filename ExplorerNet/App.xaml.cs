@@ -19,7 +19,8 @@ namespace ExplorerNet
             base.OnStartup(e);
 
             ViewWindow vw = new ViewWindow();
-           
+
+            //this.Resources.Source = new Uri(@"skins\BureauBlack.xaml", UriKind.Relative);
 
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
  

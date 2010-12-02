@@ -182,6 +182,7 @@
     </Compile>
     <Compile Include="Tools\ShellContextMenu.cs" />
     <Compile Include="Tools\SizeFileInString.cs" />
+    <Compile Include="Tools\SkinManager.cs" />
     <Compile Include="ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>
     </Compile>
