@@ -96,7 +96,6 @@ namespace ExplorerNet.ViewWindowApps.Templates
         {
             ViewWindowTemplate template = new ViewWindowTemplate();
             template.Name = "defoult";
-            template.Skin = Properties.Settings.Default.CurrentSkin;
 
 
             LevelTemplate level1 = new LevelTemplate();

@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using ExplorerNet.ViewWindowApps;
 using ExplorerNet.ViewWindowApps.Templates;
 
-using WPF.Themes;
 using Application = System.Windows.Application;
 
 namespace ExplorerNet
@@ -219,7 +218,6 @@ namespace ExplorerNet
         private void SaveTemplateView()
         {
             this.currentTemplate = new ViewWindowTemplate();
-            this.currentTemplate.Skin = Properties.Settings.Default.CurrentSkin;
             foreach (var child in spMain.Children)
             {
                 if (child.GetType() == typeof(Level)) 
@@ -265,21 +263,8 @@ namespace ExplorerNet
         {
             spMain.Children.Clear();
 
-            if (string.IsNullOrEmpty(this.currentTemplate.Skin))
-            {
-                this.currentTemplate.Skin = Properties.Settings.Default.CurrentSkin;
-            }
 
             
-            //WPF.Themes.ThemeManager.SetTheme(this, this.currentTemplate.Skin);
-            try
-            {
-                WPF.Themes.ThemeManager.ApplyTheme(Application.Current, this.currentTemplate.Skin);
-            }
-            catch(Exception e)
-            {
-                
-            }
             
             foreach (var levelTemplate in currentTemplate.Levels)
             {
@@ -408,15 +393,7 @@ namespace ExplorerNet
 
         private void btnRandomTheme_Click(object sender, RoutedEventArgs e)
         {
-            var thm = WPF.Themes.ThemeManager.GetThemes();
 
-            Random r = new Random();
-            int i = r.Next(thm.Count());
-
-            //this.ApplyTheme(thm[i]);
-            Properties.Settings.Default.CurrentSkin = thm[i];
-            WPF.Themes.ThemeManager.ApplyTheme(App.Current, 
-                Properties.Settings.Default.CurrentSkin);
 
         }
 

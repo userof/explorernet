@@ -19,17 +19,7 @@ namespace ExplorerNet
             base.OnStartup(e);
 
             ViewWindow vw = new ViewWindow();
-
-            try
-            {
-                WPF.Themes.ThemeManager.ApplyTheme(this,
-                ExplorerNet.Properties.Settings.Default.CurrentSkin);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
+           
 
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
  
