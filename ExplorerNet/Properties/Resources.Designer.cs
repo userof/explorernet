@@ -22,7 +22,7 @@ namespace ExplorerNet.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ExplorerNet.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExplorerNet.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,156 @@ namespace ExplorerNet.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add level.
+        /// </summary>
+        public static string AddLevel {
+            get {
+                return ResourceManager.GetString("AddLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Clear template.
+        /// </summary>
+        public static string ClearTemplate {
+            get {
+                return ResourceManager.GetString("ClearTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Clone file panel.
+        /// </summary>
+        public static string CloneFilePanel {
+            get {
+                return ResourceManager.GetString("CloneFilePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Clone level.
+        /// </summary>
+        public static string CloneLevel {
+            get {
+                return ResourceManager.GetString("CloneLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Open directory in cmd.
+        /// </summary>
+        public static string CMD {
+            get {
+                return ResourceManager.GetString("CMD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete file panel.
+        /// </summary>
+        public static string DeleteFilePanel {
+            get {
+                return ResourceManager.GetString("DeleteFilePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete level.
+        /// </summary>
+        public static string DeleteLevel {
+            get {
+                return ResourceManager.GetString("DeleteLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Load template.
+        /// </summary>
+        public static string LoadTemplate {
+            get {
+                return ResourceManager.GetString("LoadTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Make directory.
+        /// </summary>
+        public static string MakeDirectory {
+            get {
+                return ResourceManager.GetString("MakeDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на New file panel.
+        /// </summary>
+        public static string NewFilePanel {
+            get {
+                return ResourceManager.GetString("NewFilePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Random skin.
+        /// </summary>
+        public static string RandomSkin {
+            get {
+                return ResourceManager.GetString("RandomSkin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reset settings.
+        /// </summary>
+        public static string ResetSettings {
+            get {
+                return ResourceManager.GetString("ResetSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Save template.
+        /// </summary>
+        public static string SaveTemplate {
+            get {
+                return ResourceManager.GetString("SaveTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Open directory in windows explorer.
+        /// </summary>
+        public static string StartExplorer {
+            get {
+                return ResourceManager.GetString("StartExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Open with setter program.
+        /// </summary>
+        public static string StartProgram {
+            get {
+                return ResourceManager.GetString("StartProgram", resourceCulture);
             }
         }
     }

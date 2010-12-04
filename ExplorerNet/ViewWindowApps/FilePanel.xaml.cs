@@ -72,7 +72,7 @@ namespace ExplorerNet.ViewWindowApps
             //каждаю новая файловая панель стаёт выделенной
             //SelectedFilePanel = this;
 
-            btnMakeDirectory.ToolTip = "Make a directory (Ctrl + D)";
+            //btnMakeDirectory.ToolTip = "Make a directory (Ctrl + D)";
 
             //Создаём элемент наблюдающий за изменениями файловой системы
             this.watcher = new FileSystemWatcher();

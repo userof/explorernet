@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -16,6 +17,7 @@ using ExplorerNet.ViewWindowApps;
 using ExplorerNet.ViewWindowApps.Templates;
 
 using Application = System.Windows.Application;
+using MessageBox = System.Windows.MessageBox;
 
 namespace ExplorerNet
 {
@@ -238,7 +240,7 @@ namespace ExplorerNet
                             fpTemplate.FilePanelSettings = filePanel.FilePanelSettings;
                             //fpTemplate.Width = filePanel.Width;
                             //fpTemplate.Path = filePanel.Path;
-
+                            
                             lTemplate.FilePanels.Add(fpTemplate);
                         }
                     }
@@ -395,11 +397,14 @@ namespace ExplorerNet
             Properties.Settings.Default.Save();
         }
 
-        private void btnRandomTheme_Click(object sender, RoutedEventArgs e)
+        private void btnRandomSkin_Click(object sender, RoutedEventArgs e)
         {
             SkinManager sm = new SkinManager();
             sm.ApplySkin(sm.GetSkins()[new Random().Next(15)]);
             var ss = sm.GetSkins();
+            //var ci = System.Threading.Thread.CurrentThread.CurrentUICulture;
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+            //MessageBox.Show(Properties.Resources.AddLevel);
         }
 
 

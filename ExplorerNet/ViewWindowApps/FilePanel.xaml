@@ -2,6 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:res="clr-namespace:ExplorerNet.Properties"
              BorderBrush="Green"
              BorderThickness="7"
              Background="DarkKhaki"
@@ -10,12 +11,66 @@
     <Grid >
         <Thumb Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" HorizontalAlignment="Right" Width="9"></Thumb>
         <Grid Background="Bisque" HorizontalAlignment="Left" Width="28">
-            <Button Name="btnDeleteFilePanel" Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">X</Button>
-            <Button Name="btnClone" Margin="0,34,0,0" Height="25" VerticalAlignment="Top" Click="btnClone_Click">C</Button>
-            <Button Name="btnWindowsExplorer" Margin="0,62,0,0" Height="25" VerticalAlignment="Top" Click="btnWindowsExplorer_Click">E</Button>
-            <Button Name="btnTotalCommander" Margin="0,93,0,0" Height="25" VerticalAlignment="Top" Click="btnTotalCommander_Click">T</Button>
-            <Button Name="btnMakeDirectory" Margin="0,123,0,0" Height="25" VerticalAlignment="Top" Click="btnMakeDirectory_Click">D</Button>
-            <Button Name="btnCMD" Margin="0,183,0,0" ToolTip="cmd"  Height="25" VerticalAlignment="Top" Click="btnCMD_Click">CMD</Button>
+            
+            <!--Delete file panel button-->
+            <Button Name="btnDeleteFilePanel" 
+                    Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">
+                <Image Source="..\ButtonIcons\DeleteFilePanel.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.DeleteFilePanel}" />
+                </Button.ToolTip>
+            </Button>
+            
+            <!--Clone file panel-->
+            <Button Name="btnClone" 
+                    Margin="0,34,0,0" Height="25" 
+                    VerticalAlignment="Top" Click="btnClone_Click">
+                <Image Source="..\ButtonIcons\CloneLevel.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.CloneFilePanel}" />
+                </Button.ToolTip>
+            </Button>
+            
+            <!--Start explorer button-->
+            <Button Name="btnWindowsExplorer" 
+                    Margin="0,62,0,0" Height="25" 
+                    VerticalAlignment="Top" Click="btnWindowsExplorer_Click">
+                <Image Source="..\ButtonIcons\StartExplorer.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.StartExplorer}" />
+                </Button.ToolTip>
+            </Button>
+            
+            <!--Start program button-->
+            <Button Name="btnTotalCommander"
+                    Margin="0,93,0,0" Height="25" 
+                    VerticalAlignment="Top" Click="btnTotalCommander_Click">
+                <Image Source="..\ButtonIcons\StartProgram.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.StartProgram}" />
+                </Button.ToolTip>
+            </Button>
+            
+            <!--Make directory button-->
+            <Button Name="btnMakeDirectory" 
+                    Margin="0,123,0,0" Height="25" 
+                    VerticalAlignment="Top" Click="btnMakeDirectory_Click">
+                <Image Source="..\ButtonIcons\MakeDirectory.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.MakeDirectory}" />
+                </Button.ToolTip>
+            </Button>
+            
+            
+            <Button Name="btnCMD" 
+                    Margin="0,183,0,0" Height="25"
+                    VerticalAlignment="Top" Click="btnCMD_Click">
+                <Image Source="..\ButtonIcons\CMD.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.CMD}" />
+                </Button.ToolTip>
+            </Button>
+            
             <!--Индикатор выделения-->
             <Rectangle Name="rctSelected" Margin="0,153,0,0" Height="25" VerticalAlignment="Top" Fill="Black"></Rectangle>
         </Grid>

@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddLevel" xml:space="preserve">
-    <value>Add level</value>
+    <value>Добавить уровень</value>
   </data>
   <data name="ClearTemplate" xml:space="preserve">
-    <value>Clear template</value>
+    <value>Очистить шаблон</value>
   </data>
   <data name="CloneFilePanel" xml:space="preserve">
-    <value>Clone file panel</value>
+    <value>Клонировать файловую панель</value>
   </data>
   <data name="CloneLevel" xml:space="preserve">
-    <value>Clone level</value>
+    <value>Клонировать уровень</value>
   </data>
   <data name="CMD" xml:space="preserve">
-    <value>Open directory in cmd</value>
+    <value>Открыть директорию в командной строке</value>
   </data>
   <data name="DeleteFilePanel" xml:space="preserve">
-    <value>Delete file panel</value>
+    <value>Удалить файловую панель</value>
   </data>
   <data name="DeleteLevel" xml:space="preserve">
-    <value>Delete level</value>
+    <value>Удалить уровень</value>
   </data>
   <data name="LoadTemplate" xml:space="preserve">
-    <value>Load template</value>
+    <value>Загрузить шаблон</value>
   </data>
   <data name="MakeDirectory" xml:space="preserve">
-    <value>Make directory</value>
+    <value>Создать новую директорию</value>
   </data>
   <data name="NewFilePanel" xml:space="preserve">
-    <value>New file panel</value>
+    <value>Добавить файловую панель</value>
   </data>
   <data name="RandomSkin" xml:space="preserve">
-    <value>Random skin</value>
+    <value>Случайный скин</value>
   </data>
   <data name="ResetSettings" xml:space="preserve">
-    <value>Reset settings</value>
+    <value>Перегрузить настройки</value>
   </data>
   <data name="SaveTemplate" xml:space="preserve">
-    <value>Save template</value>
+    <value>Сохранить шаблон</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Настройки</value>
   </data>
   <data name="StartExplorer" xml:space="preserve">
-    <value>Open directory in windows explorer</value>
+    <value>Открыть директорию в проводнике виндовс</value>
   </data>
   <data name="StartProgram" xml:space="preserve">
-    <value>Open with setter program</value>
+    <value>Открыть директорию в заданной программе</value>
   </data>
 </root>
