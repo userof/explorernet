@@ -177,7 +177,7 @@ namespace ExplorerNet.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ShinyBlue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("RainierPurple")]
         public string CurrentSkin {
             get {
                 return ((string)(this["CurrentSkin"]));

@@ -131,7 +131,7 @@ namespace ExplorerNet
         {
             SkinManager sm = new SkinManager();
             lstSkins.ItemsSource = sm.GetSkins();
-            
+            lstSkins.SelectedItem = sm.GetCurrentSkin();
             //lstSkins.Items.Clear();
 
             //foreach (var s in sm.GetSkins())

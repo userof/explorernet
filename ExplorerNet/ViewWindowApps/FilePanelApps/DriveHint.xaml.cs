@@ -46,7 +46,16 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                 txtSize.Text = string.Format("Free: {0} from {1} ({2} from {3})", availableShort, totalShort, availableLong, totalLong);
 
                 pbSize.Maximum = drive.TotalSize;
-                pbSize.Value = drive.TotalSize - drive.AvailableFreeSpace;
+
+                try
+                {
+                    pbSize.Value = drive.TotalSize - drive.AvailableFreeSpace;
+                }
+                catch (Exception)
+                {
+
+                }
+                
 
                 txtInfo.Text = string.Format("name:{0} label:{1} type:{2}",
                     drive.Name[0].ToString(), drive.VolumeLabel, drive.DriveType);

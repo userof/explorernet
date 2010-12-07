@@ -44,7 +44,7 @@ namespace ExplorerNet
         public ViewWindow()
         {
             InitializeComponent();
-
+            
             //Создание команды и сочетания клавиш для удаления
             CommandBinding cbDelete = new CommandBinding(DeleteFilesCommand, ExecutedDeleteFilesCommand);
             this.CommandBindings.Add(cbDelete);

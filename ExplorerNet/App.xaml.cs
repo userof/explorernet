@@ -17,7 +17,7 @@ namespace ExplorerNet
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
+            
             System.Threading.Thread.CurrentThread.CurrentUICulture = 
                 new Languages.LanguageManager().GetCurrentCulture();
 

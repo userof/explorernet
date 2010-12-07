@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using System.IO;
+using System.Windows;
+using System.Windows.Baml2006;
 
 namespace ExplorerNet.Tools
 {
@@ -41,11 +43,15 @@ namespace ExplorerNet.Tools
 
             if (File.Exists(skinPathXaml))
             {
+                Application.Current.Resources.Clear();
+                //Application.Current.Resources = new ResourceDictionary();
                 ApplySkinXaml(skinPathXaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
             }
             else if (File.Exists(skinPathBaml))
             {
+                Application.Current.Resources.Clear();
+                //Application.Current.Resources = new ResourceDictionary();
                 ApplySkinBaml(skinPathBaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
             }
@@ -66,13 +72,12 @@ namespace ExplorerNet.Tools
 
         protected void ApplySkinBaml(string skinPath)
         {
-            //FileStream fstream = new FileStream(filepath, FileMode.Open);
-            // System.Windows.Baml2006.
-            //System.Windows.bam
+            FileStream fstream = new FileStream(skinPath, FileMode.Open);
 
-            //System.Xml.Baml2006Reader reader = new Baml2006Reader(fstream);
+            Baml2006Reader reader = new Baml2006Reader(fstream);
 
-            //ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(reader);
+            ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(reader);
+            App.Current.Resources.MergedDictionaries.Add(rd);
         }
 
         public string[] GetSkins()
