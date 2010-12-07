@@ -186,5 +186,17 @@ namespace ExplorerNet.Properties {
                 this["CurrentSkin"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("(Default)")]
+        public global::System.Globalization.CultureInfo CurrentCulture {
+            get {
+                return ((global::System.Globalization.CultureInfo)(this["CurrentCulture"]));
+            }
+            set {
+                this["CurrentCulture"] = value;
+            }
+        }
     }
 }

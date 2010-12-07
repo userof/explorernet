@@ -1,9 +1,24 @@
 ﻿<Window x:Class="ExplorerNet.SettingsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="SettingsWindow" Height="300" Width="300">
+    xmlns:res="clr-namespace:ExplorerNet.Properties"
+    Title="SettingsWindow" Height="300" Width="300" IsVisibleChanged="Window_IsVisibleChanged" WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl>
+
+            <TabItem Header="{x:Static res:Resources.Skins}">
+                <Grid>
+                    <ListBox Margin="14,6" Name="lstSkins" SelectionChanged="lstSkins_SelectionChanged" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="{x:Static res:Resources.Language}">
+                <Grid>
+                    <ListBox Name="lstLanguages" SelectionChanged="lstLanguages_SelectionChanged"></ListBox>
+                </Grid>
+
+            </TabItem>
+
             <TabItem Header="Level and FilePanel">
                 <Grid>
                     <Label Height="23" Margin="12,12,0,0" Name="lblHeightLevel" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Высота уровня</Label>
@@ -17,7 +32,8 @@
                     <Button HorizontalAlignment="Right" Margin="0,0,20,20" Name="btnCancel" Width="75" Height="23" VerticalAlignment="Bottom" Click="btnCancel_Click">Cancel</Button>
                     <Button Height="23" Margin="84,0,119,20" Name="btnDefault" VerticalAlignment="Bottom" Click="btnDefault_Click">Default</Button>
                 </Grid>
-            </TabItem>
+            </TabItem>      
+            
             <TabItem Header="Operation settings"> 
                 <Grid>
                     <Grid Height="71" HorizontalAlignment="Left" Margin="30,20,0,0" Name="grid1" VerticalAlignment="Top" Width="200">
@@ -28,6 +44,7 @@
                     </Grid>
                 </Grid>
             </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>

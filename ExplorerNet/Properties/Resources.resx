@@ -165,4 +165,10 @@
   <data name="StartProgram" xml:space="preserve">
     <value>Open with setter program</value>
   </data>
+  <data name="Skins" xml:space="preserve">
+    <value>Skins</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
 </root>

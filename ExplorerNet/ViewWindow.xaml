@@ -2,7 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:res="clr-namespace:ExplorerNet.Properties"
-    Title="ViewWindow" Height="300" Width="881" Loaded="Window_Loaded" Closing="Window_Closing" Icon="/Explorer.Net;component/icon181.ico">
+    Title="ViewWindow" Height="300" Width="881" Loaded="Window_Loaded" Closing="Window_Closing" Icon="/Explorer.Net;component/icon181.ico" AllowsTransparency="False">
     <Grid>
         <ScrollViewer Margin="12,61,12,21">
             <StackPanel Name="spMain" />
@@ -17,6 +17,7 @@
                 <ColumnDefinition Width="104*" />
                 <ColumnDefinition Width="117*" />
             </Grid.ColumnDefinitions>
+            
             <!--Add level button-->
             <Button Name="btnAddLevel" 
                     ToolTipService.ShowDuration="2000" 

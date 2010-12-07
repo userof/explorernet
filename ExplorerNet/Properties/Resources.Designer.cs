@@ -124,6 +124,15 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Load template.
         /// </summary>
         public static string LoadTemplate {
@@ -183,6 +192,15 @@ namespace ExplorerNet.Properties {
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Skins.
+        /// </summary>
+        public static string Skins {
+            get {
+                return ResourceManager.GetString("Skins", resourceCulture);
             }
         }
         

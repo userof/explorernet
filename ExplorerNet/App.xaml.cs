@@ -18,6 +18,9 @@ namespace ExplorerNet
         {
             base.OnStartup(e);
 
+            System.Threading.Thread.CurrentThread.CurrentUICulture = 
+                new Languages.LanguageManager().GetCurrentCulture();
+
             ViewWindow vw = new ViewWindow();
 
             //this.Resources.Source = new Uri(@"skins\BureauBlack.xaml", UriKind.Relative);

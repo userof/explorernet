@@ -15,7 +15,9 @@ namespace ExplorerNet.Tools
 
         private const string skinDirName = "skins";
 
-        private const string skinExt = "xaml";
+        //private const string skinExt = "xaml";
+
+        private const string skinSearchFilter = "*.?aml";
 
         public SkinManager()
         {
@@ -31,31 +33,53 @@ namespace ExplorerNet.Tools
 
         public void ApplySkin(string skinName)
         {
-            string skinPath = skinDirPath + Path.DirectorySeparatorChar +
-                              skinName + "." + skinExt;
+            string skinPathXaml = skinDirPath + Path.DirectorySeparatorChar +
+                  skinName + ".xaml";
 
-            if (string.IsNullOrEmpty(skinName))
+            string skinPathBaml = skinDirPath + Path.DirectorySeparatorChar +
+                  skinName + ".baml";
+
+            if (File.Exists(skinPathXaml))
             {
-                Properties.Settings.Default.CurrentSkin = "";
-                App.Current.Resources = null;
-            }
-            else if (File.Exists(skinPath))
-            {
+                ApplySkinXaml(skinPathXaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
-                App.Current.Resources.Source = new Uri(skinPath);
             }
-            else 
+            else if (File.Exists(skinPathBaml))
+            {
+                ApplySkinBaml(skinPathBaml);
+                Properties.Settings.Default.CurrentSkin = skinName;
+            }
+            else
             {
                 throw new Exception("The skin not found");
             }
             
         }
 
+        protected void ApplySkinXaml(string skinPath)
+        {
+            System.Windows.ResourceDictionary rd = new System.Windows.ResourceDictionary();
+            rd.Source = new Uri(skinPath);
+            App.Current.Resources.MergedDictionaries.Add(rd);
+ 
+        }
+
+        protected void ApplySkinBaml(string skinPath)
+        {
+            //FileStream fstream = new FileStream(filepath, FileMode.Open);
+            // System.Windows.Baml2006.
+            //System.Windows.bam
+
+            //System.Xml.Baml2006Reader reader = new Baml2006Reader(fstream);
+
+            //ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(reader);
+        }
+
         public string[] GetSkins()
         {
             DirectoryInfo dies = new DirectoryInfo(skinDirPath);
 
-            FileInfo[] files = dies.GetFiles("*." + skinExt);
+            FileInfo[] files = dies.GetFiles(skinSearchFilter);
 
             List<string> skins = new List<string>();
 

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ExplorerNet.Tools;
 
 namespace ExplorerNet
 {
@@ -124,6 +125,46 @@ namespace ExplorerNet
         {
             _SaveSettings();
             this.Close();
+        }
+
+        private void RefreshSkins()
+        {
+            SkinManager sm = new SkinManager();
+            lstSkins.ItemsSource = sm.GetSkins();
+            
+            //lstSkins.Items.Clear();
+
+            //foreach (var s in sm.GetSkins())
+            //{
+            //    ListViewItem lvi = new ListViewItem();
+            //    lvi.Content = s;
+            //    lstSkins.Items.Add(lvi);
+            //}
+        }
+
+        private void RefreshLanguages()
+        {
+            ExplorerNet.Languages.LanguageManager lm = new Languages.LanguageManager();
+            lstLanguages.ItemsSource = lm.GetAvailableCultures();
+        }
+
+
+        private void lstSkins_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SkinManager sm = new SkinManager();
+            sm.ApplySkin((string)lstSkins.SelectedItem);
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            RefreshSkins();
+            RefreshLanguages();
+        }
+
+        private void lstLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ExplorerNet.Languages.LanguageManager lm = new Languages.LanguageManager();
+            lm.ApplyLanguag((System.Globalization.CultureInfo)lstLanguages.SelectedItem);
         }
     }
 }
