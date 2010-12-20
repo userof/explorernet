@@ -124,6 +124,15 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Info window.
+        /// </summary>
+        public static string InfoWindow {
+            get {
+                return ResourceManager.GetString("InfoWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Language.
         /// </summary>
         public static string Language {

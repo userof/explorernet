@@ -407,6 +407,12 @@ namespace ExplorerNet
             //MessageBox.Show(Properties.Resources.AddLevel);
         }
 
+        private void btnShowInfoWindow_Click(object sender, RoutedEventArgs e)
+        {
+            InfoWindow iw = new InfoWindow();
+            iw.ShowDialog();
+        }
+
 
 
     }

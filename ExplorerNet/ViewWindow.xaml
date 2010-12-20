@@ -4,18 +4,19 @@
     xmlns:res="clr-namespace:ExplorerNet.Properties"
     Title="ViewWindow" Height="300" Width="881" Loaded="Window_Loaded" Closing="Window_Closing" Icon="/Explorer.Net;component/icon181.ico" AllowsTransparency="False">
     <Grid>
-        <ScrollViewer Margin="12,61,12,21">
+        <ScrollViewer Margin="12,61,12,21" ToolTip="Горячие клавиши (F5/F6 – копирование/перемещение, F8/Delete – удаление).">
             <StackPanel Name="spMain" />
         </ScrollViewer>
         <Grid Name="grdMainButtons" Height="43" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Width="811">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="145*" />
-                <ColumnDefinition Width="112*" />
-                <ColumnDefinition Width="126*" />
-                <ColumnDefinition Width="99*" />
-                <ColumnDefinition Width="108*" />
                 <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="117*" />
+                <ColumnDefinition Width="104*" />
+                <ColumnDefinition Width="104*" />
+                <ColumnDefinition Width="104*" />
+                <ColumnDefinition Width="104*" />
+                <ColumnDefinition Width="104*" />
+                <ColumnDefinition Width="104*" />
+                <ColumnDefinition Width="104*" />
             </Grid.ColumnDefinitions>
             
             <!--Add level button-->
@@ -69,25 +70,36 @@
                 </Button.ToolTip>
             </Button>
             
+            <!--Random skin button-->
+            <Button Name="btnRandomSkin" 
+                    HorizontalAlignment="Left" Margin="11,0,0,0"  
+                    VerticalAlignment="Top" Grid.Column="5" Click="btnRandomSkin_Click">
+                <Image Source="ButtonIcons\RandomSkin.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.RandomSkin}" />
+                </Button.ToolTip>
+            </Button>
+
+            <!--Show InfoWindow button-->
+            <Button Name="btnShowInfoWindow" 
+                HorizontalAlignment="Left" Margin="5,0,0,0"  
+                VerticalAlignment="Top" Grid.Column="6" Click="btnShowInfoWindow_Click">
+                <Image Source="ButtonIcons\InfoWindow.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.InfoWindow}" />
+                </Button.ToolTip>
+            </Button>
+
             <!--Reset settings button-->
             <Button Name="btnResetSettings" 
-                    HorizontalAlignment="Left" Margin="5,0,0,0"  
-                    VerticalAlignment="Top" Grid.Column="5" Click="btnResetSettings_Click">
+                HorizontalAlignment="Left" Margin="5,0,0,0"  
+                VerticalAlignment="Top" Grid.Column="7" Click="btnResetSettings_Click">
                 <Image Source="ButtonIcons\ResetSettings.png" />
                 <Button.ToolTip>
                     <ToolTip  Content="{x:Static res:Resources.ResetSettings}" />
                 </Button.ToolTip>
             </Button>
             
-            <!--Random skin button-->
-            <Button Name="btnRandomSkin" 
-                    HorizontalAlignment="Left" Margin="11,0,0,0"  
-                    VerticalAlignment="Top" Grid.Column="6" Click="btnRandomSkin_Click">
-                <Image Source="ButtonIcons\RandomSkin.png" />
-                <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.RandomSkin}" />
-                </Button.ToolTip>
-            </Button>
         </Grid>
     </Grid>
 </Window>

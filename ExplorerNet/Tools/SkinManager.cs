@@ -45,6 +45,7 @@ namespace ExplorerNet.Tools
             {
                 Application.Current.Resources.Clear();
                 //Application.Current.Resources = new ResourceDictionary();
+                //Application.Current.Resources.MergedDictionaries.Clear();
                 ApplySkinXaml(skinPathXaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
             }
@@ -52,12 +53,13 @@ namespace ExplorerNet.Tools
             {
                 Application.Current.Resources.Clear();
                 //Application.Current.Resources = new ResourceDictionary();
+                //Application.Current.Resources.MergedDictionaries.Clear();
                 ApplySkinBaml(skinPathBaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
             }
             else
             {
-                throw new Exception("The skin not found");
+                //throw new Exception("The skin not found");
             }
             
         }
@@ -72,12 +74,15 @@ namespace ExplorerNet.Tools
 
         protected void ApplySkinBaml(string skinPath)
         {
-            FileStream fstream = new FileStream(skinPath, FileMode.Open);
 
+            FileStream fstream = new FileStream(skinPath, FileMode.Open);
             Baml2006Reader reader = new Baml2006Reader(fstream);
 
             ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(reader);
             App.Current.Resources.MergedDictionaries.Add(rd);
+
+            reader.Close();
+            fstream.Close();
         }
 
         public string[] GetSkins()

@@ -4,4 +4,14 @@
     <StartArguments>
     </StartArguments>
   </PropertyGroup>
+  <PropertyGroup>
+    <PublishUrlHistory>ftp://mail.mihanik.net/|ftp://195.128.121.26/laminB-2/WWWRoot/|ftp://explorernetprototype.atwebpages.com/explorernetprototype.atwebpages.com/|ftp://explorernetprototype.atwebpages.com/|http://localhost/WebSite/</PublishUrlHistory>
+    <InstallUrlHistory>http://mail.mihanik.net/IceFox/|http://laminB-2.hosting.parking.ru/|http://explorernetprototype.atwebpages.com/|http://explorernetprototype.tk/|http://localhost/WebSite/</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>ru-RU</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
 </Project>

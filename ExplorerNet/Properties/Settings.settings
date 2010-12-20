@@ -42,7 +42,7 @@
       <Value Profile="(Default)">.enet</Value>
     </Setting>
     <Setting Name="CurrentSkin" Type="System.String" Scope="User">
-      <Value Profile="(Default)">RainierPurple</Value>
+      <Value Profile="(Default)">rainierpurple</Value>
     </Setting>
     <Setting Name="CurrentCulture" Type="System.Globalization.CultureInfo" Scope="User">
       <Value Profile="(Default)">(Default)</Value>
