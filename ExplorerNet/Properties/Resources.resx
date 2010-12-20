@@ -174,4 +174,25 @@
   <data name="InfoWindow" xml:space="preserve">
     <value>Info window</value>
   </data>
+  <data name="MiDesctop" xml:space="preserve">
+    <value>Desctop</value>
+  </data>
+  <data name="MiDocuments" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="MiMusic" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="MiNetwork" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="MiPicture" xml:space="preserve">
+    <value>Picture</value>
+  </data>
+  <data name="MiProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="MiVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
 </root>

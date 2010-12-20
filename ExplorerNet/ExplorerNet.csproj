@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon181.ico</ApplicationIcon>
+    <ApplicationIcon>RIP 2007 Icon 46.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>83499430A73761223C1935317BDE090D844BEAC8</ManifestCertificateThumbprint>
@@ -155,6 +155,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Resource Include="ButtonIcons\InfoWindow.png" />
+    <Resource Include="RIP 2007 Icon 46.ico" />
     <Content Include="skins\SunnyOrange_Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -177,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewWindowApps\FilePanelApps\DriveHint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\SystemFoldersButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,6 +258,9 @@
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\Converter.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\IconExtractor.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\Navigation\Navigator.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\SystemFoldersButton.xaml.cs">
+      <DependentUpon>SystemFoldersButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewWindowApps\Level.xaml.cs">
       <DependentUpon>Level.xaml</DependentUpon>
     </Compile>

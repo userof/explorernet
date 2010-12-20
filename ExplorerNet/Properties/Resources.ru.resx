@@ -174,4 +174,25 @@
   <data name="InfoWindow" xml:space="preserve">
     <value>Информационное окно</value>
   </data>
+  <data name="MiDesctop" xml:space="preserve">
+    <value>Рабочий стол</value>
+  </data>
+  <data name="MiDocuments" xml:space="preserve">
+    <value>Документы</value>
+  </data>
+  <data name="MiMusic" xml:space="preserve">
+    <value>Музыка</value>
+  </data>
+  <data name="MiNetwork" xml:space="preserve">
+    <value>Сеть</value>
+  </data>
+  <data name="MiPicture" xml:space="preserve">
+    <value>Изображения</value>
+  </data>
+  <data name="MiProfile" xml:space="preserve">
+    <value>Папка пользователя</value>
+  </data>
+  <data name="MiVideo" xml:space="preserve">
+    <value>Видео</value>
+  </data>
 </root>

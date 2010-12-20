@@ -160,6 +160,69 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Desctop.
+        /// </summary>
+        public static string MiDesctop {
+            get {
+                return ResourceManager.GetString("MiDesctop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Documents.
+        /// </summary>
+        public static string MiDocuments {
+            get {
+                return ResourceManager.GetString("MiDocuments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Music.
+        /// </summary>
+        public static string MiMusic {
+            get {
+                return ResourceManager.GetString("MiMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Network.
+        /// </summary>
+        public static string MiNetwork {
+            get {
+                return ResourceManager.GetString("MiNetwork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Picture.
+        /// </summary>
+        public static string MiPicture {
+            get {
+                return ResourceManager.GetString("MiPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Profile.
+        /// </summary>
+        public static string MiProfile {
+            get {
+                return ResourceManager.GetString("MiProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Video.
+        /// </summary>
+        public static string MiVideo {
+            get {
+                return ResourceManager.GetString("MiVideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на New file panel.
         /// </summary>
         public static string NewFilePanel {

@@ -1,0 +1,22 @@
+﻿<Button x:Class="ExplorerNet.ViewWindowApps.FilePanelApps.SystemFoldersButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:uc="clr-namespace:ExplorerNet.ViewWindowApps.FilePanelApps"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:ExplorerNet.Properties"
+             mc:Ignorable="d" 
+             Click="Button_Click"
+             d:DesignHeight="300" d:DesignWidth="300">   
+    <Button.ContextMenu>
+        <ContextMenu Name="cmMain" >
+            <MenuItem Name="miDesctop" Header="{x:Static res:Resources.MiDesctop}" Click="miDesctop_Click" />
+            <MenuItem Name="miDocuments" Header="{x:Static res:Resources.MiDocuments}" Click="miDocuments_Click" />
+            <MenuItem Name="miNetwork" Header="{x:Static res:Resources.MiNetwork}" Click="miNetwork_Click" />
+            <MenuItem Name="miProfile" Header="{x:Static res:Resources.MiProfile}" Click="miProfile_Click" />
+            <MenuItem Name="miMusic" Header="{x:Static res:Resources.MiMusic}" Click="miMusic_Click" />
+            <MenuItem Name="miPicture" Header="{x:Static res:Resources.MiPicture}" Click="miPicture_Click"/>
+            <MenuItem Name="miVideo" Header="{x:Static res:Resources.MiVideo}" Click="miVideo_Click" />
+        </ContextMenu>
+    </Button.ContextMenu>
+</Button>

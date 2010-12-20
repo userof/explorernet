@@ -43,17 +43,13 @@ namespace ExplorerNet.Tools
 
             if (File.Exists(skinPathXaml))
             {
-                Application.Current.Resources.Clear();
-                //Application.Current.Resources = new ResourceDictionary();
-                //Application.Current.Resources.MergedDictionaries.Clear();
+                //Application.Current.Resources.Clear();
                 ApplySkinXaml(skinPathXaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
             }
             else if (File.Exists(skinPathBaml))
             {
-                Application.Current.Resources.Clear();
-                //Application.Current.Resources = new ResourceDictionary();
-                //Application.Current.Resources.MergedDictionaries.Clear();
+                //Application.Current.Resources.Clear();
                 ApplySkinBaml(skinPathBaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
             }

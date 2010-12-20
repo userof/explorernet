@@ -136,6 +136,14 @@ namespace ExplorerNet.ViewWindowApps
 
             ugDrives.Children.Clear();
 
+            //Добавляем кнопку доступа к системным папкам
+            SystemFoldersButton sfb = new SystemFoldersButton();
+            sfb.GoToFolder += delegate(object sender, string path)
+            {
+                this.Path = path;
+            };
+            ugDrives.Children.Add(sfb);
+
             foreach (var d in drives)
             {
                 Button btnDrive = new Button();

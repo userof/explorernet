@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Icon="ButtonIcons\InfoWindow.png"
         xmlns:res="clr-namespace:ExplorerNet.Properties"
-        Title="InfoWindow" Height="300" Width="866" WindowStartupLocation="CenterScreen">
+        Title="InfoWindow" Height="300" Width="866" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <FlowDocumentPageViewer>
             <FlowDocument Background="Bisque" ColumnGap="2100">
