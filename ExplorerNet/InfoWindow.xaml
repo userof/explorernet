@@ -1,0 +1,34 @@
+﻿<Window x:Class="ExplorerNet.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="ButtonIcons\InfoWindow.png"
+        xmlns:res="clr-namespace:ExplorerNet.Properties"
+        Title="InfoWindow" Height="300" Width="866" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <FlowDocumentPageViewer>
+            <FlowDocument Background="Bisque" ColumnGap="2100">
+                <Paragraph FontSize="20">Горячие клавиши программы</Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>F2 – переименовать файл/директорию в активной файловой панели</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>F5 – копировать файл/директорию с активной файловой панели во вторую активную файловую панель</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>F6 – переместить файл/директорию с активной файловой панели во вторую активную файловую панель</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>F7 – создать новый каталог</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>F8 – удалить файл/директорию с активной файловой панели</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Delete – удалить файл/директорию с активной файловой панели в корзину</Paragraph>
+                    </ListItem>
+                </List>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+    </Grid>
+</Window>
