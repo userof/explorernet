@@ -46,6 +46,8 @@ namespace ExplorerNet
             {
                 vw.LoadLastTemplate();
             }
+
+
             vw.Show();
 
 

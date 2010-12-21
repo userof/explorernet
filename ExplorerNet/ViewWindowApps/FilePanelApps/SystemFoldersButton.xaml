@@ -7,7 +7,7 @@
              xmlns:res="clr-namespace:ExplorerNet.Properties"
              mc:Ignorable="d" 
              Click="Button_Click"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Opacity="1" AllowDrop="False">
     <Button.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type uc:SystemFoldersButton}" BasedOn="{StaticResource {x:Type Button}}"/>

@@ -156,6 +156,7 @@
     </Page>
     <Resource Include="ButtonIcons\InfoWindow.png" />
     <Resource Include="RIP 2007 Icon 46.ico" />
+    <Resource Include="Gothic4-wallpaper2.jpg" />
     <Content Include="skins\SunnyOrange_Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -67,8 +67,7 @@ namespace ExplorerNet
             KeyBinding kbMakeDir = new KeyBinding(MakeDirCommand, kgMakeDir);
 
             this.InputBindings.Add(kbMakeDir);
-
-
+            
             //////////////////////////////////////////////////
             CommandBinding cbCopy = new CommandBinding(CopyCommand, ExecutedCopyCommand);
             this.CommandBindings.Add(cbCopy);
@@ -81,7 +80,7 @@ namespace ExplorerNet
 
             this.InputBindings.Add(kbCopyF5);
             this.InputBindings.Add(kbCopyF6);
-
+            
             //////////////////////////////////////////////////
             CommandBinding cbRename = new CommandBinding(RenameCommand, ExecutedRenameCommand);
             this.CommandBindings.Add(cbRename);
