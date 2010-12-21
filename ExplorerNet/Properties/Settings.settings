@@ -47,5 +47,8 @@
     <Setting Name="CurrentCulture" Type="System.Globalization.CultureInfo" Scope="User">
       <Value Profile="(Default)">(Default)</Value>
     </Setting>
+    <Setting Name="RecentTemplates" Type="ExplorerNet.Tools.RecentTemplateNS.RecentTemplates" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

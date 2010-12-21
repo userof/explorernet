@@ -234,6 +234,9 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools\RecentTemplateNS\RecentTemplate.cs" />
+    <Compile Include="Tools\RecentTemplateNS\RecentTemplateManager.cs" />
+    <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
     <Compile Include="Tools\ShellContextMenu.cs" />
     <Compile Include="Tools\SizeFileInString.cs" />
     <Compile Include="Tools\SkinManager.cs" />
@@ -373,9 +376,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\UP.ICO" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon181.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\drive_cdrom.ico" />

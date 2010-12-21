@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ExplorerNet.Tools.RecentTemplateNS;
+
 namespace ExplorerNet.ViewWindowApps.FilePanelApps
 {
     /// <summary>
@@ -27,6 +29,41 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         public SystemFoldersButton()
         {
             InitializeComponent();
+
+            BuildRecentTemplates();
+        }
+
+        private void BuildRecentTemplates()
+        {
+            RecentTemplates rts = RecentTemplateManager.GetRecentTemplates(5);
+
+            foreach(var rt in rts)
+            {
+                MenuItem mi = new MenuItem();
+                mi.Header = rt.Name;
+                mi.ToolTip = rt.Path;
+
+                mi.Click += delegate(Object sender, RoutedEventArgs e)
+                {
+                    foreach (var wnd in App.Current.Windows)
+                    {
+                        if (wnd.GetType() == typeof(ViewWindow))
+                        {
+                            ViewWindow vw = (ViewWindow)wnd;
+
+                            MenuItem m = (MenuItem)sender;
+                            string path = (string)m.ToolTip;
+
+                            vw._LoadTemplate(path);
+                        }
+                    }
+
+                };
+
+                cmMain.Items.Add(mi);
+            }
+
+
         }
 
         private void miDesctop_Click(object sender, RoutedEventArgs e)

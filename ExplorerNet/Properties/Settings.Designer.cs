@@ -198,5 +198,16 @@ namespace ExplorerNet.Properties {
                 this["CurrentCulture"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ExplorerNet.Tools.RecentTemplateNS.RecentTemplates RecentTemplates {
+            get {
+                return ((global::ExplorerNet.Tools.RecentTemplateNS.RecentTemplates)(this["RecentTemplates"]));
+            }
+            set {
+                this["RecentTemplates"] = value;
+            }
+        }
     }
 }

@@ -12,7 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 using ExplorerNet.Tools;
+using ExplorerNet.Tools.RecentTemplateNS;
 using ExplorerNet.ViewWindowApps;
 using ExplorerNet.ViewWindowApps.Templates;
 
@@ -212,6 +214,8 @@ namespace ExplorerNet
             currentTemplate.Skin = new SkinManager().GetCurrentSkin();
             currentTemplate.Save(fileName);
 
+            //добавляем в список недавних файлов
+            RecentTemplateManager.AddNewRecentTemplate(currentTemplate.Name, fileName);
         }
         
         /// <summary>
@@ -258,6 +262,8 @@ namespace ExplorerNet
             currentTemplate = ViewWindowTemplate.Load(fileName);
             new SkinManager().ApplySkin(currentTemplate.Skin);
             BuildTemplateView();
+            //добавляем в список недавних файлов
+            RecentTemplateManager.AddNewRecentTemplate(currentTemplate.Name, fileName);
         }
 
         /// <summary>

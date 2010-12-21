@@ -69,7 +69,7 @@ namespace TestProject
         /// <summary>
         ///A test for DeleteWindow Constructor
         ///</summary>
-        [TestMethod()]
+        //[TestMethod()]
         public void DeleteWindowConstructorTest()
         {
             string localPath = @"F:\Projects\C#2pr\Explorer.NET\1\ExplorerNet\out";

@@ -7,7 +7,12 @@
              xmlns:res="clr-namespace:ExplorerNet.Properties"
              mc:Ignorable="d" 
              Click="Button_Click"
-             d:DesignHeight="300" d:DesignWidth="300">   
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Button.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type uc:SystemFoldersButton}" BasedOn="{StaticResource {x:Type Button}}"/>
+        </ResourceDictionary>
+    </Button.Resources>
     <Button.ContextMenu>
         <ContextMenu Name="cmMain" >
             <MenuItem Name="miDesctop" Header="{x:Static res:Resources.MiDesctop}" Click="miDesctop_Click" />
@@ -17,6 +22,7 @@
             <MenuItem Name="miMusic" Header="{x:Static res:Resources.MiMusic}" Click="miMusic_Click" />
             <MenuItem Name="miPicture" Header="{x:Static res:Resources.MiPicture}" Click="miPicture_Click"/>
             <MenuItem Name="miVideo" Header="{x:Static res:Resources.MiVideo}" Click="miVideo_Click" />
+            <Separator />
         </ContextMenu>
     </Button.ContextMenu>
 </Button>
