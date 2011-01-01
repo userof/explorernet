@@ -28,6 +28,13 @@
                         <Paragraph>Delete – удалить файл/директорию с активной файловой панели в корзину</Paragraph>
                     </ListItem>
                 </List>
+                <Paragraph>Для корректной работы программы, после изменения оболочки или языка, программу рекомендуется перезапустить</Paragraph>
+                <Paragraph Foreground="Blue" Cursor="Hand"
+                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown">Обсуждения программы</Paragraph>
+                <Paragraph Foreground="Blue" Cursor="Hand"
+                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_1">Скачать</Paragraph>
+                <Paragraph Foreground="Blue" Cursor="Hand"
+                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_2">Группа на форуме программистов</Paragraph>
             </FlowDocument>
         </FlowDocumentPageViewer>
     </Grid>

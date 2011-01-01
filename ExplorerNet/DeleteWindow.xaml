@@ -6,7 +6,13 @@
     Title="DeleteWindow" Height="213" Width="349">
     <Grid Width="319" Height="165">
         <ListView Name="lvMain" Margin="0,0,0,44">
-            
+            <ListView.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Height" Value="20" />
+                    </Style>
+                </ResourceDictionary>
+            </ListView.Resources>
         </ListView>
         <Button Name="btnDelete" Command="local:DeleteWindow.DeleteFilesCommand" Content="Delete (F8)" Margin="139,0,0,0" HorizontalAlignment="Left" Width="79" Height="28" VerticalAlignment="Bottom" />
         <Button Name="btnDeleteToRecycle" Command="local:DeleteWindow.DeleteFilesToRecCommand" IsDefault="True" Content="Delete To Recycle (Del)" HorizontalAlignment="Left" Width="133" Height="28" VerticalAlignment="Bottom" />

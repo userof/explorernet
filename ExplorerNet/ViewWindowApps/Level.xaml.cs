@@ -17,7 +17,7 @@ namespace ExplorerNet.ViewWindowApps
     /// <summary>
     /// Уровень. Элемент управления, содержащий файловые панели.
     /// </summary>
-    public partial class Level : UserControl
+    public partial class Level : RadioButton
     {
         public Level()
         {
@@ -90,6 +90,12 @@ namespace ExplorerNet.ViewWindowApps
         private void btnClobeLevel_Click(object sender, RoutedEventArgs e)
         {
             CloneLevel();
+        }
+
+        private void level_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.IsChecked = true;
+            //MessageBox.Show(this.IsChecked.ToString());
         }
     }
 }

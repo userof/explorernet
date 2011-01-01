@@ -30,6 +30,38 @@ namespace ExplorerNet.ViewWindowApps
     {
         //private FilePanelSettings filePanelSettings = null;
 
+        public static readonly DependencyProperty IsFirstSelectedProperty =
+            DependencyProperty.Register("IsFirstSelected", typeof(bool),
+            typeof(FilePanel));
+
+        public static readonly DependencyProperty IsSecondSelectedProperty =
+            DependencyProperty.Register("IsSecondSelected", typeof(bool),
+            typeof(FilePanel));
+
+        public bool IsFirstSelected
+        {
+            get
+            {
+                return (bool)GetValue(IsFirstSelectedProperty);
+            }
+            set
+            {
+                SetValue(IsFirstSelectedProperty, value);
+            }
+        }
+
+        public bool IsSecondSelected
+        {
+            get
+            {
+                return (bool)GetValue(IsSecondSelectedProperty);
+            }
+            set
+            {
+                SetValue(IsSecondSelectedProperty, value);
+            }
+        }
+
         private delegate Point GetPositionDelegate(IInputElement element);
 
         /// <summary>
@@ -47,12 +79,12 @@ namespace ExplorerNet.ViewWindowApps
         /// <summary>
         /// Является ли данная файловая панель первой выделенной?
         /// </summary>
-        private bool isFirstSelected = false;
+        //private bool isFirstSelected = false;
 
         /// <summary>
         /// Является ли данная файловая панель второй  выделенной?
         /// </summary>
-        private bool isSecondSelected = false;
+        //private bool isSecondSelected = false;
 
         //public static FilePanel SelectedFilePanel = null;
 
@@ -104,20 +136,31 @@ namespace ExplorerNet.ViewWindowApps
         private void FilePanelSelector_FilePanelChangeSelect()
         {
             //Изменяем цвет элементы, сигнализирую о выделении
-            this.rctSelected.Fill = Brushes.Black;
+            //this.rctSelected.Fill = Brushes.Black;
             // Если панель имеет степень выделения, это отражается на полях
             // isFirstSelected или isSecondSelected
             if (FilePanelSelector.FirstSelected == this)
             {
-                this.isFirstSelected = true;
+                this.IsFirstSelected = true;
+
+                this.IsSecondSelected = false;
+                //this.isFirstSelected = true;
                 //Изменяем цвет элементы, сигнализирую о выделении
-                this.rctSelected.Fill = Brushes.YellowGreen;
+                //this.rctSelected.Fill = Brushes.YellowGreen;
             }
             else if (FilePanelSelector.SecondSelected == this)
             {
-                this.isSecondSelected = true;
+                this.IsFirstSelected = false;
+
+                this.IsSecondSelected = true;
                 //Изменяем цвет элементы, сигнализирую о выделении
-                this.rctSelected.Fill = Brushes.Green;
+                //this.rctSelected.Fill = Brushes.Green;
+            }
+
+            else
+            {
+                this.IsSecondSelected = false;
+                this.IsFirstSelected = false;
             }
         }
 
@@ -712,18 +755,18 @@ namespace ExplorerNet.ViewWindowApps
         /// <summary>
         /// Является ли данная файловая панель первой выделенной?
         /// </summary>
-        public bool IsFirstSelected
-        {
-            get { return this.isFirstSelected; }
-        }
+        //public bool IsFirstSelected
+        //{
+        //    get { return this.isFirstSelected; }
+        //}
 
         /// <summary>
         /// Является ли данная файловая панель второй  выделенной?
         /// </summary>
-        public bool IsSecondSelected
-        {
-            get { return this.isSecondSelected; }
-        }
+        //public bool IsSecondSelected
+        //{
+        //    get { return this.isSecondSelected; }
+        //}
 
         public List<FileSystemInfo> SelectedFiles
         {
@@ -754,6 +797,16 @@ namespace ExplorerNet.ViewWindowApps
             proc.Start();
             
             
+        }
+
+        private void filePanel_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //this.IsChecked = true;
+        }
+
+        private void filePanel_Checked(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show(IsChecked.ToString());
         }
     }
 

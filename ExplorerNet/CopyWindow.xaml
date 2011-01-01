@@ -4,11 +4,19 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:ExplorerNet"
         Title="CopyWindow" Height="255" Width="300">
-    <Grid Height="216">
-        <ListView Name="lvFromCopy" Height="142" VerticalAlignment="Top"></ListView>
-        <ComboBox Name="cbToCopy" Margin="0,148,0,0" Height="26" VerticalAlignment="Top"></ComboBox>
-        <Button Name="btnCopy" Command="local:CopyWindow.CopyCommand" IsDefault="True" Margin="0,180,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81">Copy (F5)</Button>
-        <Button Name="btnMove" Command="local:CopyWindow.MoveCommand" Margin="87,180,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81">Move (F6)</Button>
-        <Button Name="btnCancel" IsCancel="True" Margin="174,180,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81">Cancel (Esc)</Button>
+    <Grid>
+        <ListView Name="lvFromCopy" Margin="0,0,0,70">
+            <ListView.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Height" Value="20" />
+                    </Style>
+                </ResourceDictionary>
+            </ListView.Resources>
+        </ListView>
+        <ComboBox Name="cbToCopy" Margin="0,0,0,42" Height="26" VerticalAlignment="Bottom"></ComboBox>
+        <Button Name="btnCopy" Command="local:CopyWindow.CopyCommand" IsDefault="True" Margin="0,0,0,9" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="81">Copy (F5)</Button>
+        <Button Name="btnMove" Command="local:CopyWindow.MoveCommand" Margin="87,0,0,9" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="81">Move (F6)</Button>
+        <Button Name="btnCancel" IsCancel="True" Margin="174,0,0,9" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="81">Cancel (Esc)</Button>
     </Grid>
 </Window>

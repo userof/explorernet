@@ -8,7 +8,7 @@
         <ScrollViewer Margin="2,61,2,2">
             <StackPanel Name="spMain" Opacity="1" />
         </ScrollViewer>
-        <Grid Name="grdMainButtons" Height="33" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Width="811" Opacity="0.6">
+        <Grid Name="grdMainButtons" Height="33" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Width="811">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="104*" />
                 <ColumnDefinition Width="104*" />
@@ -23,7 +23,7 @@
             <!--Add level button-->
             <Button Name="btnAddLevel" 
                     ToolTipService.ShowDuration="2000" 
-                    HorizontalAlignment="Left" Margin="10,0,0,0"
+                    HorizontalAlignment="Left" Margin="2,0,0,0"
                     VerticalAlignment="Top" Width="Auto" Click="btnAddLevel_Click">
                 <Image Source="ButtonIcons\AddLevel.png" />
                 <Button.ToolTip>
@@ -33,7 +33,7 @@
 
             <!--Settings button-->
             <Button Name="btnSettings" 
-                    HorizontalAlignment="Left" Margin="6,0,0,0"  
+                    HorizontalAlignment="Left" Margin="2,0,0,0"  
                     VerticalAlignment="Top" Grid.Column="1" Click="btnSettings_Click">
                 <Image Source="ButtonIcons\Settings.png" />
                 <Button.ToolTip>
@@ -41,29 +41,29 @@
                 </Button.ToolTip>
             </Button>
             
-            <!--Save template button-->
-            <Button Name="btnSaveTemplate" 
-                    HorizontalAlignment="Left" Margin="7,0,0,0"  
-                    VerticalAlignment="Top" Grid.Column="2" Click="btnSaveTemplate_Click">
-                <Image Source="ButtonIcons\SaveTemplate.png" />
-                <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.SaveTemplate}" />
-                </Button.ToolTip>
-            </Button>
-            
             <!--Load template button-->
             <Button Name="btnLoadTemplate" 
-                    HorizontalAlignment="Left" Margin="9,0,0,0"  
-                    VerticalAlignment="Top" Grid.Column="3" Click="btnLoadTemplate_Click">
+                    HorizontalAlignment="Left" Margin="2,0,0,0"  
+                    VerticalAlignment="Top" Grid.Column="2" Click="btnLoadTemplate_Click">
                 <Image Source="ButtonIcons\LoadTemplate.png" />
                 <Button.ToolTip>
                     <ToolTip  Content="{x:Static res:Resources.LoadTemplate}" />
                 </Button.ToolTip>
             </Button>
-            
+
+            <!--Save template button-->
+            <Button Name="btnSaveTemplate" 
+                    HorizontalAlignment="Left" Margin="2,0,0,0"  
+                    VerticalAlignment="Top" Grid.Column="3" Click="btnSaveTemplate_Click">
+                <Image Source="ButtonIcons\SaveTemplate.png" />
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.SaveTemplate}" />
+                </Button.ToolTip>
+            </Button>
+
             <!--Clear template button-->
             <Button Name="btnClearTemplate" 
-                    HorizontalAlignment="Left" Margin="7,0,0,0"  
+                    HorizontalAlignment="Left" Margin="2,0,0,0"  
                     VerticalAlignment="Top" Grid.Column="4" Click="btnClearTemplate_Click">
                 <Image Source="ButtonIcons\ClearTemplate.png" />
                 <Button.ToolTip>

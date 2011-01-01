@@ -5,6 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:res="clr-namespace:ExplorerNet.Properties"
+    xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps"
+    PreviewMouseDown="filePanel_PreviewMouseDown"
              mc:Ignorable="d" 
              d:DesignWidth="300"
              BorderThickness="2"
@@ -12,7 +14,32 @@
              x:Name="filePanel"
              GotFocus="filePanel_GotFocus" 
              Unloaded="filePanel_Unloaded" 
-             Loaded="filePanel_Loaded" FontSize="10" Opacity="1">
+             Loaded="filePanel_Loaded">
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <Border Name="Border" BorderBrush="HotPink" BorderThickness="3">
+                <ContentPresenter />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="local:FilePanel.IsFirstSelected" Value="true">
+                    <Setter TargetName="Border" Property="BorderThickness" Value="7" />
+                    <Setter TargetName="Border" Property="BorderBrush" Value="Red" />
+                </Trigger>
+                <Trigger Property="local:FilePanel.IsSecondSelected" Value="true">
+                    <Setter TargetName="Border" Property="BorderThickness" Value="7" />
+                    <Setter TargetName="Border" Property="BorderBrush" Value="Green" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Template>
+    
+    <!--<RadioButton.Triggers>
+        <Trigger Property="local:FilePanel.IsFirstSelected" Value="true">
+            <Setter TargetName="Border" Property="BorderThickness" Value="5" />
+            <Setter TargetName="Border" Property="BorderBrush" Value="Red" />
+        </Trigger>
+    </RadioButton.Triggers>-->
+    
     <Grid >
         <Thumb Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" HorizontalAlignment="Right" Width="4"></Thumb>
         <Grid HorizontalAlignment="Left" Width="28">
@@ -77,7 +104,6 @@
             </Button>
             
             <!--Индикатор выделения-->
-            <Rectangle Name="rctSelected" Margin="0,153,0,0" Height="25" VerticalAlignment="Top" Fill="Black"></Rectangle>
         </Grid>
         <Grid Margin="34,0,4,4">
             <UniformGrid Name="ugDrives" Height="20" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>
@@ -85,7 +111,7 @@
                 <!--<Grid Name="grdFileList" >-->
                      
                     <ListView Name="lvFileList" PreviewMouseLeftButtonDown="lvFileList_PreviewMouseLeftButtonDown" 
-                                AllowDrop="False" PreviewMouseMove="lvFileList_PreviewMouseMove" Drop="lvFileList_Drop" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,45,0,0"
+                                AllowDrop="False" PreviewMouseMove="lvFileList_PreviewMouseMove" Drop="lvFileList_Drop" MouseDoubleClick="lvFileList_MouseDoubleClick" Margin="0,48,0,0"
                                 PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown" ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85">
                         <ListView.View>
                         <GridView>
@@ -118,7 +144,7 @@
             <!--</Grid>-->
             <!--</ScrollViewer>-->  
         </Grid>
-        <Grid Name="grdPath" Height="20" VerticalAlignment="Top" Margin="34,23,12,0">
+        <Grid Name="grdPath" Height="25" VerticalAlignment="Top" Margin="34,23,12,0">
             <Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
             <Button Name="btnUp" Margin="33,0,0,0" HorizontalAlignment="Left" Width="26" Click="btnUp_Click">U</Button>
             <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>

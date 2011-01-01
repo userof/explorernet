@@ -390,15 +390,18 @@ namespace ExplorerNet
 
             lvFromCopy.ItemsSource = lstCopyFiles;
             
-            
             List<string> lstPathes = new List<string>();
             foreach(FilePanel fp in FilePanelSelector.FilePanels)
             {
-                lstPathes.Add(fp.FilePanelSettings.Path);
+                if (!lstPathes.Contains(fp.FilePanelSettings.Path))
+                {
+                    lstPathes.Add(fp.FilePanelSettings.Path);
+                }
             }
             cbToCopy.ItemsSource = lstPathes;
             cbToCopy.Text = path;
         }
+
 
     }
 

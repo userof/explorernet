@@ -30,6 +30,11 @@ namespace ExplorerNet
             Registry.SetValue(
                 Registry.CurrentUser.ToString() + @"\Software\Classes\enet_auto\shell\open\command", "",
                 string.Format("\"{0}\"\"%1\"", path), RegistryValueKind.String);
+
+            Registry.SetValue(Registry.CurrentUser.ToString() + @"\Software\Classes\enet_auto\DefaultIcon\",
+                "", System.IO.Path.GetDirectoryName(path) + System.IO.Path.DirectorySeparatorChar + 
+                "FileAssotiation.ico", RegistryValueKind.String);
+
             Registry.SetValue(Registry.CurrentUser.ToString() + @"\Software\Classes\.enet", "", "enet_auto",
                  RegistryValueKind.String);
 
