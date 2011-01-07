@@ -92,8 +92,17 @@
                     <ToolTip  Content="{x:Static res:Resources.MakeDirectory}" />
                 </Button.ToolTip>
             </Button>
-            
-            
+
+            <!--Make directory button-->
+            <Button Name="btnCopyDialog" 
+                    Margin="0,153,0,0" Height="25" 
+                    VerticalAlignment="Top" Click="btnCopyDialog_Click">
+                <!--<Image Source="..\ButtonIcons\MakeDirectory.png" />-->
+                <Button.ToolTip>
+                    <ToolTip  Content="{x:Static res:Resources.MakeDirectory}" />
+                </Button.ToolTip>
+            </Button>
+
             <Button Name="btnCMD" 
                     Margin="0,183,0,0" Height="25"
                     VerticalAlignment="Top" Click="btnCMD_Click">
@@ -106,7 +115,7 @@
             <!--Индикатор выделения-->
         </Grid>
         <Grid Margin="34,0,4,4">
-            <UniformGrid Name="ugDrives" Height="20" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>
+            <UniformGrid Name="ugDrives" Height="25" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>
             <!--<ScrollViewer>--> 
                 <!--<Grid Name="grdFileList" >-->
                      

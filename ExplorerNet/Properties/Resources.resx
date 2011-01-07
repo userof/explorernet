@@ -195,4 +195,22 @@
   <data name="MiVideo" xml:space="preserve">
     <value>Video</value>
   </data>
+  <data name="IsDriveNotReady" xml:space="preserve">
+    <value>The drive not ready!</value>
+  </data>
+  <data name="Bytes" xml:space="preserve">
+    <value>Bytes</value>
+  </data>
+  <data name="GB" xml:space="preserve">
+    <value>GB</value>
+  </data>
+  <data name="KB" xml:space="preserve">
+    <value>KB</value>
+  </data>
+  <data name="MB" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
 </root>

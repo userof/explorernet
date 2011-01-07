@@ -36,9 +36,9 @@
     <SuiteName>ExplorerNet</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>true</UseApplicationTrust>
+    <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -75,7 +75,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -84,10 +84,11 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>vv.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -194,6 +195,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\DriveButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewWindowApps\FilePanelApps\DriveHint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,6 +256,7 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools\DriveData.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplate.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplateManager.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
@@ -265,6 +271,9 @@
     </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\CreateFolderWindow.xaml.cs">
       <DependentUpon>CreateFolderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\DriveButton.xaml.cs">
+      <DependentUpon>DriveButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\DriveHint.xaml.cs">
       <DependentUpon>DriveHint.xaml</DependentUpon>
@@ -293,7 +302,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <None Include="app.config" />
-    <None Include="ExplorerNet_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -375,7 +383,6 @@
     <Content Include="skins\whistlerblue.baml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="vv.snk" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ViewWindowApps\Templates\Templates.txt" />

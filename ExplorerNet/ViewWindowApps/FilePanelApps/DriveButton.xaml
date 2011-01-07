@@ -1,0 +1,38 @@
+﻿<RadioButton x:Class="ExplorerNet.ViewWindowApps.FilePanelApps.DriveButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+
+             d:DesignHeight="30" d:DesignWidth="300">
+    <RadioButton.Template>
+        <ControlTemplate TargetType="RadioButton">
+            <Border Name="Border" BorderBrush="Green" BorderThickness="1">
+                <Button Click="Button_Click">
+                    <ContentPresenter></ContentPresenter>
+                </Button>
+                
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="true">
+                    <Setter TargetName="Border" Property="BorderBrush"
+                            Value="Blue" />
+                    <Setter TargetName="Border" Property="BorderThickness"
+                            Value="2" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </RadioButton.Template>
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="1234567890" Margin="10 0 0 0" Name="txtDriveName" Width="20" />
+            <Image Name="imgDriveType" Source="/Icons/drive_unknown.ico" />
+            <TextBlock Name="txtLabel" Margin="10 0 0 0" />
+            <!--<TextBlock Name="txtInfo" />-->
+            <TextBlock Name="txtSize" Margin="10 0 0 0" />
+        </StackPanel>
+        <ProgressBar Name="pbSize" Value="50" Opacity="0.4" />
+        
+    </Grid>
+</RadioButton>

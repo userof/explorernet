@@ -70,6 +70,15 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Bytes.
+        /// </summary>
+        public static string Bytes {
+            get {
+                return ResourceManager.GetString("Bytes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Clear template.
         /// </summary>
         public static string ClearTemplate {
@@ -106,6 +115,15 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Copy.
+        /// </summary>
+        public static string Copy {
+            get {
+                return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Delete file panel.
         /// </summary>
         public static string DeleteFilePanel {
@@ -124,11 +142,38 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на GB.
+        /// </summary>
+        public static string GB {
+            get {
+                return ResourceManager.GetString("GB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Info window.
         /// </summary>
         public static string InfoWindow {
             get {
                 return ResourceManager.GetString("InfoWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The drive not ready!.
+        /// </summary>
+        public static string IsDriveNotReady {
+            get {
+                return ResourceManager.GetString("IsDriveNotReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на KB.
+        /// </summary>
+        public static string KB {
+            get {
+                return ResourceManager.GetString("KB", resourceCulture);
             }
         }
         
@@ -156,6 +201,15 @@ namespace ExplorerNet.Properties {
         public static string MakeDirectory {
             get {
                 return ResourceManager.GetString("MakeDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на MB.
+        /// </summary>
+        public static string MB {
+            get {
+                return ResourceManager.GetString("MB", resourceCulture);
             }
         }
         

@@ -7,8 +7,16 @@ using ExplorerNet.ViewWindowApps.Templates;
 
 namespace ExplorerNet.Tools.RecentTemplateNS
 {
+    /// <summary>
+    /// Класс для управления последними открытыми шаблонами приложения
+    /// </summary>
     public static class RecentTemplateManager
     {
+        /// <summary>
+        /// Возвращает последние открытые шаблоны приложения
+        /// </summary>
+        /// <param name="templatesCount">Количество возвращаемых шаблонов</param>
+        /// <returns></returns>
         public static RecentTemplates GetRecentTemplates(int templatesCount)
         {
             RecentTemplates result = new RecentTemplates();
@@ -37,6 +45,10 @@ namespace ExplorerNet.Tools.RecentTemplateNS
             return result;
         }
 
+        /// <summary>
+        /// Добавляет новый шаблон в список последних открытых шаблонов
+        /// </summary>
+        /// <param name="recentTemplate">Обложка для шаблона</param>
         public static void AddNewRecentTemplate(RecentTemplate recentTemplate)
         {
             if (Properties.Settings.Default.RecentTemplates == null)
@@ -56,6 +68,11 @@ namespace ExplorerNet.Tools.RecentTemplateNS
             Properties.Settings.Default.Save();
         }
 
+        /// <summary>
+        /// Добавляет новый шаблон в список последних открытых шаблонов
+        /// </summary>
+        /// <param name="recentTemplateName">Имя шаблона</param>
+        /// <param name="recentTemplatePath">Путь к шаблону</param>
         public static void AddNewRecentTemplate(string recentTemplateName, string recentTemplatePath)
         {
             RecentTemplate rTemplate = new RecentTemplate();

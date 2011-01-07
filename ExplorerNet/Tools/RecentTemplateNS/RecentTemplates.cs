@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ExplorerNet.Tools.RecentTemplateNS
 {
+    /// <summary>
+    /// Список последних открытых шаблонов
+    /// </summary>
     [Serializable]
     public class RecentTemplates : List<RecentTemplate>
     {

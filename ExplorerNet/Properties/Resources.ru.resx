@@ -195,4 +195,22 @@
   <data name="MiVideo" xml:space="preserve">
     <value>Видео</value>
   </data>
+  <data name="IsDriveNotReady" xml:space="preserve">
+    <value>Устройство не готово</value>
+  </data>
+  <data name="Bytes" xml:space="preserve">
+    <value>Байт</value>
+  </data>
+  <data name="GB" xml:space="preserve">
+    <value>ГБ</value>
+  </data>
+  <data name="KB" xml:space="preserve">
+    <value>КБ</value>
+  </data>
+  <data name="MB" xml:space="preserve">
+    <value>МБ</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
 </root>

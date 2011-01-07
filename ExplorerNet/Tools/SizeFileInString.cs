@@ -5,14 +5,24 @@ using System.Text;
 
 namespace ExplorerNet.Tools
 {
+    /// <summary>
+    /// Предоставляет размер в единицах, зависящих от размера
+    /// </summary>
     public static class SizeFileInString
     {
+        /// <summary>
+        /// Предоставляет размер в единицах, зависящих от размера
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
         public static string GetSizeInStr(long bytes)
         {
-            const int scale = 1024;
-            string[] orders = new string[] { "GB", "MB", "KB", "Bytes" };
-            long max = (long)Math.Pow(scale, orders.Length - 1);
 
+            const int scale = 1024;
+            string[] orders = new string[] { Properties.Resources.GB,
+                Properties.Resources.MB, Properties.Resources.KB,
+                Properties.Resources.Bytes };
+            long max = (long)Math.Pow(scale, orders.Length - 1);
 
             foreach (string order in orders)
             {
@@ -21,7 +31,7 @@ namespace ExplorerNet.Tools
 
                 max /= scale;
             }
-            return "0 Bytes";
+            return "0 " + Properties.Resources.Bytes;
 
         }
     }

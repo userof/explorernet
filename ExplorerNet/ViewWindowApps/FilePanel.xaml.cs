@@ -28,7 +28,7 @@ namespace ExplorerNet.ViewWindowApps
     /// </summary>
     public partial class FilePanel : UserControl
     {
-        //private FilePanelSettings filePanelSettings = null;
+        #region Dependency properties
 
         public static readonly DependencyProperty IsFirstSelectedProperty =
             DependencyProperty.Register("IsFirstSelected", typeof(bool),
@@ -38,6 +38,9 @@ namespace ExplorerNet.ViewWindowApps
             DependencyProperty.Register("IsSecondSelected", typeof(bool),
             typeof(FilePanel));
 
+        /// <summary>
+        /// Свойство зависимостей, идентифицирующее панель первого выделение
+        /// </summary>
         public bool IsFirstSelected
         {
             get
@@ -50,6 +53,9 @@ namespace ExplorerNet.ViewWindowApps
             }
         }
 
+        /// <summary>
+        /// Свойство зависимостей, идентифицирующее панель второго выделение
+        /// </summary>
         public bool IsSecondSelected
         {
             get
@@ -62,33 +68,9 @@ namespace ExplorerNet.ViewWindowApps
             }
         }
 
-        private delegate Point GetPositionDelegate(IInputElement element);
+        #endregion //Dependency properties
 
-        /// <summary>
-        /// Текущая директория файловой панели
-        /// </summary>
-        private DirectoryInfo _currentDirectory = null;
-
-        /// <summary>
-        /// Объект для наблюдения в изменении файловой системы
-        /// </summary>
-        private FileSystemWatcher watcher = null;
-
-        private static List<CustomFileSystemCover> dragList = null;
-
-        /// <summary>
-        /// Является ли данная файловая панель первой выделенной?
-        /// </summary>
-        //private bool isFirstSelected = false;
-
-        /// <summary>
-        /// Является ли данная файловая панель второй  выделенной?
-        /// </summary>
-        //private bool isSecondSelected = false;
-
-        //public static FilePanel SelectedFilePanel = null;
-
-        //public static FilePanel SecondSelectedFilePanel = null;
+        #region Constructors
 
         static FilePanel()
         {
@@ -118,6 +100,38 @@ namespace ExplorerNet.ViewWindowApps
             _BuildDrives();
 
         }
+
+        #endregion //Constructors
+
+        private delegate Point GetPositionDelegate(IInputElement element);
+
+        /// <summary>
+        /// Текущая директория файловой панели
+        /// </summary>
+        private DirectoryInfo _currentDirectory = null;
+
+        /// <summary>
+        /// Объект для наблюдения в изменении файловой системы
+        /// </summary>
+        private FileSystemWatcher watcher = null;
+
+        private static List<CustomFileSystemCover> dragList = null;
+
+        /// <summary>
+        /// Является ли данная файловая панель первой выделенной?
+        /// </summary>
+        //private bool isFirstSelected = false;
+
+        /// <summary>
+        /// Является ли данная файловая панель второй  выделенной?
+        /// </summary>
+        //private bool isSecondSelected = false;
+
+        //public static FilePanel SelectedFilePanel = null;
+
+        //public static FilePanel SecondSelectedFilePanel = null;
+
+
 
         private void watcher_Changed(object sender, FileSystemEventArgs e)
         {
@@ -189,8 +203,10 @@ namespace ExplorerNet.ViewWindowApps
 
             foreach (var d in drives)
             {
-                Button btnDrive = new Button();
-                btnDrive.Content = d.Name[0].ToString();
+                //Button btnDrive = new Button();
+                DriveButton btnDrive = new DriveButton(d);
+
+                //btnDrive.Content = d.Name[0].ToString();
                 //Создаём подсказку для диска
                 btnDrive.ToolTip = new DriveHint(d);
                 ToolTipService.SetBetweenShowDelay(btnDrive, 20000);
@@ -211,7 +227,7 @@ namespace ExplorerNet.ViewWindowApps
         /// <param name="e"></param>
         private void btnDrive_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Button btnDrive = (Button)sender;
+            DriveButton btnDrive = (DriveButton)sender;
             DriveInfo di = (DriveInfo)btnDrive.Tag;
 
             if (di.IsReady)
@@ -233,7 +249,7 @@ namespace ExplorerNet.ViewWindowApps
         /// <param name="e"></param>
         private void btnDrive_MouseRightButtonDown(Object sender, MouseButtonEventArgs e)
         {
-            Button btnDrive = (Button)sender;
+            DriveButton btnDrive = (DriveButton)sender;
             DriveInfo drive = (DriveInfo)btnDrive.Tag;
 
 
@@ -807,6 +823,12 @@ namespace ExplorerNet.ViewWindowApps
         private void filePanel_Checked(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show(IsChecked.ToString());
+        }
+
+        private void btnCopyDialog_Click(object sender, RoutedEventArgs e)
+        {
+            CopyWindow cw = new CopyWindow();
+            cw.ShowDialog();
         }
     }
 

@@ -18,47 +18,71 @@ using ExplorerNet.Tools;
 namespace ExplorerNet.ViewWindowApps.FilePanelApps
 {
     /// <summary>
-    /// Логика взаимодействия для DriveHint.xaml
+    /// Логика взаимодействия для DriveButton.xaml
     /// </summary>
-    public partial class DriveHint : UserControl
+    public partial class DriveButton : RadioButton
     {
-        private DriveInfo drive = null;
+        private DriveInfo currentDrive = null;
 
-        public DriveHint(DriveInfo drive)
+        public DriveButton(DriveInfo drive)
         {
             InitializeComponent();
-            this.drive = drive;
+
+            this.currentDrive = drive;
+
+            txtDriveName.Text = drive.Name[0].ToString();
+
+            ShowDriveData(drive);
+
+            //switch (drive.DriveType)
+            //{
+            //    case DriveType.CDRom:
+            //        imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_cdrom.ico", UriKind.Relative));
+            //        break;
+            //    case DriveType.Fixed:
+            //        imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_fixed.ico", UriKind.Relative));
+            //        break;
+            //    case DriveType.Network:
+            //        imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_network.ico", UriKind.Relative));
+            //        break;
+            //    case DriveType.NoRootDirectory:
+            //        break;
+            //    case DriveType.Ram:
+            //        break;
+            //    case DriveType.Removable:
+            //        imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_removable.ico", UriKind.Relative));
+            //        break;
+            //    case DriveType.Unknown:
+            //        imgDriveType.Source = new BitmapImage(new Uri("/Icons/drive_unknown.ico", UriKind.Relative));
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
-        /// <summary>
-        /// Заполняем элементы управления данными
-        /// </summary>
-        private void ShowDriveData()
+        private void ShowDriveData(DriveInfo drive)
         {
             DriveData driveData = new DriveData(drive);
 
             txtSize.Text = driveData.LongSize;
+            txtLabel.Text = driveData.VolumeLabel;
+
+            
 
             try
             {
                 pbSize.Maximum = driveData.MaximumSize;
-                pbSize.Value = driveData.MaximumSize - 
+
+                pbSize.Value = driveData.MaximumSize -
                     driveData.AvailableFreeSpace;
             }
             catch (Exception)
             {
-
+                
             }
 
             imgDriveType.Source = driveData.DriveIcon;
 
-            txtInfo.Text = string.Format("name:{0} type:{1}",
-                drive.Name[0].ToString(), drive.DriveType);
-
-            if (!driveData.Drive.IsReady)
-            {
-                txtSize.Text = "The drive is not read"; 
-            }
 
             //if (drive.IsReady)
             //{
@@ -68,7 +92,9 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             //    string availableShort = SizeFileInString.GetSizeInStr(drive.AvailableFreeSpace);
             //    string availableLong = drive.AvailableFreeSpace.ToString();
 
-            //    txtSize.Text = string.Format("Free: {0} from {1} ({2} from {3})", availableShort, totalShort, availableLong, totalLong);
+            //    txtSize.Text = string.Format("(Free: {0} from {1} ({2} from {3}))", availableShort, totalShort, availableLong, totalLong);
+
+            //    txtLabel.Text = drive.VolumeLabel;
 
             //    pbSize.Maximum = drive.TotalSize;
 
@@ -80,17 +106,11 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             //    {
 
             //    }
-                
-
-            //    txtInfo.Text = string.Format("name:{0} label:{1} type:{2}",
-            //        drive.Name[0].ToString(), drive.VolumeLabel, drive.DriveType);
 
             //}
             //else
             //{
-            //    txtInfo.Text = string.Format("name:{0} type:{1}",
-            //        drive.Name[0].ToString(), drive.DriveType);
-            //    txtSize.Text = "The drive is not read";
+
             //}
 
             //switch (drive.DriveType)
@@ -120,12 +140,9 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
         }
 
-
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ShowDriveData();
+            this.IsChecked = true;
         }
-
-
     }
 }

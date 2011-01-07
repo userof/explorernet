@@ -9,16 +9,31 @@ using System.Windows.Baml2006;
 
 namespace ExplorerNet.Tools
 {
+    /// <summary>
+    /// Класс, который управляет скинами приложения
+    /// </summary>
     public class SkinManager
     {
+        /// <summary>
+        /// Путь приложения
+        /// </summary>
         private string appPath = "";
 
+        /// <summary>
+        /// Директория с файлами скинов
+        /// </summary>
         private string skinDirPath = "";
 
+        /// <summary>
+        /// Имя папки со скинами
+        /// </summary>
         private const string skinDirName = "skins";
 
         //private const string skinExt = "xaml";
 
+        /// <summary>
+        /// Расширения фалов скинов
+        /// </summary>
         private const string skinSearchFilter = "*.?aml";
 
         public SkinManager()
@@ -26,13 +41,19 @@ namespace ExplorerNet.Tools
             Init();
         }
 
-
+        /// <summary>
+        /// Метод инициализации основных данных класса
+        /// </summary>
         private void Init()
         {
             appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
             skinDirPath = Path.GetDirectoryName(appPath) + Path.DirectorySeparatorChar + skinDirName;
         }
 
+        /// <summary>
+        /// Устанавливает скин приложения
+        /// </summary>
+        /// <param name="skinName">Метод инициализации основных данных класса</param>
         public void ApplySkin(string skinName)
         {
             string skinPathXaml = skinDirPath + Path.DirectorySeparatorChar +
@@ -60,6 +81,10 @@ namespace ExplorerNet.Tools
             
         }
 
+        /// <summary>
+        /// Устанавливает Xaml скин приложения
+        /// </summary>
+        /// <param name="skinPath"></param>
         protected void ApplySkinXaml(string skinPath)
         {
             System.Windows.ResourceDictionary rd = new System.Windows.ResourceDictionary();
@@ -68,6 +93,10 @@ namespace ExplorerNet.Tools
  
         }
 
+        /// <summary>
+        /// Устанавливает Baml скин приложения
+        /// </summary>
+        /// <param name="skinPath"></param>
         protected void ApplySkinBaml(string skinPath)
         {
 
@@ -81,6 +110,10 @@ namespace ExplorerNet.Tools
             fstream.Close();
         }
 
+        /// <summary>
+        /// Возвращает список скинов приложения
+        /// </summary>
+        /// <returns></returns>
         public string[] GetSkins()
         {
             DirectoryInfo dies = new DirectoryInfo(skinDirPath);
@@ -97,6 +130,10 @@ namespace ExplorerNet.Tools
             return skins.ToArray();
         }
 
+        /// <summary>
+        /// Возвращает текущий скин приложения
+        /// </summary>
+        /// <returns></returns>
         public string GetCurrentSkin()
         {
             return Properties.Settings.Default.CurrentSkin;
