@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:ExplorerNet"
-        Title="CopyWindow" Height="255" Width="300">
+        Title="CopyWindow" Height="255" Width="300" Loaded="Window_Loaded">
     <Grid>
         <ListView Name="lvFromCopy" Margin="0,0,0,70">
             <ListView.Resources>

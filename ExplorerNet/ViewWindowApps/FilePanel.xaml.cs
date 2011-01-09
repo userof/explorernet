@@ -21,6 +21,10 @@ using System.Windows.Threading;
 using ExplorerNet.ViewWindowApps.FilePanelApps;
 using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers;
 
+using System.Collections;
+
+//using GongSolutions.Wpf.DragDrop;
+
 namespace ExplorerNet.ViewWindowApps
 {
     /// <summary>
@@ -70,11 +74,14 @@ namespace ExplorerNet.ViewWindowApps
 
         #endregion //Dependency properties
 
-        #region Constructors
+        //Определяет, сработает ли Drop в lvFileList
+        private bool isListViewDroped = true;
 
+        #region Constructors
+           
         static FilePanel()
         {
-            dragList = new List<CustomFileSystemCover>();
+            dragList = new List<CustomFileSystemCover>(); 
         }
 
         public FilePanel()
@@ -96,12 +103,19 @@ namespace ExplorerNet.ViewWindowApps
             this.watcher.Deleted += new FileSystemEventHandler(watcher_Changed);
             //this.watcher.EnableRaisingEvents = true;
 
+            //this.lvFileList.DragEnter += 
+
             //Построения кнопок дисков
             _BuildDrives();
 
         }
 
         #endregion //Constructors
+
+        #region Drag&Drop
+
+
+        #endregion
 
         private delegate Point GetPositionDelegate(IInputElement element);
 
@@ -307,33 +321,166 @@ namespace ExplorerNet.ViewWindowApps
         private void _BuildFileSystemView(DirectoryInfo directory)
         {
             //Очищаем список
-            lvFileList.Items.Clear();
+            //lvFileList.Items.Clear();
+            lvFileList.ItemsSource = null;
+
 
             _currentDirectory = directory;
+
+            List<CustomFileSystemCover> list = new List<CustomFileSystemCover>();
+
+            //CustomFileSystemCover cover = null;
+
+            //lvFileList.ItemContainerGenerator.StatusChanged +=
+            //        delegate(Object sender, EventArgs e)
+            //        {
+            //            ListViewItem lvi = (ListViewItem)lvFileList.ItemContainerGenerator.ContainerFromItem(cover);
+            //            if (lvi != null)
+            //            {
+            //                lvi.PreviewMouseLeftButtonDown += delegate(Object sender, MouseButtonEventArgs e)
+            //                {
+            //                    DragDrop.do
+            //                }
+            //            }
+
+            //        };
 
             // Если у текущего каталога есть родительский каталог, создаём елемент, дающий возможность
             // перейти в родительский каталог
             if (directory.Parent != null)
             {
                 ParentDirectoryCover cover = new ParentDirectoryCover(directory.Parent);
-                lvFileList.Items.Add(cover);
+                list.Add(cover);
+                //lvFileList.Items.Add(cover);
+                
             }
+
+            //ListViewItem lvi = new ListViewItem();
+            
+
+            
+            //Style style = new Style(typeof(ListViewItem));
+            //EventSetter es = new EventSetter();
+            //es.
 
             // Создаём елементы отражающие директории
             foreach (var dir in directory.GetDirectories())
             {
                 DirectoryCover cover = new DirectoryCover(dir);
-                lvFileList.Items.Add(cover);
 
+                list.Add(cover);
+                //lvFileList.Items.Add(cover);
+                //lvFileList.UpdateLayout();
+
+                //Получаем ListViewItem, когда он будет создан и подписываемся на его события
+                lvFileList.ItemContainerGenerator.StatusChanged +=
+                    delegate(Object sender, EventArgs e)
+                    {
+                        ListViewItem lvi = (ListViewItem)lvFileList.ItemContainerGenerator.ContainerFromItem(cover);
+                        if (lvi != null)
+                        {
+                            lvi.AllowDrop = true;
+ 
+                            //Список событий. Сделан чтобы не подписываться много раз на одно событие
+                            List<string> eventList = null;
+                            if (lvi.Tag == null)
+                            {
+                                eventList = new List<string>();
+                                lvi.Tag = eventList;
+                            }
+                            else
+                            {
+                                eventList = (List<string>)lvi.Tag;
+                            }
+
+                            //Если события нет в списке, то подписываемся на него
+                            if (!eventList.Contains("DragEnter"))
+                            {
+                                eventList.Add("DragEnter");
+                                lvi.DragEnter += delegate(Object sender1, DragEventArgs e1)
+                                {
+                                    if (e1.Effects == DragDropEffects.Move)
+                                    {
+                                        lvi.Opacity = 0.5;
+                                    }
+                                };
+                            }
+
+                            //Если события нет в списке, то подписываемся на него
+                            if (!eventList.Contains("DragLeave"))
+                            {
+                                eventList.Add("DragLeave");
+                                lvi.DragLeave += delegate(Object sender1, DragEventArgs e1)
+                                {
+                                    lvi.Opacity = 1;
+                                };
+                            }
+
+                            //Если события нет в списке, то подписываемся на него
+                            if (!eventList.Contains("Drop"))
+                            {
+                                eventList.Add("Drop");
+                                lvi.Drop += delegate(Object sender1, DragEventArgs e1)
+                                {
+                                    lvi.Opacity = 1;
+                                    DataObject dObj = (DataObject)e1.Data;
+
+                                    //Делаем не возможным обрабатывать Drop lvFileList
+                                    this.isListViewDroped = false;
+                                    
+                                    if (dObj.GetDataPresent(typeof(List<CustomFileSystemCover>)))
+                                    {
+                                        // If the desired data format is present, use one of the GetData methods to retrieve the
+                                        // data from the data object.
+                                        List<CustomFileSystemCover> selectedList = dObj.GetData(typeof(List<CustomFileSystemCover>)) 
+                                            as List<CustomFileSystemCover>;
+
+                                        //MessageBox.Show(selectedList[0].Name);
+                                        List<FileSystemInfo> fsiList = new List<FileSystemInfo>();
+
+                                        foreach (var sl in selectedList)
+                                        {
+                                            if (sl.FileSystemElement.GetType() == typeof(DirectoryInfo))
+                                            {
+                                                fsiList.Add(new DirectoryInfo(sl.FileSystemElement.FullName));
+                                            }
+                                            else if (sl.FileSystemElement.GetType() == typeof(FileInfo))
+                                            {
+                                                fsiList.Add(new FileInfo(sl.FileSystemElement.FullName));
+                                            }
+                                            else
+                                            {
+                                                new Exception("Type not support!");
+                                            }
+                                        }
+
+                                        DirectoryCover dc = (DirectoryCover)lvi.Content;
+
+
+                                        CopyWindow cw = new CopyWindow(fsiList, dc.FileSystemElement.FullName);
+                                        cw.ShowDialog();
+                                        
+                                    }
+
+                                    //DragDrop.RemovePreviewDropHandler(lvFileList, lvFileList_Drop);
+                                };
+                            }
+
+                        }
+                    };
             }
-
+            
             // Создаём елементы отражающие файлы
             foreach (var file in directory.GetFiles())
             {
                 FileCover cover = new FileCover(file);
-                lvFileList.Items.Add(cover);
+
+                list.Add(cover);
+                //lvFileList.Items.Add(cover);
 
             }
+
+            lvFileList.ItemsSource = list;
 
             // Задаём в текстовом поле текущий путь
             txtPath.Text = directory.FullName;
@@ -350,9 +497,13 @@ namespace ExplorerNet.ViewWindowApps
         /// <param name="e"></param>
         private void lvFileList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
             // Если директория - входим в неё
             if (lvFileList.SelectedItem is DirectoryCover)
             {
+                //ListViewItem lvi = (ListViewItem)lvFileList.SelectedItem;
+                //DirectoryCover cover = (DirectoryCover)lvi.Content;
+
                 DirectoryCover cover = (DirectoryCover)lvFileList.SelectedItem;
                 _BuildFileSystemView(cover.DirectoryElement);
             }
@@ -416,120 +567,6 @@ namespace ExplorerNet.ViewWindowApps
         }
 
 
-        #region Drag&Drop
-
-        private void lvFileList_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-
-            //if (lvFileList.SelectedItems.Count < 1) return;
-
-            //dragList.Clear();
-
-            //foreach(var itm in lvFileList.SelectedItems)
-            //{
-            //    if (itm is CustomFileSystemCover)
-            //    {
-            //        dragList.Add((CustomFileSystemCover)itm);
-            //    }
-            //}
-
-            //DragDropEffects allowedEffects = DragDropEffects.Move;
-
-            //if (DragDrop.DoDragDrop(this.lvFileList, dragList, allowedEffects) != DragDropEffects.None)
-            //{
-
-            //}
-
-
-
-        }
-
-        private void lvFileList_Drop(object sender, DragEventArgs e)
-        {
-
-            if (dragList.Count < 1) return;
-
-            DirectoryInfo targetDir = null;
-
-            int index = this.GetCurrentIndex(e.GetPosition);
-
-            object target = lvFileList.Items[index];
-
-            if (dragList[0] == target) return;
-
-            if (target.GetType() == typeof(FileCover))
-            {
-                targetDir = ((FileCover)target).FileElement.Directory;
-            }
-            else
-            {
-                targetDir = ((CustomFileSystemCover)target).FileSystemElement as DirectoryInfo;
-            }
-
-            List<FileSystemInfo> files = new List<FileSystemInfo>();
-
-            foreach (var itm in dragList)
-            {
-                if (!(itm is ParentDirectoryCover))
-                {
-                    files.Add(itm.FileSystemElement);
-                }
-
-            }
-
-            //CopyOrMoveWindow cmw = new CopyOrMoveWindow(files, targetDir);
-            //cmw.ShowDialog();
-        }
-
-
-        /////////////////////////////////////////////////////////
-
-
-        private ListViewItem GetListViewItem(int index)
-        {
-            if (lvFileList.ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated)
-                return null;
-
-            return lvFileList.ItemContainerGenerator.ContainerFromIndex(index) as ListViewItem;
-        }
-
-        private int GetCurrentIndex(GetPositionDelegate getPosition)
-        {
-            int index = -1;
-            for (int i = 0; i < this.lvFileList.Items.Count; ++i)
-            {
-                ListViewItem item = GetListViewItem(i);
-                if (this.IsMouseOverTarget(item, getPosition))
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-
-        private bool IsMouseOverTarget(Visual target, GetPositionDelegate getPosition)
-        {
-            Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
-            Point mousePos = getPosition((IInputElement)target);
-            return bounds.Contains(mousePos);
-        }
-
-        private void lvFileList_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                lvFileList.AllowDrop = true;
-            }
-            else
-            {
-                lvFileList.AllowDrop = false;
-            }
-        }
-
-        #endregion //Drag&Drop
 
         private void filePanel_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -829,7 +866,132 @@ namespace ExplorerNet.ViewWindowApps
         {
             CopyWindow cw = new CopyWindow();
             cw.ShowDialog();
+
+            //GongSolutions.Wpf.DragDrop.Utilities.
+
         }
+
+        private void lvFileList_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            //List<CustomFileSystemCover> selectedList = new List<CustomFileSystemCover>();
+
+            //foreach (var itm in lvFileList.SelectedItems)
+            //{
+            //    selectedList.Add((CustomFileSystemCover)itm);
+            //}
+
+
+            //if (selectedList.Count > 0)
+            //{
+
+            //    DataObject dObj = new DataObject();
+            //    dObj.SetData(selectedList.GetType(), selectedList);
+
+            //    DragDrop.DoDragDrop(lvFileList, selectedList, DragDropEffects.Move);
+            //}
+        }
+
+        private void lvFileList_Drop(object sender, DragEventArgs e)
+        {
+
+            if (this.isListViewDroped)
+            {
+
+                DataObject dObj = (DataObject)e.Data;
+
+                if (dObj.GetDataPresent(typeof(List<CustomFileSystemCover>)))
+                {
+                    // If the desired data format is present, use one of the GetData methods to retrieve the
+                    // data from the data object.
+                    List<CustomFileSystemCover> selectedList = dObj.GetData(typeof(List<CustomFileSystemCover>))
+                        as List<CustomFileSystemCover>;
+
+                    //MessageBox.Show(selectedList[0].Name);
+                    List<FileSystemInfo> fsiList = new List<FileSystemInfo>();
+
+                    foreach (var sl in selectedList)
+                    {
+                        if (sl.FileSystemElement.GetType() == typeof(DirectoryInfo))
+                        {
+                            fsiList.Add(new DirectoryInfo(sl.FileSystemElement.FullName));
+                        }
+                        else if (sl.FileSystemElement.GetType() == typeof(FileInfo))
+                        {
+                            fsiList.Add(new FileInfo(sl.FileSystemElement.FullName));
+                        }
+                        else
+                        {
+                            new Exception("Type not support!");
+                        }
+                    }
+
+                    CopyWindow cw = new CopyWindow(fsiList, this.Path);
+                    cw.ShowDialog();
+
+                }
+            }
+
+            //DataObject dObj = (DataObject)e.Data;
+
+            //if (dObj.GetDataPresent(typeof(List<CustomFileSystemCover>)))
+            //{
+            //    // If the desired data format is present, use one of the GetData methods to retrieve the
+            //    // data from the data object.
+            //    List<CustomFileSystemCover> selectedList = dObj.GetData(typeof(List<CustomFileSystemCover>))
+            //        as List<CustomFileSystemCover>;
+
+            //    MessageBox.Show(selectedList[0].Name + " lv");
+
+            //    selectedList = null;
+            //}
+        }
+
+        private void lvFileList_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if ((Keyboard.IsKeyDown(Key.LeftShift)) || (Keyboard.IsKeyDown(Key.RightShift)))
+                {
+                    //Делаем возможным lvFileList обрабатывать Drop
+                    this.isListViewDroped = true;
+
+                    List<CustomFileSystemCover> selectedList = new List<CustomFileSystemCover>();
+
+                    foreach (var itm in lvFileList.SelectedItems)
+                    {
+                        selectedList.Add((CustomFileSystemCover)itm);
+                    }
+
+                    if (selectedList.Count > 0)
+                    {
+
+                        DataObject dObj = new DataObject();
+                        dObj.SetData(selectedList.GetType(), selectedList);
+
+                        DragDrop.DoDragDrop(lvFileList, selectedList, DragDropEffects.Move);
+                    }
+                }
+            
+
+            }
+        }
+
+
+        //private void ListViewItem_DragEnter(Object sender, DragEventArgs e)
+        //{
+        //    if (e.Effects == DragDropEffects.Move)
+        //    {
+        //        //lvi.Opacity = 0.5;
+        //    }
+
+        //}
+        //private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    sender.ToString();
+        //}
+
+
     }
 
 }

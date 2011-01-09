@@ -30,6 +30,11 @@ namespace ExplorerNet
         public static RoutedCommand CopyCommand = new RoutedCommand();
         public static RoutedCommand MoveCommand = new RoutedCommand();
 
+        private bool isDroped = false;
+
+        private List<FileSystemInfo> lstCopyFiles = null;
+        private string copyPath = "";
+
         public CopyWindow()
         {
             InitializeComponent();
@@ -52,7 +57,7 @@ namespace ExplorerNet
 
             this.InputBindings.Add(kbMoveF6);
 
-            CreateVisualData();
+            //CreateVisualData();
             //lvFromCopy.ItemsSource = copyFiles;
             //cbToCopy.ItemsSource = FilePanelSelector.FilePanels;
             //cbToCopy.Text = FilePanelSelector.SecondSelected.p;
@@ -76,6 +81,17 @@ namespace ExplorerNet
             //{
             //    throw new Exception("Not set FilePanelSelector.SecondSelected");
             //}
+        }
+
+        public CopyWindow(List<FileSystemInfo> selectedFiles, string path)
+            : this()
+        {
+            this.isDroped = true;
+            this.lstCopyFiles = selectedFiles;
+            this.copyPath = path;
+
+            //lvFromCopy.Items = selectedFiles;
+
         }
 
         private void ExecutedCopyCommand(object sender,
@@ -383,14 +399,23 @@ namespace ExplorerNet
                 throw new Exception("Not set FilePanelSelector.SecondSelected");
             }
 
-            List<FileSystemInfo> lstCopyFiles = fpFirst.SelectedFiles;
-            string path = fpSecond.FilePanelSettings.Path;
+            if (!this.isDroped)
+            {
+                this.lstCopyFiles = fpFirst.SelectedFiles;
+                this.copyPath = fpSecond.FilePanelSettings.Path;
+            }
 
  
 
-            lvFromCopy.ItemsSource = lstCopyFiles;
+            lvFromCopy.ItemsSource = this.lstCopyFiles;
             
             List<string> lstPathes = new List<string>();
+
+            if (this.isDroped)
+            {
+                lstPathes.Add(this.copyPath);
+            }
+
             foreach(FilePanel fp in FilePanelSelector.FilePanels)
             {
                 if (!lstPathes.Contains(fp.FilePanelSettings.Path))
@@ -399,7 +424,12 @@ namespace ExplorerNet
                 }
             }
             cbToCopy.ItemsSource = lstPathes;
-            cbToCopy.Text = path;
+            cbToCopy.Text = this.copyPath;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CreateVisualData();
         }
 
 
