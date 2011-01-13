@@ -154,7 +154,7 @@ namespace ExplorerNet.Tools
                 }
                 else
                 {
-                    return 0;
+                    return 1;
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace ExplorerNet.Tools
                 }
                 else
                 {
-                    return 0;
+                    return 1;
                 }
             }
         }

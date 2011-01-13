@@ -280,6 +280,7 @@
     </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\FilePanelSelector.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FilePanelSettings.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CoverConvertor.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CustomFileSystemCover.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\DirectoryCover.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\FileCover.cs" />

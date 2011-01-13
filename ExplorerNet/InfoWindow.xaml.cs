@@ -39,5 +39,15 @@ namespace ExplorerNet
         {
             Process.Start("http://forum.vingrad.ru/forum/forum-635.html");
         }
+
+        private void Paragraph_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("http://forum.vingrad.ru/showuser-21450.html");
+        }
+
+        private void Paragraph_MouseLeftButtonDown_4(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("http://forum.vingrad.ru/showuser-1226.html");
+        }
     }
 }

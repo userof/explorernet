@@ -10,6 +10,9 @@
                 <Paragraph FontSize="20">Горячие клавиши программы</Paragraph>
                 <List>
                     <ListItem>
+                        <Paragraph>Shift(удерживать) – для копирования/перемещения с помощью мышки</Paragraph>
+                    </ListItem>
+                    <ListItem>
                         <Paragraph>F2 – переименовать файл/директорию в активной файловой панели</Paragraph>
                     </ListItem>
                     <ListItem>
@@ -35,6 +38,21 @@
                            MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_1">Скачать</Paragraph>
                 <Paragraph Foreground="Blue" Cursor="Hand"
                            MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_2">Группа на форуме программистов</Paragraph>
+                <Paragraph>Благодарности</Paragraph>
+                <List>
+                    <ListItem>
+                        <Section>
+                            <Paragraph Foreground="Blue" Cursor="Hand"
+                                       MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_3">mihanik</Paragraph>
+                            <Paragraph>Поддержка с хостингом</Paragraph>
+                        </Section>
+                        <Section>
+                            <Paragraph Foreground="Blue" Cursor="Hand"
+                                       MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_4">Kefir</Paragraph>
+                            <Paragraph>Помощь по коду программы</Paragraph>
+                        </Section>
+                    </ListItem>
+                </List>
             </FlowDocument>
         </FlowDocumentPageViewer>
     </Grid>

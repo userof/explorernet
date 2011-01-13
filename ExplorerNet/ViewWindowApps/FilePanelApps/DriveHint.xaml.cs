@@ -42,12 +42,12 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             try
             {
                 pbSize.Maximum = driveData.MaximumSize;
-                pbSize.Value = driveData.MaximumSize - 
+                pbSize.Value = driveData.MaximumSize -
                     driveData.AvailableFreeSpace;
             }
             catch (Exception)
             {
-
+                //pbSize.MaxWidth = 300;
             }
 
             imgDriveType.Source = driveData.DriveIcon;
@@ -57,7 +57,7 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
             if (!driveData.Drive.IsReady)
             {
-                txtSize.Text = "The drive is not read"; 
+                txtSize.Text = Properties.Resources.TheDriveIsNotReady;
             }
 
             //if (drive.IsReady)

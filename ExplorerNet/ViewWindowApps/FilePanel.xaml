@@ -122,19 +122,19 @@
 
             <ListView Name="lvFileList" 
                               PreviewMouseDoubleClick="lvFileList_MouseDoubleClick"
-                      PreviewMouseLeftButtonDown="lvFileList_PreviewMouseLeftButtonDown"
                       PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown"
+                      KeyDown="lvFileList_KeyDown"
                               AllowDrop="True"
                       PreviewMouseMove="lvFileList_PreviewMouseMove"
-  
-                      
                       Drop="lvFileList_Drop"
                                 Margin="0,48,0,0"
-                                 ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85">
+                                 ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85" >
 
                 <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Icon" Width="30">
+                            <GridViewColumn 
+                                Header="{x:Static res:Resources.Icon}"
+                                Width="30">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Image Source="{Binding Path=Ico}"></Image>
@@ -142,7 +142,8 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="Name">
+                            <GridViewColumn 
+                                Header="{x:Static res:Resources.Name}">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock FontSize="10" Text="{Binding Path=Name}"></TextBlock>
@@ -150,8 +151,9 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="Size">
-                                <GridViewColumn.CellTemplate>
+                        <GridViewColumn 
+                            Header="{x:Static res:Resources.Size}">
+                            <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock FontSize="10" Text="{Binding Path=Size}"></TextBlock>
                                     </DataTemplate>
@@ -159,11 +161,13 @@
                             </GridViewColumn>
                         </GridView>
                     </ListView.View>
-                <!--<ListView.ItemContainerStyle>
+                <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <EventSetter Event="DragEnter" Handler="ListViewItem_DragEnter"/>
+                        <EventSetter Event="DragLeave" Handler="ListViewItem_DragLeave"/>
+                        <EventSetter Event="Drop" Handler="ListViewItem_Drop"/>
                     </Style>
-                </ListView.ItemContainerStyle>-->
+                </ListView.ItemContainerStyle>
             </ListView>
             <!--</Grid>-->
             <!--</ScrollViewer>-->  

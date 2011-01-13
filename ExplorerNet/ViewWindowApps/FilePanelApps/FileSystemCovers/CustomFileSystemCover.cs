@@ -32,7 +32,7 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
             {
                 if (fileSystemElement.GetType() == typeof(DirectoryInfo))
                 {
-                    return "<dir>";
+                    return Properties.Resources.dir;
                 }
                 else if (fileSystemElement.GetType() == typeof(FileInfo))
                 {

@@ -142,11 +142,29 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;dir&gt;.
+        /// </summary>
+        public static string dir {
+            get {
+                return ResourceManager.GetString("dir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на GB.
         /// </summary>
         public static string GB {
             get {
                 return ResourceManager.GetString("GB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Icon.
+        /// </summary>
+        public static string Icon {
+            get {
+                return ResourceManager.GetString("Icon", resourceCulture);
             }
         }
         
@@ -277,6 +295,15 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на New file panel.
         /// </summary>
         public static string NewFilePanel {
@@ -322,6 +349,15 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Size.
+        /// </summary>
+        public static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Skins.
         /// </summary>
         public static string Skins {
@@ -345,6 +381,15 @@ namespace ExplorerNet.Properties {
         public static string StartProgram {
             get {
                 return ResourceManager.GetString("StartProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The drive is not ready!.
+        /// </summary>
+        public static string TheDriveIsNotReady {
+            get {
+                return ResourceManager.GetString("TheDriveIsNotReady", resourceCulture);
             }
         }
     }

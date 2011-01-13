@@ -213,4 +213,19 @@
   <data name="Copy" xml:space="preserve">
     <value>Копировать</value>
   </data>
+  <data name="TheDriveIsNotReady" xml:space="preserve">
+    <value>Диск отсутствует!</value>
+  </data>
+  <data name="dir" xml:space="preserve">
+    <value>[папка]</value>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>Ико</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Размер</value>
+  </data>
 </root>
