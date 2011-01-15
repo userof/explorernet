@@ -79,6 +79,42 @@ namespace ExplorerNet.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Calculated the directory size completed!.
+        /// </summary>
+        public static string CalculatedTheDirectorySizeCompleted {
+            get {
+                return ResourceManager.GetString("CalculatedTheDirectorySizeCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Calculated the directory size completed is not successfully, because not access for any items.
+        /// </summary>
+        public static string CalculatedTheDirectorySizeCompletedIsNot {
+            get {
+                return ResourceManager.GetString("CalculatedTheDirectorySizeCompletedIsNot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Calculate the directory size.
+        /// </summary>
+        public static string CalculateTheDirectorySize {
+            get {
+                return ResourceManager.GetString("CalculateTheDirectorySize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Calculating the directory size.
+        /// </summary>
+        public static string CalculatingTheDirectorySize {
+            get {
+                return ResourceManager.GetString("CalculatingTheDirectorySize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Clear template.
         /// </summary>
         public static string ClearTemplate {
@@ -183,6 +219,15 @@ namespace ExplorerNet.Properties {
         public static string IsDriveNotReady {
             get {
                 return ResourceManager.GetString("IsDriveNotReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Is Not Access!.
+        /// </summary>
+        public static string IsNotAccess {
+            get {
+                return ResourceManager.GetString("IsNotAccess", resourceCulture);
             }
         }
         

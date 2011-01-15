@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="ExplorerNet.ViewWindowApps.FilePanelApps.SizePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps.FilePanelApps"
+             mc:Ignorable="d" 
+             x:Name="sizePanel"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <!--<UserControl.Style>
+        <Style>
+            <Style.Triggers>
+                <Trigger Property="local:SizePanel.CalculiatingState" Value="Working">
+                    <Setter Property="Button.Width" Value="1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>-->
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+    <StackPanel Orientation="Horizontal">
+        <TextBlock Name="txtSize"></TextBlock>
+        <Button x:Name="btnSumCalculate" 
+                   Visibility="Hidden"
+                   Click="btnSumCalculate_Click"
+                BorderThickness="4"
+                   Height="20"
+                   Width="20">
+            <!--<Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                
+                Storyboard.TargetProperty="(Brush.Opacity)" 
+                From="1" To="0" Duration="0:0:5" AutoReverse="True"  />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>-->
+            <!--<Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <Trigger Property="local:SizePanel.CalculiatingState" Value="Working">
+                            <Setter Property = "Content" Value="False"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>-->
+                <!--<EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                Storyboard.TargetName="MyAnimatedBrush"
+                Storyboard.TargetProperty="(Brush.Opacity)" 
+                From="1" To="0" Duration="0:0:5" AutoReverse="True"  />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>-->
+                   </Button>
+    </StackPanel>
+</UserControl>

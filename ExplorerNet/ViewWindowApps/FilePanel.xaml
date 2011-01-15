@@ -146,20 +146,41 @@
                                 Header="{x:Static res:Resources.Name}">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock FontSize="10" Text="{Binding Path=Name}"></TextBlock>
+                                        <TextBlock Text="{Binding Path=Name}"></TextBlock>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                        <GridViewColumn 
+                        <!--<GridViewColumn 
                             Header="{x:Static res:Resources.Size}">
                             <GridViewColumn.CellTemplate>
                                     <DataTemplate>
+                                    <ContentControl Content="{Binding Path=Size}" />
                                         <TextBlock FontSize="10" Text="{Binding Path=Size}"></TextBlock>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
+                            </GridViewColumn>-->
+
+                        <GridViewColumn 
+                            Header="{x:Static res:Resources.Size}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ContentControl Content="{Binding Path=Size}" />
+                                    <!--<TextBlock FontSize="10" Text="{Binding Path=Size}"></TextBlock>-->
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <!--<GridViewColumn 
+                            Header="MyPanel">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ContentControl Content="{Binding Path=MyPanel}"></ContentControl>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>-->
+
+                    </GridView>
                     </ListView.View>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">

@@ -56,6 +56,8 @@ namespace ExplorerNet.Tools
         /// <param name="skinName">Метод инициализации основных данных класса</param>
         public void ApplySkin(string skinName)
         {
+            //return;
+
             string skinPathXaml = skinDirPath + Path.DirectorySeparatorChar +
                   skinName + ".xaml";
 
@@ -104,9 +106,13 @@ namespace ExplorerNet.Tools
             Baml2006Reader reader = new Baml2006Reader(fstream);
 
             ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(reader);
+            
+            //ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(fstream);
+
+
             App.Current.Resources.MergedDictionaries.Add(rd);
 
-            reader.Close();
+            //reader.Close();
             fstream.Close();
         }
 

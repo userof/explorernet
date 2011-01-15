@@ -228,4 +228,19 @@
   <data name="Size" xml:space="preserve">
     <value>Размер</value>
   </data>
+  <data name="CalculatedTheDirectorySizeCompleted" xml:space="preserve">
+    <value>Подсчёт размера директории прошёл успешно</value>
+  </data>
+  <data name="CalculatedTheDirectorySizeCompletedIsNot" xml:space="preserve">
+    <value>Не удалось подсчитать размер полностью, так как к некоторым элементам нет доступа</value>
+  </data>
+  <data name="CalculateTheDirectorySize" xml:space="preserve">
+    <value>Посчитать размер директории</value>
+  </data>
+  <data name="CalculatingTheDirectorySize" xml:space="preserve">
+    <value>Подсчёт размера директории</value>
+  </data>
+  <data name="IsNotAccess" xml:space="preserve">
+    <value>Нет доступа!</value>
+  </data>
 </root>

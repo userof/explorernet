@@ -5,6 +5,7 @@ using System.Text;
 
 using System.IO;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
 using System.Drawing;
 
 using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.SystemIcons;
@@ -40,5 +41,18 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
         {
             get { return _directory.Name; }
         }
+
+        //public override SizePanel Size
+        //{
+        //    get
+        //    {
+        //        SizePanel sPanel = new SizePanel();
+        //        sPanel.Data = this;
+        //        return sPanel;
+        //        //return base.Size;
+        //    }
+        //}
+
+    
     }
 }

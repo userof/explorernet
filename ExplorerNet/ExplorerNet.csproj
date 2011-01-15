@@ -24,10 +24,10 @@
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>3</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://mail.mihanik.net/IceFox/</InstallUrl>
@@ -36,7 +36,7 @@
     <SuiteName>ExplorerNet</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -203,6 +203,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\SizePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewWindowApps\FilePanelApps\SystemFoldersButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -288,6 +292,9 @@
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\Converter.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\IconExtractor.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\Navigation\Navigator.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\SizePanel.xaml.cs">
+      <DependentUpon>SizePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\SystemFoldersButton.xaml.cs">
       <DependentUpon>SystemFoldersButton.xaml</DependentUpon>
     </Compile>

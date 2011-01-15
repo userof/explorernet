@@ -7,6 +7,9 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using System.Drawing;
 
+using System.Windows;
+using System.Windows.Controls;
+
 using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.SystemIcons;
 using ExplorerNet.Tools;
 
@@ -26,23 +29,51 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
             get { return fileSystemElement; }
         }
 
-        public string Size
+        //public string Size
+        //{
+        //    get
+        //    {
+        //        if (fileSystemElement.GetType() == typeof(DirectoryInfo))
+        //        {
+        //            return Properties.Resources.dir;
+        //        }
+        //        else if (fileSystemElement.GetType() == typeof(FileInfo))
+        //        {
+        //            FileInfo fi = (FileInfo)fileSystemElement;
+        //            return SizeFileInString.GetSizeInStr(fi.Length);
+        //        }
+        //        else
+        //        {
+        //            throw new Exception("Uncnown type");
+        //        }
+        //    }
+        //}
+
+        public SizePanel Size
         {
             get
             {
-                if (fileSystemElement.GetType() == typeof(DirectoryInfo))
-                {
-                    return Properties.Resources.dir;
-                }
-                else if (fileSystemElement.GetType() == typeof(FileInfo))
-                {
-                    FileInfo fi = (FileInfo)fileSystemElement;
-                    return SizeFileInString.GetSizeInStr(fi.Length);
-                }
-                else
-                {
-                    throw new Exception("Uncnown type");
-                }
+                SizePanel sp = new SizePanel();
+                sp.Data = this;
+
+                return sp;
+            //    TextBlock txt = new TextBlock();
+
+            //    if (fileSystemElement.GetType() == typeof(DirectoryInfo))
+            //    {
+            //        txt.Text = Properties.Resources.dir;;
+            //        return txt;
+            //    }
+            //    else if (fileSystemElement.GetType() == typeof(FileInfo))
+            //    {
+            //        FileInfo fi = (FileInfo)fileSystemElement;
+            //        txt.Text = SizeFileInString.GetSizeInStr(fi.Length);
+            //        return txt;
+            //    }
+            //    else
+            //    {
+            //        throw new Exception("Uncnown type");
+            //    }
             }
         }
 
