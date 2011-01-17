@@ -20,44 +20,14 @@
 
     </UserControl.Resources>
     <StackPanel Orientation="Horizontal">
-        <TextBlock Name="txtSize"></TextBlock>
         <Button x:Name="btnSumCalculate" 
                    Visibility="Hidden"
                    Click="btnSumCalculate_Click"
                 BorderThickness="4"
-                   Height="20"
-                   Width="20">
-            <!--<Button.Triggers>
-                <EventTrigger RoutedEvent="Button.Click">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation 
                 
-                Storyboard.TargetProperty="(Brush.Opacity)" 
-                From="1" To="0" Duration="0:0:5" AutoReverse="True"  />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Button.Triggers>-->
-            <!--<Button.Style>
-                <Style TargetType="Button">
-                    <Style.Triggers>
-                        <Trigger Property="local:SizePanel.CalculiatingState" Value="Working">
-                            <Setter Property = "Content" Value="False"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>-->
-                <!--<EventTrigger RoutedEvent="Button.Click">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation 
-                Storyboard.TargetName="MyAnimatedBrush"
-                Storyboard.TargetProperty="(Brush.Opacity)" 
-                From="1" To="0" Duration="0:0:5" AutoReverse="True"  />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>-->
-                   </Button>
+                MinWidth="20"
+                Height="Auto"
+                Width="Auto" />
+        <TextBlock Name="txtSize"></TextBlock>
     </StackPanel>
 </UserControl>
