@@ -23,6 +23,8 @@ using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers;
 
 using System.Collections;
 
+using ExplorerNet.Languages;
+
 //using GongSolutions.Wpf.DragDrop;
 
 namespace ExplorerNet.ViewWindowApps
@@ -467,7 +469,7 @@ namespace ExplorerNet.ViewWindowApps
             }
             catch (Exception)
             {
-                MessageBox.Show(Properties.Resources.IsNotAccess, "", 
+                MessageBox.Show(LanguagesManager.GetCurrLanguage().FPIsNotAccess, "", 
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 this.Path = System.IO.Path.GetDirectoryName(this.Path);
                 return;

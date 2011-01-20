@@ -40,6 +40,8 @@ namespace ExplorerNet
 
             //MessageBox.Show(e.Args[0]);
 
+            ExplorerNet.Languages.LanguagesManager.Init();
+
             if (e.Args.Count() > 0)
             {
                 if (System.IO.File.Exists(e.Args[0]))

@@ -1,22 +1,14 @@
 ﻿<Window x:Class="ExplorerNet.SettingsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:res="clr-namespace:ExplorerNet.Properties"
     Title="SettingsWindow" Height="300" Width="300" IsVisibleChanged="Window_IsVisibleChanged" WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl>
 
-            <TabItem Header="{x:Static res:Resources.Skins}">
+            <TabItem Header="{DynamicResource SWSkins}">
                 <Grid>
                     <ListBox Margin="14,6" Name="lstSkins" SelectionChanged="lstSkins_SelectionChanged" />
                 </Grid>
-            </TabItem>
-
-            <TabItem Header="{x:Static res:Resources.Language}">
-                <Grid>
-                    <ListBox Name="lstLanguages" SelectionChanged="lstLanguages_SelectionChanged"></ListBox>
-                </Grid>
-
             </TabItem>
 
             <TabItem Header="Level and FilePanel">
@@ -42,6 +34,14 @@
                         <RadioButton Name="rbRewriteFile" Margin="0,33,0,0" Height="17" VerticalAlignment="Top">Перезаписать</RadioButton>
                         <RadioButton Name="rbSkipFile" Margin="0,50,0,0" Height="18" VerticalAlignment="Top">Пропустить</RadioButton>
                     </Grid>
+                </Grid>
+            </TabItem>
+            
+            <TabItem>
+                <Grid>
+                    <CheckBox Name="cbLangSelectorChange"
+                              Click="cbLangSelectorChange_Click"
+                              >LangSelectorChange</CheckBox>
                 </Grid>
             </TabItem>
             

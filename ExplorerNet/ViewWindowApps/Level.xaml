@@ -4,7 +4,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     PreviewMouseDown="level_PreviewMouseDown"
-    xmlns:res="clr-namespace:ExplorerNet.Properties"
              BorderThickness="2"
              mc:Ignorable="d" 
              d:DesignHeight="300"
@@ -58,7 +57,7 @@
                     Margin="0,14,0,0"  VerticalAlignment="Top" Click="btnNewFilePanel_Click">
                 <Image Source="..\ButtonIcons\NewFilePanel.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.NewFilePanel}" />
+                            <ToolTip  Content="{DynamicResource LLNewFilePanel}" />
                 </Button.ToolTip>
             </Button>
             
@@ -67,7 +66,7 @@
                     Margin="0,69,0,0" VerticalAlignment="Top" Click="btnDeleteLevel_Click">
                 <Image Source="..\ButtonIcons\DeleteLevel.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.DeleteLevel}" />
+                            <ToolTip  Content="{DynamicResource LLDeleteLevel}" />
                 </Button.ToolTip>
             </Button>
             
@@ -76,7 +75,7 @@
                     Margin="0,126,0,0" VerticalAlignment="Top" Click="btnClobeLevel_Click">
                 <Image Source="..\ButtonIcons\CloneLevel.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.CloneLevel}" />
+                            <ToolTip  Content="{DynamicResource LLCloneLevel}" />
                 </Button.ToolTip>
             </Button>
 

@@ -6,6 +6,8 @@ using System.Text;
 using System.IO;
 using System.Windows.Media.Imaging;
 
+using ExplorerNet.Languages;
+
 
 namespace ExplorerNet.Tools
 {
@@ -186,7 +188,8 @@ namespace ExplorerNet.Tools
         {
             get
             {
-                return Properties.Resources.IsDriveNotReady;
+                //return Properties.Resources.IsDriveNotReady;
+                return LanguagesManager.GetCurrLanguage().DDDriveIsNotReady;
             }
         }
 

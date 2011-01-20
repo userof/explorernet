@@ -4,6 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type local:LanguageSelector}" BasedOn="{StaticResource {x:Type Button}}"/>
+                </ResourceDictionary>
+                <ResourceDictionary Source="Languages/en.xaml" />
+            </ResourceDictionary.MergedDictionaries>
             <!--<ResourceDictionary.MergedDictionaries>BasedOn="{StaticResource {x:Type Button}
                 <ResourceDictionary Source="SunnyOrange_Theme.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>-->

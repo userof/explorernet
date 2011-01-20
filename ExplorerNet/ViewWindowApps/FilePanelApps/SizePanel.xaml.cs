@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using ExplorerNet.Tools;
+using ExplorerNet.Languages;
 
 using System.IO;
 
@@ -69,8 +70,12 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             InitializeComponent();
             this.CalculiatingState = CalculiatingStateKind.BeforeStart;
             this.InvalidAccess = false;
-            btnSumCalculate.ToolTip = Properties.Resources.CalculateTheDirectorySize;
+            //btnSumCalculate.ToolTip = Properties.Resources.CalculateTheDirectorySize;
+            //btnSumCalculate.ToolTip = 
+            //    LanguagesManager.GetCurrLanguage().SPCalculateTheDirectorySize;
 
+            btnSumCalculate.ToolTip = 
+                (ToolTip)this.Resources["ttCalculateTheDirectorySize"];
         }
 
         public CustomFileSystemCover Data
@@ -90,7 +95,8 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         {
             if (fsCover.GetType() == typeof(DirectoryCover))
             {
-                txtSize.Text = Properties.Resources.dir;
+                //txtSize.Text = Properties.Resources.dir;
+                txtSize.Text = LanguagesManager.GetCurrLanguage().SPDir;
                 //btnSumCalculate.Content = "sum";
                 btnSumCalculate.Visibility = System.Windows.Visibility.Visible;
             }
@@ -113,7 +119,7 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                     DirectoryCover dCover = (DirectoryCover)data;
                     DirectoryInfo di = dCover.DirectoryElement;
 
-                    txtSize.Background = Brushes.White;
+                    //txtSize.Background = Brushes.White;
 
                     CalculiatorSize cSize = new CalculiatorSize();
 
@@ -122,6 +128,7 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                     cSize.ChangeCalculiatingState += new CalculiatorSize.ChangeCalculiatingStateEventHandler(cSize_ChangeCalculiatingState);
 
                     Thread thread = new Thread(cSize.Calculiate);
+                    //thread.Priority = ThreadPriority.
                     thread.IsBackground = true;
                     thread.Start(di);
                 }
@@ -142,11 +149,16 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                 {
                     case CalculiatingStateKind.BeforeStart:
                         btnSumCalculate.BorderBrush = Brushes.Green;
-                        btnSumCalculate.ToolTip = Properties.Resources.CalculateTheDirectorySize;
-                        //btnSumCalculate.BorderThickness = new Thickness(200);
+                        //btnSumCalculate.ToolTip = Properties.Resources.CalculateTheDirectorySize;
+                        btnSumCalculate.ToolTip = 
+                            //LanguagesManager.GetCurrLanguage().SPCalculateTheDirectorySize;
+                            (ToolTip)this.Resources["ttCalculateTheDirectorySize"];
                         break;
                     case CalculiatingStateKind.Working:
-                        btnSumCalculate.ToolTip = Properties.Resources.CalculatingTheDirectorySize;
+                        //btnSumCalculate.ToolTip = Properties.Resources.CalculatingTheDirectorySize;
+                        btnSumCalculate.ToolTip = 
+                            //LanguagesManager.GetCurrLanguage().SPCalculatingTheDirectorySize;
+                            (ToolTip)this.Resources["ttCalculatingTheDirectorySize"];
                         if (InvalidAccess)
                         {
                             btnSumCalculate.BorderBrush = Brushes.Red;
@@ -161,12 +173,18 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                         if (InvalidAccess)
                         {
                             btnSumCalculate.BorderBrush = Brushes.Red;
-                            btnSumCalculate.ToolTip = Properties.Resources.CalculatedTheDirectorySizeCompletedIsNot;
+                            //btnSumCalculate.ToolTip = Properties.Resources.CalculatedTheDirectorySizeCompletedIsNot;
+                            btnSumCalculate.ToolTip =
+                                //LanguagesManager.GetCurrLanguage().SPCalculatedTheDirectorySizeCompletedIsNot;
+                                (ToolTip)this.Resources["ttCalculatedTheDirectorySizeCompletedIsNot"];
                         }
                         else
                         {
                             btnSumCalculate.BorderBrush = Brushes.Green;
-                            btnSumCalculate.ToolTip = Properties.Resources.CalculatedTheDirectorySizeCompleted;
+                            //btnSumCalculate.ToolTip = Properties.Resources.CalculatedTheDirectorySizeCompleted;
+                            btnSumCalculate.ToolTip =
+                                //LanguagesManager.GetCurrLanguage().SPCalculatedTheDirectorySizeCompleted;
+                                (ToolTip)this.Resources["ttCalculatedTheDirectorySizeCompleted"];
                         }
                         //MessageBox.Show("ok");
                         break;
@@ -201,10 +219,11 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
         private void cSize_UpdateFieleSum(long sum)
         {
-            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate()
+            this.Dispatcher.Invoke(DispatcherPriority.Normal, (ThreadStart)delegate()
             {
                 txtSize.Text = SizeFileInString.GetSizeInStr(sum);
-            });
+            }
+            );
         }
 
         //private class CalculateData

@@ -50,6 +50,8 @@ namespace ExplorerNet
                     break;
             }
 
+            cbLangSelectorChange.IsChecked = Properties.Settings.Default.LanguageSelectorVisible;
+
         }
 
         /// <summary>
@@ -142,11 +144,6 @@ namespace ExplorerNet
             //}
         }
 
-        private void RefreshLanguages()
-        {
-            ExplorerNet.Languages.LanguageManager lm = new Languages.LanguageManager();
-            lstLanguages.ItemsSource = lm.GetAvailableCultures();
-        }
 
 
         private void lstSkins_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -158,13 +155,18 @@ namespace ExplorerNet
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             RefreshSkins();
-            RefreshLanguages();
         }
 
-        private void lstLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbLangSelectorChange_Click(object sender, RoutedEventArgs e)
         {
-            ExplorerNet.Languages.LanguageManager lm = new Languages.LanguageManager();
-            lm.ApplyLanguag((System.Globalization.CultureInfo)lstLanguages.SelectedItem);
+            if (cbLangSelectorChange.IsChecked == true)
+            {
+                Properties.Settings.Default.LanguageSelectorVisible = true;
+            }
+            else
+            {
+                Properties.Settings.Default.LanguageSelectorVisible = false;
+            }
         }
     }
 }

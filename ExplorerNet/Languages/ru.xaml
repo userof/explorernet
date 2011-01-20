@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <sys:String x:Key="LanguageDisplayName">ru</sys:String>
+
+    <sys:String x:Key="LanguageCulture">ru</sys:String>
+
+    <!--ViewWindow-->
+    <sys:String x:Key="VWAddLevel">Добавить уровень</sys:String>
+    <sys:String x:Key="VWSettings">Окно настроек</sys:String>
+    <sys:String x:Key="VWLoadTemplate">Загрузить шаблон</sys:String>
+    <sys:String x:Key="VWSaveTemplate">Сохранить шаблон</sys:String>
+    <sys:String x:Key="VWClearTemplate">Очистить шаблон</sys:String>
+    <sys:String x:Key="VWRandomSkin">Случайный скин</sys:String>
+    <sys:String x:Key="VWInfoWindow">Информационное окно</sys:String>
+    <sys:String x:Key="VWResetSettings">Обнулить настройки</sys:String>
+
+    <!--Level-->
+    <sys:String x:Key="LLNewFilePanel">Создать файловую панель</sys:String>
+    <sys:String x:Key="LLDeleteLevel">Удалить уровень</sys:String>
+    <sys:String x:Key="LLCloneLevel">Клонировать уровень</sys:String>
+
+    <!--FilePanel-->
+    <!--ListView-->
+    <sys:String x:Key="FPIco">Ико</sys:String>
+    <sys:String x:Key="FPName">Имя</sys:String>
+    <sys:String x:Key="FPSize">Размер</sys:String>
+    <!--Left Panel-->
+    <sys:String x:Key="FPDeleteFilePanel">Удалить файловую панель</sys:String>
+    <sys:String x:Key="FPCloneFilePanel">Клонировать файловую панель</sys:String>
+    <sys:String x:Key="FPOpenInExplorer">Открыть в проводнике</sys:String>
+    <sys:String x:Key="FPStartInProgram">Открыть в заданной программе</sys:String>
+    <sys:String x:Key="FPMakedirectory">Создать директорию</sys:String>
+    <sys:String x:Key="FPCopyDialog">Копировать выделенное</sys:String>
+    <sys:String x:Key="FPOpenInCmd">Открыть директорию в командной строке</sys:String>
+    <!--In code-->
+    <sys:String x:Key="FPIsNotAccess">Нет доступа!</sys:String>
+
+    <!--SizePanel-->
+    <sys:String x:Key="SPCalculateTheDirectorySize">Посчитать размер директории</sys:String>
+    <sys:String x:Key="SPCalculatingTheDirectorySize">Подсчёт размера директории</sys:String>
+    <sys:String x:Key="SPCalculatedTheDirectorySizeCompletedIsNot">Не удалось подсчитать размер полностью, так как к некоторым элементам нет доступа</sys:String>
+    <sys:String x:Key="SPCalculatedTheDirectorySizeCompleted">Подсчёт размера директории прошёл успешно</sys:String>
+    <sys:String x:Key="SPDir">[папка]</sys:String>
+
+    <!--SizeFileInString-->
+    <sys:String x:Key="SFISGB">ГБ</sys:String>
+    <sys:String x:Key="SFISMB">МБ</sys:String>
+    <sys:String x:Key="SFISKB">КБ</sys:String>
+    <sys:String x:Key="SFISBytes">Байт</sys:String>
+
+    <!--DeleteWindow-->
+    <sys:String x:Key="DWDelete">Удалить (F8)</sys:String>
+    <sys:String x:Key="DWDeleteToRecycle">Удалить в корзину (Delete)</sys:String>
+    <sys:String x:Key="DWCancel">Отмена (Esc)</sys:String>
+
+    <!--CopyWindow-->
+    <sys:String x:Key="CWCopy">Копировать (F5)</sys:String>
+    <sys:String x:Key="CWMove">Переместить (F6)</sys:String>
+    <sys:String x:Key="CWCancel">Отмена (Esc)</sys:String>
+
+    <!--SettingsWindow-->
+    <sys:String x:Key="SWSkins">Оболочки</sys:String>
+    <sys:String x:Key="SWLevelAndFilePanel">Уровень и файловая панель</sys:String>
+
+    <!--DriveData-->
+    <sys:String x:Key="DDDriveIsNotReady">Устройство не готово!</sys:String>
+
+    <!--SystemFoldersButton-->
+    <sys:String x:Key="SFBDesctop">Рабочий стол</sys:String>
+    <sys:String x:Key="SFBDocuments">Документы</sys:String>
+    <sys:String x:Key="SFBNetwork">Сеть</sys:String>
+    <sys:String x:Key="SFBProfile">Профиль</sys:String>
+    <sys:String x:Key="SFBMusic">Музыка</sys:String>
+    <sys:String x:Key="SFBPicture">Изображения</sys:String>
+    <sys:String x:Key="SFBVideo">Видео</sys:String>
+
+
+</ResourceDictionary>

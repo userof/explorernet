@@ -15,8 +15,29 @@
             </ListView.Resources>
         </ListView>
         <ComboBox Name="cbToCopy" Margin="0,0,0,42" Height="26" VerticalAlignment="Bottom"></ComboBox>
-        <Button Name="btnCopy" Command="local:CopyWindow.CopyCommand" IsDefault="True" Margin="0,0,0,9" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="81">Copy (F5)</Button>
-        <Button Name="btnMove" Command="local:CopyWindow.MoveCommand" Margin="87,0,0,9" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="81">Move (F6)</Button>
-        <Button Name="btnCancel" IsCancel="True" Margin="174,0,0,9" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="81">Cancel (Esc)</Button>
+        <Grid Margin="0,190,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnCopy" Command="local:CopyWindow.CopyCommand" 
+                IsDefault="True" Margin="4,0,4,0"
+                Grid.Column="0">
+                <TextBlock Margin="4,0,4,0"
+                    Text="{DynamicResource CWCopy}" />
+            </Button>
+            <Button Name="btnMove" Command="local:CopyWindow.MoveCommand" 
+                Margin="4,0,4,0"  
+                Grid.Column="1">
+                <TextBlock Margin="4,0,4,0"
+                    Text="{DynamicResource CWMove}" />
+            </Button>
+            <Button Name="btnCancel" IsCancel="True" Margin="4,0,4,0" 
+                Grid.Column="2">
+                <TextBlock Margin="4,0,4,0"
+                    Text="{DynamicResource CWCancel}" />
+            </Button>
+        </Grid>
     </Grid>
 </Window>

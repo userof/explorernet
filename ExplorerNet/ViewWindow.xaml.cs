@@ -62,7 +62,6 @@ namespace ExplorerNet
             //Создание команды и сочетания клавиш для создания директории
             CommandBinding cbMakeDir = new CommandBinding(MakeDirCommand, ExecutedMakeDirCommand);
             this.CommandBindings.Add(cbMakeDir);
-
             KeyGesture kgMakeDir = new KeyGesture(Key.F7);
             KeyBinding kbMakeDir = new KeyBinding(MakeDirCommand, kgMakeDir);
 
@@ -91,6 +90,9 @@ namespace ExplorerNet
             this.InputBindings.Add(kbRename);
 
             LoadWindowPos();
+            //testing
+            //ExplorerNet.Languages.LanguagesManager lm = new Languages.LanguagesManager();
+            //var lst = lm.GetAllLanguages();
         }
 
         private void ExecutedRenameCommand(object sender,
@@ -392,7 +394,15 @@ namespace ExplorerNet
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveLastTemplate();
+
+            //var lng = Properties.Settings.Default.CurrLang;
+
             SaveWindowPos();
+
+            //testing
+            //Properties.Settings.Default.CurrLanguage = new Languages.Language();
+            //Properties.Settings.Default.CurrLanguage.Name = "test";
+            //Properties.Settings.Default.Save();
         }
 
         private void btnResetSettings_Click(object sender, RoutedEventArgs e)

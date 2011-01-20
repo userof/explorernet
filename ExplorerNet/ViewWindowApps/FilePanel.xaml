@@ -4,7 +4,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:res="clr-namespace:ExplorerNet.Properties"
     xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps"
     
     PreviewMouseDown="filePanel_PreviewMouseDown"
@@ -50,7 +49,7 @@
                     Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">
                 <Image Source="..\ButtonIcons\DeleteFilePanel.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.DeleteFilePanel}" />
+                    <ToolTip  Content="{DynamicResource FPDeleteFilePanel}" />
                 </Button.ToolTip>
             </Button>
             
@@ -60,7 +59,7 @@
                     VerticalAlignment="Top" Click="btnClone_Click">
                 <Image Source="..\ButtonIcons\CloneLevel.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.CloneFilePanel}" />
+                    <ToolTip  Content="{DynamicResource FPCloneFilePanel}" />
                 </Button.ToolTip>
             </Button>
             
@@ -70,7 +69,7 @@
                     VerticalAlignment="Top" Click="btnWindowsExplorer_Click">
                 <Image Source="..\ButtonIcons\StartExplorer.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.StartExplorer}" />
+                    <ToolTip  Content="{DynamicResource FPOpenInExplorer}" />
                 </Button.ToolTip>
             </Button>
             
@@ -80,7 +79,7 @@
                     VerticalAlignment="Top" Click="btnTotalCommander_Click">
                 <Image Source="..\ButtonIcons\StartProgram.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.StartProgram}" />
+                    <ToolTip  Content="{DynamicResource FPStartInProgram}" />
                 </Button.ToolTip>
             </Button>
             
@@ -90,7 +89,7 @@
                     VerticalAlignment="Top" Click="btnMakeDirectory_Click">
                 <Image Source="..\ButtonIcons\MakeDirectory.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.MakeDirectory}" />
+                    <ToolTip  Content="{DynamicResource FPMakeDirectory}" />
                 </Button.ToolTip>
             </Button>
 
@@ -100,7 +99,7 @@
                     VerticalAlignment="Top" Click="btnCopyDialog_Click">
                 <!--<Image Source="..\ButtonIcons\MakeDirectory.png" />-->
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.MakeDirectory}" />
+                    <ToolTip  Content="{DynamicResource FPCopyDialog}" />
                 </Button.ToolTip>
             </Button>
 
@@ -109,7 +108,7 @@
                     VerticalAlignment="Top" Click="btnCMD_Click">
                 <Image Source="..\ButtonIcons\CMD.png" />
                 <Button.ToolTip>
-                    <ToolTip  Content="{x:Static res:Resources.CMD}" />
+                    <ToolTip  Content="{DynamicResource FPOpenInCmd}" />
                 </Button.ToolTip>
             </Button>
             
@@ -133,7 +132,7 @@
                 <ListView.View>
                         <GridView>
                             <GridViewColumn 
-                                Header="{x:Static res:Resources.Icon}"
+                                Header="{DynamicResource FPIco}"
                                 Width="30">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
@@ -143,7 +142,7 @@
                             </GridViewColumn>
 
                             <GridViewColumn 
-                                Header="{x:Static res:Resources.Name}">
+                                Header="{DynamicResource FPName}">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Path=Name}"></TextBlock>
@@ -162,7 +161,7 @@
                             </GridViewColumn>-->
 
                         <GridViewColumn 
-                            Header="{x:Static res:Resources.Size}">
+                            Header="{DynamicResource FPSize}">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <ContentControl Content="{Binding Path=Size}" />

@@ -209,5 +209,29 @@ namespace ExplorerNet.Properties {
                 this["RecentTemplates"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrLang {
+            get {
+                return ((string)(this["CurrLang"]));
+            }
+            set {
+                this["CurrLang"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LanguageSelectorVisible {
+            get {
+                return ((bool)(this["LanguageSelectorVisible"]));
+            }
+            set {
+                this["LanguageSelectorVisible"] = value;
+            }
+        }
     }
 }

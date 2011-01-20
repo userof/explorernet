@@ -1,0 +1,82 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <sys:String x:Key="LanguageDisplayName">en</sys:String>
+
+    <sys:String x:Key="LanguageCulture">en-US</sys:String>
+
+    <!--Global-->
+    
+    <!--ViewWindow-->
+    <sys:String x:Key="VWAddLevel">Add level</sys:String>
+    <sys:String x:Key="VWSettings">Settings</sys:String>
+    <sys:String x:Key="VWLoadTemplate">Load template</sys:String>
+    <sys:String x:Key="VWSaveTemplate">Save template</sys:String>
+    <sys:String x:Key="VWClearTemplate">Clear template</sys:String>
+    <sys:String x:Key="VWRandomSkin">Random skin</sys:String>
+    <sys:String x:Key="VWInfoWindow">Info window</sys:String>
+    <sys:String x:Key="VWResetSettings">Reset settings</sys:String>
+    
+    <!--Level-->
+    <sys:String x:Key="LLNewFilePanel">New file panel</sys:String>
+    <sys:String x:Key="LLDeleteLevel">Delete level</sys:String>
+    <sys:String x:Key="LLCloneLevel">Clone level</sys:String>
+    
+    <!--FilePanel-->
+    <!--ListView-->
+    <sys:String x:Key="FPIco">Ico</sys:String>
+    <sys:String x:Key="FPName">Name</sys:String>
+    <sys:String x:Key="FPSize">Size</sys:String>
+    <!--Left Panel-->
+    <sys:String x:Key="FPDeleteFilePanel">Delete file panel</sys:String>
+    <sys:String x:Key="FPCloneFilePanel">Clone file panel</sys:String>
+    <sys:String x:Key="FPOpenInExplorer">Open directory in explorer</sys:String>
+    <sys:String x:Key="FPStartInProgram">Open directory in custom program</sys:String>
+    <sys:String x:Key="FPMakeDirectory">Make directory</sys:String>
+    <sys:String x:Key="FPCopyDialog">Copy selected</sys:String>
+    <sys:String x:Key="FPOpenInCmd">Open directory in cmd</sys:String>
+    <!--In code-->
+    <sys:String x:Key="FPIsNotAccess">Is Not Access!</sys:String>
+
+    <!--SizePanel--> 
+    <sys:String x:Key="SPCalculateTheDirectorySize">Calculate the directory size</sys:String>
+    <sys:String x:Key="SPCalculatingTheDirectorySize">Calculating the directory size</sys:String>
+    <sys:String x:Key="SPCalculatedTheDirectorySizeCompletedIsNot">Calculated the directory size completed is not successfully, because not access for any items</sys:String>
+    <sys:String x:Key="SPCalculatedTheDirectorySizeCompleted">Calculated the directory size completed!</sys:String>
+    <sys:String x:Key="SPDir">[dir]</sys:String>
+
+    <!--SizeFileInString-->
+    <sys:String x:Key="SFISGB">GB</sys:String>
+    <sys:String x:Key="SFISMB">MB</sys:String>
+    <sys:String x:Key="SFISKB">KB</sys:String>
+    <sys:String x:Key="SFISBytes">Bytes</sys:String>
+    
+    <!--DeleteWindow-->
+    <sys:String x:Key="DWDelete">Delete (F8)</sys:String>
+    <sys:String x:Key="DWDeleteToRecycle">Delete to recycle (Delete)</sys:String>
+    <sys:String x:Key="DWCancel">Cancel (Esc)</sys:String>
+    
+    <!--CopyWindow-->
+    <sys:String x:Key="CWCopy">Copy (F5)</sys:String>
+    <sys:String x:Key="CWMove">Move (F6)</sys:String>
+    <sys:String x:Key="CWCancel">Cancel (Esc)</sys:String>
+
+    <!--SettingsWindow-->
+    <sys:String x:Key="SWSkins">Skins</sys:String>
+    <sys:String x:Key="SWLevelAndFilePanel">Level and filePanel</sys:String>
+    
+    <!--DriveData-->
+    <sys:String x:Key="DDDriveIsNotReady">The drive is not ready!</sys:String>
+
+    <!--SystemFoldersButton-->
+    <sys:String x:Key="SFBDesctop">Desctop</sys:String>
+    <sys:String x:Key="SFBDocuments">Documents</sys:String>
+    <sys:String x:Key="SFBNetwork">Network</sys:String>
+    <sys:String x:Key="SFBProfile">Profile</sys:String>
+    <sys:String x:Key="SFBMusic">Music</sys:String>
+    <sys:String x:Key="SFBPicture">Picture</sys:String>
+    <sys:String x:Key="SFBVideo">Video</sys:String>
+
+
+</ResourceDictionary>

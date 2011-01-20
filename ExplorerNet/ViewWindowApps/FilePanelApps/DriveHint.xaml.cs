@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 using System.IO;
 using ExplorerNet.Tools;
+using ExplorerNet.Languages;
 
 namespace ExplorerNet.ViewWindowApps.FilePanelApps
 {
@@ -57,7 +58,8 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
             if (!driveData.Drive.IsReady)
             {
-                txtSize.Text = Properties.Resources.TheDriveIsNotReady;
+                //txtSize.Text = Properties.Resources.TheDriveIsNotReady;
+                txtSize.Text = LanguagesManager.GetCurrLanguage().DDDriveIsNotReady;
             }
 
             //if (drive.IsReady)

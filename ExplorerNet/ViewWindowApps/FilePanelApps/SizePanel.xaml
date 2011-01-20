@@ -17,6 +17,16 @@
         </Style>
     </UserControl.Style>-->
     <UserControl.Resources>
+        <ResourceDictionary>
+            <ToolTip x:Key="ttCalculateTheDirectorySize"
+                     Content="{DynamicResource SPCalculateTheDirectorySize}" />
+            <ToolTip x:Key="ttCalculatingTheDirectorySize"
+                     Content="{DynamicResource SPCalculatingTheDirectorySize}" />
+            <ToolTip x:Key="ttCalculatedTheDirectorySizeCompletedIsNot"
+                     Content="{DynamicResource SPCalculatedTheDirectorySizeCompletedIsNot}" />
+            <ToolTip x:Key="ttCalculatedTheDirectorySizeCompleted"
+                     Content="{DynamicResource SPCalculatedTheDirectorySizeCompleted}" />
+        </ResourceDictionary>
 
     </UserControl.Resources>
     <StackPanel Orientation="Horizontal">
