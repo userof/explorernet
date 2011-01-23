@@ -233,5 +233,16 @@ namespace ExplorerNet.Properties {
                 this["LanguageSelectorVisible"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ExplorerNet.Tools.ViewSettings.ViewLocations ViewLocations {
+            get {
+                return ((global::ExplorerNet.Tools.ViewSettings.ViewLocations)(this["ViewLocations"]));
+            }
+            set {
+                this["ViewLocations"] = value;
+            }
+        }
     }
 }

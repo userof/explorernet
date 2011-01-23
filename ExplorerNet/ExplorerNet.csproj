@@ -92,6 +92,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="ShellBasics">
+      <HintPath>C:\Users\dev\Desktop\Shell\csdoesshell2_demo\ShellBasics\ShellBasics\bin\Release\ShellBasics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -235,7 +238,6 @@
     <Compile Include="InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Languages\LanguagesManager.cs" />
     <Compile Include="Languages\OneLanguage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -258,13 +260,17 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sys\Consts.cs" />
     <Compile Include="Tools\DriveData.cs" />
+    <Compile Include="Tools\FileManager.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplate.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplateManager.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
     <Compile Include="Tools\ShellContextMenu.cs" />
     <Compile Include="Tools\SizeFileInString.cs" />
     <Compile Include="Tools\SkinManager.cs" />
+    <Compile Include="Tools\ViewSettings\ViewLocation.cs" />
+    <Compile Include="Tools\ViewSettings\ViewLocations.cs" />
     <Compile Include="ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>
     </Compile>

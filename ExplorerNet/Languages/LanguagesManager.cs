@@ -9,19 +9,31 @@ using System.Globalization;
 
 namespace ExplorerNet.Languages
 {
-    
-
-
+    /// <summary>
+    /// Позволяет управлять языками
+    /// </summary>
     public class LanguagesManager
     {
+        /// <summary>
+        /// Путь приложения
+        /// </summary>
         private string appPath = "";
 
+        /// <summary>
+        /// Путь директории, в которой расположены файлы языков
+        /// </summary>
         private string languagesDirPath = "";
 
+        /// <summary>
+        /// Имя папки, в которой расположены файлы языков
+        /// </summary>
         private const string LanguagesDirectory = "Languages";
 
         public delegate void ChangeLanguagesEventHandler(OneLanguage newLanguag);
 
+        /// <summary>
+        /// Происходит при смене языка
+        /// </summary>
         public event ChangeLanguagesEventHandler ChangeLanguage;
 
         public LanguagesManager()
@@ -32,10 +44,16 @@ namespace ExplorerNet.Languages
             languagesDirPath = Path.GetDirectoryName(appPath) + Path.DirectorySeparatorChar + LanguagesDirectory;
         }
 
+        #region Methods
+
+        /// <summary>
+        /// Создаёт объект языка на основе словаря ресурсов
+        /// </summary>
+        /// <param name="rdOneLanguage">Словарь ресурсов на основании которого будет создан новый объект языка</param>
+        /// <returns></returns>
         public OneLanguage CreateOneLanguage(ResourceDictionary rdOneLanguage)
         {
             OneLanguage lang = new OneLanguage();
-
             lang.ResourceDictionary = rdOneLanguage;
 
             if (rdOneLanguage.Contains("LanguageDisplayName"))
@@ -58,6 +76,10 @@ namespace ExplorerNet.Languages
             return lang;
         }
 
+        /// <summary>
+        /// Создаёт объект языка на основе языка по умолчанию (английского)
+        /// </summary>
+        /// <returns></returns>
         public OneLanguage GetEnLenguage()
         {
             ResourceDictionary rdEn = new ResourceDictionary();
@@ -71,11 +93,14 @@ namespace ExplorerNet.Languages
             //return null;
         }
 
+        /// <summary>
+        /// Получить список всех доступных языков, которые может использовать программа
+        /// </summary>
+        /// <returns></returns>
         public List<OneLanguage> GetAllOneLanguages()
         {
             List<OneLanguage> OneLanguages = new List<OneLanguage>();
             OneLanguages.Add(GetEnLenguage());
-
 
             OneLanguage lang = null;
 
@@ -92,6 +117,10 @@ namespace ExplorerNet.Languages
             return OneLanguages;
         }
 
+        /// <summary>
+        /// Изминения языка приложения
+        /// </summary>
+        /// <param name="lang">новый язык приложения</param>
         public void ChangeOneLanguage(OneLanguage lang)
         {
             Properties.Settings.Default.CurrLang = lang.Name;
@@ -104,7 +133,13 @@ namespace ExplorerNet.Languages
                 ChangeLanguage(lang);
             }
         }
+        #endregion //Methods
 
+        #region Static methods
+
+        /// <summary>
+        /// Устанавливает первоначальные значения языка в приложении. Используется при старте приложения
+        /// </summary>
         public static void Init()
         {
             if (string.IsNullOrEmpty(Properties.Settings.Default.CurrLang))
@@ -134,6 +169,21 @@ namespace ExplorerNet.Languages
             }
         }
 
+        /// <summary>
+        /// Получаем объект текущего языка приложения
+        /// </summary>
+        /// <returns></returns>
+        public static OneLanguage GetCurrLanguage()
+        {
+            LanguagesManager lm = new LanguagesManager();
+            return lm.CurrLanguage;
+        }
+
+        #endregion //Static methods
+
+        /// <summary>
+        /// Узнаём текущий язык приложения
+        /// </summary>
         public OneLanguage CurrLanguage
         {
             get
@@ -154,10 +204,6 @@ namespace ExplorerNet.Languages
             }
         }
 
-        public static OneLanguage GetCurrLanguage()
-        {
-            LanguagesManager lm = new LanguagesManager();
-            return lm.CurrLanguage;
-        }
+
     }
 }

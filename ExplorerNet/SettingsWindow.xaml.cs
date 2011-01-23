@@ -52,6 +52,7 @@ namespace ExplorerNet
 
             cbLangSelectorChange.IsChecked = Properties.Settings.Default.LanguageSelectorVisible;
 
+            //ExplorerNet.Tools.ViewSettings.ViewLocation.SaveWindowLocation(this);
         }
 
         /// <summary>
@@ -82,6 +83,7 @@ namespace ExplorerNet
             }
             #endregion //Сохраняем настройки перезаписи файла
 
+           
 
             Properties.Settings.Default.Save();
         }

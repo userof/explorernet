@@ -8,15 +8,33 @@ using System.Globalization;
 
 namespace ExplorerNet.Languages
 {
-    [Serializable]//
+    /// <summary>
+    /// Представляет объект языка
+    /// </summary>
+    [Serializable]
     public class OneLanguage
     {
+        /// <summary>
+        /// Отображающееся имя языка
+        /// </summary>
         private string name = "";
 
+        /// <summary>
+        /// Культура языка. (Может быть не присвоена)
+        /// </summary>
         private CultureInfo culture = null;
 
+        /// <summary>
+        /// Словарь ресурсов в котором хранится информация данного языка
+        /// </summary>
         private ResourceDictionary resourceDictionary = null;
 
+        /// <summary>
+        /// Позволяет создать язык на основе имени. (Язык с таким именем 
+        /// должен быть в списке языков LanguagesManager.GetAllOneLanguages)
+        /// </summary>
+        /// <param name="langName"></param>
+        /// <returns></returns>
         public static OneLanguage FromName(string langName)
         {
             LanguagesManager lm = new LanguagesManager();
@@ -41,26 +59,34 @@ namespace ExplorerNet.Languages
 
         }
 
-
+        /// <summary>
+        /// Словарь ресурсов в котором хранится информация данного языка
+        /// </summary>
         public ResourceDictionary ResourceDictionary
         {
             get { return resourceDictionary; }
             set { resourceDictionary = value; }
         }
 
+        /// <summary>
+        /// Культура языка. (Может быть не присвоена)
+        /// </summary>
         public CultureInfo Culture
         {
             get { return culture; }
             set { culture = value; }
         }
 
-
+        /// <summary>
+        /// Отображающееся имя языка
+        /// </summary>
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
+        //Свойства, для передачи языковой информации в коде
         #region LocalizationProperty
 
         #region SizeFileInString

@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 
 using Microsoft.VisualBasic.FileIO;
 using System.IO;
+using ExplorerNet.Tools;
 
 namespace ExplorerNet
 {
@@ -63,30 +64,42 @@ namespace ExplorerNet
 
         private void Delete(bool toRecycle)
         {
-            RecycleOption roToRecycle = RecycleOption.SendToRecycleBin;
 
-            if (!toRecycle)
+            FileManager fm = new FileManager();
+
+            if (toRecycle)
             {
-                roToRecycle = RecycleOption.DeletePermanently;
+                fm.DeleteToRecycler(deleteFSIList);
+            }
+            else
+            {
+                fm.Delete(deleteFSIList);
             }
 
-            foreach(var fsi in deleteFSIList)
-            {
-                lvMain.SelectedItem = fsi;
+            //RecycleOption roToRecycle = RecycleOption.SendToRecycleBin;
 
-                if (fsi.GetType() == typeof(DirectoryInfo))
-                {
-                    FileSystem.DeleteDirectory(fsi.FullName, UIOption.OnlyErrorDialogs, roToRecycle);
-                }
-                else if (fsi.GetType() == typeof(FileInfo))
-                {
-                    FileSystem.DeleteFile(fsi.FullName, UIOption.OnlyErrorDialogs, roToRecycle);
-                }
-                else
-                {
-                    throw new Exception("Uncnoun type");
-                }
-            }
+            //if (!toRecycle)
+            //{
+            //    roToRecycle = RecycleOption.DeletePermanently;
+            //}
+
+            //foreach(var fsi in deleteFSIList)
+            //{
+            //    lvMain.SelectedItem = fsi;
+
+            //    if (fsi.GetType() == typeof(DirectoryInfo))
+            //    {
+            //        FileSystem.DeleteDirectory(fsi.FullName, UIOption.OnlyErrorDialogs, roToRecycle);
+            //    }
+            //    else if (fsi.GetType() == typeof(FileInfo))
+            //    {
+            //        FileSystem.DeleteFile(fsi.FullName, UIOption.OnlyErrorDialogs, roToRecycle);
+            //    }
+            //    else
+            //    {
+            //        throw new Exception("Uncnoun type");
+            //    }
+            //}
 
 
         }

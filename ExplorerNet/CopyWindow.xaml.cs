@@ -20,6 +20,8 @@ using ExplorerNet.CopyWindowApps;
 using ExplorerNet.ViewWindowApps.FilePanelApps;
 using Microsoft.VisualBasic.FileIO;
 
+using ExplorerNet.Tools;
+
 namespace ExplorerNet
 {
     /// <summary>
@@ -39,6 +41,7 @@ namespace ExplorerNet
         {
             InitializeComponent();
 
+            ExplorerNet.Tools.ViewSettings.ViewLocation.LoadWindowLocation(this);
             /////////////////////////
             CommandBinding cbCopy = new CommandBinding(CopyCommand, ExecutedCopyCommand);
             this.CommandBindings.Add(cbCopy);
@@ -176,55 +179,58 @@ namespace ExplorerNet
                 Thread.Sleep(10);
             }
 
-            foreach (var fsi in lvFromCopy.Items)
-            {
-                
-                if (fsi.GetType() == typeof(DirectoryInfo))
-                {
-                    DirectoryInfo di = (DirectoryInfo)fsi;
-                    destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + di.Name;
-                    switch (Properties.Settings.Default.FileOverwriteOption)
-                    {
-                        case FileOverwriteOptionKind.ShowDialog:
-                            FileSystem.CopyDirectory(di.FullName, destinationPath,
-                                UIOption.AllDialogs, UICancelOption.DoNothing);
-                            break;
-                        case FileOverwriteOptionKind.Skip:
-                            FileSystem.CopyDirectory(di.FullName, destinationPath, false);
-                            break;
-                        case FileOverwriteOptionKind.Rewrite:
-                            FileSystem.CopyDirectory(di.FullName, destinationPath, true);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                else if (fsi.GetType() == typeof(FileInfo))
-                {
-                    FileInfo fi = (FileInfo)fsi;
-                    destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + fi.Name;
-                    switch (Properties.Settings.Default.FileOverwriteOption)
-                    {
-                        case FileOverwriteOptionKind.ShowDialog:
-                            FileSystem.CopyFile(fi.FullName, destinationPath,
-                                UIOption.AllDialogs, UICancelOption.DoNothing);
-                            break;
-                        case FileOverwriteOptionKind.Skip:
-                            FileSystem.CopyFile(fi.FullName, destinationPath, false);
-                            break;
-                        case FileOverwriteOptionKind.Rewrite:
-                            FileSystem.CopyFile(fi.FullName, destinationPath, true);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                else
-                {
-                    throw new Exception();
-                }
+            FileManager fm = new FileManager();
+            fm.Copy(lstCopyFiles, new DirectoryInfo(copyPath));
 
-            }
+            //foreach (var fsi in lvFromCopy.Items)
+            //{
+                
+            //    if (fsi.GetType() == typeof(DirectoryInfo))
+            //    {
+            //        DirectoryInfo di = (DirectoryInfo)fsi;
+            //        destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + di.Name;
+            //        switch (Properties.Settings.Default.FileOverwriteOption)
+            //        {
+            //            case FileOverwriteOptionKind.ShowDialog:
+            //                FileSystem.CopyDirectory(di.FullName, destinationPath,
+            //                    UIOption.AllDialogs, UICancelOption.DoNothing);
+            //                break;
+            //            case FileOverwriteOptionKind.Skip:
+            //                FileSystem.CopyDirectory(di.FullName, destinationPath, false);
+            //                break;
+            //            case FileOverwriteOptionKind.Rewrite:
+            //                FileSystem.CopyDirectory(di.FullName, destinationPath, true);
+            //                break;
+            //            default:
+            //                break;
+            //        }
+            //    }
+            //    else if (fsi.GetType() == typeof(FileInfo))
+            //    {
+            //        FileInfo fi = (FileInfo)fsi;
+            //        destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + fi.Name;
+            //        switch (Properties.Settings.Default.FileOverwriteOption)
+            //        {
+            //            case FileOverwriteOptionKind.ShowDialog:
+            //                FileSystem.CopyFile(fi.FullName, destinationPath,
+            //                    UIOption.AllDialogs, UICancelOption.DoNothing);
+            //                break;
+            //            case FileOverwriteOptionKind.Skip:
+            //                FileSystem.CopyFile(fi.FullName, destinationPath, false);
+            //                break;
+            //            case FileOverwriteOptionKind.Rewrite:
+            //                FileSystem.CopyFile(fi.FullName, destinationPath, true);
+            //                break;
+            //            default:
+            //                break;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        throw new Exception();
+            //    }
+
+            //}
             
             Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate()
             {
@@ -315,60 +321,63 @@ namespace ExplorerNet
                 Thread.Sleep(10);
             }
 
-            foreach (var fsi in lvFromCopy.Items)
-            {
+            FileManager fm = new FileManager();
+            fm.Move(lstCopyFiles, new DirectoryInfo(copyPath));
+
+            //foreach (var fsi in lvFromCopy.Items)
+            //{
 
 
-                //this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate()
-                //{
-                //    cbToCopyText = cbToCopy.Text;
+            //    //this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate()
+            //    //{
+            //    //    cbToCopyText = cbToCopy.Text;
 
-                //    lvFromCopy.SelectedItem = fsi;
-                //    this.Hide();
-                //});
+            //    //    lvFromCopy.SelectedItem = fsi;
+            //    //    this.Hide();
+            //    //});
 
-                if (fsi.GetType() == typeof(DirectoryInfo))
-                {
-                    DirectoryInfo di = (DirectoryInfo)fsi;
-                    destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + di.Name;
-                    switch (Properties.Settings.Default.FileOverwriteOption)
-                    {
-                        case FileOverwriteOptionKind.ShowDialog:
-                            FileSystem.MoveDirectory(di.FullName, destinationPath,
-                                UIOption.AllDialogs, UICancelOption.DoNothing);
-                            break;
-                        case FileOverwriteOptionKind.Skip:
-                            FileSystem.MoveDirectory(di.FullName, destinationPath, false);
-                            break;
-                        case FileOverwriteOptionKind.Rewrite:
-                            FileSystem.MoveDirectory(di.FullName, destinationPath, true);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                else if (fsi.GetType() == typeof(FileInfo))
-                {
-                    FileInfo fi = (FileInfo)fsi;
-                    destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + fi.Name;
-                    switch (Properties.Settings.Default.FileOverwriteOption)
-                    {
-                        case FileOverwriteOptionKind.ShowDialog:
-                            FileSystem.MoveFile(fi.FullName, destinationPath,
-                                UIOption.AllDialogs, UICancelOption.DoNothing);
-                            break;
-                        case FileOverwriteOptionKind.Skip:
-                            FileSystem.MoveFile(fi.FullName, destinationPath, false);
-                            break;
-                        case FileOverwriteOptionKind.Rewrite:
-                            FileSystem.MoveFile(fi.FullName, destinationPath, true);
-                            break;
-                        default:
-                            break;
-                    }
-                }
+            //    if (fsi.GetType() == typeof(DirectoryInfo))
+            //    {
+            //        DirectoryInfo di = (DirectoryInfo)fsi;
+            //        destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + di.Name;
+            //        switch (Properties.Settings.Default.FileOverwriteOption)
+            //        {
+            //            case FileOverwriteOptionKind.ShowDialog:
+            //                FileSystem.MoveDirectory(di.FullName, destinationPath,
+            //                    UIOption.AllDialogs, UICancelOption.DoNothing);
+            //                break;
+            //            case FileOverwriteOptionKind.Skip:
+            //                FileSystem.MoveDirectory(di.FullName, destinationPath, false);
+            //                break;
+            //            case FileOverwriteOptionKind.Rewrite:
+            //                FileSystem.MoveDirectory(di.FullName, destinationPath, true);
+            //                break;
+            //            default:
+            //                break;
+            //        }
+            //    }
+            //    else if (fsi.GetType() == typeof(FileInfo))
+            //    {
+            //        FileInfo fi = (FileInfo)fsi;
+            //        destinationPath = cbToCopyText + System.IO.Path.DirectorySeparatorChar + fi.Name;
+            //        switch (Properties.Settings.Default.FileOverwriteOption)
+            //        {
+            //            case FileOverwriteOptionKind.ShowDialog:
+            //                FileSystem.MoveFile(fi.FullName, destinationPath,
+            //                    UIOption.AllDialogs, UICancelOption.DoNothing);
+            //                break;
+            //            case FileOverwriteOptionKind.Skip:
+            //                FileSystem.MoveFile(fi.FullName, destinationPath, false);
+            //                break;
+            //            case FileOverwriteOptionKind.Rewrite:
+            //                FileSystem.MoveFile(fi.FullName, destinationPath, true);
+            //                break;
+            //            default:
+            //                break;
+            //        }
+            //    }
 
-            }
+            //}
 
             Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate()
             {
@@ -430,6 +439,11 @@ namespace ExplorerNet
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CreateVisualData();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            ExplorerNet.Tools.ViewSettings.ViewLocation.SaveWindowLocation(this);
         }
 
 

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:ExplorerNet"
+        Closed="Window_Closed"
         Title="CopyWindow" Height="255" Width="300" Loaded="Window_Loaded">
     <Grid>
         <ListView Name="lvFromCopy" Margin="0,0,0,70">
@@ -15,7 +16,7 @@
             </ListView.Resources>
         </ListView>
         <ComboBox Name="cbToCopy" Margin="0,0,0,42" Height="26" VerticalAlignment="Bottom"></ComboBox>
-        <Grid Margin="0,190,0,0">
+        <Grid Height="26" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
