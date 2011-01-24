@@ -70,21 +70,11 @@
                 </Button.ToolTip>
             </Button>
 
-            <!--Clear template button-->
-            <Button Name="btnClearTemplate" 
-                    HorizontalAlignment="Left" Margin="2,0,0,0"  
-                    VerticalAlignment="Top" Grid.Column="4" Click="btnClearTemplate_Click">
-                <Image Source="ButtonIcons\ClearTemplate.png" />
-                <Button.ToolTip>
-                    <!--<ToolTip  Content="{x:Static res:Resources.ClearTemplate}" />-->
-                    <ToolTip  Content="{DynamicResource VWClearTemplate}" />
-                </Button.ToolTip>
-            </Button>
             
             <!--Random skin button-->
             <Button Name="btnRandomSkin" 
                     HorizontalAlignment="Left" Margin="11,0,0,0"  
-                    VerticalAlignment="Top" Grid.Column="5" Click="btnRandomSkin_Click">
+                    VerticalAlignment="Top" Grid.Column="4" Click="btnRandomSkin_Click">
                 <Image Source="ButtonIcons\RandomSkin.png" />
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.RandomSkin}" />-->
@@ -95,7 +85,7 @@
             <!--Show InfoWindow button-->
             <Button Name="btnShowInfoWindow" 
                 HorizontalAlignment="Left" Margin="5,0,0,0"  
-                VerticalAlignment="Top" Grid.Column="6" Click="btnShowInfoWindow_Click">
+                VerticalAlignment="Top" Grid.Column="5" Click="btnShowInfoWindow_Click">
                 <Image Source="ButtonIcons\InfoWindow.png" />
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.InfoWindow}" />-->
@@ -103,9 +93,20 @@
                 </Button.ToolTip>
             </Button>
 
+            <!--Clear template button-->
+            <Button Name="btnClearTemplate" 
+                    HorizontalAlignment="Left" Margin="2,0,0,0" Visibility="Hidden"  
+                    VerticalAlignment="Top" Grid.Column="6" Click="btnClearTemplate_Click">
+                <Image Source="ButtonIcons\ClearTemplate.png" />
+                <Button.ToolTip>
+                    <!--<ToolTip  Content="{x:Static res:Resources.ClearTemplate}" />-->
+                    <ToolTip  Content="{DynamicResource VWClearTemplate}" />
+                </Button.ToolTip>
+            </Button>
+
             <!--Reset settings button-->
             <Button Name="btnResetSettings" 
-                HorizontalAlignment="Left" Margin="5,0,0,0"  
+                HorizontalAlignment="Left" Margin="5,0,0,0" Visibility="Hidden"  
                 VerticalAlignment="Top" Grid.Column="7" Click="btnResetSettings_Click">
                 <Image Source="ButtonIcons\ResetSettings.png" />
                 <Button.ToolTip>
@@ -114,6 +115,7 @@
                 </Button.ToolTip>
             </Button>
             </Grid>
+        
         <vw:LanguageSelector MinWidth="20" MinHeight="20" Margin="0,45,0,0" 
                              HorizontalAlignment="Left" VerticalAlignment="Top"
                              />

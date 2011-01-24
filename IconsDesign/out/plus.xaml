@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="Document" Width="610" Height="610" Clip="F1 M 0,0L 610,0L 610,610L 0,610L 0,0">
+	<Canvas x:Name="Layer_1" Width="800" Height="600" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path" Width="610" Height="610" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" StrokeThickness="10" StrokeLineJoin="Round" Stroke="#5C000000" Fill="#34000000" Data="F1 M 255,5L 355,5L 355,255L 605,255L 605,355L 355,355L 355,605L 255,605L 255,355L 5,355L 5,255L 255,255L 255,5 Z "/>
+	</Canvas>
+</Canvas>

@@ -29,11 +29,14 @@ namespace ExplorerNet.ViewWindowApps
 
         public LanguageSelector()
         {
-            InitializeComponent();           
+            InitializeComponent();
 
-            languagesManager = new LanguagesManager();
-            languagesManager.ChangeLanguage += new LanguagesManager.ChangeLanguagesEventHandler(languagesManager_ChangeLanguage);
-            this.Content = languagesManager.CurrLanguage.Name;
+            if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+            {
+                languagesManager = new LanguagesManager();
+                languagesManager.ChangeLanguage += new LanguagesManager.ChangeLanguagesEventHandler(languagesManager_ChangeLanguage);
+                this.Content = languagesManager.CurrLanguage.Name;
+            }
         }
 
         private void languagesManager_ChangeLanguage(OneLanguage newLang)
