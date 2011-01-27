@@ -36,6 +36,22 @@ namespace ExplorerNet.ViewWindowApps
                 languagesManager = new LanguagesManager();
                 languagesManager.ChangeLanguage += new LanguagesManager.ChangeLanguagesEventHandler(languagesManager_ChangeLanguage);
                 this.Content = languagesManager.CurrLanguage.Name;
+
+                ExplorerNet.Tools.SkinManager.ChangedSkin += delegate(Object sender, string skin)
+                {
+                    Style stl = (Style)App.Current.Resources[typeof(Button)];
+
+                    this.Style = stl;
+
+                    //Style stl = new Style(this.GetType());
+                    //stl.BasedOn = new Style(typeof(Button));
+                    //stl.TargetType = this.GetType();
+
+                    //this.Style = stl;
+
+                    //this.UpdateLayout();
+                };
+
             }
         }
 

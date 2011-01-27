@@ -36,6 +36,11 @@ namespace ExplorerNet.Tools
         /// </summary>
         private const string skinSearchFilter = "*.?aml";
 
+
+        public delegate void ChangedSkinEventHandler(Object sender, string skin);
+
+        public static event ChangedSkinEventHandler ChangedSkin;
+
         public SkinManager()
         {
             Init();
@@ -69,12 +74,22 @@ namespace ExplorerNet.Tools
                 //Application.Current.Resources.Clear();
                 ApplySkinXaml(skinPathXaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
+
+                if (ChangedSkin != null)
+                {
+                    ChangedSkin(this, skinName);
+                }
             }
             else if (File.Exists(skinPathBaml))
             {
                 //Application.Current.Resources.Clear();
                 ApplySkinBaml(skinPathBaml);
                 Properties.Settings.Default.CurrentSkin = skinName;
+
+                if (ChangedSkin != null)
+                {
+                    ChangedSkin(this, skinName);
+                }
             }
             else
             {
@@ -115,6 +130,7 @@ namespace ExplorerNet.Tools
             //reader.Close();
             fstream.Close();
         }
+
 
         /// <summary>
         /// Возвращает список скинов приложения

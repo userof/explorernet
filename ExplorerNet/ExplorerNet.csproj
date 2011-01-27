@@ -131,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ButtonIcons\ButtonsContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CopyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,12 +172,22 @@
     <Resource Include="RIP 2007 Icon 46.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="ButtonIcons\DeleteLevel.png" />
+    <Resource Include="ButtonIcons\CloneLevel.png" />
+    <Resource Include="ButtonIcons\NewFilePanel.png" />
+    <Resource Include="ButtonIcons\StartExplorer.png" />
+    <Resource Include="ButtonIcons\StartProgram.png" />
+    <Resource Include="ButtonIcons\CMD.png" />
+    <Resource Include="ButtonIcons\MakeDirectory.png" />
     <Content Include="FileAssotiation.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Gothic4-wallpaper2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\drive_removable.ico" />
+    <Resource Include="Icons\drive_fixed.ico" />
+    <Resource Include="Icons\drive_cdrom.ico" />
     <Content Include="skins\SunnyOrange_Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -227,6 +241,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonIcons\ButtonsContent.xaml.cs">
+      <DependentUpon>ButtonsContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CopyWindow.xaml.cs">
       <DependentUpon>CopyWindow.xaml</DependentUpon>
     </Compile>
@@ -418,10 +435,7 @@
     <Resource Include="Icons\UP.ICO" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\drive_cdrom.ico" />
-    <Resource Include="Icons\drive_fixed.ico" />
     <Resource Include="Icons\drive_network.ico" />
-    <Resource Include="Icons\drive_removable.ico" />
     <Resource Include="Icons\drive_unknown.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -446,28 +460,7 @@
     <Resource Include="ButtonIcons\RandomSkin.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonIcons\NewFilePanel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ButtonIcons\CloneLevel.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="ButtonIcons\DeleteFilePanel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ButtonIcons\DeleteLevel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ButtonIcons\StartExplorer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ButtonIcons\StartProgram.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ButtonIcons\MakeDirectory.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ButtonIcons\CMD.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

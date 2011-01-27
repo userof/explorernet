@@ -2,7 +2,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vw="clr-namespace:ExplorerNet.ViewWindowApps"
-    Title="ViewWindow" Height="300" Width="881" Loaded="Window_Loaded" Closing="Window_Closing" Icon="/Explorer.Net;component/RIP%202007%20Icon%2046.ico" AllowsTransparency="False" Opacity="1">
+    xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
+    Title="ExplorerNet" Height="300" Width="881" Loaded="Window_Loaded" 
+        Closing="Window_Closing" Icon="/Explorer.Net;component/RIP%202007%20Icon%2046.ico" AllowsTransparency="False" Opacity="1">
     <Grid>
 
         <!--<vwApps:LanguageSelector Panel.ZIndex="1" Margin="24,48,0,0" HorizontalAlignment="Left" Width="17" Height="16" VerticalAlignment="Top" />-->
@@ -13,16 +15,17 @@
         </ScrollViewer>
         
  
-        <Grid Name="grdMainButtons" Height="33" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Width="811">
+        <Grid Name="grdMainButtons" Height="33" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Width="411">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
             </Grid.ColumnDefinitions>
             
             <!--Add level button-->
@@ -30,7 +33,9 @@
                     ToolTipService.ShowDuration="2000" 
                     HorizontalAlignment="Left" Margin="2,0,0,0"
                     VerticalAlignment="Top" Width="Auto" Click="btnAddLevel_Click">
-                <Image Source="ButtonIcons\AddLevel.png" />
+                <bi:ButtonsContent>
+                    <Image Source="ButtonIcons\AddLevel.png" />
+                </bi:ButtonsContent>
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.AddLevel}" />-->
                     <ToolTip Content="{DynamicResource VWAddLevel}" />
@@ -41,7 +46,9 @@
             <Button Name="btnSettings" 
                     HorizontalAlignment="Left" Margin="2,0,0,0"  
                     VerticalAlignment="Top" Grid.Column="1" Click="btnSettings_Click">
-                <Image Source="ButtonIcons\Settings.png" />
+                <bi:ButtonsContent>
+                    <Image Source="ButtonIcons\Settings.png" />
+                </bi:ButtonsContent>
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.Settings}" />-->
                     <ToolTip  Content="{DynamicResource VWSettings}" />
@@ -52,7 +59,9 @@
             <Button Name="btnLoadTemplate" 
                     HorizontalAlignment="Left" Margin="2,0,0,0"  
                     VerticalAlignment="Top" Grid.Column="2" Click="btnLoadTemplate_Click">
-                <Image Source="ButtonIcons\LoadTemplate.png" />
+                <bi:ButtonsContent>
+                    <Image Source="ButtonIcons\LoadTemplate.png" />
+                </bi:ButtonsContent>               
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.LoadTemplate}" />-->
                     <ToolTip Content="{DynamicResource VWLoadTemplate}" />
@@ -63,7 +72,9 @@
             <Button Name="btnSaveTemplate" 
                     HorizontalAlignment="Left" Margin="2,0,0,0"  
                     VerticalAlignment="Top" Grid.Column="3" Click="btnSaveTemplate_Click">
-                <Image Source="ButtonIcons\SaveTemplate.png" />
+                <bi:ButtonsContent>
+                    <Image Source="ButtonIcons\SaveTemplate.png" />
+                </bi:ButtonsContent>             
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.SaveTemplate}" />-->
                     <ToolTip  Content="{DynamicResource VWSaveTemplate}" />
@@ -73,9 +84,11 @@
             
             <!--Random skin button-->
             <Button Name="btnRandomSkin" 
-                    HorizontalAlignment="Left" Margin="11,0,0,0"  
+                    HorizontalAlignment="Left" Margin="2,0,0,0"  
                     VerticalAlignment="Top" Grid.Column="4" Click="btnRandomSkin_Click">
-                <Image Source="ButtonIcons\RandomSkin.png" />
+                <bi:ButtonsContent>
+                    <Image Source="ButtonIcons\RandomSkin.png" />
+                </bi:ButtonsContent>
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.RandomSkin}" />-->
                     <ToolTip  Content="{DynamicResource VWRandomSkin}" />
@@ -84,19 +97,24 @@
 
             <!--Show InfoWindow button-->
             <Button Name="btnShowInfoWindow" 
-                HorizontalAlignment="Left" Margin="5,0,0,0"  
+                HorizontalAlignment="Left" Margin="2,0,0,0"  
                 VerticalAlignment="Top" Grid.Column="5" Click="btnShowInfoWindow_Click">
-                <Image Source="ButtonIcons\InfoWindow.png" />
+                <bi:ButtonsContent>
+                    <Image Source="ButtonIcons\InfoWindow.png" />
+                </bi:ButtonsContent>
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.InfoWindow}" />-->
                     <ToolTip  Content="{DynamicResource VWInfoWindow}" />
                 </Button.ToolTip>
             </Button>
 
+            <vw:LanguageSelector Margin="2,0,0,0" Grid.Column="6" 
+                                 HorizontalAlignment="Left" />
+
             <!--Clear template button-->
             <Button Name="btnClearTemplate" 
                     HorizontalAlignment="Left" Margin="2,0,0,0" Visibility="Hidden"  
-                    VerticalAlignment="Top" Grid.Column="6" Click="btnClearTemplate_Click">
+                    VerticalAlignment="Top" Grid.Column="7" Click="btnClearTemplate_Click">
                 <Image Source="ButtonIcons\ClearTemplate.png" />
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.ClearTemplate}" />-->
@@ -107,7 +125,7 @@
             <!--Reset settings button-->
             <Button Name="btnResetSettings" 
                 HorizontalAlignment="Left" Margin="5,0,0,0" Visibility="Hidden"  
-                VerticalAlignment="Top" Grid.Column="7" Click="btnResetSettings_Click">
+                VerticalAlignment="Top" Grid.Column="8" Click="btnResetSettings_Click">
                 <Image Source="ButtonIcons\ResetSettings.png" />
                 <Button.ToolTip>
                     <!--<ToolTip  Content="{x:Static res:Resources.ResetSettings}" />-->
@@ -115,10 +133,7 @@
                 </Button.ToolTip>
             </Button>
             </Grid>
-        
-        <vw:LanguageSelector MinWidth="20" MinHeight="20" Margin="0,45,0,0" 
-                             HorizontalAlignment="Left" VerticalAlignment="Top"
-                             />
+       
         
     </Grid>
 </Window>

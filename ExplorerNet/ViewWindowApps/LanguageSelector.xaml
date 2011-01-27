@@ -6,14 +6,25 @@
              xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps"
         ContextMenuOpening="Button_ContextMenuOpening" 
         Click="Button_Click"
+        x:Name="btn"
         LayoutUpdated="Button_LayoutUpdated"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <Button.ToolTip>
+        <ContentControl Content="btn.Content" />
+    </Button.ToolTip>
     <Button.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type local:LanguageSelector}" BasedOn="{StaticResource {x:Type Button}}"/>
         </ResourceDictionary>
     </Button.Resources>
+    <Button.Content>
+        <Viewbox>
+            <TextBlock TextTrimming="CharacterEllipsis">
+                <ContentPresenter />
+            </TextBlock>
+        </Viewbox>
+    </Button.Content>
     <Button.ContextMenu>
         <ContextMenu Name="cm">
            

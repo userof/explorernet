@@ -33,11 +33,12 @@
         <Button x:Name="btnSumCalculate" 
                    Visibility="Hidden"
                    Click="btnSumCalculate_Click"
-                BorderThickness="4"
+                BorderThickness="0"
                 
-                MinWidth="20"
+                
                 Height="Auto"
                 Width="Auto" />
-        <TextBlock Name="txtSize"></TextBlock>
+        <!--<TextBlock Name="txtSize"></TextBlock>-->
+        <ContentControl Name="ccSize" />
     </StackPanel>
 </UserControl>

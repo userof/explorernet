@@ -53,8 +53,11 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
             imgDriveType.Source = driveData.DriveIcon;
 
-            txtInfo.Text = string.Format("name:{0} type:{1}",
-                drive.Name[0].ToString(), drive.DriveType);
+            //txtInfo.Text = string.Format("name:{0} type:{1}",
+            //    drive.Name[0].ToString(), drive.DriveType);
+            txtDriveLabel.Text = driveData.VolumeLabel;
+            txtDriveName.Text = driveData.Drive.Name[0].ToString();
+            txtDriveType.Text = driveData.Drive.DriveType.ToString();
 
             if (!driveData.Drive.IsReady)
             {
@@ -82,7 +85,6 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             //    {
 
             //    }
-                
 
             //    txtInfo.Text = string.Format("name:{0} label:{1} type:{2}",
             //        drive.Name[0].ToString(), drive.VolumeLabel, drive.DriveType);

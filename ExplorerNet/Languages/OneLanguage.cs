@@ -164,6 +164,20 @@ namespace ExplorerNet.Languages
             }
         }
 
+        public string DDLongSizeString
+        {
+            get
+            {
+                string str = (string)resourceDictionary["DDLongSizeString"];
+                if (string.IsNullOrEmpty(str))
+                {
+                    LanguagesManager lm = new LanguagesManager();
+                    str = lm.GetEnLenguage().DDLongSizeString;
+                }
+                return str;
+            }
+        }
+
         #endregion
 
         #region FilePanel

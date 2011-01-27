@@ -5,6 +5,8 @@ using System.Text;
 
 using ExplorerNet.Languages;
 
+using System.Windows.Controls;
+
 namespace ExplorerNet.Tools
 {
     /// <summary>
@@ -21,8 +23,6 @@ namespace ExplorerNet.Tools
         {
 
             const int scale = 1024;
-
-
 
             //string[] orders = new string[] { Properties.Resources.GB,
             //    Properties.Resources.MB, Properties.Resources.KB,
@@ -51,5 +51,51 @@ namespace ExplorerNet.Tools
             return "0 " + lang.SFISBytes;
             //return "0 " + Properties.Resources.Bytes;
         }
+
+        public static StackPanel GetSizeInStrWPF(long bytes)
+        {
+            StackPanel sp = new StackPanel();
+            sp.Orientation = Orientation.Horizontal;
+            TextBlock tbSize = new TextBlock();
+            TextBlock tbAttr = new TextBlock();
+            tbAttr.Margin = new System.Windows.Thickness(5, 0, 0, 0); 
+            sp.Children.Add(tbSize);
+            sp.Children.Add(tbAttr);
+
+            const int scale = 1024;
+
+            OneLanguage lang = LanguagesManager.GetCurrLanguage();
+            string[] orders = new string[] { "SFISGB",
+                "SFISMB", "SFISKB", "SFISBytes" };
+
+
+            long max = (long)Math.Pow(scale, orders.Length - 1);
+
+            foreach (string order in orders)
+            {
+                if (bytes > max)
+                {
+                    tbSize.Text = string.Format("{0:##.##}", decimal.Divide(bytes, max));
+                    //tbAttr.Text = order;
+
+                    tbAttr.SetResourceReference(TextBlock.TextProperty, order);
+
+                    return sp;
+                }
+
+
+                max /= scale;
+            }
+            tbSize.Text = "0";
+            tbAttr.SetResourceReference(TextBlock.TextProperty, "SFISBytes");
+            //tbAttr.Text = lang.SFISBytes;
+
+
+            return sp;
+
+            //return "0 " + lang.SFISBytes;
+        }
+
+
     }
 }

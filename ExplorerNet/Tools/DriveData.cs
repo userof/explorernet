@@ -113,7 +113,9 @@ namespace ExplorerNet.Tools
             {
                 if (this.drive.IsReady)
                 {
-                    return string.Format("(Free: {0} from {1} ({2} from {3}))",
+                    //OneLanguage lng = OneLanguage.FromName("en");
+                    //var c = LanguagesManager.GetCurrLanguage().en .GetCurrLanguage().DDLongSizeString;
+                    return string.Format(LanguagesManager.GetCurrLanguage().DDLongSizeString,
                         AvailableSizeShort, TotalSizeShort,
                         AvailableSizeLong, TotalSizeLong);
                 }

@@ -4,6 +4,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
     xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps"
     
     PreviewMouseDown="filePanel_PreviewMouseDown"
@@ -47,7 +48,9 @@
             <!--Delete file panel button-->
             <Button Name="btnDeleteFilePanel" 
                     Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">
-                <Image Source="..\ButtonIcons\DeleteFilePanel.png" />
+                <bi:ButtonsContent>
+                    <Image Source="..\ButtonIcons\DeleteLevel.png" />
+                </bi:ButtonsContent>               
                 <Button.ToolTip>
                     <ToolTip  Content="{DynamicResource FPDeleteFilePanel}" />
                 </Button.ToolTip>
@@ -57,7 +60,10 @@
             <Button Name="btnClone" 
                     Margin="0,34,0,0" Height="25" 
                     VerticalAlignment="Top" Click="btnClone_Click">
-                <Image Source="..\ButtonIcons\CloneLevel.png" />
+                <bi:ButtonsContent>
+                    <Image Source="..\ButtonIcons\CloneLevel.png" />
+                </bi:ButtonsContent>
+                
                 <Button.ToolTip>
                     <ToolTip  Content="{DynamicResource FPCloneFilePanel}" />
                 </Button.ToolTip>
@@ -67,7 +73,9 @@
             <Button Name="btnWindowsExplorer" 
                     Margin="0,62,0,0" Height="25" 
                     VerticalAlignment="Top" Click="btnWindowsExplorer_Click">
-                <Image Source="..\ButtonIcons\StartExplorer.png" />
+                <bi:ButtonsContent>
+                    <Image Source="..\ButtonIcons\StartExplorer.png" />
+                </bi:ButtonsContent>   
                 <Button.ToolTip>
                     <ToolTip  Content="{DynamicResource FPOpenInExplorer}" />
                 </Button.ToolTip>
@@ -77,17 +85,33 @@
             <Button Name="btnTotalCommander"
                     Margin="0,93,0,0" Height="25" 
                     VerticalAlignment="Top" Click="btnTotalCommander_Click">
-                <Image Source="..\ButtonIcons\StartProgram.png" />
+                <bi:ButtonsContent>
+                    <Image Source="..\ButtonIcons\StartProgram.png" />
+                </bi:ButtonsContent>
                 <Button.ToolTip>
                     <ToolTip  Content="{DynamicResource FPStartInProgram}" />
                 </Button.ToolTip>
             </Button>
-            
+
+            <Button Name="btnCMD" 
+                    Margin="0,123,0,0" Height="25"
+                    VerticalAlignment="Top" Click="btnCMD_Click">
+                <bi:ButtonsContent>
+                    <Image Source="..\ButtonIcons\CMD.png" />
+                </bi:ButtonsContent>
+                <Button.ToolTip>
+                    <ToolTip  Content="{DynamicResource FPOpenInCmd}" />
+                </Button.ToolTip>
+            </Button>
+
             <!--Make directory button-->
             <Button Name="btnMakeDirectory" 
-                    Margin="0,123,0,0" Height="25" 
+                    Margin="0,153,0,0" Height="25" 
                     VerticalAlignment="Top" Click="btnMakeDirectory_Click">
-                <Image Source="..\ButtonIcons\MakeDirectory.png" />
+                <bi:ButtonsContent>
+                    <Image Source="..\ButtonIcons\MakeDirectory.png" />
+                </bi:ButtonsContent>
+                
                 <Button.ToolTip>
                     <ToolTip  Content="{DynamicResource FPMakeDirectory}" />
                 </Button.ToolTip>
@@ -95,7 +119,8 @@
 
             <!--Make directory button-->
             <Button Name="btnCopyDialog" 
-                    Margin="0,153,0,0" Height="25" 
+                    Visibility="Hidden"
+                    Margin="0,183,0,0" Height="25" 
                     VerticalAlignment="Top" Click="btnCopyDialog_Click">
                 <!--<Image Source="..\ButtonIcons\MakeDirectory.png" />-->
                 <Button.ToolTip>
@@ -103,16 +128,8 @@
                 </Button.ToolTip>
             </Button>
 
-            <Button Name="btnCMD" 
-                    Margin="0,183,0,0" Height="25"
-                    VerticalAlignment="Top" Click="btnCMD_Click">
-                <Image Source="..\ButtonIcons\CMD.png" />
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPOpenInCmd}" />
-                </Button.ToolTip>
-            </Button>
             
-            <!--Индикатор выделения-->
+
         </Grid>
         <Grid Margin="34,0,4,4">
             <UniformGrid Name="ugDrives" Height="25" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>

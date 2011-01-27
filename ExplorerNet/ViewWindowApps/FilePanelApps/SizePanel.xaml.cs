@@ -95,15 +95,24 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         {
             if (fsCover.GetType() == typeof(DirectoryCover))
             {
-                //txtSize.Text = Properties.Resources.dir;
-                txtSize.Text = LanguagesManager.GetCurrLanguage().SPDir;
-                //btnSumCalculate.Content = "sum";
+                
+                //txtSize.Text = LanguagesManager.GetCurrLanguage().SPDir;
+                ccSize.SetResourceReference(ContentControl.ContentProperty, "SPDir");
+
+                btnSumCalculate.MinWidth = 20;
+                btnSumCalculate.BorderThickness = new Thickness(4);
                 btnSumCalculate.Visibility = System.Windows.Visibility.Visible;
             }
             else if (fsCover.GetType() == typeof(FileCover))
             {
                 FileInfo fi = (FileInfo)fsCover.FileSystemElement;
-                txtSize.Text = SizeFileInString.GetSizeInStr(fi.Length);
+
+                //txtSize.Text = SizeFileInString.GetSizeInStr(fi.Length);
+                ccSize.Content = SizeFileInString.GetSizeInStrWPF(fi.Length);
+
+                btnSumCalculate.BorderThickness = new Thickness(0);
+                btnSumCalculate.MinWidth = 0;
+                btnSumCalculate.Width = 0;
                 btnSumCalculate.Visibility = System.Windows.Visibility.Hidden;
             }
 
@@ -221,7 +230,8 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         {
             this.Dispatcher.Invoke(DispatcherPriority.Normal, (ThreadStart)delegate()
             {
-                txtSize.Text = SizeFileInString.GetSizeInStr(sum);
+                //txtSize.Text = SizeFileInString.GetSizeInStr(sum);
+                ccSize.Content = SizeFileInString.GetSizeInStrWPF(sum);
             }
             );
         }

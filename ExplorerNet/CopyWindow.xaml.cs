@@ -162,7 +162,7 @@ namespace ExplorerNet
 
         private void CopyInThread()
         {
-            string destinationPath = "";
+            //string destinationPath = "";
 
             string cbToCopyText = "";
 
@@ -304,7 +304,7 @@ namespace ExplorerNet
 
         private void MoveInThread()
         {
-            string destinationPath = "";
+            //string destinationPath = "";
 
             string cbToCopyText = "";
 

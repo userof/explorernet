@@ -25,13 +25,13 @@
         </ControlTemplate>
     </RadioButton.Template>
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="1234567890" Margin="10 0 0 0" Name="txtDriveName" Width="20" />
-            <Image Name="imgDriveType" Source="/Icons/drive_unknown.ico" />
-            <TextBlock Name="txtLabel" Margin="10 0 0 0" />
+        <WrapPanel Orientation="Horizontal">
+            <TextBlock MinWidth="20" Text="1234567890" Margin="10 0 0 0" Name="txtDriveName" />
+            <Image MinWidth="20" Name="imgDriveType" Source="/Icons/drive_unknown.ico" />
+            <TextBlock MinWidth="20" Name="txtLabel" Margin="10 0 0 0" />
             <!--<TextBlock Name="txtInfo" />-->
-            <TextBlock Name="txtSize" Margin="10 0 0 0" />
-        </StackPanel>
+            <TextBlock MinWidth="20" Name="txtSize" Margin="10 0 0 0" />
+        </WrapPanel>
         <ProgressBar Name="pbSize" Value="50" Opacity="0.4" />
         
     </Grid>

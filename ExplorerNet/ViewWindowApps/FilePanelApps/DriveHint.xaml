@@ -7,8 +7,21 @@
              d:DesignHeight="300" d:DesignWidth="300" IsVisibleChanged="UserControl_IsVisibleChanged">
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Image Name="imgDriveType"></Image>
-            <TextBlock Name="txtInfo"></TextBlock>
+            <ContentControl>
+                <Image Name="imgDriveType"></Image>
+            </ContentControl>
+            <ContentControl>
+                <!--<TextBlock Margin="10,0,10,0" Name="txtInfo">xxxx</TextBlock>-->
+                <TextBlock Margin="10,0,10,0" Name="txtDriveName" />
+            </ContentControl>
+            <ContentControl>
+                <!--<TextBlock Margin="10,0,10,0" Name="txtInfo">xxxx</TextBlock>-->
+                <TextBlock Margin="10,0,10,0" Name="txtDriveLabel" />
+            </ContentControl>
+            <ContentControl>
+                <!--<TextBlock Margin="10,0,10,0" Name="txtInfo">xxxx</TextBlock>-->
+                <TextBlock Margin="10,0,10,0" Name="txtDriveType" />
+            </ContentControl>
         </StackPanel>
         <ProgressBar Name="pbSize" Height="10"></ProgressBar>
         <TextBlock Name="txtSize"></TextBlock>

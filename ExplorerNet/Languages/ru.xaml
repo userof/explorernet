@@ -65,6 +65,7 @@
 
     <!--DriveData-->
     <sys:String x:Key="DDDriveIsNotReady">Устройство не готово!</sys:String>
+    <sys:String x:Key="DDLongSizeString">(Свободно: {0} с {1} ({2} с {3}))</sys:String>
 
     <!--SystemFoldersButton-->
     <sys:String x:Key="SFBDesctop">Рабочий стол</sys:String>
