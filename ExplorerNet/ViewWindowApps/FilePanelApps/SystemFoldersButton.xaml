@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:uc="clr-namespace:ExplorerNet.ViewWindowApps.FilePanelApps"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
              mc:Ignorable="d" 
              Click="Button_Click"
              d:DesignHeight="300" d:DesignWidth="300" Opacity="1" AllowDrop="False">
@@ -12,6 +13,14 @@
             <Style TargetType="{x:Type uc:SystemFoldersButton}" BasedOn="{StaticResource {x:Type Button}}"/>
         </ResourceDictionary>
     </Button.Resources>
+    <Button.Content>
+        <Border BorderThickness="1">
+            <bi:ButtonsContent>
+                <Image Source="..\..\ButtonIcons\SFB.png" />
+            </bi:ButtonsContent>
+        </Border>
+    </Button.Content>
+        
     <Button.ContextMenu>
         <ContextMenu Name="cmMain" >
             <MenuItem Name="miDesctop" Header="{DynamicResource SFBDesctop}" Click="miDesctop_Click" />

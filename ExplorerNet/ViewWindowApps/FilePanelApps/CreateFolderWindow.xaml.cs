@@ -22,13 +22,16 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         public CreateFolderWindow()
         {
             InitializeComponent();
+
+            ExplorerNet.Tools.ViewSettings.ViewLocation.LoadWindowLocation(this);
+
             txtDirectoryName.Focus();
         }
 
         public CreateFolderWindow(string directoryPath)
             : this()
         {
-            txtInfo.Text += directoryPath;
+            txtPath.Text += directoryPath;
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
@@ -39,6 +42,11 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         public string DirectoryName
         {
             get { return txtDirectoryName.Text; }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            ExplorerNet.Tools.ViewSettings.ViewLocation.SaveWindowLocation(this);
         }
     }
 }

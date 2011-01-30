@@ -79,5 +79,17 @@
     <sys:String x:Key="SFBPicture">Picture</sys:String>
     <sys:String x:Key="SFBVideo">Video</sys:String>
 
+    <!--RenameWindow-->
+    <sys:String x:Key="RWWindowTitle">Rename</sys:String>
+    <sys:String x:Key="RWOk">Ok (Enter)</sys:String>
+    <sys:String x:Key="RWCancel">Cancel (Esc)</sys:String>
+    <sys:String x:Key="RWRename">Rename</sys:String>
+
+    <!--CreateFolderWindow-->
+    <sys:String x:Key="CFWWindowTitle">Create the directory</sys:String>
+    <sys:String x:Key="CFWOk">Ok (Enter)</sys:String>
+    <sys:String x:Key="CFWCancel">Cancel (Esc)</sys:String>
+    <sys:String x:Key="CFWDescription">Input the directory name</sys:String>
+
 
 </ResourceDictionary>

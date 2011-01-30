@@ -2,12 +2,28 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         WindowStartupLocation="CenterScreen"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CreateFolderWindow" Height="150" Width="300">
-    <Grid Height="121">
+        Closed="Window_Closed"
+        Title="{DynamicResource CFWWindowTitle}"
+        Height="164" Width="300">
+    <!--<Grid Height="121">
         <TextBlock Margin="0,0,0,103">Input the directory name</TextBlock>
         <TextBlock Name="txtInfo" Margin="0,26,0,77"> </TextBlock>
         <TextBox Name="txtDirectoryName" TabIndex="0" Margin="0,52,0,0" Height="23" VerticalAlignment="Top"></TextBox>
         <Button Name="btnOk" IsDefault="True" Margin="0,81,0,0" HorizontalAlignment="Left" Width="111" Height="24" VerticalAlignment="Top" Click="btnOk_Click">Ok</Button>
         <Button Name="btnCancel" IsCancel="True" Margin="117,82,0,0" HorizontalAlignment="Left" Width="112" Height="23" VerticalAlignment="Top">Cancel</Button>
-    </Grid>
+    </Grid>-->
+    <StackPanel>
+        <TextBlock Name="txtDescription" Margin="0,10,0,0" 
+                   Text="{DynamicResource CFWDescription}" />
+        <TextBlock Name="txtPath" Margin="0,10,0,0" />
+        <TextBox Name="txtDirectoryName" TabIndex="0" Margin="0,10,0,0" />
+        <StackPanel Orientation="Horizontal" Height="26" Margin="0,10,0,0">
+            <Button Name="btnOk" IsDefault="True" Margin="10,0,10,0" Click="btnOk_Click">
+                <TextBlock Margin="14,0,14,0" Text="{DynamicResource CFWOk}" />
+            </Button>
+            <Button Name="btnCancel" IsCancel="True" Margin="0,0,10,0">
+                <TextBlock Margin="14,0,14,0" Text="{DynamicResource CFWCancel}" />
+            </Button>
+        </StackPanel>
+    </StackPanel>
 </Window>

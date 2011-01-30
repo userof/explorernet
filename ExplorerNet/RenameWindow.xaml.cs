@@ -28,6 +28,8 @@ namespace ExplorerNet
         {
             InitializeComponent();
 
+            ExplorerNet.Tools.ViewSettings.ViewLocation.LoadWindowLocation(this);
+
             var list = FilePanelSelector.FirstSelected.SelectedFiles;
             this.renamingFile = list[0];
             txtName.Text = this.renamingFile.Name;
@@ -55,6 +57,11 @@ namespace ExplorerNet
             {
                 throw new Exception("Uncnoun type!");
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            ExplorerNet.Tools.ViewSettings.ViewLocation.SaveWindowLocation(this);
         }
     }
 }

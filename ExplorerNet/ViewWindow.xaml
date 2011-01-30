@@ -4,7 +4,8 @@
     xmlns:vw="clr-namespace:ExplorerNet.ViewWindowApps"
     xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
     Title="ExplorerNet" Height="300" Width="881" Loaded="Window_Loaded" 
-        Closing="Window_Closing" Icon="/Explorer.Net;component/RIP%202007%20Icon%2046.ico" AllowsTransparency="False" Opacity="1">
+        Closing="Window_Closing" 
+        AllowsTransparency="False" Opacity="1">
     <Grid>
 
         <!--<vwApps:LanguageSelector Panel.ZIndex="1" Margin="24,48,0,0" HorizontalAlignment="Left" Width="17" Height="16" VerticalAlignment="Top" />-->
