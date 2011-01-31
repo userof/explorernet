@@ -193,5 +193,27 @@ namespace ExplorerNet.Languages
         #endregion //FilePanel
 
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            OneLanguage lang = (OneLanguage)obj;
+
+            if (this.ResourceDictionary.Source == lang.ResourceDictionary.Source)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            //return base.Equals(obj);
+
+        }
+
+        public override int GetHashCode()
+        {
+            return ResourceDictionary.GetHashCode();
+        }
     }
 }

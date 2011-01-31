@@ -198,6 +198,10 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="SettingsWindow2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -281,6 +285,9 @@
     <Compile Include="Settings.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsWindow2.xaml.cs">
+      <DependentUpon>SettingsWindow2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sys\Consts.cs" />
     <Compile Include="Tools\DriveData.cs" />

@@ -165,7 +165,7 @@ namespace ExplorerNet
         /// <param name="e"></param>
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow settingsWindow = new SettingsWindow();
+            SettingsWindow2 settingsWindow = new SettingsWindow2();
             settingsWindow.ShowDialog();
         }
 

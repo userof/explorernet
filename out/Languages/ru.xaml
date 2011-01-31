@@ -76,5 +76,17 @@
     <sys:String x:Key="SFBPicture">Изображения</sys:String>
     <sys:String x:Key="SFBVideo">Видео</sys:String>
 
+    <!--RenameWindow-->
+    <sys:String x:Key="RWWindowTitle">Переименовать</sys:String>
+    <sys:String x:Key="RWOk">Ok (Enter)</sys:String>
+    <sys:String x:Key="RWCancel">Отмена (Esc)</sys:String>
+    <sys:String x:Key="RWRename">Переименовать</sys:String>
+
+    <!--CreateFolderWindow-->
+    <sys:String x:Key="CFWWindowTitle">Создать директорию</sys:String>
+    <sys:String x:Key="CFWOk">Ok (Enter)</sys:String>
+    <sys:String x:Key="CFWCancel">Отмена (Esc)</sys:String>
+    <sys:String x:Key="CFWDescription">Введите название директории</sys:String>
+
 
 </ResourceDictionary>
