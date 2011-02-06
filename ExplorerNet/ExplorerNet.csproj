@@ -63,8 +63,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>app.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>83499430A73761223C1935317BDE090D844BEAC8</ManifestCertificateThumbprint>
@@ -92,6 +91,10 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DriveDetectorLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\out\DriveDetectorLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="ShellBasics">
       <HintPath>..\out\ShellBasics.dll</HintPath>
@@ -173,7 +176,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Resource Include="ButtonIcons\InfoWindow.png" />
-    <Resource Include="RIP 2007 Icon 46.ico">
+    <Resource Include="app.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="ButtonIcons\DeleteLevel.png" />
@@ -292,6 +295,10 @@
     <Compile Include="Sys\Consts.cs" />
     <Compile Include="Tools\DriveData.cs" />
     <Compile Include="Tools\FileManager.cs" />
+    <Compile Include="Tools\FileStarter.cs" />
+    <Compile Include="Tools\LastStartedFiles\LastStartedFile.cs" />
+    <Compile Include="Tools\LastStartedFiles\LastStartedFiles.cs" />
+    <Compile Include="Tools\LastStartedFiles\LastStartedFilesManager.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplate.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplateManager.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
@@ -312,6 +319,7 @@
     <Compile Include="ViewWindowApps\FilePanelApps\DriveButton.xaml.cs">
       <DependentUpon>DriveButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\DriveDetectorSing.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\DriveHint.xaml.cs">
       <DependentUpon>DriveHint.xaml</DependentUpon>
     </Compile>

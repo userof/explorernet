@@ -160,5 +160,13 @@ namespace ExplorerNet.Tools
         {
             return Properties.Settings.Default.CurrentSkin;
         }
+
+        public string SkinDirPath
+        {
+            get
+            {
+                return skinDirPath;
+            }
+        }
     }
 }

@@ -59,5 +59,11 @@
     <Setting Name="ViewLocations" Type="ExplorerNet.Tools.ViewSettings.ViewLocations" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="LastNameAssemblie" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastStartedFiles" Type="ExplorerNet.Tools.LastStartedFiles.LastStartedFiles" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

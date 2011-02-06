@@ -17,6 +17,8 @@
     <sys:String x:Key="VWRandomSkin">Random skin</sys:String>
     <sys:String x:Key="VWInfoWindow">Info window</sys:String>
     <sys:String x:Key="VWResetSettings">Reset settings</sys:String>
+    <sys:String x:Key="VWClearLastFiles">Clear</sys:String>
+    <sys:String x:Key="VWDeleteLastFile">Delete</sys:String>
     
     <!--Level-->
     <sys:String x:Key="LLNewFilePanel">New file panel</sys:String>
@@ -63,9 +65,18 @@
     <sys:String x:Key="CWCancel">Cancel (Esc)</sys:String>
 
     <!--SettingsWindow-->
+    <!--<sys:String x:Key="SWSkins">Skins</sys:String>
+    <sys:String x:Key="SWLevelAndFilePanel">Level and filePanel</sys:String>-->
     <sys:String x:Key="SWSkins">Skins</sys:String>
-    <sys:String x:Key="SWLevelAndFilePanel">Level and filePanel</sys:String>
-    
+    <sys:String x:Key="SWLanguages">Languages</sys:String>
+    <sys:String x:Key="SWSkinName">Name</sys:String>
+    <sys:String x:Key="SWResetApp">Reset App</sys:String>
+    <sys:String x:Key="SWOpenSkinDirectory">OpenSkinDirectory</sys:String>
+    <sys:String x:Key="SWSkinInfo">For correctly change skin you need reset this application</sys:String>
+    <sys:String x:Key="SWLangName">Name</sys:String>
+    <sys:String x:Key="SWLangAndCulture">Language and culture</sys:String>
+    <sys:String x:Key="SWLangSelector">The button of change language</sys:String>
+
     <!--DriveData-->
     <sys:String x:Key="DDDriveIsNotReady">The drive is not ready!</sys:String>
     <sys:String x:Key="DDLongSizeString">(Free: {0} from {1} ({2} from {3}))</sys:String>

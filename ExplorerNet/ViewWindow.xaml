@@ -5,7 +5,7 @@
     xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
     Title="ExplorerNet" Height="300" Width="881" Loaded="Window_Loaded" 
         Closing="Window_Closing" 
-        AllowsTransparency="False" Opacity="1">
+        AllowsTransparency="False" Opacity="1" Icon="/Explorer.Net;component/app.ico">
     <Grid>
 
         <!--<vwApps:LanguageSelector Panel.ZIndex="1" Margin="24,48,0,0" HorizontalAlignment="Left" Width="17" Height="16" VerticalAlignment="Top" />-->
@@ -16,23 +16,23 @@
         </ScrollViewer>
         
  
-        <Grid Name="grdMainButtons" Height="33" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Width="411">
+        <Grid Name="grdMainButtons" Height="33" Margin="19,12,19,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <!--<ColumnDefinition Width="30*" />-->
             </Grid.ColumnDefinitions>
             
             <!--Add level button-->
             <Button Name="btnAddLevel" 
                     ToolTipService.ShowDuration="2000" 
-                    HorizontalAlignment="Left" Margin="2,0,0,0"
+                    HorizontalAlignment="Left" Margin="2,0,3,0"
                     VerticalAlignment="Top" Width="Auto" Click="btnAddLevel_Click">
                 <bi:ButtonsContent>
                     <Image Source="ButtonIcons\AddLevel.png" />
@@ -45,7 +45,7 @@
 
             <!--Settings button-->
             <Button Name="btnSettings" 
-                    HorizontalAlignment="Left" Margin="2,0,0,0"  
+                    HorizontalAlignment="Left" Margin="2,0,3,0"  
                     VerticalAlignment="Top" Grid.Column="1" Click="btnSettings_Click">
                 <bi:ButtonsContent>
                     <Image Source="ButtonIcons\Settings.png" />
@@ -58,7 +58,7 @@
             
             <!--Load template button-->
             <Button Name="btnLoadTemplate" 
-                    HorizontalAlignment="Left" Margin="2,0,0,0"  
+                    HorizontalAlignment="Left" Margin="2,0,3,0"  
                     VerticalAlignment="Top" Grid.Column="2" Click="btnLoadTemplate_Click">
                 <bi:ButtonsContent>
                     <Image Source="ButtonIcons\LoadTemplate.png" />
@@ -71,7 +71,7 @@
 
             <!--Save template button-->
             <Button Name="btnSaveTemplate" 
-                    HorizontalAlignment="Left" Margin="2,0,0,0"  
+                    HorizontalAlignment="Left" Margin="2,0,3,0"  
                     VerticalAlignment="Top" Grid.Column="3" Click="btnSaveTemplate_Click">
                 <bi:ButtonsContent>
                     <Image Source="ButtonIcons\SaveTemplate.png" />
@@ -85,7 +85,7 @@
             
             <!--Random skin button-->
             <Button Name="btnRandomSkin" 
-                    HorizontalAlignment="Left" Margin="2,0,0,0"  
+                    HorizontalAlignment="Left" Margin="2,0,3,0"  
                     VerticalAlignment="Top" Grid.Column="4" Click="btnRandomSkin_Click">
                 <bi:ButtonsContent>
                     <Image Source="ButtonIcons\RandomSkin.png" />
@@ -98,7 +98,7 @@
 
             <!--Show InfoWindow button-->
             <Button Name="btnShowInfoWindow" 
-                HorizontalAlignment="Left" Margin="2,0,0,0"  
+                HorizontalAlignment="Left" Margin="2,0,3,0"  
                 VerticalAlignment="Top" Grid.Column="5" Click="btnShowInfoWindow_Click">
                 <bi:ButtonsContent>
                     <Image Source="ButtonIcons\InfoWindow.png" />
@@ -109,30 +109,126 @@
                 </Button.ToolTip>
             </Button>
 
-            <vw:LanguageSelector Margin="2,0,0,0" Grid.Column="6" 
+
+            <vw:LanguageSelector Margin="2,0,3,0" Grid.Column="6" 
                                  HorizontalAlignment="Left" />
 
+            <ListBox Name="lbLastStartedFiles" Margin="2,0,3,0"
+                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                     Background="Transparent"
+                     Grid.Column="7" Width="Auto">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />                           
+                                             
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        
+
+                        <Button Height="30" ToolTip="{Binding Path=Path}"> 
+                            <bi:ButtonsContent >
+                                
+                                <Image Source="{Binding Path=Ico}" />
+                                
+                            </bi:ButtonsContent>
+                        </Button>
+                        
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" 
+                                     Handler="ButtonsContent_PreviewMouseLeftButtonDown" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ContextMenu>
+                    
+                    <ContextMenu Name="cmLastStartedFiles">          
+                        <StackPanel>
+                            <Button Name="btnClearLastFiles" 
+                                    Content="{DynamicResource VWClearLastFiles}"
+                                    Click="btnClearLastFiles_Click" />
+                        <ListBox Name="lbLastStartedFilesContextMenu">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Background="LightGray" ToolTip="{Binding Path=Path}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="170" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal" 
+                                                        MouseDown="txtMenuPath_MouseDown"
+                                                        ToolTip="{Binding Path=Path}"
+                                                        Tag="{Binding}"
+                                                        Grid.Column="0">
+                                                <Image Width="20" Height="20" 
+                                                       
+                                                        Source="{Binding Path=Ico}" />
+                                                <TextBlock Name="txtMenuPath" 
+                                                     Text="{Binding Path=Name}" />
+                                            </StackPanel>
+                                            <Button Grid.Column="1" Name="btnDeleteLastFile"
+                                                    HorizontalAlignment="Right"
+                                                    Tag="{Binding}"
+                                                    Click="btnDeleteLastFile_Click"
+                                                    Content="{DynamicResource VWDeleteLastFile}" />
+                                        </Grid>
+                                        <!--<StackPanel>
+                                            <StackPanel ToolTip="{Binding Path=Path}" 
+                                                        Orientation="Horizontal">
+                                                <Image Width="20" Height="20" 
+                                                       Source="{Binding Path=Ico}" />
+                                                <TextBlock Text="{Binding Path=Name}" />
+                                            </StackPanel>
+                                            <Button HorizontalAlignment="Left">delete</Button>
+                                        </StackPanel>-->
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+
+                <!--<ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <EventSetter Event="DragEnter"  Handler="StartlastFile_Click"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>-->
+                <!--<ListView.View>
+                    <GridView>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button>xxx</Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>-->
+            </ListBox>
+
             <!--Clear template button-->
-            <Button Name="btnClearTemplate" 
+            <!--<Button Name="btnClearTemplate" 
                     HorizontalAlignment="Left" Margin="2,0,0,0" Visibility="Hidden"  
                     VerticalAlignment="Top" Grid.Column="7" Click="btnClearTemplate_Click">
                 <Image Source="ButtonIcons\ClearTemplate.png" />
                 <Button.ToolTip>
-                    <!--<ToolTip  Content="{x:Static res:Resources.ClearTemplate}" />-->
                     <ToolTip  Content="{DynamicResource VWClearTemplate}" />
                 </Button.ToolTip>
-            </Button>
+            </Button>-->
 
             <!--Reset settings button-->
-            <Button Name="btnResetSettings" 
+            <!--<Button Name="btnResetSettings" 
                 HorizontalAlignment="Left" Margin="5,0,0,0" Visibility="Hidden"  
                 VerticalAlignment="Top" Grid.Column="8" Click="btnResetSettings_Click">
                 <Image Source="ButtonIcons\ResetSettings.png" />
                 <Button.ToolTip>
-                    <!--<ToolTip  Content="{x:Static res:Resources.ResetSettings}" />-->
                     <ToolTip  Content="{DynamicResource VWResetSettings}" />
                 </Button.ToolTip>
-            </Button>
+            </Button>-->
             </Grid>
        
         

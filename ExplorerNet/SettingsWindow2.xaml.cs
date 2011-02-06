@@ -71,5 +71,19 @@ namespace ExplorerNet
             SkinManager sm = new SkinManager();
             sm.ApplySkin((string)lvSkins.SelectedItem);
         }
+
+        private void btnOpenSkinDirectory_Click(object sender, RoutedEventArgs e)
+        {
+            SkinManager sm = new SkinManager();
+            System.Diagnostics.Process.Start(sm.SkinDirPath);
+        }
+
+        private void btnResetApp_Click(object sender, RoutedEventArgs e)
+        {
+            string appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            App.Current.Shutdown();
+
+            FileStarter.Start(appPath);
+        }
     }
 }

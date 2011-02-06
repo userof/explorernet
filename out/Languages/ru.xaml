@@ -14,6 +14,8 @@
     <sys:String x:Key="VWRandomSkin">Случайный скин</sys:String>
     <sys:String x:Key="VWInfoWindow">Информационное окно</sys:String>
     <sys:String x:Key="VWResetSettings">Обнулить настройки</sys:String>
+    <sys:String x:Key="VWClearLastFiles">Очистить</sys:String>
+    <sys:String x:Key="VWDeleteLastFile">Удалить</sys:String>
 
     <!--Level-->
     <sys:String x:Key="LLNewFilePanel">Создать файловую панель</sys:String>
@@ -60,8 +62,17 @@
     <sys:String x:Key="CWCancel">Отмена (Esc)</sys:String>
 
     <!--SettingsWindow-->
+    <!--<sys:String x:Key="SWSkins">Оболочки</sys:String>
+    <sys:String x:Key="SWLevelAndFilePanel">Уровень и файловая панель</sys:String>-->
     <sys:String x:Key="SWSkins">Оболочки</sys:String>
-    <sys:String x:Key="SWLevelAndFilePanel">Уровень и файловая панель</sys:String>
+    <sys:String x:Key="SWLanguages">Языки</sys:String>
+    <sys:String x:Key="SWSkinName">Имя</sys:String>
+    <sys:String x:Key="SWResetApp">Перегрузить приложение</sys:String>
+    <sys:String x:Key="SWOpenSkinDirectory">Открыть директорию оболочек</sys:String>
+    <sys:String x:Key="SWSkinInfo">Для корректного изменения оболочки рекомендуется перезагрузить приложение</sys:String>
+    <sys:String x:Key="SWLangName">Имя</sys:String>
+    <sys:String x:Key="SWLangAndCulture">Язык и культура</sys:String>
+    <sys:String x:Key="SWLangSelector">Кнопка выбора языка</sys:String>
 
     <!--DriveData-->
     <sys:String x:Key="DDDriveIsNotReady">Устройство не готово!</sys:String>

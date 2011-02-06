@@ -244,5 +244,28 @@ namespace ExplorerNet.Properties {
                 this["ViewLocations"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastNameAssemblie {
+            get {
+                return ((string)(this["LastNameAssemblie"]));
+            }
+            set {
+                this["LastNameAssemblie"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ExplorerNet.Tools.LastStartedFiles.LastStartedFiles LastStartedFiles {
+            get {
+                return ((global::ExplorerNet.Tools.LastStartedFiles.LastStartedFiles)(this["LastStartedFiles"]));
+            }
+            set {
+                this["LastStartedFiles"] = value;
+            }
+        }
     }
 }

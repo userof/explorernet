@@ -85,6 +85,8 @@ namespace ExplorerNet.ViewWindowApps
 
                 level.spMain.Children.Add(newFp);
             }
+
+            level.Height = this.Height;
         }
 
         private void btnClobeLevel_Click(object sender, RoutedEventArgs e)

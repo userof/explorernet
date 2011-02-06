@@ -21,6 +21,8 @@ using ExplorerNet.ViewWindowApps.Templates;
 using Application = System.Windows.Application;
 using MessageBox = System.Windows.MessageBox;
 
+using ExplorerNet.Tools.LastStartedFiles;
+
 namespace ExplorerNet
 {
     /// <summary>
@@ -46,6 +48,21 @@ namespace ExplorerNet
         public ViewWindow()
         {
             InitializeComponent();
+
+
+            ////////////////////////
+            //LastStartedFiles target = new LastStartedFiles(); // TODO: инициализация подходящего значения
+
+            //LastStartedFile lf = new LastStartedFile("C:\\1.txt");
+            //LastStartedFile lf2 = new LastStartedFile("C:\\2.txt");
+            //LastStartedFile lf3 = new LastStartedFile("C:\\3.txt");
+            //target.Add(lf);
+            //target.Add(lf2);
+            //target.Add(lf3);
+
+            //target.Save();
+            //LastStartedFiles target2 = LastStartedFiles.Load();
+            ////////////////////////////
  
             //Создание команды и сочетания клавиш для удаления
             CommandBinding cbDelete = new CommandBinding(DeleteFilesCommand, ExecutedDeleteFilesCommand);
@@ -93,6 +110,11 @@ namespace ExplorerNet
             //testing
             //ExplorerNet.Languages.LanguagesManager lm = new Languages.LanguagesManager();
             //var lst = lm.GetAllLanguages();
+
+            lbLastStartedFiles.ItemsSource = Properties.Settings.Default.LastStartedFiles;
+            //cmLastStartedFiles.Items.Clear();
+            //cmLastStartedFiles.ItemsSource = Properties.Settings.Default.LastStartedFiles;
+            lbLastStartedFilesContextMenu.ItemsSource = Properties.Settings.Default.LastStartedFiles;
         }
 
         private void ExecutedRenameCommand(object sender,
@@ -387,6 +409,18 @@ namespace ExplorerNet
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+            asm.GetName();
+            
+            
+            
+
+            //Если имя сборки (и версия) изменились, запускаем информационное окно
+            if (IsNewNameAssemblie())
+            {
+                InfoWindow inf = new InfoWindow();
+                inf.ShowDialog();
+            }
             //Properties.Settings.Default.Reset();
             //LoadLastTemplate();
         }
@@ -428,7 +462,68 @@ namespace ExplorerNet
             iw.ShowDialog();
         }
 
+        /// <summary>
+        /// Возвращает true если это новая версия приложения (текущей сборки)
+        /// </summary>
+        /// <returns></returns>
+        private bool IsNewNameAssemblie()
+        {
+            System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+            if (asm.FullName != Properties.Settings.Default.LastNameAssemblie)
+            {
+                Properties.Settings.Default.LastNameAssemblie = asm.FullName;
+                Properties.Settings.Default.Save();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        private void ButtonsContent_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LastStartedFile lsf = (LastStartedFile)lbLastStartedFiles.ItemContainerGenerator.ItemFromContainer((ListBoxItem)sender);
+
+            ExplorerNet.Tools.FileStarter.Start(lsf.Path);
+            //System.Diagnostics.Process.Start(lsf.Path);
+        }
+
+        private void btnClearLastFiles_Click(object sender, RoutedEventArgs e)
+        {
+            LastStartedFilesManager lsfm = new LastStartedFilesManager();
+            lsfm.Clear();
+            cmLastStartedFiles.IsOpen = false;
+        }
+
+        private void btnDeleteLastFile_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.Button btn = 
+                (System.Windows.Controls.Button)sender;
+
+            if (btn.Tag.GetType() == typeof(LastStartedFile))
+            {
+                LastStartedFile lsf = (LastStartedFile)(btn.Tag);
+                LastStartedFiles lsfs = LastStartedFiles.Load();
+                lsfs.Remove(lsf);
+            }
+            
+        }
+
+        private void txtMenuPath_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.FrameworkElement fe = (System.Windows.FrameworkElement)sender;
+            if (fe.Tag.GetType() == typeof(LastStartedFile))
+            {
+                LastStartedFile lsf = (LastStartedFile)(fe.Tag);
+                FileStarter.Start(lsf.Path);
+            }
+
+        }
+
 
 
     }
 }
+ 

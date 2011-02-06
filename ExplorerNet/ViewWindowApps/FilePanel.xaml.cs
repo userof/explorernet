@@ -25,6 +25,8 @@ using System.Collections;
 
 using ExplorerNet.Languages;
 
+using Dolinay;
+
 //using GongSolutions.Wpf.DragDrop;
 
 namespace ExplorerNet.ViewWindowApps
@@ -79,6 +81,9 @@ namespace ExplorerNet.ViewWindowApps
         //Определяет, сработает ли Drop в lvFileList
         private bool isListViewDroped = true;
 
+        //объект наблюдения за изминением дисков
+        //private DriveDetector driveDetecotr = null;
+
         #region Constructors
            
         static FilePanel()
@@ -109,6 +114,19 @@ namespace ExplorerNet.ViewWindowApps
 
             //Построения кнопок дисков
             _BuildDrives();
+
+            //Наблюдаем за появлением нового устройства. При появлении обновляем список дисков
+            //driveDetecotr = DriveDetector.
+            DriveDetectorSing.DriveDetectorProp.DeviceArrived += delegate(object sender, 
+                DriveDetectorEventArgs e)
+            {
+                _BuildDrives();
+            };
+            DriveDetectorSing.DriveDetectorProp.DeviceRemoved += delegate(object sender, 
+                DriveDetectorEventArgs e)
+            {
+                _BuildDrives();
+            };
 
         }
 
@@ -520,12 +538,19 @@ namespace ExplorerNet.ViewWindowApps
             else if (lvFileList.SelectedItem is FileCover)
             {
                 FileCover cover = (FileCover)lvFileList.SelectedItem;
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo.WorkingDirectory =
-                    System.IO.Path.GetDirectoryName(cover.FileElement.FullName);
-                process.StartInfo.UseShellExecute = true;
-                process.StartInfo.FileName = cover.FileElement.FullName;
-                process.Start();
+                //System.Diagnostics.Process process = new System.Diagnostics.Process();
+                //process.StartInfo.WorkingDirectory =
+                //    System.IO.Path.GetDirectoryName(cover.FileElement.FullName);
+                //process.StartInfo.UseShellExecute = true;
+                //process.StartInfo.FileName = cover.FileElement.FullName;
+                //process.Start();
+
+                //ExplorerNet.Tools.LastStartedFiles.LastStartedFilesManager lsfm = 
+                //    new Tools.LastStartedFiles.LastStartedFilesManager();
+                //lsfm.AddlastStartedFile(cover.FileElement.FullName);
+                ExplorerNet.Tools.FileStarter.Start(cover.FileElement.FullName);
+
+
             }
             // Если елемент родительской директории - создаём его
             else if (lvFileList.SelectedItem is ParentDirectoryCover)
