@@ -204,6 +204,14 @@ namespace ExplorerNet.Languages
             }
         }
 
+        public string LanguagesDirPath
+        {
+            get
+            {
+                return languagesDirPath;
+            }
+        }
+
 
     }
 }

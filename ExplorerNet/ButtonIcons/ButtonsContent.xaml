@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             Opacity="0.4"
+             Opacity="1"
              d:DesignHeight="300" d:DesignWidth="300">
     <ContentControl.Triggers>
         <EventTrigger RoutedEvent="MouseEnter">
@@ -12,7 +12,7 @@
                 <Storyboard>
                     <DoubleAnimation From="0.4" To="1" 
                                     Storyboard.TargetProperty="Opacity"
-                                    Duration="0:0:0.2">
+                                    Duration="0:0:0.3">
 
                     </DoubleAnimation>
                 </Storyboard>
@@ -21,7 +21,7 @@
         <EventTrigger RoutedEvent="MouseLeave">
             <BeginStoryboard>
                 <Storyboard>
-                    <DoubleAnimation From="1" To="0.4" 
+                    <DoubleAnimation From="1" To="1" 
                                     Storyboard.TargetProperty="Opacity"
                                     Duration="0:0:1">
 

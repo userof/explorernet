@@ -267,5 +267,16 @@ namespace ExplorerNet.Properties {
                 this["LastStartedFiles"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ExplorerNet.Tools.Wallpapers.WallpaperSetting WallpaperSetting {
+            get {
+                return ((global::ExplorerNet.Tools.Wallpapers.WallpaperSetting)(this["WallpaperSetting"]));
+            }
+            set {
+                this["WallpaperSetting"] = value;
+            }
+        }
     }
 }

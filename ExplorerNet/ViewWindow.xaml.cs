@@ -115,6 +115,19 @@ namespace ExplorerNet
             //cmLastStartedFiles.Items.Clear();
             //cmLastStartedFiles.ItemsSource = Properties.Settings.Default.LastStartedFiles;
             lbLastStartedFilesContextMenu.ItemsSource = Properties.Settings.Default.LastStartedFiles;
+
+
+            /////////////////////////
+            ExplorerNet.Tools.Wallpapers.WallpaperManager wm = new Tools.Wallpapers.WallpaperManager();
+            //wm.ChangePicture(@"h:\pic\otBuh\CG Artwork Wallpapers Collection-3 02.jpg", imgFon);
+            //this.imgFon.Visibility = System.Windows.Visibility.Hidden;
+            //wm.ChangeWindowFon(this, Brushes.Black.Color);
+
+
+           // WallpaperManager wm = new WallpaperManager();
+            
+
+            //wm.ApplyWallpaper(imgFon, this);
         }
 
         private void ExecutedRenameCommand(object sender,
@@ -199,6 +212,10 @@ namespace ExplorerNet
         private void btnSaveTemplate_Click(object sender, RoutedEventArgs e)
         {
             string ext = Properties.Settings.Default.FileAppExtention;
+
+            //ColorDialog cd = new ColorDialog();
+            //cd.ShowDialog();
+
 
             System.Windows.Forms.SaveFileDialog dlg = new SaveFileDialog();
             dlg.FileName = "Template"; // Default file name

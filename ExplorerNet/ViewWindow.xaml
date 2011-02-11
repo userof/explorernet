@@ -10,7 +10,7 @@
 
         <!--<vwApps:LanguageSelector Panel.ZIndex="1" Margin="24,48,0,0" HorizontalAlignment="Left" Width="17" Height="16" VerticalAlignment="Top" />-->
 
-        <Image Name="imgFon" Source="Gothic4-wallpaper2.jpg" Stretch="UniformToFill"></Image>
+        <Image Name="imgFon" Stretch="UniformToFill"></Image>
         <ScrollViewer Margin="2,61,2,2">
             <StackPanel Name="spMain" Opacity="1" />
         </ScrollViewer>

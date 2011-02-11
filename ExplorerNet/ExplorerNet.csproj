@@ -36,7 +36,7 @@
     <SuiteName>ExplorerNet</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -190,9 +190,9 @@
     <Content Include="FileAssotiation.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Gothic4-wallpaper2.jpg">
+    <Content Include="Fon.img">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <Resource Include="Icons\drive_removable.ico" />
     <Resource Include="Icons\drive_fixed.ico" />
     <Resource Include="Icons\drive_cdrom.ico" />
@@ -292,6 +292,7 @@
     <Compile Include="SettingsWindow2.xaml.cs">
       <DependentUpon>SettingsWindow2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sys\AppInfo.cs" />
     <Compile Include="Sys\Consts.cs" />
     <Compile Include="Tools\DriveData.cs" />
     <Compile Include="Tools\FileManager.cs" />
@@ -307,6 +308,9 @@
     <Compile Include="Tools\SkinManager.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocation.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocations.cs" />
+    <Compile Include="Tools\Wallpapers\WallpaperKind.cs" />
+    <Compile Include="Tools\Wallpapers\WallpaperManager.cs" />
+    <Compile Include="Tools\Wallpapers\WallpaperSetting.cs" />
     <Compile Include="ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>
     </Compile>

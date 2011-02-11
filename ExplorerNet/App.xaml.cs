@@ -57,7 +57,7 @@ namespace ExplorerNet
 
             vw.Show();
 
-
+            ExplorerNet.Tools.Wallpapers.WallpaperManager.InitWallpaper();
 
         }
     }

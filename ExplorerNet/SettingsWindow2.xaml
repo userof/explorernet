@@ -65,11 +65,48 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <CheckBox Name="cbLangSelectorChange"
-                              Content="{DynamicResource SWLangSelector}"
-                              Click="cbLangSelectorChange_Click" 
-                              Height="20" VerticalAlignment="Bottom" />
+                    <StackPanel Orientation="Horizontal" 
+                                VerticalAlignment="Bottom">
+                        <CheckBox Name="cbLangSelectorChange"
+                                  Content="{DynamicResource SWLangSelector}"
+                                  Click="cbLangSelectorChange_Click" 
+                                  Height="20"  />
+                        <Button Margin="10,0,0,0" Name="btnOpenLangDir" 
+                                Click="btnOpenLangDir_Click">
+                            <bi:ButtonsContent 
+                                Content="{DynamicResource SWOpenLangDirectory}" />
+                        </Button>
+                    </StackPanel>
                 </Grid>
+            </TabItem>
+            <TabItem Visibility="Hidden" Header="Walpapers">
+                <StackPanel>
+                    <RadioButton Checked="rbWPPicture_Checked" Name="rbWPPicture">
+                        <Grid Height="136" Width="244">
+                            <TextBox Name="txtWallpaperPath" 
+                                       Background="Beige"
+                                       ToolTip="{Binding 
+                                ElementName=txtWallpaperPath, Path=Text}"
+                                       Margin="117,2,49,111" />
+                            <Image Name="imgWallpaperPreview" Margin="1,1,153,5"></Image>
+                            <Button Name="btnOpenWallpaper" Margin="201,31,0,33" Click="btnOpenWallpaper_Click">Open</Button>
+                            <Button Name="btnChangeWallpaper" Margin="201,0,0,0" Height="25" VerticalAlignment="Top" Click="btnChangeWallpaper_Click">Apply</Button>
+                            <StackPanel Height="65" HorizontalAlignment="Left" Margin="106,55,0,0" Name="stackPanel1" VerticalAlignment="Top" Width="89">
+                                <RadioButton Checked="rbWPNone_Checked" Name="rbWPNone">None</RadioButton>
+                                <RadioButton Checked="rbWPNone_Checked" Name="rbWPFill">Fill</RadioButton>
+                                <RadioButton Checked="rbWPNone_Checked" Name="rbWPUniform">Uniform</RadioButton>
+                                <RadioButton Checked="rbWPNone_Checked" Name="rbWPUniformToFill">UniformToFill</RadioButton>
+                            </StackPanel>
+                        </Grid>
+                    </RadioButton>
+                    <RadioButton Checked="rbWPFon_Checked"  Name="rbWPFon">
+                        <StackPanel Orientation="Horizontal">
+                            
+                            <Button Name="btnChangeWallpaperColor" 
+                                    Click="btnChangeWallpaperColor_Click">...</Button>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
             </TabItem>
         </TabControl>
         

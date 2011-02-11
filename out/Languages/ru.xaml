@@ -73,6 +73,7 @@
     <sys:String x:Key="SWLangName">Имя</sys:String>
     <sys:String x:Key="SWLangAndCulture">Язык и культура</sys:String>
     <sys:String x:Key="SWLangSelector">Кнопка выбора языка</sys:String>
+    <sys:String x:Key="SWOpenLangDirectory">Открыть директорию содержащую файлы языков</sys:String>
 
     <!--DriveData-->
     <sys:String x:Key="DDDriveIsNotReady">Устройство не готово!</sys:String>

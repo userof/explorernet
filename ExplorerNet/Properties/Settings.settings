@@ -65,5 +65,8 @@
     <Setting Name="LastStartedFiles" Type="ExplorerNet.Tools.LastStartedFiles.LastStartedFiles" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="WallpaperSetting" Type="ExplorerNet.Tools.Wallpapers.WallpaperSetting" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
