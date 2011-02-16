@@ -37,7 +37,7 @@ namespace ExplorerNet.ViewWindowApps
                 languagesManager.ChangeLanguage += new LanguagesManager.ChangeLanguagesEventHandler(languagesManager_ChangeLanguage);
                 
                 //this.Content = languagesManager.CurrLanguage.Name;
-                this.tbData.Text = languagesManager.CurrLanguage.Name;
+               // this.tbData.Text = languagesManager.CurrLanguage.Name;
 
                 ExplorerNet.Tools.SkinManager.ChangedSkin += delegate(Object sender, string skin)
                 {
@@ -60,7 +60,7 @@ namespace ExplorerNet.ViewWindowApps
         private void languagesManager_ChangeLanguage(OneLanguage newLang)
         {
             //this.Content = newLang.Name;
-            this.tbData.Text = newLang.Name; 
+            //this.tbData.Text = newLang.Name; 
         }
 
         private void Button_ContextMenuOpening(object sender, ContextMenuEventArgs e)

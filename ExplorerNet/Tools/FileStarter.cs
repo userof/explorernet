@@ -12,7 +12,7 @@ namespace ExplorerNet.Tools
     {
         public void StartFile(string fullName)
         {
-            Process process = new System.Diagnostics.Process();
+            Process process = new Process();
             process.StartInfo.WorkingDirectory =
                 System.IO.Path.GetDirectoryName(fullName);
             process.StartInfo.UseShellExecute = true;

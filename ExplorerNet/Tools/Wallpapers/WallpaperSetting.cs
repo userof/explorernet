@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Media;
 
 namespace ExplorerNet.Tools.Wallpapers
 {
@@ -11,7 +12,7 @@ namespace ExplorerNet.Tools.Wallpapers
         public WallpaperKind Kind
         { get; set; }
 
-        public byte  ColorA
+        public byte ColorA
         { get; set; }
 
         public byte ColorR
@@ -26,15 +27,29 @@ namespace ExplorerNet.Tools.Wallpapers
         public string Path
         { get; set; }
 
+        public Color Color
+        {
+            get
+            {
+                return Color.FromArgb(ColorA, ColorR, ColorG, ColorB);                                        
+            }
+        }
+
         public System.Windows.Media.Stretch Stretch
         { get; set; }
 
         public static WallpaperSetting Load()
         {
+            //Properties.Settings.Default.WallpaperSetting = null;
             WallpaperSetting wallpaperSetting = null;
             if (Properties.Settings.Default.WallpaperSetting == null)
             {
                 wallpaperSetting = new WallpaperSetting();
+
+                wallpaperSetting.Kind = WallpaperKind.Fon;
+                wallpaperSetting.ColorB = 255;
+
+                Properties.Settings.Default.WallpaperSetting = wallpaperSetting;
             }
             else
             {

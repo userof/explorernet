@@ -14,9 +14,21 @@ namespace ExplorerNet
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Определяет, находимся ли мы в режиме дизайнера
+        /// </summary>
+        public static bool IsDesignTime { get; private set; }
+
+        static App()
+        {
+            IsDesignTime = true;
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            IsDesignTime = false;
             
             //System.Threading.Thread.CurrentThread.CurrentUICulture = 
             //    new Languages.LanguageManager().GetCurrentCulture();
@@ -57,7 +69,7 @@ namespace ExplorerNet
 
             vw.Show();
 
-            ExplorerNet.Tools.Wallpapers.WallpaperManager.InitWallpaper();
+            //ExplorerNet.Tools.Wallpapers.WallpaperManager.InitWallpaper();
 
         }
     }

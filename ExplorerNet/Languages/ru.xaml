@@ -67,13 +67,21 @@
     <sys:String x:Key="SWSkins">Оболочки</sys:String>
     <sys:String x:Key="SWLanguages">Языки</sys:String>
     <sys:String x:Key="SWSkinName">Имя</sys:String>
-    <sys:String x:Key="SWResetApp">Перегрузить приложение</sys:String>
-    <sys:String x:Key="SWOpenSkinDirectory">Открыть директорию оболочек</sys:String>
+    <sys:String x:Key="SWResetApp">Перегрузить приложение (Ctrl + R)</sys:String>
+    <sys:String x:Key="SWOpenSkinDirectory">Открыть директорию оболочек (Ctrl + S)</sys:String>
     <sys:String x:Key="SWSkinInfo">Для корректного изменения оболочки рекомендуется перезагрузить приложение</sys:String>
     <sys:String x:Key="SWLangName">Имя</sys:String>
     <sys:String x:Key="SWLangAndCulture">Язык и культура</sys:String>
     <sys:String x:Key="SWLangSelector">Кнопка выбора языка</sys:String>
-    <sys:String x:Key="SWOpenLangDirectory">Открыть директорию содержащую файлы языков</sys:String>
+    <sys:String x:Key="SWOpenLangDirectory">Открыть директорию языковых файлов (Ctrl + L)</sys:String>
+    <!--Wallpapers-->
+    <sys:String x:Key="SWWallpapers">Обои</sys:String>
+    <sys:String x:Key="SWPicture">Изображения</sys:String>
+    <sys:String x:Key="SWColor">Цвет</sys:String>
+    <sys:String x:Key="SWSNone">Нет</sys:String>
+    <sys:String x:Key="SWSFill">Заполнить</sys:String>
+    <sys:String x:Key="SWSUniform">Равномерно</sys:String>
+    <sys:String x:Key="SWSUniformToFill">Равномерно заполнить</sys:String>
 
     <!--DriveData-->
     <sys:String x:Key="DDDriveIsNotReady">Устройство не готово!</sys:String>

@@ -70,13 +70,21 @@
     <sys:String x:Key="SWSkins">Skins</sys:String>
     <sys:String x:Key="SWLanguages">Languages</sys:String>
     <sys:String x:Key="SWSkinName">Name</sys:String>
-    <sys:String x:Key="SWResetApp">Reset App</sys:String>
-    <sys:String x:Key="SWOpenSkinDirectory">Open skin directory</sys:String>
+    <sys:String x:Key="SWResetApp">Reset App (Ctrl + R)</sys:String>
+    <sys:String x:Key="SWOpenSkinDirectory">Open skin directory (Ctrl + S)</sys:String>
     <sys:String x:Key="SWSkinInfo">For correctly change skin you need reset this application</sys:String>
     <sys:String x:Key="SWLangName">Name</sys:String>
     <sys:String x:Key="SWLangAndCulture">Language and culture</sys:String>
     <sys:String x:Key="SWLangSelector">The button of change language</sys:String>
-    <sys:String x:Key="SWOpenLangDirectory">Open languages directory</sys:String>
+    <sys:String x:Key="SWOpenLangDirectory">Open languages directory (Ctrl + L)</sys:String>
+    <!--Wallpapers-->
+    <sys:String x:Key="SWWallpapers">Wallpapers</sys:String>
+    <sys:String x:Key="SWPicture">Picture</sys:String>
+    <sys:String x:Key="SWColor">Color</sys:String>
+    <sys:String x:Key="SWSNone">None</sys:String>
+    <sys:String x:Key="SWSFill">Fill</sys:String>
+    <sys:String x:Key="SWSUniform">Uniform</sys:String>
+    <sys:String x:Key="SWSUniformToFill">UniformToFill</sys:String>
 
     <!--DriveData-->
     <sys:String x:Key="DDDriveIsNotReady">The drive is not ready!</sys:String>

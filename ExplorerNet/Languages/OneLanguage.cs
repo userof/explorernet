@@ -196,11 +196,18 @@ namespace ExplorerNet.Languages
 
         public override bool Equals(object obj)
         {
-            OneLanguage lang = (OneLanguage)obj;
-
-            if (this.ResourceDictionary.Source == lang.ResourceDictionary.Source)
+            if (obj.GetType() == typeof(OneLanguage))
             {
-                return true;
+                OneLanguage lang = (OneLanguage)obj;
+
+                if (this.ResourceDictionary.Source == lang.ResourceDictionary.Source)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {

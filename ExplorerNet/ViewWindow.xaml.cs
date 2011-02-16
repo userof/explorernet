@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 using ExplorerNet.Tools;
 using ExplorerNet.Tools.RecentTemplateNS;
+using ExplorerNet.Tools.Wallpapers;
 using ExplorerNet.ViewWindowApps;
 using ExplorerNet.ViewWindowApps.Templates;
 
@@ -118,7 +119,7 @@ namespace ExplorerNet
 
 
             /////////////////////////
-            ExplorerNet.Tools.Wallpapers.WallpaperManager wm = new Tools.Wallpapers.WallpaperManager();
+           // ExplorerNet.Tools.Wallpapers.WallpaperManager wm = new Tools.Wallpapers.WallpaperManager();
             //wm.ChangePicture(@"h:\pic\otBuh\CG Artwork Wallpapers Collection-3 02.jpg", imgFon);
             //this.imgFon.Visibility = System.Windows.Visibility.Hidden;
             //wm.ChangeWindowFon(this, Brushes.Black.Color);
@@ -200,8 +201,10 @@ namespace ExplorerNet
         /// <param name="e"></param>
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow2 settingsWindow = new SettingsWindow2();
-            settingsWindow.ShowDialog();
+            //SettingsWindow2 settingsWindow = new SettingsWindow2();
+            //settingsWindow.ShowDialog();
+            ExplorerNet.MVVM.View.SettingWindow sw = new MVVM.View.SettingWindow();
+            sw.ShowDialog();
         }
 
         /// <summary>
@@ -440,6 +443,9 @@ namespace ExplorerNet
             }
             //Properties.Settings.Default.Reset();
             //LoadLastTemplate();
+
+            WallpaperManager wallpaperManager = new WallpaperManager();
+            wallpaperManager.Init();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -18,7 +18,7 @@
     </Button.Resources>
     <Button.Content>
         <ContentControl>
-            <TextBlock Margin="3,3,3,3" Name="tbData" />     
+            <TextBlock Margin="3,3,3,3" Name="tbData" Text="{DynamicResource LanguageDisplayName}" />     
         </ContentControl>
     </Button.Content>
     <Button.ContextMenu>

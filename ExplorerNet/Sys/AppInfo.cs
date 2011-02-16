@@ -11,6 +11,8 @@ namespace ExplorerNet.Sys
 
         private static string appDirPath = "";
 
+        private const string PictureFile = "Fon.img";
+
         public static string AppPath
         {
             get
@@ -32,6 +34,16 @@ namespace ExplorerNet.Sys
                     appDirPath = System.IO.Path.GetDirectoryName(AppPath);
                 }
                 return appDirPath;
+            }
+        }
+
+        public static string PictureFilePath
+        {
+            get
+            {
+                return ExplorerNet.Sys.AppInfo.AppDirectory +
+                    System.IO.Path.DirectorySeparatorChar +
+                    PictureFile;
             }
         }
     }
