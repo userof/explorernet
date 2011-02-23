@@ -703,14 +703,17 @@ namespace ExplorerNet.ViewWindowApps
                 this.Path = settings.Path;
             }
 
+            double starWidth = settings.StarWidth.GetValueOrDefault(Properties.Settings.Default.FilepanelStarWidth);
+            (this.lvFileList.View as GridView).Columns[0].Width = starWidth;
+
             double icoWidth = settings.IcoWidth.GetValueOrDefault(Properties.Settings.Default.FilepanelIcoWidth);
-            (this.lvFileList.View as GridView).Columns[0].Width = icoWidth;
+            (this.lvFileList.View as GridView).Columns[1].Width = icoWidth;
 
             double nameWidth = settings.NameWidth.GetValueOrDefault(Properties.Settings.Default.FilepanelNameWidth);
-            (this.lvFileList.View as GridView).Columns[1].Width = nameWidth;
+            (this.lvFileList.View as GridView).Columns[2].Width = nameWidth;
 
             double sizeWidth = settings.SizeWidth.GetValueOrDefault(Properties.Settings.Default.FilepanelSizeWidth);
-            (this.lvFileList.View as GridView).Columns[2].Width = sizeWidth;
+            (this.lvFileList.View as GridView).Columns[3].Width = sizeWidth;
         }
 
         /// <summary>
@@ -722,9 +725,10 @@ namespace ExplorerNet.ViewWindowApps
             FilePanelSettings fSettings = new FilePanelSettings();
             fSettings.Width = this.Width;
             fSettings.Path = this.Path;
-            fSettings.IcoWidth = (this.lvFileList.View as GridView).Columns[0].Width;
-            fSettings.NameWidth = (this.lvFileList.View as GridView).Columns[1].Width;
-            fSettings.SizeWidth = (this.lvFileList.View as GridView).Columns[2].Width;
+            fSettings.SizeWidth = (this.lvFileList.View as GridView).Columns[0].Width;
+            fSettings.IcoWidth = (this.lvFileList.View as GridView).Columns[1].Width;
+            fSettings.NameWidth = (this.lvFileList.View as GridView).Columns[2].Width;
+            fSettings.SizeWidth = (this.lvFileList.View as GridView).Columns[3].Width;
 
             return fSettings;
         }
@@ -1172,18 +1176,50 @@ namespace ExplorerNet.ViewWindowApps
             }
         }
 
-        //private void ListViewItem_DragEnter(Object sender, DragEventArgs e)
-        //{
-        //    if (e.Effects == DragDropEffects.Move)
-        //    {
-        //        //lvi.Opacity = 0.5;
-        //    }
+        private void StarView_Click(Object sender, EventArgs e)
+        {
+            StarView starView = sender as StarView;
+            CustomFileSystemCover cover = starView.Tag as CustomFileSystemCover;
+            cover.Star = starView.StarLevel;
+        }
 
-        //}
-        //private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void NoteView_Click(object sender, EventArgs e)
+        {
+            NoteView noteView = sender as NoteView;
+            CustomFileSystemCover cover = noteView.Tag as CustomFileSystemCover;
+            ExplorerNet.MVVM.View.NoteWindow nw = new MVVM.View.NoteWindow();
+            nw.txtDescription.Text = noteView.Description;
+
+            //var ea = e as MouseButtonEventArgs;
+            //nw.Left = noteView.PointToScreen() ea.GetPosition(noteView).X + this.lef
+            //nw.Top= ea.GetPosition(noteView).Y;
+
+            Point p = noteView.PointToScreen(new Point());
+            nw.Top = p.Y;
+            nw.Left = p.X;
+            nw.ShowDialog();
+
+            if (string.IsNullOrEmpty(nw.txtDescription.Text))
+            {
+                cover.Description = null;
+            }
+            else
+            {
+                cover.Description = nw.txtDescription.Text;
+                
+            }
+
+            noteView.Description = cover.Description;
+            //noteView.so
+ 
+        }
+
+
+        //private void StarView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         //{
-        //    sender.ToString();
+        //    var i = lvFileList.ItemContainerGenerator.ContainerFromItem((DependencyObject)sender);
         //}
+
 
 
     }

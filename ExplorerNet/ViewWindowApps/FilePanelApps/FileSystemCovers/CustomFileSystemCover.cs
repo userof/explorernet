@@ -13,15 +13,21 @@ using System.Windows.Controls;
 using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.SystemIcons;
 using ExplorerNet.Tools;
 
+using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts;
+
 namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
 {
     public abstract class CustomFileSystemCover
     {
         private FileSystemInfo fileSystemElement = null;
 
+        private CoverExt coverExt = null;
+
         public CustomFileSystemCover(FileSystemInfo fileSystemElement)
         {
             this.fileSystemElement = fileSystemElement;
+
+            coverExt = CoverExt.Load(fileSystemElement.FullName);
         }
 
         public FileSystemInfo FileSystemElement
@@ -85,6 +91,70 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
         public abstract string Name
         {
             get;
+        }
+
+        public virtual Visibility StarVisible
+        {
+            get { return Visibility.Visible;}
+        }
+
+        public StarKind? Star
+        {
+            get
+            {
+                if (coverExt != null)
+                {
+                    return coverExt.Star;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (coverExt == null)
+                {
+                    coverExt = CoverExt.CreateOrLoad(this.fileSystemElement.FullName);
+                }
+
+                coverExt.Star = value;
+                coverExt.Save();
+            }
+        }
+
+        public virtual Visibility DescriptionVisible
+        {
+            get
+            {
+                return Visibility.Visible;
+            }
+        }
+
+        public virtual string Description
+        {
+            get
+            {
+                if (coverExt != null)
+                {
+                    //coverExt.Description = "desc";
+                    return coverExt.Description;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (coverExt == null)
+                {
+                    coverExt = CoverExt.CreateOrLoad(this.fileSystemElement.FullName);
+                }
+
+                coverExt.Description = value;
+                coverExt.Save();
+            }
         }
 
     }

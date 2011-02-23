@@ -1,0 +1,13 @@
+﻿<Window x:Class="ExplorerNet.MVVM.View.NoteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ExplorerNet.MVVM.ViewModel"
+        Title="NoteWindow" Height="300" Width="300">
+    <Window.Resources>
+        <vm:NoteWindowViewModel x:Key="viewModel" />
+    </Window.Resources>
+    <Grid>
+        <TextBox Name="txtDescription" Text="{Binding Source={StaticResource viewModel}, Path=Description, UpdateSourceTrigger=PropertyChanged}" Margin="0,25,0,179" />
+        <Button Name="btnSave" Height="57" VerticalAlignment="Bottom" />
+    </Grid>
+</Window>

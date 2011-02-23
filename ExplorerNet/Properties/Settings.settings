@@ -68,5 +68,11 @@
     <Setting Name="WallpaperSetting" Type="ExplorerNet.Tools.Wallpapers.WallpaperSetting" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="CoverExtList" Type="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts.CoverExtCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FilepanelStarWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

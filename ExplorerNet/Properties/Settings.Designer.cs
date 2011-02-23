@@ -278,5 +278,28 @@ namespace ExplorerNet.Properties {
                 this["WallpaperSetting"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts.CoverExtCollection CoverExtList {
+            get {
+                return ((global::ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts.CoverExtCollection)(this["CoverExtList"]));
+            }
+            set {
+                this["CoverExtList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public double FilepanelStarWidth {
+            get {
+                return ((double)(this["FilepanelStarWidth"]));
+            }
+            set {
+                this["FilepanelStarWidth"] = value;
+            }
+        }
     }
 }

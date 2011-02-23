@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="ExplorerNet.ViewWindowApps.FilePanelApps.StarView"
+             x:Name="star"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             
+             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps.FilePanelApps"
+             MouseDoubleClick="star_MouseDoubleClick"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <!--<Style TargetType="{x:Type local:StarView}">
+                <Style.Triggers>
+                    <Trigger Property="StarLevel" Value="StarKind.One">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>-->
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Style>
+        <Style>
+            <Style.Triggers>
+                <Trigger Property="local:StarView.StarLevel" Value="{x:Null}">
+                    <Setter Property="ed:RegularPolygon.Opacity" Value="0.1" />
+                </Trigger>
+                <Trigger Property="local:StarView.StarLevel" Value="One">
+                    <Setter Property="ed:RegularPolygon.Opacity" Value="0.4" />
+                </Trigger>
+                <Trigger Property="local:StarView.StarLevel" Value="Two">
+                    <Setter Property="ed:RegularPolygon.Opacity" Value="0.7" />
+                </Trigger>
+                <Trigger Property="local:StarView.StarLevel" Value="Three">
+                    <Setter Property="ed:RegularPolygon.Opacity" Value="1" />
+                </Trigger>
+                <!--<Trigger Property="local:StarView.StarLevel" Value="Foor">
+                    <Setter Property="ed:RegularPolygon.Opacity" Value="0.8" />
+                </Trigger>
+                <Trigger Property="local:StarView.StarLevel" Value="Five">
+                    <Setter Property="ed:RegularPolygon.Opacity" Value="1" />
+                </Trigger>-->
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
+    <Grid>
+        <ed:RegularPolygon Name="rpStar" 
+                           PreviewMouseLeftButtonDown="RegularPolygon_PreviewMouseLeftButtonDown" 
+                           Cursor="Hand" StrokeThickness="10" Opacity="1" 
+                           
+                           Fill="Orange"  Width="290" Height="290" 
+                           InnerRadius="0.47211" Stroke="Black" PointCount="5" >
+            <ed:RegularPolygon.Triggers>
+                <EventTrigger RoutedEvent="MouseDown"
+                SourceName="rpStar">
+
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+            Storyboard.TargetName="rpStar"
+            Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)"
+            From="0"
+            To="360"
+            Duration="0:0:0.5"
+            RepeatBehavior="1x" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+
+                </EventTrigger>
+
+            </ed:RegularPolygon.Triggers>
+            <ed:RegularPolygon.RenderTransform>
+            <RotateTransform Angle="0"
+                     CenterX="95"
+                     CenterY="20" />
+            </ed:RegularPolygon.RenderTransform>  
+            <!--<ed:RegularPolygon.Style>
+
+            </ed:RegularPolygon.Style>-->
+        </ed:RegularPolygon>
+    </Grid>
+</UserControl>

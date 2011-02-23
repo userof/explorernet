@@ -37,5 +37,22 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers
         {
             get { return ".."; }
         }
+
+        public override System.Windows.Visibility StarVisible
+        {
+            get
+            {
+                return System.Windows.Visibility.Hidden;
+            }
+        }
+
+        public override System.Windows.Visibility DescriptionVisible
+        {
+            get
+            {
+                return System.Windows.Visibility.Hidden;
+            }
+            
+        }
     }
 }

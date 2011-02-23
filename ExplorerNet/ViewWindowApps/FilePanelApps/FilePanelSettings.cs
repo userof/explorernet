@@ -26,6 +26,12 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             set; 
         }
 
+        public double? StarWidth
+        {
+            get;
+            set;
+        }
+
         public string Path
         {
             get;

@@ -95,6 +95,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\out\DriveDetectorLib.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="ShellBasics">
       <HintPath>..\out\ShellBasics.dll</HintPath>
@@ -165,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="MVVM\View\NoteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\SettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,7 +228,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\NoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewWindowApps\FilePanelApps\SizePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\StarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,7 +278,11 @@
     <Compile Include="Languages\OneLanguage.cs" />
     <Compile Include="MVVM\Helper\BaseCommand.cs" />
     <Compile Include="MVVM\ViewModel\BaseViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\NoteWindowViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SettingWindowViewModel.cs" />
+    <Compile Include="MVVM\View\NoteWindow.xaml.cs">
+      <DependentUpon>NoteWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
@@ -324,6 +341,9 @@
     <Compile Include="ViewWindowApps\FilePanelApps\FilePanelSelector.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FilePanelSettings.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CoverConvertor.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CoverExts\CoverExt.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CoverExts\CoverExtCollection.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CoverExts\CoverExtManager.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\CustomFileSystemCover.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\DirectoryCover.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\FileCover.cs" />
@@ -331,8 +351,14 @@
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\Converter.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\IconExtractor.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\Navigation\Navigator.cs" />
+    <Compile Include="ViewWindowApps\FilePanelApps\NoteView.xaml.cs">
+      <DependentUpon>NoteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\SizePanel.xaml.cs">
       <DependentUpon>SizePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\StarView.xaml.cs">
+      <DependentUpon>StarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\SystemFoldersButton.xaml.cs">
       <DependentUpon>SystemFoldersButton.xaml</DependentUpon>

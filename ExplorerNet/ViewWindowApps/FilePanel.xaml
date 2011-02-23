@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
+    xmlns:fa="clr-namespace:ExplorerNet.ViewWindowApps.FilePanelApps"
     xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps"
     
     PreviewMouseDown="filePanel_PreviewMouseDown"
@@ -163,7 +164,28 @@
 
                 <ListView.View>
                         <GridView>
-                            <GridViewColumn 
+
+                        <GridViewColumn 
+                                Header="star"
+                                Width="30">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Viewbox>
+                                        <Grid>
+                                        <fa:StarView Visibility="{Binding Path=StarVisible}" 
+                                                     Click="StarView_Click" Tag="{Binding}" 
+                                                     StarLevel="{Binding Path=Star}" />
+                                            <fa:NoteView Visibility="{Binding Path=DescriptionVisible}"
+                                                         Click="NoteView_Click" Tag="{Binding}" 
+                                                         Description="{Binding Path=Description, UpdateSourceTrigger=LostFocus}" />
+                                        </Grid>
+                                    </Viewbox>
+                                    
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn 
                                 Header="{DynamicResource FPIco}"
                                 Width="30">
                                 <GridViewColumn.CellTemplate>
