@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ExplorerNet.App" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.CopyWindow" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAADJAAAAAAAAACQAEAAgAAAAAIACAAAAAAIAQAAA=</HashCode>
+      <FileName>CopyWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.DeleteWindow" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAEAACAAAAAAAAQAAEAAAAEEAAAAAAAAAAAEAQA=</HashCode>
+      <FileName>DeleteWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.InfoWindow" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAGkAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InfoWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.RenameWindow" Collapsed="true">
+    <Position X="11.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>RenameWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindow" Collapsed="true">
+    <Position X="7.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAhAQABAQyDCoGBEAAAgCgAgADAAQIBESAAAEAAA=</HashCode>
+      <FileName>ViewWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ButtonIcons.ButtonsContent" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ButtonIcons\ButtonsContent.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Core.FileManager" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\FileManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Languages.LanguagesManager" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggAAAECEQCAAAAgAAAAAIAAAIACAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Languages\LanguagesManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Languages.OneLanguage" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgQABAgUAIwEEAIAAIAAAAgCACEA=</HashCode>
+      <FileName>Languages\OneLanguage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.MVVM.Helper.BaseCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAEAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>MVVM\Helper\BaseCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ExplorerNet.MVVM.View.NoteWindow" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\NoteWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.MVVM.View.SettingWindow" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\SettingWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.MVVM.ViewModel.BaseViewModel" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EARAAAEAIgAAAAAAIAAAAAAAgABAAAAAAAgAAASAgAA=</HashCode>
+      <FileName>MVVM\ViewModel\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ExplorerNet.MVVM.ViewModel.NoteWindowViewModel" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\NoteWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.MVVM.ViewModel.SettingWindowViewModel" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wIyOMEEACDVgQWggAkAhEAZAAAQAAgjEFIMBRgMAgJA=</HashCode>
+      <FileName>MVVM\ViewModel\SettingWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Properties.Resources" Collapsed="true">
+    <Position X="13" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Properties.Settings" Collapsed="true">
+    <Position X="14.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgEYAAAEICgAAgFAKARIABCCAARAAAAEAABABAQCIA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Sys.AppInfo" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAAAABBAAAAAAAAACAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Sys\AppInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Sys.Consts" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sys\Consts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.DriveData" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgASAAAAAAgAAAAAAQAACACAAgAAgAAABAAAAACBAAA=</HashCode>
+      <FileName>Tools\DriveData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.FileManager" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAgEABwAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\FileManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.FileStarter" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\FileStarter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.ShellContextMenu" Collapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hQAAgIGQAAgQiAAQAgQgg0AIBAgACgAEACBAQELAAAA=</HashCode>
+      <FileName>Tools\ShellContextMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.ShellContextMenuException" Collapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\ShellContextMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.HookEventArgs" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\ShellContextMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.LocalWindowsHook" Collapsed="true">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEAEAALAAAAAAAEAAACAAAAAAgABA=</HashCode>
+      <FileName>Tools\ShellContextMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.ShellHelper" Collapsed="true">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\ShellContextMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.SizeFileInString" Collapsed="true">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\SizeFileInString.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.SkinManager" Collapsed="true">
+    <Position X="13" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQEQAIEAAAIAAAAgAAAAAAEAAgAQAAACAAAAAAA=</HashCode>
+      <FileName>Tools\SkinManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.LastStartedFiles.LastStartedFile" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIEAAAAAAQAAAAAAIAAAAAAAAAAQAA=</HashCode>
+      <FileName>Tools\LastStartedFiles\LastStartedFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.LastStartedFiles.LastStartedFiles" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\LastStartedFiles\LastStartedFiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.LastStartedFiles.LastStartedFilesManager" Collapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Tools\LastStartedFiles\LastStartedFilesManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.RecentTemplateNS.RecentTemplate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAgAACAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\RecentTemplateNS\RecentTemplate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ExplorerNet.Tools.RecentTemplateNS.RecentTemplateManager" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\RecentTemplateNS\RecentTemplateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.RecentTemplateNS.RecentTemplates" Collapsed="true">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\RecentTemplateNS\RecentTemplates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.ViewSettings.ViewLocation" Collapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAACIAgAACAAAAAAAAAg=</HashCode>
+      <FileName>Tools\ViewSettings\ViewLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.ViewSettings.ViewLocations" Collapsed="true">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\ViewSettings\ViewLocations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.Wallpapers.WallpaperManager" Collapsed="true">
+    <Position X="11.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAADAQAAAAA=</HashCode>
+      <FileName>Tools\Wallpapers\WallpaperManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.Tools.Wallpapers.WallpaperSetting" Collapsed="true">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAABAAAIAAAAAAAAAAAAAAAAAAAAQgAAAAAA=</HashCode>
+      <FileName>Tools\Wallpapers\WallpaperSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanel">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="ExplorerNet.ViewWindowApps.FilePanel.GetPositionDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ViewWindowApps\FilePanel.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>SnIAEIhUIAgJAgIBJgEAhIEAAIIQAgEIAgoQV0A0AIA=</HashCode>
+      <FileName>ViewWindowApps\FilePanel.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.LanguageSelector" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAgAgAABEAEAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>ViewWindowApps\LanguageSelector.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.Level" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEQAAAAAAAAAAgAAAEAAABAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\Level.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.CreateFolderWindow" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAEAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\CreateFolderWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.DriveButton" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\DriveButton.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.DriveDetectorSing" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\DriveDetectorSing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.DriveHint" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\DriveHint.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FilePanelSelector" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAABAFAAAQFAAAAFAAAAAIIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FilePanelSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FilePanelSettings" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAIAIAAAAAAEAAAAAAAABAAAAEAAAAABA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FilePanelSettings.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.NoteView" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAEAAAAAAAAAAAAAAAgAAAAAAAAgA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\NoteView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.SizePanel" Collapsed="true">
+    <Position X="11.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAABAAAAAAAAAACAAAAgAAAAAhAIAAAQAEACAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\SizePanel.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.StarView" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAIAQAAEAAAAAAAAAAEgA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\StarView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.SystemFoldersButton" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACABDAAAAAAAAACAAgAAAAEAAAAAABAAAAAABQAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\SystemFoldersButton.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverConvertor" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\CoverConvertor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CustomFileSystemCover" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAggAAAAAIAAAQABAAAAAAAwAAAAEAAQAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\CustomFileSystemCover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.DirectoryCover" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\DirectoryCover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.FileCover" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAUAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\FileCover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.ParentDirectoryCover" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAIAAAAAAAIAAAQABAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\ParentDirectoryCover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts.CoverExt" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAIgAAACIAAAAAAAAACAAEAAgADAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\CoverExts\CoverExt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts.CoverExtCollection" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\CoverExts\CoverExtCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts.CoverExtManager" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAACAAAAAQIAAAACAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\CoverExts\CoverExtManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.SystemIcons.Converter" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.SystemIcons.IconExtractor" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAIgAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\SystemIcons\IconExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.FilePanelApps.Navigation.Navigator" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\Navigation\Navigator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.Templates.FilePanelTemplate" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>ViewWindowApps\Templates\FilePanelTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.Templates.LevelTemplate" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAABAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\Templates\LevelTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorerNet.ViewWindowApps.Templates.ViewWindowTemplate" Collapsed="true">
+    <Position X="9.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAoIAAAAAAAAAAAAAAAAQAAAAAAAABAAAgAAwAAAA=</HashCode>
+      <FileName>ViewWindowApps\Templates\ViewWindowTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ExplorerNet.CopyWindowApps.FileOverwriteOptionKind" Collapsed="true">
+    <Position X="7.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>CopyWindowApp\FileOverwriteOptionKind.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ExplorerNet.Tools.HookType" Collapsed="true">
+    <Position X="11.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAgAAABAAABAAABAAAAAAAAQAAAAAQAAUAABAIgAQ=</HashCode>
+      <FileName>Tools\ShellContextMenu.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ExplorerNet.Tools.Wallpapers.WallpaperKind" Collapsed="true">
+    <Position X="14.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\Wallpapers\WallpaperKind.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ExplorerNet.ViewWindowApps.FilePanelApps.FilePanelSelectedKind" Collapsed="true">
+    <Position X="9.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAIAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FilePanelSelector.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts.StarKind" Collapsed="true">
+    <Position X="13" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAgAAAAAAIA=</HashCode>
+      <FileName>ViewWindowApps\FilePanelApps\FileSystemCovers\CoverExts\CoverExt.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -725,7 +725,7 @@ namespace ExplorerNet.ViewWindowApps
             FilePanelSettings fSettings = new FilePanelSettings();
             fSettings.Width = this.Width;
             fSettings.Path = this.Path;
-            fSettings.SizeWidth = (this.lvFileList.View as GridView).Columns[0].Width;
+            fSettings.StarWidth = (this.lvFileList.View as GridView).Columns[0].Width;
             fSettings.IcoWidth = (this.lvFileList.View as GridView).Columns[1].Width;
             fSettings.NameWidth = (this.lvFileList.View as GridView).Columns[2].Width;
             fSettings.SizeWidth = (this.lvFileList.View as GridView).Columns[3].Width;
@@ -1199,17 +1199,21 @@ namespace ExplorerNet.ViewWindowApps
             nw.Left = p.X;
             nw.ShowDialog();
 
-            if (string.IsNullOrEmpty(nw.txtDescription.Text))
+            if (nw.DialogAnswer == true)
             {
-                cover.Description = null;
-            }
-            else
-            {
-                cover.Description = nw.txtDescription.Text;
-                
+                if (string.IsNullOrEmpty(nw.txtDescription.Text))
+                {
+                    cover.Description = null;
+                }
+                else
+                {
+                    cover.Description = nw.txtDescription.Text;
+
+                }
+                noteView.Description = cover.Description;
             }
 
-            noteView.Description = cover.Description;
+            
             //noteView.so
  
         }

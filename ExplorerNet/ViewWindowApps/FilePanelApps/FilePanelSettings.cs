@@ -12,6 +12,7 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         {
             FilePanelSettings result = new FilePanelSettings();
             result.Width = this.Width;
+            result.StarWidth = this.StarWidth;
             result.IcoWidth = this.IcoWidth;
             result.Path = this.Path;
             result.NameWidth = this.NameWidth;

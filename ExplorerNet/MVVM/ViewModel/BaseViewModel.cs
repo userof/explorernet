@@ -109,5 +109,30 @@ namespace ExplorerNet.MVVM.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
+
+        private static bool? isInDesignModeStatic;
+        public static bool GetIsInDesignMode()
+        {
+            if (!isInDesignModeStatic.HasValue)
+            {
+#if SILVERLIGHT
+                isInDesignModeStatic = DesignerProperties.IsInDesignTool;
+#else
+                isInDesignModeStatic =
+                    (bool)DependencyPropertyDescriptor.FromProperty(
+                        DesignerProperties.IsInDesignModeProperty, typeof(FrameworkElement))
+                        .Metadata.DefaultValue;
+#endif
+            }
+            return isInDesignModeStatic.Value;
+        }
+
+        public bool IsInDesignMode
+        {
+            get
+            {
+                return GetIsInDesignMode();
+            }
+        }
     }
 }

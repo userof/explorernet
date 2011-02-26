@@ -25,7 +25,7 @@
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
-    <UpdateInterval>3</UpdateInterval>
+    <UpdateInterval>1</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
@@ -170,6 +170,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\PreviewPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\SettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -279,9 +283,13 @@
     <Compile Include="MVVM\Helper\BaseCommand.cs" />
     <Compile Include="MVVM\ViewModel\BaseViewModel.cs" />
     <Compile Include="MVVM\ViewModel\NoteWindowViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\PreviewPanelViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SettingWindowViewModel.cs" />
     <Compile Include="MVVM\View\NoteWindow.xaml.cs">
       <DependentUpon>NoteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\PreviewPanel.xaml.cs">
+      <DependentUpon>PreviewPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
@@ -377,6 +385,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

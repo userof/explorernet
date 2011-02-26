@@ -6,8 +6,22 @@
     <Window.Resources>
         <vm:NoteWindowViewModel x:Key="viewModel" />
     </Window.Resources>
+    <!--<Window.Triggers>
+        <Trigger Property="DialogAnswer"  Value="True">
+            <Setter Property="Showing" Value="True" />
+        </Trigger>
+    </Window.Triggers>-->
     <Grid>
-        <TextBox Name="txtDescription" Text="{Binding Source={StaticResource viewModel}, Path=Description, UpdateSourceTrigger=PropertyChanged}" Margin="0,25,0,179" />
-        <Button Name="btnSave" Height="57" VerticalAlignment="Bottom" />
+        <!--<TextBlock Margin="0,0,192,242">insert date</TextBlock>
+        <TextBlock Margin="71,0,0,242">insert from clipboard</TextBlock>-->
+        <Button Command="{Binding Source={StaticResource viewModel}, Path=InsertDateCommand}" Margin="0,0,135,223">insert date</Button>
+        <Button Command="{Binding Source={StaticResource viewModel}, Path=InsertFromClipboardCommand}" Margin="149,0,0,223">insert from clipboard</Button>
+        <TextBox Name="txtDescription" Text="{Binding Source={StaticResource viewModel}, Path=Description, UpdateSourceTrigger=PropertyChanged}" Margin="0,60,0,124" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" />
+        <Button Name="btnSave" Command="{Binding Source={StaticResource viewModel}, Path=OkCommand}" IsDefault="True" Height="57" VerticalAlignment="Bottom" Margin="0,0,168,0">
+            Ok
+        </Button>
+        <Button Name="btnCancel" Command="{Binding Source={StaticResource viewModel}, Path=CancelCommand}" IsCancel="True" Height="57" VerticalAlignment="Bottom" Margin="132,0,0,0">
+            Cancel
+        </Button>
     </Grid>
 </Window>

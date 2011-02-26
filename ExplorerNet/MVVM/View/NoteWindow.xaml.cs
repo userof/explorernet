@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ExplorerNet.MVVM.ViewModel;
+
 namespace ExplorerNet.MVVM.View
 {
     /// <summary>
@@ -18,9 +20,41 @@ namespace ExplorerNet.MVVM.View
     /// </summary>
     public partial class NoteWindow : Window
     {
+        public static readonly DependencyProperty DialogAnswerProperty =
+            DependencyProperty.Register("DialogAnswer", typeof(bool?),
+            typeof(NoteWindow));
+
+        public bool? DialogAnswer
+        {
+            get
+            {
+                return (bool?)GetValue(DialogAnswerProperty);
+            }
+            set
+            {
+                //if (value != null)
+                //{
+                //    Close();
+                //}
+                SetValue(DialogAnswerProperty, value);
+            }
+        }
+
         public NoteWindow()
         {
             InitializeComponent();
+
+            NoteWindowViewModel nVM = (NoteWindowViewModel)this.Resources["viewModel"];
+            nVM.RequestClose += () => this.Close();
+
+            Binding b = new Binding("DialogAnswer");
+            //b.ElementName = nVM;
+            b.Source = nVM;
+            //b.Path = new PropertyPath(nVM.DialogAnswer);
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            this.SetBinding(NoteWindow.DialogAnswerProperty, b);
+            //this.b .InputBindings.Add(b);
         }
+
     }
 }
