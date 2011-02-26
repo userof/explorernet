@@ -5,11 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:ExplorerNet.MVVM.ViewModel"
              mc:Ignorable="d" 
+             Background="Aqua"
+             Width="300"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <vm:PreviewPanelViewModel x:Key="viewModel" />
     </UserControl.Resources>
     <Grid>
+        <Grid Name="grdWebBrouzer" Visibility="{Binding Source={StaticResource viewModel}, Path=WebVisibility, UpdateSourceTrigger=PropertyChanged}">
+            <WebBrowser Name="wbWebViwer" Source="{Binding Source={StaticResource viewModel}, Path=PreviewWebFile, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,74" />
+        </Grid>
+        <Grid Name="grdMediaPlayer" Visibility="{Binding Source={StaticResource viewModel}, Path=MediaVisibility, UpdateSourceTrigger=PropertyChanged}" >
+            <MediaElement Source="{Binding Source={StaticResource viewModel}, Path=PreviewMediaFile, UpdateSourceTrigger=PropertyChanged}" Name="meMediaPlayer" Height="257" VerticalAlignment="Bottom" />
+            <Canvas Margin="47,212,62,32" Width="200">
+                <Button Canvas.Left="14" Canvas.Top="20">xxxxxxx</Button>
+            </Canvas>
+           
+            
+        </Grid>
             
     </Grid>
 </UserControl>

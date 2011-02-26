@@ -155,6 +155,7 @@
             <ListView Name="lvFileList" 
                               PreviewMouseDoubleClick="lvFileList_MouseDoubleClick"
                       PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown"
+                      SelectionChanged="lvFileList_SelectionChanged"
                       KeyDown="lvFileList_KeyDown"
                               AllowDrop="True"
                       PreviewMouseMove="lvFileList_PreviewMouseMove"

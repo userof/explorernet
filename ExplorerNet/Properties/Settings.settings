@@ -74,5 +74,8 @@
     <Setting Name="FilepanelStarWidth" Type="System.Double" Scope="User">
       <Value Profile="(Default)">30</Value>
     </Setting>
+    <Setting Name="ExtentionDictionar" Type="ExplorerNet.Tools.ExtentionAnaliz.Extentions" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -301,5 +301,16 @@ namespace ExplorerNet.Properties {
                 this["FilepanelStarWidth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ExplorerNet.Tools.ExtentionAnaliz.Extentions ExtentionDictionar {
+            get {
+                return ((global::ExplorerNet.Tools.ExtentionAnaliz.Extentions)(this["ExtentionDictionar"]));
+            }
+            set {
+                this["ExtentionDictionar"] = value;
+            }
+        }
     }
 }

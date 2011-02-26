@@ -25,6 +25,8 @@ using System.Collections;
 
 using ExplorerNet.Languages;
 
+using ExplorerNet.Tools;
+
 using Dolinay;
 
 //using GongSolutions.Wpf.DragDrop;
@@ -1217,6 +1219,29 @@ namespace ExplorerNet.ViewWindowApps
             //noteView.so
  
         }
+
+        private void lvFileList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            List<CustomFileSystemCover> list = new List<CustomFileSystemCover>();
+
+            foreach (var it in lvFileList.SelectedItems)
+            {
+                list.Add(it as CustomFileSystemCover);
+            }
+
+            SelectWatcher.Instance.Change(list, this);
+            //if (SelectWatcher.Instance.ChangeSelected != null)
+            //{
+            //    SelectWatcher.Instance.ChangeSelected(null, this);
+            //}
+
+        }
+
+        //public void ChangeSelected(List<CustomFileSystemCover> files,
+        //    FilePanel activeFilePanel)
+        //{
+
+        //}
 
 
         //private void StarView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

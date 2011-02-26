@@ -314,6 +314,8 @@
     <Compile Include="Sys\AppInfo.cs" />
     <Compile Include="Sys\Consts.cs" />
     <Compile Include="Tools\DriveData.cs" />
+    <Compile Include="Tools\ExtentionAnaliz\Extentions.cs" />
+    <Compile Include="Tools\ExtentionAnaliz\PreviewKind.cs" />
     <Compile Include="Tools\FileManager.cs" />
     <Compile Include="Tools\FileStarter.cs" />
     <Compile Include="Tools\LastStartedFiles\LastStartedFile.cs" />
@@ -322,6 +324,7 @@
     <Compile Include="Tools\RecentTemplateNS\RecentTemplate.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplateManager.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
+    <Compile Include="Tools\SelectWatcher.cs" />
     <Compile Include="Tools\ShellContextMenu.cs" />
     <Compile Include="Tools\SizeFileInString.cs" />
     <Compile Include="Tools\SkinManager.cs" />

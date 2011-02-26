@@ -99,5 +99,21 @@ namespace ExplorerNet.ViewWindowApps
             this.IsChecked = true;
             //MessageBox.Show(this.IsChecked.ToString());
         }
+
+        private void btnNewPreviewPanel_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //this.spMain.Children.Add(pp);
+
+            ExplorerNet.MVVM.View.PreviewPanel pp = new MVVM.View.PreviewPanel();
+            pp.Height = spMain.Height;
+            spMain.Children.Add(pp);
+
+            Binding binding = new Binding();
+            binding.Source = spMain;
+            binding.Path = new PropertyPath("Height");
+            binding.Mode = BindingMode.OneWay;
+            pp.SetBinding(ExplorerNet.MVVM.View.PreviewPanel.HeightProperty, binding);
+        }
     }
 }
