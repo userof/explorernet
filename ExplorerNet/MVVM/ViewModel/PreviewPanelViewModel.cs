@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 
 using ExplorerNet.MVVM.Helper;
+using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers;
 
 namespace ExplorerNet.MVVM.ViewModel
 {
@@ -51,6 +52,43 @@ namespace ExplorerNet.MVVM.ViewModel
             }
         }
 
+        private double mediaVolume = 0;
+
+        public double MediaVolume
+        {
+            get { return mediaVolume; }
+            set 
+            { 
+                mediaVolume = value;
+                OnPropertyChanged(() => MediaVolume);
+            }
+        }
+
+        private TimeSpan mediaPosition;
+
+        public TimeSpan MediaPosition
+        {
+            get { return TimeSpan.FromSeconds(MediaPositionSecond); }
+            set 
+            {
+                MediaPositionSecond = value.Seconds;
+            }
+        }
+
+        private long mediaPositionSecond = 0;
+
+        public long MediaPositionSecond
+        {
+            get { return mediaPositionSecond; }
+            set 
+            { 
+                mediaPositionSecond = value;
+                OnPropertyChanged(() => MediaPositionSecond);
+            }
+        }
+
+
+
         private string previewWebFile = "";
 
         public string PreviewWebFile
@@ -76,6 +114,9 @@ namespace ExplorerNet.MVVM.ViewModel
 
         #endregion
 
+        public delegate void MediaPositionChangedEventHandler(TimeSpan newPosition);
+
+        public event MediaPositionChangedEventHandler MediaPositionChanged;
 
         public PreviewPanelViewModel()
         {
@@ -85,24 +126,39 @@ namespace ExplorerNet.MVVM.ViewModel
                 MediaVisibility = Visibility.Visible;
             }
 
-            ExplorerNet.Tools.SelectWatcher.Instance.ChangeSelected += (x, y) =>
-                {
-                    bool b = true;
-                    int i = 0;
-                    while ((x.Count > i) && b)
-                    {
-                        if (x[i].FileSystemElement.GetType() == typeof(FileInfo))
-                        {
-                            b = false;
-                            PreviewElementStart(x[i].FileSystemElement.FullName);
-                        }
-                        i++;
-                    }
-                };
+            //ExplorerNet.Tools.SelectWatcher.Instance.ChangeSelected += (x, y) =>
+            //    {
+            //        bool b = true;
+            //        int i = 0;
+            //        while ((x.Count > i) && b)
+            //        {
+            //            if (x[i].FileSystemElement.GetType() == typeof(FileInfo))
+            //            {
+            //                b = false;
+            //                PreviewElementStart(x[i].FileSystemElement.FullName);
+            //            }
+            //            i++;
+            //        }
+            //    };
         }
 
-        private void PreviewElementStart(string fileName)
+        public void PreviewElementStart(List<CustomFileSystemCover> files)
         {
+            string fileName = "";
+            bool b = true;
+            int i = 0;
+            while ((files.Count > i) && b)
+            {
+                if (files[i].FileSystemElement.GetType() == typeof(FileInfo))
+                {
+                    b = false;
+                    fileName = files[i].FileSystemElement.FullName;
+                }
+                i++;
+            }
+
+            if (string.IsNullOrEmpty(fileName)) return;
+
             string ext = Path.GetExtension(fileName);
 
             Extentions exts = Extentions.Load();

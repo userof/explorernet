@@ -97,6 +97,7 @@
     </Reference>
     <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="ShellBasics">
       <HintPath>..\out\ShellBasics.dll</HintPath>
     </Reference>
@@ -236,6 +237,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewWindowApps\FilePanelApps\PreviewPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="ViewWindowApps\FilePanelApps\PreviewPanelResources\Styles1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Resource Include="ViewWindowApps\FilePanelApps\PreviewPanelResources\Templates1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
     <Page Include="ViewWindowApps\FilePanelApps\SizePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -324,10 +337,9 @@
     <Compile Include="Tools\RecentTemplateNS\RecentTemplate.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplateManager.cs" />
     <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
-    <Compile Include="Tools\SelectWatcher.cs" />
     <Compile Include="Tools\ShellContextMenu.cs" />
     <Compile Include="Tools\SizeFileInString.cs" />
-    <Compile Include="Tools\SkinManager.cs" />
+    <Compile Include="Tools\Wallpapers\SkinManager.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocation.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocations.cs" />
     <Compile Include="Tools\Wallpapers\WallpaperKind.cs" />
@@ -364,6 +376,9 @@
     <Compile Include="ViewWindowApps\FilePanelApps\Navigation\Navigator.cs" />
     <Compile Include="ViewWindowApps\FilePanelApps\NoteView.xaml.cs">
       <DependentUpon>NoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewWindowApps\FilePanelApps\PreviewPanel.xaml.cs">
+      <DependentUpon>PreviewPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewWindowApps\FilePanelApps\SizePanel.xaml.cs">
       <DependentUpon>SizePanel.xaml</DependentUpon>

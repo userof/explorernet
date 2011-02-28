@@ -1229,11 +1229,9 @@ namespace ExplorerNet.ViewWindowApps
                 list.Add(it as CustomFileSystemCover);
             }
 
-            SelectWatcher.Instance.Change(list, this);
-            //if (SelectWatcher.Instance.ChangeSelected != null)
-            //{
-            //    SelectWatcher.Instance.ChangeSelected(null, this);
-            //}
+            ppPreview.PreviewElementStart(list);
+            //ppPreview.ShowPreview(list);
+            //SelectWatcher.Instance.Change(list, this);
 
         }
 

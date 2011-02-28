@@ -7,10 +7,11 @@
     xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
     xmlns:fa="clr-namespace:ExplorerNet.ViewWindowApps.FilePanelApps"
     xmlns:local="clr-namespace:ExplorerNet.ViewWindowApps"
-    
+    xmlns:vw="clr-namespace:ExplorerNet.MVVM.View"
     PreviewMouseDown="filePanel_PreviewMouseDown"
              mc:Ignorable="d" 
              d:DesignWidth="300"
+             d:DesignHeight="300"
              BorderThickness="2"
              BorderBrush="Gray"
              x:Name="filePanel"
@@ -49,146 +50,151 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </UserControl.Template>
-    
-    <!--<RadioButton.Triggers>
-        <Trigger Property="local:FilePanel.IsFirstSelected" Value="true">
-            <Setter TargetName="Border" Property="BorderThickness" Value="5" />
-            <Setter TargetName="Border" Property="BorderBrush" Value="Red" />
-        </Trigger>
-    </RadioButton.Triggers>-->
-    
-    <Grid x:Name="grid" >
-        <Thumb Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" HorizontalAlignment="Right" Width="4"></Thumb>
-        <Grid HorizontalAlignment="Left" Width="28">
-            
-            <!--Delete file panel button-->
-            <Button Name="btnDeleteFilePanel" 
-                    Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">
-                <bi:ButtonsContent>
-                    <Image Source="..\ButtonIcons\DeleteLevel.png" />
-                </bi:ButtonsContent>               
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPDeleteFilePanel}" />
-                </Button.ToolTip>
-            </Button>
-            
-            <!--Clone file panel-->
-            <Button Name="btnClone" 
-                    Margin="0,34,0,0" Height="25" 
-                    VerticalAlignment="Top" Click="btnClone_Click">
-                <bi:ButtonsContent>
-                    <Image Source="..\ButtonIcons\CloneLevel.png" />
-                </bi:ButtonsContent>
-                
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPCloneFilePanel}" />
-                </Button.ToolTip>
-            </Button>
-            
-            <!--Start explorer button-->
-            <Button Name="btnWindowsExplorer" 
-                    Margin="0,62,0,0" Height="25" 
-                    VerticalAlignment="Top" Click="btnWindowsExplorer_Click">
-                <bi:ButtonsContent>
-                    <Image Source="..\ButtonIcons\StartExplorer.png" />
-                </bi:ButtonsContent>   
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPOpenInExplorer}" />
-                </Button.ToolTip>
-            </Button>
-            
-            <!--Start program button-->
-            <Button Name="btnTotalCommander"
-                    Margin="0,93,0,0" Height="25" 
-                    VerticalAlignment="Top" Click="btnTotalCommander_Click">
-                <bi:ButtonsContent>
-                    <Image Source="..\ButtonIcons\StartProgram.png" />
-                </bi:ButtonsContent>
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPStartInProgram}" />
-                </Button.ToolTip>
-            </Button>
 
-            <Button Name="btnCMD" 
-                    Margin="0,123,0,0" Height="25"
-                    VerticalAlignment="Top" Click="btnCMD_Click">
-                <bi:ButtonsContent>
-                    <Image Source="..\ButtonIcons\CMD.png" />
-                </bi:ButtonsContent>
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPOpenInCmd}" />
-                </Button.ToolTip>
-            </Button>
+    <Grid Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*" />
+            <ColumnDefinition Width="120" />
+        </Grid.ColumnDefinitions>
+        <Grid Name="grdMain" Grid.Column="0" Background="Azure">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35" />
+                <ColumnDefinition Width="130*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Background="Orchid">
+                <Button Name="btnDeleteFilePanel" 
+                Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">
+                    <bi:ButtonsContent>
+                        <Image Source="..\ButtonIcons\DeleteLevel.png" />
+                    </bi:ButtonsContent>
+                    <Button.ToolTip>
+                        <ToolTip  Content="{DynamicResource FPDeleteFilePanel}" />
+                    </Button.ToolTip>
+                </Button>
 
-            <!--Make directory button-->
-            <Button Name="btnMakeDirectory" 
-                    Margin="0,153,0,0" Height="25" 
-                    VerticalAlignment="Top" Click="btnMakeDirectory_Click">
-                <bi:ButtonsContent>
-                    <Image Source="..\ButtonIcons\MakeDirectory.png" />
-                </bi:ButtonsContent>
-                
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPMakeDirectory}" />
-                </Button.ToolTip>
-            </Button>
 
-            <!--Make directory button-->
-            <Button Name="btnCopyDialog" 
-                    Visibility="Hidden"
-                    Margin="0,183,0,0" Height="25" 
-                    VerticalAlignment="Top" Click="btnCopyDialog_Click">
-                <!--<Image Source="..\ButtonIcons\MakeDirectory.png" />-->
-                <Button.ToolTip>
-                    <ToolTip  Content="{DynamicResource FPCopyDialog}" />
-                </Button.ToolTip>
-            </Button>
+                <Button Name="btnClone" 
+                Margin="0,3,0,0" Height="25" 
+                VerticalAlignment="Top" Click="btnClone_Click">
+                    <bi:ButtonsContent>
+                        <Image Source="..\ButtonIcons\CloneLevel.png" />
+                    </bi:ButtonsContent>
 
-            
+                    <Button.ToolTip>
+                        <ToolTip  Content="{DynamicResource FPCloneFilePanel}" />
+                    </Button.ToolTip>
+                </Button>
 
-        </Grid>
-        <Grid Margin="34,0,4,4">
-            <UniformGrid Name="ugDrives" Height="25" Columns="0" Rows="1" VerticalAlignment="Top"></UniformGrid>
-            <!--<ScrollViewer>--> 
-                <!--<Grid Name="grdFileList" >-->
 
-            <ListView Name="lvFileList" 
-                              PreviewMouseDoubleClick="lvFileList_MouseDoubleClick"
-                      PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown"
-                      SelectionChanged="lvFileList_SelectionChanged"
-                      KeyDown="lvFileList_KeyDown"
-                              AllowDrop="True"
-                      PreviewMouseMove="lvFileList_PreviewMouseMove"
-                      Drop="lvFileList_Drop"
-                                Margin="0,48,0,0"
-                                 ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85" >
+                <Button Name="btnWindowsExplorer" 
+                Margin="0,3,0,0" Height="25" 
+                VerticalAlignment="Top" Click="btnWindowsExplorer_Click">
+                    <bi:ButtonsContent>
+                        <Image Source="..\ButtonIcons\StartExplorer.png" />
+                    </bi:ButtonsContent>
+                    <Button.ToolTip>
+                        <ToolTip  Content="{DynamicResource FPOpenInExplorer}" />
+                    </Button.ToolTip>
+                </Button>
 
-                <ListView.View>
+
+                <Button Name="btnTotalCommander"
+                Margin="0,3,0,0" Height="25" 
+                VerticalAlignment="Top" Click="btnTotalCommander_Click">
+                    <bi:ButtonsContent>
+                        <Image Source="..\ButtonIcons\StartProgram.png" />
+                    </bi:ButtonsContent>
+                    <Button.ToolTip>
+                        <ToolTip  Content="{DynamicResource FPStartInProgram}" />
+                    </Button.ToolTip>
+                </Button>
+
+                <Button Name="btnCMD" 
+                Margin="0,3,0,0" Height="25"
+                VerticalAlignment="Top" Click="btnCMD_Click">
+                    <bi:ButtonsContent>
+                        <Image Source="..\ButtonIcons\CMD.png" />
+                    </bi:ButtonsContent>
+                    <Button.ToolTip>
+                        <ToolTip  Content="{DynamicResource FPOpenInCmd}" />
+                    </Button.ToolTip>
+                </Button>
+
+
+                <Button Name="btnMakeDirectory" 
+                Margin="0,3,0,0" Height="25" 
+                VerticalAlignment="Top" Click="btnMakeDirectory_Click">
+                    <bi:ButtonsContent>
+                        <Image Source="..\ButtonIcons\MakeDirectory.png" />
+                    </bi:ButtonsContent>
+
+                    <Button.ToolTip>
+                        <ToolTip  Content="{DynamicResource FPMakeDirectory}" />
+                    </Button.ToolTip>
+                </Button>
+
+
+                <Button Name="btnCopyDialog" 
+                Visibility="Hidden"
+                Margin="0,3,0,0" Height="25" 
+                VerticalAlignment="Top" Click="btnCopyDialog_Click">
+
+                    <Button.ToolTip>
+                        <ToolTip  Content="{DynamicResource FPCopyDialog}" />
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+            <Grid Grid.Column="1" Background="IndianRed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="238*" />
+                </Grid.RowDefinitions>
+                <UniformGrid Grid.Row="0" Name="ugDrives" Height="25" Columns="0" Rows="1" VerticalAlignment="Top" />
+                <Grid Name="grdPath" Grid.Row="1" VerticalAlignment="Top" >
+                    <Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
+                    <Button Name="btnUp" Margin="33,0,0,0" HorizontalAlignment="Left" Width="26" Click="btnUp_Click">U</Button>
+                    <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>
+                    <TextBox Name="txtPath" Margin="96,0,27,0"></TextBox>
+                    <Button HorizontalAlignment="Right" Width="29" Click="Button_Click_1">G</Button>
+                </Grid>
+                <ListView Name="lvFileList" Grid.Row="2"
+                            PreviewMouseDoubleClick="lvFileList_MouseDoubleClick"
+                    PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown"
+                    SelectionChanged="lvFileList_SelectionChanged"
+                    KeyDown="lvFileList_KeyDown"
+                            AllowDrop="True"
+                    PreviewMouseMove="lvFileList_PreviewMouseMove"
+                    Drop="lvFileList_Drop"
+                            Margin="0,4,0,0"
+                                ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85" >
+
+                    <ListView.View>
                         <GridView>
 
-                        <GridViewColumn 
-                                Header="star"
-                                Width="30">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Viewbox>
-                                        <Grid>
-                                        <fa:StarView Visibility="{Binding Path=StarVisible}" 
-                                                     Click="StarView_Click" Tag="{Binding}" 
-                                                     StarLevel="{Binding Path=Star}" />
-                                            <fa:NoteView Visibility="{Binding Path=DescriptionVisible}"
-                                                         Click="NoteView_Click" Tag="{Binding}" 
-                                                         Description="{Binding Path=Description, UpdateSourceTrigger=LostFocus}" />
-                                        </Grid>
-                                    </Viewbox>
-                                    
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn 
+                            Header="star"
+                            Width="30">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Viewbox>
+                                            <Grid>
+                                                <fa:StarView Visibility="{Binding Path=StarVisible}" 
+                                                    Click="StarView_Click" Tag="{Binding}" 
+                                                    StarLevel="{Binding Path=Star}" />
+                                                <fa:NoteView Visibility="{Binding Path=DescriptionVisible}"
+                                                        Click="NoteView_Click" Tag="{Binding}" 
+                                                        Description="{Binding Path=Description, UpdateSourceTrigger=LostFocus}" />
+                                            </Grid>
+                                        </Viewbox>
 
-                        <GridViewColumn 
-                                Header="{DynamicResource FPIco}"
-                                Width="30">
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn 
+                            Header="{DynamicResource FPIco}"
+                            Width="30">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Image Source="{Binding Path=Ico}"></Image>
@@ -197,7 +203,7 @@
                             </GridViewColumn>
 
                             <GridViewColumn 
-                                Header="{DynamicResource FPName}">
+                            Header="{DynamicResource FPName}">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Path=Name}"></TextBlock>
@@ -205,54 +211,134 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                        <!--<GridViewColumn 
-                            Header="{x:Static res:Resources.Size}">
-                            <GridViewColumn.CellTemplate>
+                            <GridViewColumn 
+                        Header="{DynamicResource FPSize}">
+                                <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                    <ContentControl Content="{Binding Path=Size}" />
-                                        <TextBlock FontSize="10" Text="{Binding Path=Size}"></TextBlock>
+                                        <ContentControl Content="{Binding Path=Size}" />
+
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
-                            </GridViewColumn>-->
+                            </GridViewColumn>
 
-                        <GridViewColumn 
-                            Header="{DynamicResource FPSize}">
+
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <EventSetter Event="DragEnter" Handler="ListViewItem_DragEnter"/>
+                            <EventSetter Event="DragLeave" Handler="ListViewItem_DragLeave"/>
+                            <EventSetter Event="Drop" Handler="ListViewItem_Drop"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </Grid>
+        </Grid>
+        <GridSplitter Width="5" />
+        <Grid Name="grdPreview" Grid.Column="1" Background="BlueViolet">
+            <!--<vw:PreviewPanel x:Name="ppPreview" />-->
+            <fa:PreviewPanel x:Name="ppPreview" />
+        </Grid>
+        <Thumb Grid.Column="1" Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" 
+                HorizontalAlignment="Right" Width="4" />
+    </Grid>
+
+
+
+        <!--<Grid x:Name="grid" >
+    <Thumb Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" 
+                HorizontalAlignment="Right" Width="4" />
+    <Grid HorizontalAlignment="Left" Width="28">
+            
+        
+        
+
+            
+
+    </Grid>
+    <Grid Margin="34,0,4,4">
+        </UniformGrid>
+
+
+        <ListView Name="lvFileList" 
+                            PreviewMouseDoubleClick="lvFileList_MouseDoubleClick"
+                    PreviewMouseRightButtonDown="lvFileList_PreviewMouseRightButtonDown"
+                    SelectionChanged="lvFileList_SelectionChanged"
+                    KeyDown="lvFileList_KeyDown"
+                            AllowDrop="True"
+                    PreviewMouseMove="lvFileList_PreviewMouseMove"
+                    Drop="lvFileList_Drop"
+                            Margin="0,48,0,0"
+                                ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85" >
+
+            <ListView.View>
+                    <GridView>
+
+                    <GridViewColumn 
+                            Header="star"
+                            Width="30">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Viewbox>
+                                    <Grid>
+                                    <fa:StarView Visibility="{Binding Path=StarVisible}" 
+                                                    Click="StarView_Click" Tag="{Binding}" 
+                                                    StarLevel="{Binding Path=Star}" />
+                                        <fa:NoteView Visibility="{Binding Path=DescriptionVisible}"
+                                                        Click="NoteView_Click" Tag="{Binding}" 
+                                                        Description="{Binding Path=Description, UpdateSourceTrigger=LostFocus}" />
+                                    </Grid>
+                                </Viewbox>
+                                    
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn 
+                            Header="{DynamicResource FPIco}"
+                            Width="30">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <ContentControl Content="{Binding Path=Size}" />
-                                    <!--<TextBlock FontSize="10" Text="{Binding Path=Size}"></TextBlock>-->
+                                    <Image Source="{Binding Path=Ico}"></Image>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <!--<GridViewColumn 
-                            Header="MyPanel">
+                        <GridViewColumn 
+                            Header="{DynamicResource FPName}">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <ContentControl Content="{Binding Path=MyPanel}"></ContentControl>
+                                    <TextBlock Text="{Binding Path=Name}"></TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
-                        </GridViewColumn>-->
+                        </GridViewColumn>
 
-                    </GridView>
-                    </ListView.View>
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListViewItem}">
-                        <EventSetter Event="DragEnter" Handler="ListViewItem_DragEnter"/>
-                        <EventSetter Event="DragLeave" Handler="ListViewItem_DragLeave"/>
-                        <EventSetter Event="Drop" Handler="ListViewItem_Drop"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-            </ListView>
-            <!--</Grid>-->
-            <!--</ScrollViewer>-->  
-        </Grid>
-        <Grid Name="grdPath" Height="25" VerticalAlignment="Top" Margin="34,23,12,0">
-            <Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
-            <Button Name="btnUp" Margin="33,0,0,0" HorizontalAlignment="Left" Width="26" Click="btnUp_Click">U</Button>
-            <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>
-            <TextBox Name="txtPath" Margin="96,0,27,0"></TextBox>
-            <Button HorizontalAlignment="Right" Width="29" Click="Button_Click_1">G</Button>
-        </Grid>
+                    <GridViewColumn 
+                        Header="{DynamicResource FPSize}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Path=Size}" />
+
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                </GridView>
+                </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <EventSetter Event="DragEnter" Handler="ListViewItem_DragEnter"/>
+                    <EventSetter Event="DragLeave" Handler="ListViewItem_DragLeave"/>
+                    <EventSetter Event="Drop" Handler="ListViewItem_Drop"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
     </Grid>
+
+
+    </Grid>-->
+        
+    
 </UserControl>
