@@ -24,6 +24,14 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
     /// </summary>
     public partial class PreviewPanel : UserControl
     {
+        private string currentFile = "";
+
+        private void SetCurrentFile(string fileName)
+        {
+            currentFile = fileName;
+            txtFilePath.Text = fileName;
+        }
+
         public PreviewPanel()
         {
             InitializeComponent();
@@ -72,14 +80,21 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                         WebStartPreview(fileName);
                         break;
                     default:
+                        //MessageBox.Show("not");
                         break;
+
                 }
+
+                SetCurrentFile(fileName);
             }
 
         }
 
         private void MediaStartPreview(string fileName)
         {
+            grdMediaPlayer.Visibility = System.Windows.Visibility.Visible;
+            grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
+
             grdMediaPlayer.Visibility = System.Windows.Visibility.Visible;
             grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
             mediaPlayerMain.Source = new Uri(fileName);
@@ -109,6 +124,11 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
         private void WebStartPreview(string fileName)
         {
+            grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
+            grdWebBrouzer.Visibility = System.Windows.Visibility.Visible;
+
+            //wbWebBrouzer.Source = new Uri(fileName);
+            wbWebBrouzer.Navigate(new Uri(fileName));
             //WebVisibility = Visibility.Visible;
             //PreviewWebFile = fileName;
             //MediaVisibility = Visibility.Hidden;
@@ -130,9 +150,26 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
         private void mediaPlayerMain_MediaOpened(object sender, RoutedEventArgs e)
         {
-            sliderTime.Maximum = mediaPlayerMain.NaturalDuration.TimeSpan.TotalMilliseconds;
+            if (mediaPlayerMain.NaturalDuration.HasTimeSpan)
+            {
+                sliderTime.Maximum = mediaPlayerMain.NaturalDuration.TimeSpan.TotalMilliseconds;
+            }
             sliderTime.IsEnabled = mediaPlayerMain.IsLoaded;
             sliderVolume.IsEnabled = mediaPlayerMain.IsLoaded;
         }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(currentFile))
+            {
+                ExplorerNet.Tools.FileStarter.Start(currentFile);
+            }
+        }
+
+        private void txtFilePath_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            txtFilePath.SelectAll();
+        }
+
     }
 }

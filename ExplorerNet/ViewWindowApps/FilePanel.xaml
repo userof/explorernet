@@ -10,7 +10,7 @@
     xmlns:vw="clr-namespace:ExplorerNet.MVVM.View"
     PreviewMouseDown="filePanel_PreviewMouseDown"
              mc:Ignorable="d" 
-             d:DesignWidth="300"
+             d:DesignWidth="500"
              d:DesignHeight="300"
              BorderThickness="2"
              BorderBrush="Gray"
@@ -54,7 +54,7 @@
     <Grid Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150*" />
-            <ColumnDefinition Width="120" />
+            <ColumnDefinition Name="col2" Width="120" />
         </Grid.ColumnDefinitions>
         <Grid Name="grdMain" Grid.Column="0" Background="Azure">
             <Grid.ColumnDefinitions>
@@ -85,6 +85,18 @@
                     </Button.ToolTip>
                 </Button>
 
+                <Button Name="btnPreviewPanel" 
+                Visibility="Visible"
+                Margin="0,3,0,0" Height="25" 
+                VerticalAlignment="Top" Click="btnPreviewPanel_Click">
+                    <bi:ButtonsContent>
+                        <Image Source="..\ButtonIcons\Preview.ico" />
+                    </bi:ButtonsContent>
+
+                    <Button.ToolTip>
+                        <ToolTip  Content="preview" />
+                    </Button.ToolTip>
+                </Button>
 
                 <Button Name="btnWindowsExplorer" 
                 Margin="0,3,0,0" Height="25" 
@@ -143,6 +155,7 @@
                         <ToolTip  Content="{DynamicResource FPCopyDialog}" />
                     </Button.ToolTip>
                 </Button>
+
             </StackPanel>
             <Grid Grid.Column="1" Background="IndianRed">
                 <Grid.RowDefinitions>
@@ -165,6 +178,7 @@
                     KeyDown="lvFileList_KeyDown"
                             AllowDrop="True"
                     PreviewMouseMove="lvFileList_PreviewMouseMove"
+                          PreviewMouseLeftButtonDown="lvFileList_PreviewMouseLeftButtonDown"
                     Drop="lvFileList_Drop"
                             Margin="0,4,0,0"
                                 ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85" >
@@ -234,8 +248,17 @@
                 </ListView>
             </Grid>
         </Grid>
-        <GridSplitter Width="5" />
+        <GridSplitter Width="5" Name="gsMainSpliter" />
         <Grid Name="grdPreview" Grid.Column="1" Background="BlueViolet">
+            <!--<Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>-->
+            <!--<TextBlock Background="Aquamarine"  Name="txtFilePathInfo" Text="File path" Height="16" VerticalAlignment="Top" Margin="2,9,48,0" />
+            <TextBox Name="txtFilePath" IsReadOnly="True" Text="xxx" Margin="2,32,68,0" Height="22" VerticalAlignment="Top" />
+            <Button Margin="0,6,10,0" HorizontalAlignment="Right" Width="26" Height="22" VerticalAlignment="Top">X</Button>
+            <Button Margin="0,32,39,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="26">s</Button>
+            <Button Margin="0,32,10,0" HorizontalAlignment="Right" Width="26" Height="22" VerticalAlignment="Top">d</Button>-->
             <!--<vw:PreviewPanel x:Name="ppPreview" />-->
             <fa:PreviewPanel x:Name="ppPreview" />
         </Grid>

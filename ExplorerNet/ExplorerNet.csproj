@@ -36,7 +36,7 @@
     <SuiteName>ExplorerNet</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -162,6 +162,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Resource Include="ButtonIcons\Start.ico" />
+    <Resource Include="ButtonIcons\Preview.ico" />
     <Content Include="Languages\ru.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

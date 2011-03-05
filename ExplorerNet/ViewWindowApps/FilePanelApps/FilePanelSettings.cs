@@ -18,6 +18,9 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             result.NameWidth = this.NameWidth;
             result.SizeWidth = this.SizeWidth;
 
+            result.UsedPreviewPanel = this.UsedPreviewPanel;
+            result.PreviewPanelWidth = this.PreviewPanelWidth;
+
             return result;
         }
 
@@ -52,6 +55,18 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
         }
 
         public double? SizeWidth
+        {
+            get;
+            set;
+        }
+
+        public bool UsedPreviewPanel
+        {
+            get;
+            set;
+        }
+
+        public double PreviewPanelWidth
         {
             get;
             set;

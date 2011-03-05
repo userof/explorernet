@@ -88,14 +88,7 @@
                             <ToolTip  Content="{DynamicResource LLNewFilePanel}" />
                 </Button.ToolTip>   
                 </Button>
-
-                <Button Name="btnNewPreviewPanel"
-                        Margin="0,176,0,0"
-                        Height="30"
-                        Click="btnNewPreviewPanel_Click"
-                        VerticalAlignment="Top"></Button>
-
-                        <!--<Slider Margin="12,107,-107,61" Name="slider1" Orientation="Horizontal" Value="{Binding ElementName=level, Path=Height, Mode=TwoWay}" Maximum="1000" Minimum="200">-->
+                    <!--<Slider Margin="12,107,-107,61" Name="slider1" Orientation="Horizontal" Value="{Binding ElementName=level, Path=Height, Mode=TwoWay}" Maximum="1000" Minimum="200">-->
                 <!--<Slider.RenderTransform>
                     <RotateTransform Angle="90"></RotateTransform>
                 </Slider.RenderTransform>

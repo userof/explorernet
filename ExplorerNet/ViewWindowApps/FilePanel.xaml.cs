@@ -48,6 +48,10 @@ namespace ExplorerNet.ViewWindowApps
             DependencyProperty.Register("IsSecondSelected", typeof(bool),
             typeof(FilePanel));
 
+        public static readonly DependencyProperty UsedPreviewPanelProperty =
+            DependencyProperty.Register("UsedPreviewPanel", typeof(bool),
+            typeof(FilePanel));
+
         /// <summary>
         /// Свойство зависимостей, идентифицирующее панель первого выделение
         /// </summary>
@@ -78,10 +82,42 @@ namespace ExplorerNet.ViewWindowApps
             }
         }
 
+        public bool UsedPreviewPanel
+        {
+            get
+            {
+                return (bool)GetValue(UsedPreviewPanelProperty);
+            }
+            set
+            {
+                grdPreview.IsEnabled = value;
+                
+                if (value)
+                {
+                    GridLength gl = new GridLength(200);
+                    //grdPreview.Width = 100; 
+                    gsMainSpliter.Visibility = System.Windows.Visibility.Visible;
+                    col2.Width = gl;
+                    grdPreview.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    //grdPreview.Width = 0;
+                    GridLength gl = new GridLength(0);
+                    gsMainSpliter.Visibility = System.Windows.Visibility.Hidden;
+                    col2.Width = gl;
+                    grdPreview.Visibility = System.Windows.Visibility.Hidden;
+                }
+
+
+                SetValue(UsedPreviewPanelProperty, value);
+            }
+        }
+
         #endregion //Dependency properties
 
         //Определяет, сработает ли Drop в lvFileList
-        private bool isListViewDroped = true;
+        private static bool isListViewDroped = true;
 
         //объект наблюдения за изминением дисков
         //private DriveDetector driveDetecotr = null;
@@ -705,6 +741,10 @@ namespace ExplorerNet.ViewWindowApps
                 this.Path = settings.Path;
             }
 
+            this.UsedPreviewPanel = settings.UsedPreviewPanel;
+            //this.grdPreview.Width = settings.PreviewPanelWidth;
+            this.col2.Width = new GridLength(settings.PreviewPanelWidth);
+
             double starWidth = settings.StarWidth.GetValueOrDefault(Properties.Settings.Default.FilepanelStarWidth);
             (this.lvFileList.View as GridView).Columns[0].Width = starWidth;
 
@@ -731,6 +771,10 @@ namespace ExplorerNet.ViewWindowApps
             fSettings.IcoWidth = (this.lvFileList.View as GridView).Columns[1].Width;
             fSettings.NameWidth = (this.lvFileList.View as GridView).Columns[2].Width;
             fSettings.SizeWidth = (this.lvFileList.View as GridView).Columns[3].Width;
+
+            fSettings.UsedPreviewPanel = this.UsedPreviewPanel;
+            //fSettings.PreviewPanelWidth = this.grdPreview.Width;
+            fSettings.PreviewPanelWidth = this.col2.Width.Value;
 
             return fSettings;
         }
@@ -913,7 +957,7 @@ namespace ExplorerNet.ViewWindowApps
         private void lvFileList_Drop(object sender, DragEventArgs e)
         {
 
-            if (this.isListViewDroped)
+            if (isListViewDroped)
             {
                 if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 {
@@ -996,12 +1040,19 @@ namespace ExplorerNet.ViewWindowApps
 
         private void lvFileList_PreviewMouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance && 
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)
             {
-                if ((Keyboard.IsKeyDown(Key.LeftShift)) || (Keyboard.IsKeyDown(Key.RightShift)))
+                //dropPoint = e.GetPosition(this);
+                //if ((Keyboard.IsKeyDown(Key.LeftShift)) || (Keyboard.IsKeyDown(Key.RightShift)))
                 {
                     //Делаем возможным lvFileList обрабатывать Drop
-                    this.isListViewDroped = true;
+                    isListViewDroped = true;
 
                     List<CustomFileSystemCover> selectedList = new List<CustomFileSystemCover>();
 
@@ -1024,9 +1075,9 @@ namespace ExplorerNet.ViewWindowApps
 
                         string[] files = list.ToArray();
                         DataObject dObj = new DataObject(DataFormats.FileDrop, files);
-
+                        //dropEnable = true;
                         DragDrop.DoDragDrop(lvFileList, dObj, DragDropEffects.Move);
-
+                        //DragDrop.AddDropHandler
                         //DragDrop.DoDragDrop(lvFileList, selectedList, DragDropEffects.Move);
                     }
                 }
@@ -1069,8 +1120,24 @@ namespace ExplorerNet.ViewWindowApps
             }
         }
 
+        //private static Point dropPoint;
+
         private void ListViewItem_Drop(Object sender, DragEventArgs e)
         {
+           // var p = e.GetPosition(this);
+
+           // int mov = 55;
+           // bool xM = p.X > dropPoint.X - mov;
+           // bool xB = p.X < dropPoint.X + mov;
+           // bool yM = p.Y > dropPoint.Y - mov;
+           // bool yB = p.Y < dropPoint.Y + mov;
+
+           // bool rt = (xM && xB && yM && yB);
+
+           // if (rt)  return;
+
+           //SystemParameters.mi
+
             ListViewItem lvi = (ListViewItem)sender;
             if (lvi.Content != null)
             {
@@ -1105,7 +1172,7 @@ namespace ExplorerNet.ViewWindowApps
 
                             fsiList.Add(fsi);
                         }
-                        this.isListViewDroped = false;
+                        isListViewDroped = false;
                         DirectoryCover dc = (DirectoryCover)lvi.Content;
 
                         CopyWindow cw = new CopyWindow(fsiList, dc.FileSystemElement.FullName);
@@ -1222,18 +1289,44 @@ namespace ExplorerNet.ViewWindowApps
 
         private void lvFileList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            List<CustomFileSystemCover> list = new List<CustomFileSystemCover>();
-
-            foreach (var it in lvFileList.SelectedItems)
+            if (this.UsedPreviewPanel)
             {
-                list.Add(it as CustomFileSystemCover);
+                List<CustomFileSystemCover> list = new List<CustomFileSystemCover>();
+
+                foreach (var it in lvFileList.SelectedItems)
+                {
+                    list.Add(it as CustomFileSystemCover);
+                }
+
+                ppPreview.PreviewElementStart(list);
             }
 
-            ppPreview.PreviewElementStart(list);
+
+
+            
             //ppPreview.ShowPreview(list);
             //SelectWatcher.Instance.Change(list, this);
 
         }
+
+        private void btnPreviewPanel_Click(object sender, RoutedEventArgs e)
+        {
+            UsedPreviewPanel = !UsedPreviewPanel;
+        }
+
+        private Point startPoint;
+
+        private void lvFileList_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        //private static bool dropEnable = false;
+
+        //private void lvFileList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    DragDrop.rem
+        //}
 
         //public void ChangeSelected(List<CustomFileSystemCover> files,
         //    FilePanel activeFilePanel)
