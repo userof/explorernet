@@ -46,11 +46,11 @@
                                        MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_3">mihanik</Paragraph>
                             <Paragraph>Поддержка с хостингом</Paragraph>
                         </Section>
-                        <Section>
+                        <!--<Section>
                             <Paragraph Foreground="Blue" Cursor="Hand"
                                        MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_4">Kefir</Paragraph>
                             <Paragraph>Помощь по коду программы</Paragraph>
-                        </Section>
+                        </Section>-->
                     </ListItem>
                 </List>
             </FlowDocument>

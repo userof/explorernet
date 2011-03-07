@@ -37,10 +37,11 @@ namespace ExplorerNet.Tools.ExtentionAnaliz
             exts.Add(".gif", PreviewKind.Media);
             exts.Add(".png", PreviewKind.Media);
             exts.Add(".ico", PreviewKind.Media);
-
+            exts.Add(".mkv", PreviewKind.Media);
+            exts.Add(".dvx", PreviewKind.Media);
             exts.Add(".html", PreviewKind.Web);
             exts.Add(".htm", PreviewKind.Web);
-            exts.Add(".pdf", PreviewKind.Web);
+            //exts.Add(".pdf", PreviewKind.Web);
 
             return exts;
         }

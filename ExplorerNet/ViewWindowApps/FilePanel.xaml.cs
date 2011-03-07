@@ -29,6 +29,8 @@ using ExplorerNet.Tools;
 
 using Dolinay;
 
+using ExplorerNet.Tools.Sorting;
+
 //using GongSolutions.Wpf.DragDrop;
 
 namespace ExplorerNet.ViewWindowApps
@@ -132,6 +134,8 @@ namespace ExplorerNet.ViewWindowApps
         public FilePanel()
         {
             InitializeComponent();
+
+            UsedPreviewPanel = false;
             //Загружаем сохранённую ширину
             this.Width = Properties.Settings.Default.WidthFilepanel;
 
@@ -540,6 +544,8 @@ namespace ExplorerNet.ViewWindowApps
                 //lvFileList.Items.Add(cover);
 
             }
+
+            list.Sort(new NameUpComparer());
 
             lvFileList.ItemsSource = list;
 

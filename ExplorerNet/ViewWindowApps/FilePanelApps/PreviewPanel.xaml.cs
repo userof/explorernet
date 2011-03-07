@@ -54,7 +54,7 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
             if (string.IsNullOrEmpty(fileName)) return;
 
-            string ext = System.IO.Path.GetExtension(fileName);
+            string ext = System.IO.Path.GetExtension(fileName).ToLower();
 
             Extentions exts = Extentions.Load();
 
@@ -80,23 +80,29 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                         WebStartPreview(fileName);
                         break;
                     default:
+                        
                         //MessageBox.Show("not");
                         break;
 
                 }
 
-                SetCurrentFile(fileName);
+                
             }
+            else
+            {
+                TextStartPreview(fileName);
+            }
+
+            SetCurrentFile(fileName);
 
         }
 
         private void MediaStartPreview(string fileName)
         {
-            grdMediaPlayer.Visibility = System.Windows.Visibility.Visible;
-            grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
+            HideAllStartPrview();
 
             grdMediaPlayer.Visibility = System.Windows.Visibility.Visible;
-            grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
+            //grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
             mediaPlayerMain.Source = new Uri(fileName);
             sliderTime.Value = 0;
             mediaPlayerMain.Play();
@@ -104,6 +110,52 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             //MediaVisibility = Visibility.Visible;
             //PreviewMediaFile = fileName;
             //WebVisibility = Visibility.Hidden;
+        }
+
+        private void HideAllStartPrview()
+        {
+            grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
+            grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
+            grdTextViewer.Visibility = System.Windows.Visibility.Hidden;
+
+            mediaPlayerMain.Stop();
+        }
+
+        private void TextStartPreview(string fileName)
+        {
+            HideAllStartPrview();
+
+            FlowDocument document = new FlowDocument();
+            TextRange txtRange = null;
+
+            int maxLoadFileSize = 10000;
+
+            FileInfo fi = new FileInfo(fileName);
+            if (fi.Length < maxLoadFileSize)
+            {
+                maxLoadFileSize = (int)fi.Length;
+            }
+
+            //if (File.si)
+
+            var fs = File.OpenRead(fileName);
+            byte[] bytes = new byte[maxLoadFileSize];
+            fs.Read(bytes, 0, maxLoadFileSize);
+
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                txtRange = new TextRange(document.ContentStart, document.ContentEnd);
+                txtRange.Load(ms, DataFormats.Text);
+
+                var ff = new FontFamily();
+                ff.LineSpacing = 0.1;
+
+                document.FontFamily = ff;
+            }
+
+            rtbTextView.Document = document;
+
+            grdTextViewer.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void btnPause_Click(object sender, RoutedEventArgs e)
@@ -124,7 +176,9 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
         private void WebStartPreview(string fileName)
         {
-            grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
+            //grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
+            HideAllStartPrview();
+
             grdWebBrouzer.Visibility = System.Windows.Visibility.Visible;
 
             //wbWebBrouzer.Source = new Uri(fileName);

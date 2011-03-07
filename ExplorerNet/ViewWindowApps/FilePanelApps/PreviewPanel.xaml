@@ -30,49 +30,41 @@
             </Grid>
         </Border>
         <Grid Name="grdContent" Grid.Row="1">
-        <Grid Name="grdWebBrouzer">
-                <WebBrowser Name="wbWebBrouzer" />
-
+            <Grid Name="grdTextViewer">
+                <RichTextBox VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" Name="rtbTextView" />
             </Grid>
-        <Grid Name="grdMediaPlayer">
+            <Grid Name="grdWebBrouzer">
+                <WebBrowser Name="wbWebBrouzer" />
+            </Grid>
+            <Grid Name="grdMediaPlayer">
+                <Border x:Name="mediaPlayerBorder" Background="Gray" BorderBrush="Gray" BorderThickness="4,4,4,4" Margin="2,2,5,0" CornerRadius="5,5,5,5" ToolTip="Click here to collapse/expand the video">
+                    <Button Background="BlueViolet"  x:Name="btnMediaPlayerMain"  Height="Auto" Width="Auto" Template="{StaticResource transparentButtonTemplate}">
+                        <MediaElement x:Name="mediaPlayerMain" MediaOpened="mediaPlayerMain_MediaOpened" LoadedBehavior="Manual"   Margin="0,0,0,0" Stretch="Uniform"/>
+                    </Button>
+                </Border>
 
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="156" x:Name="col0" />
-                <ColumnDefinition Width="144*" x:Name="col1" />
-            </Grid.ColumnDefinitions>
+                <Border Opacity="0.5" CornerRadius="5,5,5,5" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="4,4,4,4" Margin="10,0,9,6" Height="83" VerticalAlignment="Bottom">
+                    <StackPanel Background="Transparent" Width="Auto" Margin="0,0,0,0" Orientation="Horizontal" Height="Auto">
+                        <Button x:Name="btnPlay" Click="btnPlay_Click" Width="50" Height="50" Margin="5,-10,0,0" Template="{StaticResource controlButtonTemplate}" FontSize="14" FontWeight="Bold" Foreground="LightGreen" Content="4" FontFamily="Webdings" ToolTip="Play"></Button>
+                        <Button x:Name="btnPause" Click="btnPause_Click" Width="40" Height="40" Margin="-15,-30,0,0" Template="{StaticResource controlButtonTemplate}" FontSize="14" FontWeight="Bold" Foreground="Orange" Content=";" FontFamily="Webdings" ToolTip="Pause"></Button>
+                        <Button x:Name="btnStop" Click="btnStop_Click"  Width="30" Height="30" Margin="-10,-25,0,0" Template="{StaticResource controlButtonTemplate}" FontSize="14" FontWeight="Bold" Foreground="Yellow" Content="&lt;" FontFamily="Webdings" ToolTip="Stop"></Button>
+                        <!-- Seek Control -->
+                        <TextBlock Foreground="Gray" Margin="-10,25,5,5"  VerticalAlignment="Center" FontSize="10">Seek To</TextBlock>
+                        <Slider Name="sliderTime" ValueChanged="sliderTime_ValueChanged" Margin="2,20,0,0" VerticalAlignment="Center" Width="80" Height="Auto" />
+                        <!-- Volume Control -->
+                        <TextBlock Foreground="Gray" Margin="-105,-25,85,5"  VerticalAlignment="Center" FontSize="10">Volume</TextBlock>
+                        <Slider Name="sliderVolume" ValueChanged="sliderVolume_ValueChanged" Margin="-92,-30,0,0" VerticalAlignment="Center" Width="80" Height="Auto" Minimum="0" Maximum="1" Value="0.5"/>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" x:Name="row1" />
-                <RowDefinition Height="60" x:Name="row2" />
-            </Grid.RowDefinitions>-->
-            <Border x:Name="mediaPlayerBorder" Background="Gray" BorderBrush="Gray" BorderThickness="4,4,4,4" Margin="2,2,5,0" CornerRadius="5,5,5,5" ToolTip="Click here to collapse/expand the video">
-                <Button Background="BlueViolet"  x:Name="btnMediaPlayerMain"  Height="Auto" Width="Auto" Template="{StaticResource transparentButtonTemplate}">
-                    <MediaElement x:Name="mediaPlayerMain" MediaOpened="mediaPlayerMain_MediaOpened" LoadedBehavior="Manual"   Margin="0,0,0,0" Stretch="Fill"/>
-                </Button>
-            </Border>
-
-            <Border Opacity="0.5" CornerRadius="5,5,5,5" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="4,4,4,4" Margin="10,0,9,6" Height="83" VerticalAlignment="Bottom">
-                <StackPanel Background="Transparent" Width="Auto" Margin="0,0,0,0" Orientation="Horizontal" Height="Auto">
-                    <Button x:Name="btnPlay" Click="btnPlay_Click" Width="50" Height="50" Margin="5,-10,0,0" Template="{StaticResource controlButtonTemplate}" FontSize="14" FontWeight="Bold" Foreground="LightGreen" Content="4" FontFamily="Webdings" ToolTip="Play"></Button>
-                    <Button x:Name="btnPause" Click="btnPause_Click" Width="40" Height="40" Margin="-15,-30,0,0" Template="{StaticResource controlButtonTemplate}" FontSize="14" FontWeight="Bold" Foreground="Orange" Content=";" FontFamily="Webdings" ToolTip="Pause"></Button>
-                    <Button x:Name="btnStop" Click="btnStop_Click"  Width="30" Height="30" Margin="-10,-25,0,0" Template="{StaticResource controlButtonTemplate}" FontSize="14" FontWeight="Bold" Foreground="Yellow" Content="&lt;" FontFamily="Webdings" ToolTip="Stop"></Button>
-                    <!-- Seek Control -->
-                    <TextBlock Foreground="Gray" Margin="-10,25,5,5"  VerticalAlignment="Center" FontSize="10">Seek To</TextBlock>
-                    <Slider Name="sliderTime" ValueChanged="sliderTime_ValueChanged" Margin="2,20,0,0" VerticalAlignment="Center" Width="80" Height="Auto" />
-                    <!-- Volume Control -->
-                    <TextBlock Foreground="Gray" Margin="-105,-25,85,5"  VerticalAlignment="Center" FontSize="10">Volume</TextBlock>
-                    <Slider Name="sliderVolume" ValueChanged="sliderVolume_ValueChanged" Margin="-92,-30,0,0" VerticalAlignment="Center" Width="80" Height="Auto" Minimum="0" Maximum="1" Value="0.5"/>
-
-                    <StackPanel Orientation="Vertical" Margin="10,0,0,0">
-                        <StackPanel x:Name="starStack" Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                            <StackPanel x:Name="starStack" Orientation="Horizontal">
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </Border>
-
-
+                </Border>
+            </Grid>
         </Grid>
-        </Grid>
+        
+        
 
     </Grid>
 </UserControl>
