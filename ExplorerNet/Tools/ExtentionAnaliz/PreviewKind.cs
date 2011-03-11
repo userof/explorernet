@@ -8,7 +8,7 @@ namespace ExplorerNet.Tools.ExtentionAnaliz
     [Serializable]
     public enum PreviewKind
     {
-        Media,
-        Web
+        Media
+        //Web
     }
 }

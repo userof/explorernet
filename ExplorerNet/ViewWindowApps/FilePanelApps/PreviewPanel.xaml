@@ -30,12 +30,10 @@
             </Grid>
         </Border>
         <Grid Name="grdContent" Grid.Row="1">
-            <Grid Name="grdTextViewer">
-                <RichTextBox VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" Name="rtbTextView" />
-            </Grid>
-            <Grid Name="grdWebBrouzer">
+
+            <!--<Grid Name="grdWebBrouzer">
                 <WebBrowser Name="wbWebBrouzer" />
-            </Grid>
+            </Grid>-->
             <Grid Name="grdMediaPlayer">
                 <Border x:Name="mediaPlayerBorder" Background="Gray" BorderBrush="Gray" BorderThickness="4,4,4,4" Margin="2,2,5,0" CornerRadius="5,5,5,5" ToolTip="Click here to collapse/expand the video">
                     <Button Background="BlueViolet"  x:Name="btnMediaPlayerMain"  Height="Auto" Width="Auto" Template="{StaticResource transparentButtonTemplate}">
@@ -61,6 +59,10 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
+            </Grid>
+
+            <Grid Name="grdTextViewer">
+                <RichTextBox VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" Name="rtbTextView" />
             </Grid>
         </Grid>
         

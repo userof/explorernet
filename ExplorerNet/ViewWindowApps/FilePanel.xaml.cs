@@ -362,11 +362,6 @@ namespace ExplorerNet.ViewWindowApps
             panel.Children.Remove(this);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void dirTree_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
@@ -1265,13 +1260,11 @@ namespace ExplorerNet.ViewWindowApps
             ExplorerNet.MVVM.View.NoteWindow nw = new MVVM.View.NoteWindow();
             nw.txtDescription.Text = noteView.Description;
 
-            //var ea = e as MouseButtonEventArgs;
-            //nw.Left = noteView.PointToScreen() ea.GetPosition(noteView).X + this.lef
-            //nw.Top= ea.GetPosition(noteView).Y;
-
             Point p = noteView.PointToScreen(new Point());
             nw.Top = p.Y;
             nw.Left = p.X;
+            // отобжараем окно заметок
+            //nw.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             nw.ShowDialog();
 
             if (nw.DialogAnswer == true)
@@ -1325,6 +1318,11 @@ namespace ExplorerNet.ViewWindowApps
         private void lvFileList_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             startPoint = e.GetPosition(null);
+        }
+
+        private void txtPath_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            txtPath.SelectAll();
         }
 
         //private static bool dropEnable = false;

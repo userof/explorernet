@@ -38,6 +38,7 @@
     <sys:String x:Key="FPMakeDirectory">Make directory</sys:String>
     <sys:String x:Key="FPCopyDialog">Copy selected</sys:String>
     <sys:String x:Key="FPOpenInCmd">Open directory in cmd</sys:String>
+    <sys:String x:Key="FPShowPreview">Show preview</sys:String>
     <!--In code-->
     <sys:String x:Key="FPIsNotAccess">Is Not Access!</sys:String>
 
@@ -65,8 +66,6 @@
     <sys:String x:Key="CWCancel">Cancel (Esc)</sys:String>
 
     <!--SettingsWindow-->
-    <!--<sys:String x:Key="SWSkins">Skins</sys:String>
-    <sys:String x:Key="SWLevelAndFilePanel">Level and filePanel</sys:String>-->
     <sys:String x:Key="SWSkins">Skins</sys:String>
     <sys:String x:Key="SWLanguages">Languages</sys:String>
     <sys:String x:Key="SWSkinName">Name</sys:String>
@@ -110,6 +109,13 @@
     <sys:String x:Key="CFWOk">Ok (Enter)</sys:String>
     <sys:String x:Key="CFWCancel">Cancel (Esc)</sys:String>
     <sys:String x:Key="CFWDescription">Input the directory name</sys:String>
+
+    <!--NoteWindow-->
+    <sys:String x:Key="NWTitle">Note</sys:String>
+    <sys:String x:Key="NWInsertDate">Insert date</sys:String>
+    <sys:String x:Key="NWInsertFromClipboard">Insert from clipboard</sys:String>
+    <sys:String x:Key="NWOk">Ok (Enter)</sys:String>
+    <sys:String x:Key="NWCancel">Cancel (Esc)</sys:String>
 
 
 </ResourceDictionary>

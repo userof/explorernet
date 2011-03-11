@@ -33,7 +33,7 @@
 
             <ControlTemplate.Triggers>
                 <Trigger Property="IsChecked" Value="true">
-                    <Setter TargetName="Border" Property="BorderBrush" Value="Orange" />
+                    <!--<Setter TargetName="Border" Property="BorderBrush" Value="Orange" />-->
                     <Setter TargetName="Border" Property="BorderThickness" Value="5" />
                 </Trigger>
             </ControlTemplate.Triggers>

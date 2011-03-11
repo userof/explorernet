@@ -193,15 +193,15 @@
     <Resource Include="ButtonIcons\CMD.png" />
     <Resource Include="ButtonIcons\MakeDirectory.png" />
     <Resource Include="ButtonIcons\SFB.png" />
-    <Content Include="FileAssotiation.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Fon.img">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Icons\drive_removable.ico" />
     <Resource Include="Icons\drive_fixed.ico" />
     <Resource Include="Icons\drive_cdrom.ico" />
+    <Content Include="FileAssotiation.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="skins\SunnyOrange_Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

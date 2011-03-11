@@ -35,6 +35,7 @@
     <sys:String x:Key="FPMakedirectory">Создать директорию</sys:String>
     <sys:String x:Key="FPCopyDialog">Копировать выделенное</sys:String>
     <sys:String x:Key="FPOpenInCmd">Открыть директорию в командной строке</sys:String>
+    <sys:String x:Key="FPShowPreview">Показать пред просмотр</sys:String>
     <!--In code-->
     <sys:String x:Key="FPIsNotAccess">Нет доступа!</sys:String>
 
@@ -107,6 +108,13 @@
     <sys:String x:Key="CFWOk">Ok (Enter)</sys:String>
     <sys:String x:Key="CFWCancel">Отмена (Esc)</sys:String>
     <sys:String x:Key="CFWDescription">Введите название директории</sys:String>
+
+    <!--NoteWindow-->
+    <sys:String x:Key="NWTitle">Заметка</sys:String>
+    <sys:String x:Key="NWInsertDate">Вставить дату</sys:String>
+    <sys:String x:Key="NWInsertFromClipboard">Вставить текст с буфера</sys:String>
+    <sys:String x:Key="NWOk">Ok (Enter)</sys:String>
+    <sys:String x:Key="NWCancel">Отмена (Esc)</sys:String>
 
 
 </ResourceDictionary>

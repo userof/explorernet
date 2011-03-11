@@ -40,6 +40,10 @@ namespace ExplorerNet.Tools.ViewSettings
             set;
         }
 
+        /// <summary>
+        /// Сохраняет позицию окна в настройки программы
+        /// </summary>
+        /// <param name="window">окно, расположение которого нужно сохранить</param>
         public static void SaveWindowLocation(Window window)
         {
             ViewLocations vLocations = ViewLocations.Load();
@@ -71,6 +75,10 @@ namespace ExplorerNet.Tools.ViewSettings
             vLocations.Save();
         }
 
+        /// <summary>
+        /// загружает расположение окна из настроек программы
+        /// </summary>
+        /// <param name="window">текущее окно </param>
         public static void LoadWindowLocation(Window window)
         {
             ViewLocations vLocations = ViewLocations.Load();

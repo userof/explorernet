@@ -27,10 +27,12 @@ namespace ExplorerNet.Tools.ExtentionAnaliz
             Extentions exts = new Extentions();
 
             exts.Add(".mp3", PreviewKind.Media);
+            exts.Add(".mp4", PreviewKind.Media);
             exts.Add(".wav", PreviewKind.Media);
             exts.Add(".avi", PreviewKind.Media);
             exts.Add(".mpg", PreviewKind.Media);
             exts.Add(".mpeg", PreviewKind.Media);
+            exts.Add(".flv", PreviewKind.Media);
             exts.Add(".bmp", PreviewKind.Media);
             exts.Add(".jpg", PreviewKind.Media);
             exts.Add(".jpeg", PreviewKind.Media);
@@ -39,8 +41,10 @@ namespace ExplorerNet.Tools.ExtentionAnaliz
             exts.Add(".ico", PreviewKind.Media);
             exts.Add(".mkv", PreviewKind.Media);
             exts.Add(".dvx", PreviewKind.Media);
-            exts.Add(".html", PreviewKind.Web);
-            exts.Add(".htm", PreviewKind.Web);
+            exts.Add(".wmv", PreviewKind.Media);
+            exts.Add(".rm", PreviewKind.Media);
+            //exts.Add(".html", PreviewKind.Web);
+            //exts.Add(".htm", PreviewKind.Web);
             //exts.Add(".pdf", PreviewKind.Web);
 
             return exts;

@@ -35,17 +35,17 @@
 	</UserControl.Triggers>
     <UserControl.Template>
         <ControlTemplate TargetType="UserControl">
-            <Border Name="Border" BorderBrush="HotPink" BorderThickness="3">
+            <Border Name="Border" BorderBrush="Gray" BorderThickness="3">
                 <ContentPresenter />
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="local:FilePanel.IsFirstSelected" Value="true">
                     <Setter TargetName="Border" Property="BorderThickness" Value="7" />
-                    <Setter TargetName="Border" Property="BorderBrush" Value="Red" />
+                    <!--<Setter TargetName="Border" Property="BorderBrush" Value="Red" />-->
                 </Trigger>
                 <Trigger Property="local:FilePanel.IsSecondSelected" Value="true">
                     <Setter TargetName="Border" Property="BorderThickness" Value="7" />
-                    <Setter TargetName="Border" Property="BorderBrush" Value="Green" />
+                    <!--<Setter TargetName="Border" Property="BorderBrush" Value="Green" />-->
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -56,12 +56,12 @@
             <ColumnDefinition Width="150*" />
             <ColumnDefinition Name="col2" Width="120" />
         </Grid.ColumnDefinitions>
-        <Grid Name="grdMain" Grid.Column="0" Background="Azure">
+        <Grid Name="grdMain" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="35" />
                 <ColumnDefinition Width="130*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Background="Orchid">
+            <StackPanel Grid.Column="0">
                 <Button Name="btnDeleteFilePanel" 
                 Height="28" VerticalAlignment="Top" Click="btnDeleteFilePanel_Click">
                     <bi:ButtonsContent>
@@ -94,7 +94,7 @@
                     </bi:ButtonsContent>
 
                     <Button.ToolTip>
-                        <ToolTip  Content="preview" />
+                        <ToolTip  Content="{DynamicResource FPShowPreview}" />
                     </Button.ToolTip>
                 </Button>
 
@@ -157,19 +157,19 @@
                 </Button>
 
             </StackPanel>
-            <Grid Grid.Column="1" Background="IndianRed">
+            <Grid Grid.Column="1" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="32" />
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
                     <RowDefinition Height="238*" />
                 </Grid.RowDefinitions>
                 <UniformGrid Grid.Row="0" Name="ugDrives" Height="25" Columns="0" Rows="1" VerticalAlignment="Top" />
                 <Grid Name="grdPath" Grid.Row="1" VerticalAlignment="Top" >
-                    <Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
+                    <!--<Button HorizontalAlignment="Left" Width="27" Click="Button_Click">B</Button>
                     <Button Name="btnUp" Margin="33,0,0,0" HorizontalAlignment="Left" Width="26" Click="btnUp_Click">U</Button>
-                    <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>
-                    <TextBox Name="txtPath" Margin="96,0,27,0"></TextBox>
-                    <Button HorizontalAlignment="Right" Width="29" Click="Button_Click_1">G</Button>
+                    <Button Margin="65,0,0,0" HorizontalAlignment="Left" Width="25">F</Button>-->
+                    <TextBox Name="txtPath" PreviewMouseLeftButtonUp="txtPath_PreviewMouseLeftButtonUp" Margin="6,0,46,0"></TextBox>
+                    <Button HorizontalAlignment="Right" Width="29" Click="Button_Click_1" Margin="0,0,11,0">G</Button>
                 </Grid>
                 <ListView Name="lvFileList" Grid.Row="2"
                             PreviewMouseDoubleClick="lvFileList_MouseDoubleClick"
@@ -180,14 +180,14 @@
                     PreviewMouseMove="lvFileList_PreviewMouseMove"
                           PreviewMouseLeftButtonDown="lvFileList_PreviewMouseLeftButtonDown"
                     Drop="lvFileList_Drop"
-                            Margin="0,4,0,0"
+                            Margin="0,0,0,0"
                                 ItemsSource="{Binding}" DataContext="{Binding}" Opacity="0.85" >
 
                     <ListView.View>
                         <GridView>
 
                             <GridViewColumn 
-                            Header="star"
+                            Header="..."
                             Width="30">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
@@ -249,7 +249,7 @@
             </Grid>
         </Grid>
         <GridSplitter Width="5" Name="gsMainSpliter" />
-        <Grid Name="grdPreview" Grid.Column="1" Background="BlueViolet">
+        <Grid Name="grdPreview" Grid.Column="1">
             <!--<Grid.RowDefinitions>
                 <RowDefinition Height="100" />
                 <RowDefinition Height="*" />

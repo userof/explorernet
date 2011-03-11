@@ -99,24 +99,26 @@ namespace ExplorerNet.ViewWindowApps.Templates
 
 
             LevelTemplate level1 = new LevelTemplate();
-            level1.Height = Properties.Settings.Default.HeightLevel;
+            //level1.Height = Properties.Settings.Default.HeightLevel;
+            level1.Height = System.Windows.SystemParameters.PrimaryScreenHeight / 2 - 50;
             FilePanelTemplate fp1 = new FilePanelTemplate();
             fp1.FilePanelSettings = new FilePanelApps.FilePanelSettings();
-            //fp1.Width = Properties.Settings.Default.WidthFilepanel;
+            fp1.FilePanelSettings.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2 - 30;
             FilePanelTemplate fp2 = new FilePanelTemplate();
             fp2.FilePanelSettings = new FilePanelApps.FilePanelSettings();
-            //fp2.Width = Properties.Settings.Default.WidthFilepanel;
+            fp2.FilePanelSettings.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2 - 30;
             level1.FilePanels.Add(fp1);
             level1.FilePanels.Add(fp2);
 
             LevelTemplate level2 = new LevelTemplate();
-            level2.Height = Properties.Settings.Default.HeightLevel;
+            //level2.Height = Properties.Settings.Default.HeightLevel;
+            level2.Height = System.Windows.SystemParameters.PrimaryScreenHeight / 2 - 50;
             FilePanelTemplate fp3 = new FilePanelTemplate();
             fp3.FilePanelSettings = new FilePanelApps.FilePanelSettings();
-            //fp3.Width = Properties.Settings.Default.WidthFilepanel;
+            fp3.FilePanelSettings.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2 - 30;
             FilePanelTemplate fp4 = new FilePanelTemplate();
             fp4.FilePanelSettings = new FilePanelApps.FilePanelSettings();
-            //fp4.Width = Properties.Settings.Default.WidthFilepanel;
+            fp4.FilePanelSettings.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2 - 30;
             level2.FilePanels.Add(fp3);
             level2.FilePanels.Add(fp4);
 

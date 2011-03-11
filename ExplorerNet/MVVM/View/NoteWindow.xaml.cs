@@ -54,6 +54,18 @@ namespace ExplorerNet.MVVM.View
             b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             this.SetBinding(NoteWindow.DialogAnswerProperty, b);
             //this.b .InputBindings.Add(b);
+            ExplorerNet.Tools.ViewSettings.ViewLocation.LoadWindowLocation(this);
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            ExplorerNet.Tools.ViewSettings.ViewLocation.SaveWindowLocation(this);
         }
 
     }

@@ -76,9 +76,9 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
                     case PreviewKind.Media:
                         MediaStartPreview(fileName);
                         break;
-                    case PreviewKind.Web:
-                        WebStartPreview(fileName);
-                        break;
+                    //case PreviewKind.Web:
+                    //    WebStartPreview(fileName);
+                    //    break;
                     default:
                         
                         //MessageBox.Show("not");
@@ -114,11 +114,10 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
         private void HideAllStartPrview()
         {
-            grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
-            grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
-            grdTextViewer.Visibility = System.Windows.Visibility.Hidden;
-
             mediaPlayerMain.Stop();
+            grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
+            //grdWebBrouzer.Visibility = System.Windows.Visibility.Hidden;
+            grdTextViewer.Visibility = System.Windows.Visibility.Hidden;  
         }
 
         private void TextStartPreview(string fileName)
@@ -174,19 +173,19 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
             mediaPlayerMain.Stop();
         }
 
-        private void WebStartPreview(string fileName)
-        {
-            //grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
-            HideAllStartPrview();
+        //private void WebStartPreview(string fileName)
+        //{
+        //    //grdMediaPlayer.Visibility = System.Windows.Visibility.Hidden;
+        //    HideAllStartPrview();
 
-            grdWebBrouzer.Visibility = System.Windows.Visibility.Visible;
+        //    grdWebBrouzer.Visibility = System.Windows.Visibility.Visible;
 
-            //wbWebBrouzer.Source = new Uri(fileName);
-            wbWebBrouzer.Navigate(new Uri(fileName));
-            //WebVisibility = Visibility.Visible;
-            //PreviewWebFile = fileName;
-            //MediaVisibility = Visibility.Hidden;
-        }
+        //    //wbWebBrouzer.Source = new Uri(fileName);
+        //    wbWebBrouzer.Navigate(new Uri(fileName));
+        //    //WebVisibility = Visibility.Visible;
+        //    //PreviewWebFile = fileName;
+        //    //MediaVisibility = Visibility.Hidden;
+        //}
 
         private void sliderVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
