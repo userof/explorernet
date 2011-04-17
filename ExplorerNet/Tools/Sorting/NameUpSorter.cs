@@ -8,7 +8,7 @@ using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts;
 
 namespace ExplorerNet.Tools.Sorting
 {
-    public class NameUpComparer : IComparer<CustomFileSystemCover>
+    internal class NameUpSorter : IComparer<CustomFileSystemCover>
     {
         public int Compare(CustomFileSystemCover x, CustomFileSystemCover y)
         {

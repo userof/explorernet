@@ -540,7 +540,7 @@ namespace ExplorerNet.ViewWindowApps
 
             }
 
-            list.Sort(new NameUpComparer());
+            list.Sort(new NameUpSorter());
 
             lvFileList.ItemsSource = list;
 

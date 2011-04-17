@@ -49,52 +49,52 @@
     </RadioButton.Triggers>-->
     <RadioButton.Content>
         <Grid Name="grdBorder">
-        <Thumb Name="tmbMove" Cursor="SizeNS" Height="5" Margin="0,0,0,0" VerticalAlignment="Bottom" DragDelta="tmbMove_DragDelta"></Thumb>
-        <Border BorderThickness="3" BorderBrush="Gray">
-            <Grid Margin="1,1,1,7" Name="grid1" HorizontalAlignment="Left" Width="42" Opacity="1">
+            <Thumb Name="tmbMove" Cursor="SizeNS" Height="5" Margin="0,0,0,0" VerticalAlignment="Bottom" DragDelta="tmbMove_DragDelta"></Thumb>
+            <Border BorderThickness="3" Margin="0,0,0,5" BorderBrush="Gray">
+                <Grid Margin="1,1,1,7" Name="grid1" HorizontalAlignment="Left" Width="42" Opacity="1">
 
-                <!--Delete level button-->
-                <Button Name="btnDeleteLevel" 
-                 Margin="0,14,0,0" VerticalAlignment="Top" Click="btnDeleteLevel_Click">
-                    <bi:ButtonsContent>
-                        <Image Source="..\ButtonIcons\DeleteLevel.png" />
-                    </bi:ButtonsContent>
-                    <Button.ToolTip>
-                        <ToolTip  Content="{DynamicResource LLDeleteLevel}" />
-                    </Button.ToolTip>
-                </Button>
-
-                <!--Clone level button-->
-                <Button Name="btnClobeLevel" 
-                        Margin="0,69,0,0"
-                 VerticalAlignment="Top" Click="btnClobeLevel_Click">
-                    <bi:ButtonsContent>
-                        <Image Source="..\ButtonIcons\CloneLevel.png" />
-                    </bi:ButtonsContent>
-
-                    <Button.ToolTip>
-                        <ToolTip  Content="{DynamicResource LLCloneLevel}" />
-                    </Button.ToolTip>
-                </Button>
-
-                    <!--New file panel button-->
-                <Button Name="btnNewFilePanel"
-                        Margin="0,126,0,0"
-                        VerticalAlignment="Top" Click="btnNewFilePanel_Click">
+                    <!--Delete level button-->
+                    <Button Name="btnDeleteLevel" 
+                     Margin="0,14,0,0" VerticalAlignment="Top" Click="btnDeleteLevel_Click">
                         <bi:ButtonsContent>
-                            <Image Source="..\ButtonIcons\NewFilePanel.png" />
-                        </bi:ButtonsContent>                           
-                <Button.ToolTip>
-                            <ToolTip  Content="{DynamicResource LLNewFilePanel}" />
-                </Button.ToolTip>   
-                </Button>
-                    <!--<Slider Margin="12,107,-107,61" Name="slider1" Orientation="Horizontal" Value="{Binding ElementName=level, Path=Height, Mode=TwoWay}" Maximum="1000" Minimum="200">-->
-                <!--<Slider.RenderTransform>
-                    <RotateTransform Angle="90"></RotateTransform>
-                </Slider.RenderTransform>
-            </Slider>-->
-            </Grid>
-        </Border>
+                            <Image Source="..\ButtonIcons\DeleteLevel.png" />
+                        </bi:ButtonsContent>
+                        <Button.ToolTip>
+                            <ToolTip  Content="{DynamicResource LLDeleteLevel}" />
+                        </Button.ToolTip>
+                    </Button>
+
+                    <!--Clone level button-->
+                    <Button Name="btnClobeLevel" 
+                            Margin="0,69,0,0"
+                     VerticalAlignment="Top" Click="btnClobeLevel_Click">
+                        <bi:ButtonsContent>
+                            <Image Source="..\ButtonIcons\CloneLevel.png" />
+                        </bi:ButtonsContent>
+
+                        <Button.ToolTip>
+                            <ToolTip  Content="{DynamicResource LLCloneLevel}" />
+                        </Button.ToolTip>
+                    </Button>
+
+                        <!--New file panel button-->
+                    <Button Name="btnNewFilePanel"
+                            Margin="0,126,0,0"
+                            VerticalAlignment="Top" Click="btnNewFilePanel_Click">
+                            <bi:ButtonsContent>
+                                <Image Source="..\ButtonIcons\NewFilePanel.png" />
+                            </bi:ButtonsContent>                           
+                    <Button.ToolTip>
+                                <ToolTip  Content="{DynamicResource LLNewFilePanel}" />
+                    </Button.ToolTip>   
+                    </Button>
+                        <!--<Slider Margin="12,107,-107,61" Name="slider1" Orientation="Horizontal" Value="{Binding ElementName=level, Path=Height, Mode=TwoWay}" Maximum="1000" Minimum="200">-->
+                    <!--<Slider.RenderTransform>
+                        <RotateTransform Angle="90"></RotateTransform>
+                    </Slider.RenderTransform>
+                </Slider>-->
+                </Grid>
+            </Border>
         <ScrollViewer Margin="47,1,1,7" Name="scrollViewer1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
             <StackPanel Name="spMain" Orientation="Horizontal" />
 

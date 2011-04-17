@@ -41,6 +41,7 @@ namespace ExplorerNet.Tools.ExtentionAnaliz
             exts.Add(".ico", PreviewKind.Media);
             exts.Add(".mkv", PreviewKind.Media);
             exts.Add(".dvx", PreviewKind.Media);
+            exts.Add(".divx", PreviewKind.Media);
             exts.Add(".wmv", PreviewKind.Media);
             exts.Add(".rm", PreviewKind.Media);
             //exts.Add(".html", PreviewKind.Web);

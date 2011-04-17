@@ -36,8 +36,8 @@
     <SuiteName>ExplorerNet</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>18</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -333,7 +333,8 @@
     <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
     <Compile Include="Tools\ShellContextMenu.cs" />
     <Compile Include="Tools\SizeFileInString.cs" />
-    <Compile Include="Tools\Sorting\NameUpComparer.cs" />
+    <Compile Include="Tools\Sorting\NameUpSorter.cs" />
+    <Compile Include="Tools\Sorting\SortingKind.cs" />
     <Compile Include="Tools\Wallpapers\SkinManager.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocation.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocations.cs" />

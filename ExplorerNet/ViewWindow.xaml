@@ -11,12 +11,12 @@
         <!--<vwApps:LanguageSelector Panel.ZIndex="1" Margin="24,48,0,0" HorizontalAlignment="Left" Width="17" Height="16" VerticalAlignment="Top" />-->
 
         <Image Name="imgFon" Stretch="UniformToFill"></Image>
-        <ScrollViewer Margin="2,61,2,2">
+        <ScrollViewer Margin="2,40,2,2">
             <StackPanel Name="spMain" Opacity="1" />
         </ScrollViewer>
         
  
-        <Grid Name="grdMainButtons" Height="33" Margin="19,12,19,0" VerticalAlignment="Top">
+        <Grid Name="grdMainButtons" Height="33" Margin="9,2,9,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
