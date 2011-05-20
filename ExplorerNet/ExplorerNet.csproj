@@ -259,6 +259,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Resource Include="ViewWindowApps\FilePanelDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
     <Page Include="ViewWindowApps\LanguageSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -333,8 +337,11 @@
     <Compile Include="Tools\RecentTemplateNS\RecentTemplates.cs" />
     <Compile Include="Tools\ShellContextMenu.cs" />
     <Compile Include="Tools\SizeFileInString.cs" />
-    <Compile Include="Tools\Sorting\NameUpSorter.cs" />
+    <Compile Include="Tools\Sorting\BaseComparer.cs" />
+    <Compile Include="Tools\Sorting\NameUpComparer.cs" />
+    <Compile Include="Tools\Sorting\SortingData.cs" />
     <Compile Include="Tools\Sorting\SortingKind.cs" />
+    <Compile Include="Tools\Sorting\SortingManager.cs" />
     <Compile Include="Tools\Wallpapers\SkinManager.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocation.cs" />
     <Compile Include="Tools\ViewSettings\ViewLocations.cs" />

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExplorerNet.Tools.Sorting
 {
-    internal enum SortingKind
+    public enum SortingKind
     {
         NameUp,
         NameDown,

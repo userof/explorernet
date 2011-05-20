@@ -540,7 +540,8 @@ namespace ExplorerNet.ViewWindowApps
 
             }
 
-            list.Sort(new NameUpSorter());
+            //list.Sort(new NameUpSorter()); 
+            SortingManager.Sort(list, SortingKind.NameUp);
 
             lvFileList.ItemsSource = list;
 

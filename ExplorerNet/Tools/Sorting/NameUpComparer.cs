@@ -8,9 +8,9 @@ using ExplorerNet.ViewWindowApps.FilePanelApps.FileSystemCovers.CoverExts;
 
 namespace ExplorerNet.Tools.Sorting
 {
-    internal class NameUpSorter : IComparer<CustomFileSystemCover>
+    internal class NameUpComparer : BaseComparer
     {
-        public int Compare(CustomFileSystemCover x, CustomFileSystemCover y)
+        public override int Compare(CustomFileSystemCover x, CustomFileSystemCover y)
         {
             if (x == null)
             {
@@ -118,54 +118,6 @@ namespace ExplorerNet.Tools.Sorting
             return -1;
         }
 
-        private int StarCompare(CustomFileSystemCover x, CustomFileSystemCover y)
-        {
-            StarKind? skX = x.Star;
-            StarKind? skY = y.Star;
-
-            if (skX == null)
-            {
-                if (skY == null)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 1;
-                }
-            }
-            else
-            {
-                if (skY == null)
-                {
-                    return -1;
-                }
-                else
-                {
-                    StarKind skXF = skX.GetValueOrDefault(StarKind.One);
-                    StarKind skYF = skY.GetValueOrDefault(StarKind.One); 
-                    int c = skXF.CompareTo(skYF);
-                    int result = c;
-
-
-                    switch (c)
-                    {
-                        case -1:
-                            result = 1;
-                            break;
-                        case 1:
-                            result = - 1;
-                            break;
-                        case 0:
-                            result = 0;
-                            break;
-                    }
-
-                    return result;
-                }
-            }
-
-            //return -1;
-        }
+        
     }
 }

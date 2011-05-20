@@ -19,18 +19,30 @@
              Unloaded="filePanel_Unloaded" 
              Loaded="filePanel_Loaded">
 	<UserControl.Resources>
-		<Storyboard x:Key="OnLoaded1">
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary 
+                            Source="D:\Projects\CSharp\Explorer.Net\ExplorerNet\ViewWindowApps\FilePanelDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+		<!--<Storyboard x:Key="OnLoaded1">
 			<DoubleAnimationUsingKeyFrames Duration="0:0:0.5"                            
                                            Storyboard.TargetProperty="(UIElement.Opacity)" 
                                            Storyboard.TargetName="grid">
 				<EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
                 <SplineDoubleKeyFrame KeySpline="0.0,1.0, 0.0,0.0" KeyTime="0:0:0.5" Value="1" />
 			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
+		</Storyboard>-->
 	</UserControl.Resources>
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform x:Name="scale" />
+        </TransformGroup>
+    </UserControl.RenderTransform>
 	<UserControl.Triggers>
 		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
 			<BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+            <!--<BeginStoryboard Storyboard="{StaticResource Animate}"/>-->
 		</EventTrigger>
 	</UserControl.Triggers>
     <UserControl.Template>
@@ -50,13 +62,13 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </UserControl.Template>
-
-    <Grid Name="grid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150*" />
-            <ColumnDefinition Name="col2" Width="120" />
-        </Grid.ColumnDefinitions>
-        <Grid Name="grdMain" Grid.Column="0">
+        <Grid Name="grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150*" />
+                <ColumnDefinition Name="col2" Width="120" />
+            </Grid.ColumnDefinitions>
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <Grid Name="grdMain" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="35" />
                 <ColumnDefinition Width="130*" />
@@ -248,8 +260,8 @@
                 </ListView>
             </Grid>
         </Grid>
-        <GridSplitter Width="5" Name="gsMainSpliter" />
-        <Grid Name="grdPreview" Grid.Column="1">
+            <GridSplitter Width="5" Name="gsMainSpliter" />
+            <Grid Name="grdPreview" Grid.Column="1">
             <!--<Grid.RowDefinitions>
                 <RowDefinition Height="100" />
                 <RowDefinition Height="*" />
@@ -262,9 +274,10 @@
             <!--<vw:PreviewPanel x:Name="ppPreview" />-->
             <fa:PreviewPanel x:Name="ppPreview" />
         </Grid>
-        <Thumb Margin="0,0,0,0" Grid.Column="1" Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" 
-                HorizontalAlignment="Right" Width="4" />
-    </Grid>
+            <Thumb Margin="0,0,0,0" Grid.Column="1" Name="tmbMove" Cursor="SizeWE" DragDelta="tmbMove_DragDelta" 
+                    HorizontalAlignment="Right" Width="4" />
+        
+        </Grid>
 
 
 
