@@ -164,6 +164,7 @@
     </Page>
     <Resource Include="ButtonIcons\Start.ico" />
     <Resource Include="ButtonIcons\Preview.ico" />
+    <Resource Include="Icons\dir.ico" />
     <Content Include="Languages\ru.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -231,6 +232,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Resource Include="ViewWindowApps\FilePanelApps\DriveHintResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
     <Page Include="ViewWindowApps\FilePanelApps\NoteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -503,7 +508,7 @@
     <Resource Include="Core\Core.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\dir.ICO" />
+    <Resource Include="Icons\_dir.ICO" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\UP.ICO" />
