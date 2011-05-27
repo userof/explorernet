@@ -135,7 +135,7 @@ namespace ExplorerNet
             ExecutedRoutedEventArgs e)
         {
             RenameWindow rw = new RenameWindow();
-            rw.ShowDialog();
+            rw.ShowDialog(); 
         }
 
         private void ExecutedDeleteFilesCommand(object sender,

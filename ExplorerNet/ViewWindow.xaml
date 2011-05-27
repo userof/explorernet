@@ -6,6 +6,10 @@
     Title="ExplorerNet" Height="300" Width="881" Loaded="Window_Loaded" 
         Closing="Window_Closing" 
         AllowsTransparency="False" Opacity="1" Icon="/Explorer.Net;component/app.ico">
+    <Window.Resources>
+        <ResourceDictionary x:Key="res" Source="ViewWindowResources.xaml" />
+    </Window.Resources>
+    <Border Style="{StaticResource MainWindowBorder}">
     <Grid>
 
         <!--<vwApps:LanguageSelector Panel.ZIndex="1" Margin="24,48,0,0" HorizontalAlignment="Left" Width="17" Height="16" VerticalAlignment="Top" />-->
@@ -115,15 +119,16 @@
 
             <ListBox Name="lbLastStartedFiles" Margin="2,0,3,0"
                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     Style="{StaticResource FileBox}"
                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                      Background="Transparent"
                      Grid.Column="7" Width="Auto">
-                <ListBox.ItemsPanel>
+                <!--<ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" />                           
                                              
                     </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
+                </ListBox.ItemsPanel>-->
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         
@@ -233,4 +238,5 @@
        
         
     </Grid>
+    </Border>
 </Window>
