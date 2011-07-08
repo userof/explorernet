@@ -25,29 +25,34 @@ namespace ExplorerNet
             InitializeComponent();
         }
 
-        private void Paragraph_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Process.Start("http://explorernetprototype.wordpress.com/2010/12/16/%D0%BE%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-explorer-net/");
-        }
+        //private void Paragraph_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    Process.Start("http://explorernetprototype.wordpress.com/2010/12/16/%D0%BE%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-explorer-net/");
+        //}
 
-        private void Paragraph_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Process.Start("http://mail.mihanik.net/IceFox/");
-        }
+        //private void Paragraph_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        //{
+        //    Process.Start("http://mail.mihanik.net/IceFox/");
+        //}
 
         private void Paragraph_MouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
         {
             Process.Start("http://forum.vingrad.ru/forum/forum-635.html");
         }
 
-        private void Paragraph_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
+        private void hl_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://forum.vingrad.ru/showuser-21450.html");
+            Process.Start(hl.NavigateUri.ToString());
         }
 
-        private void Paragraph_MouseLeftButtonDown_4(object sender, MouseButtonEventArgs e)
-        {
-            Process.Start("http://forum.vingrad.ru/showuser-1226.html");
-        }
+        //private void Paragraph_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
+        //{
+        //    Process.Start("http://forum.vingrad.ru/showuser-21450.html");
+        //}
+
+        //private void Paragraph_MouseLeftButtonDown_4(object sender, MouseButtonEventArgs e)
+        //{
+        //    Process.Start("http://forum.vingrad.ru/showuser-1226.html");
+        //}
     }
 }

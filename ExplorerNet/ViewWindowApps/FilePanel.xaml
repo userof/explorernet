@@ -22,7 +22,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary 
-                            Source="D:\Projects\CSharp\Explorer.Net\ExplorerNet\ViewWindowApps\FilePanelDictionary.xaml" />
+                            Source="FilePanelDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 		<!--<Storyboard x:Key="OnLoaded1">

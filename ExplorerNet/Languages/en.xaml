@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:System="clr-namespace:System;assembly=System">
 
     <sys:String x:Key="LanguageDisplayName">en</sys:String>
 
@@ -117,5 +117,16 @@
     <sys:String x:Key="NWOk">Ok (Enter)</sys:String>
     <sys:String x:Key="NWCancel">Cancel (Esc)</sys:String>
 
+    <!--InfoWindow-->
+    <sys:String x:Key="IWHotkeysProgram">Hotkeys Program and references</sys:String>
+    <sys:String x:Key="IWVideo">Video (eng)</sys:String>
+    <sys:String x:Key="IWVideoLink">http://www.youtube.com/watch?v=DvqB6KDluwI</sys:String>
+    <sys:String x:Key="IWF2">F2 – Rename file/directory in active file panel</sys:String>
+    <sys:String x:Key="IWF5">F5 – Copy file/directory in active file panel</sys:String>
+    <sys:String x:Key="IWF6">F6 – Move file/directory in active file panel</sys:String>
+    <sys:String x:Key="IWF7">F7 – Create a directory in active file panel</sys:String>
+    <sys:String x:Key="IWF8">F8 – Delete file/directory in active file panel</sys:String>
+    <sys:String x:Key="IWDelete">Delete – Delete to recycle file/directory in active file panel</sys:String>
+    <sys:String x:Key="IWGroup">Group on the programmers forum (rus)</sys:String>
 
 </ResourceDictionary>

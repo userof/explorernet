@@ -116,5 +116,17 @@
     <sys:String x:Key="NWOk">Ok (Enter)</sys:String>
     <sys:String x:Key="NWCancel">Отмена (Esc)</sys:String>
 
+    <!--InfoWindow-->
+    <sys:String x:Key="IWHotkeysProgram">Горячие клавиши программы и ссылки</sys:String>
+    <sys:String x:Key="IWVideo">Видео (рус)</sys:String>
+    <sys:String x:Key="IWVideoLink">http://www.youtube.com/watch?v=DvqB6KDluwI</sys:String>
+    <sys:String x:Key="IWF2">F2 – переименовать файл/директорию в активной файловой панели</sys:String>
+    <sys:String x:Key="IWF5">F5 – копировать файл/директорию с активной файловой панели во вторую активную файловую панель</sys:String>
+    <sys:String x:Key="IWF6">F6 – переместить файл/директорию с активной файловой панели во вторую активную файловую панель</sys:String>
+    <sys:String x:Key="IWF7">F7 – создать новый каталог</sys:String>
+    <sys:String x:Key="IWF8">F8 – удалить файл/директорию с активной файловой панели</sys:String>
+    <sys:String x:Key="IWDelete">Delete – удалить файл/директорию с активной файловой панели в корзину</sys:String>
+    <sys:String x:Key="IWGroup">Группа на форуме программистов (рус)</sys:String>
+
 
 </ResourceDictionary>

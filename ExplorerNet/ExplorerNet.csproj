@@ -18,7 +18,7 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>ftp://mail.mihanik.net/</PublishUrl>
     <Install>true</Install>
@@ -56,7 +56,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\out\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -291,6 +291,7 @@
     <Compile Include="ButtonIcons\ButtonsContent.xaml.cs">
       <DependentUpon>ButtonsContent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\UriToStringConverter.cs" />
     <Compile Include="CopyWindow.xaml.cs">
       <DependentUpon>CopyWindow.xaml</DependentUpon>
     </Compile>

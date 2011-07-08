@@ -2,57 +2,94 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Icon="ButtonIcons\InfoWindow.png"
-        xmlns:res="clr-namespace:ExplorerNet.Properties"
-        Title="InfoWindow" Height="300" Width="866" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        xmlns:res="clr-namespace:ExplorerNet.Properties" 
+        xmlns:Converters="clr-namespace:ExplorerNet.Converters" 
+        Title="InfoWindow" Height="300" Width="866" 
+        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <Window.Resources>
+        <Converters:UriToStringConverter x:Key="UriToStrConverter" />
+    </Window.Resources>
     <Grid>
         <FlowDocumentPageViewer>
             <FlowDocument Background="Bisque" ColumnGap="2100">
-                <Paragraph FontSize="20">Горячие клавиши программы</Paragraph>
+                <!--<Paragraph FontSize="20">Горячие клавиши программы</Paragraph>-->
+                <Paragraph FontSize="20" >
+                    <Paragraph.Inlines>
+                        <TextBlock Text="{DynamicResource IWHotkeysProgram}" /> 
+                    </Paragraph.Inlines>
+                </Paragraph>
+                <Paragraph >
+                    <Paragraph.Inlines>
+                        <Hyperlink Name="hl" Click="hl_Click" NavigateUri="{Binding Source={StaticResource IWVideoLink},  Converter={StaticResource UriToStrConverter}}">
+                            <Hyperlink.Inlines>
+                                <TextBlock Text="{DynamicResource IWVideo}" />
+                            </Hyperlink.Inlines>
+                        </Hyperlink>
+                        <!--<TextBlock Text="{DynamicResource IWVideo}" />-->
+                    </Paragraph.Inlines>
+                </Paragraph>
                 <List>
-                    <ListItem>
+                    <!--<ListItem>
                         <Paragraph>Shift(удерживать) – для копирования/перемещения с помощью мышки</Paragraph>
+                    </ListItem>-->
+                    <ListItem>
+                        <!--<Paragraph>F2 – переименовать файл/директорию в активной файловой панели</Paragraph>-->
+                        <Paragraph>
+                            <Paragraph.Inlines>
+                                <TextBlock Text="{DynamicResource IWF2}" />
+                            </Paragraph.Inlines>
+                        </Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>F2 – переименовать файл/директорию в активной файловой панели</Paragraph>
+                        <!--<Paragraph>F5 – копировать файл/директорию с активной файловой панели во вторую активную файловую панель</Paragraph>-->
+                        <Paragraph>
+                            <Paragraph.Inlines>
+                                <TextBlock Text="{DynamicResource IWF5}" />
+                            </Paragraph.Inlines>
+                        </Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>F5 – копировать файл/директорию с активной файловой панели во вторую активную файловую панель</Paragraph>
+                        <!--<Paragraph>F6 – переместить файл/директорию с активной файловой панели во вторую активную файловую панель</Paragraph>-->
+                        <Paragraph>
+                            <Paragraph.Inlines>
+                                <TextBlock Text="{DynamicResource IWF6}" />
+                            </Paragraph.Inlines>
+                        </Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>F6 – переместить файл/директорию с активной файловой панели во вторую активную файловую панель</Paragraph>
+                        <!--<Paragraph>F7 – создать новый каталог</Paragraph>-->
+                        <Paragraph>
+                            <Paragraph.Inlines>
+                                <TextBlock Text="{DynamicResource IWF7}" />
+                            </Paragraph.Inlines>
+                        </Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>F7 – создать новый каталог</Paragraph>
+                        <!--<Paragraph>F8 – удалить файл/директорию с активной файловой панели</Paragraph>-->
+                        <Paragraph>
+                            <Paragraph.Inlines>
+                                <TextBlock Text="{DynamicResource IWF8}" />
+                            </Paragraph.Inlines>
+                        </Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>F8 – удалить файл/директорию с активной файловой панели</Paragraph>
-                    </ListItem>
-                    <ListItem>
-                        <Paragraph>Delete – удалить файл/директорию с активной файловой панели в корзину</Paragraph>
+                        <!--<Paragraph>Delete – удалить файл/директорию с активной файловой панели в корзину</Paragraph>-->
+                        <Paragraph>
+                            <Paragraph.Inlines>
+                                <TextBlock Text="{DynamicResource IWDelete}" />
+                            </Paragraph.Inlines>
+                        </Paragraph>
                     </ListItem>
                 </List>
-                <Paragraph>Для корректной работы программы, после изменения оболочки или языка, программу рекомендуется перезапустить</Paragraph>
+                <!--<Paragraph>Для корректной работы программы, после изменения оболочки или языка, программу рекомендуется перезапустить</Paragraph>-->
+                <!--<Paragraph Foreground="Blue" Cursor="Hand"
+                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_2">Группа на форуме программистов</Paragraph>-->
                 <Paragraph Foreground="Blue" Cursor="Hand"
-                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown">Обсуждения программы</Paragraph>
-                <Paragraph Foreground="Blue" Cursor="Hand"
-                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_1">Скачать</Paragraph>
-                <Paragraph Foreground="Blue" Cursor="Hand"
-                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_2">Группа на форуме программистов</Paragraph>
-                <Paragraph>Благодарности</Paragraph>
-                <List>
-                    <ListItem>
-                        <Section>
-                            <Paragraph Foreground="Blue" Cursor="Hand"
-                                       MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_3">mihanik</Paragraph>
-                            <Paragraph>Поддержка с хостингом</Paragraph>
-                        </Section>
-                        <!--<Section>
-                            <Paragraph Foreground="Blue" Cursor="Hand"
-                                       MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_4">Kefir</Paragraph>
-                            <Paragraph>Помощь по коду программы</Paragraph>
-                        </Section>-->
-                    </ListItem>
-                </List>
+                           MouseLeftButtonDown="Paragraph_MouseLeftButtonDown_2">
+                    <Paragraph.Inlines>
+                        <TextBlock Text="{DynamicResource IWGroup}" />
+                    </Paragraph.Inlines>
+                </Paragraph>
             </FlowDocument>
         </FlowDocumentPageViewer>
     </Grid>
