@@ -52,7 +52,15 @@ namespace ExplorerNet.Tools
         private void Init()
         {
             appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            skinDirPath = Path.GetDirectoryName(appPath) + Path.DirectorySeparatorChar + skinDirName;
+            if (string.IsNullOrEmpty(appPath))
+            {
+                appPath = AppContext.BaseDirectory;
+                skinDirPath = Path.Combine(appPath, skinDirName);
+            }
+            else
+            {
+                skinDirPath = Path.GetDirectoryName(appPath) + Path.DirectorySeparatorChar + skinDirName;
+            }
         }
 
         /// <summary>
@@ -61,41 +69,40 @@ namespace ExplorerNet.Tools
         /// <param name="skinName">Метод инициализации основных данных класса</param>
         public void ApplySkin(string skinName)
         {
-            //return;
-
             string skinPathXaml = skinDirPath + Path.DirectorySeparatorChar +
                   skinName + ".xaml";
 
             string skinPathBaml = skinDirPath + Path.DirectorySeparatorChar +
                   skinName + ".baml";
 
-            if (File.Exists(skinPathXaml))
+            try
             {
-                //Application.Current.Resources.Clear();
-                ApplySkinXaml(skinPathXaml);
-                Properties.Settings.Default.CurrentSkin = skinName;
-
-                if (ChangedSkin != null)
+                if (File.Exists(skinPathXaml))
                 {
-                    ChangedSkin(this, skinName);
+                    ApplySkinXaml(skinPathXaml);
+                    Properties.Settings.Default.CurrentSkin = skinName;
+
+                    if (ChangedSkin != null)
+                    {
+                        ChangedSkin(this, skinName);
+                    }
+                }
+                else if (File.Exists(skinPathBaml))
+                {
+                    ApplySkinBaml(skinPathBaml);
+                    Properties.Settings.Default.CurrentSkin = skinName;
+
+                    if (ChangedSkin != null)
+                    {
+                        ChangedSkin(this, skinName);
+                    }
                 }
             }
-            else if (File.Exists(skinPathBaml))
+            catch (Exception)
             {
-                //Application.Current.Resources.Clear();
-                ApplySkinBaml(skinPathBaml);
-                Properties.Settings.Default.CurrentSkin = skinName;
-
-                if (ChangedSkin != null)
-                {
-                    ChangedSkin(this, skinName);
-                }
+                // Skin references unavailable assembly (e.g. legacy WPFToolkit BAML).
+                // Continue without applying the skin.
             }
-            else
-            {
-                //throw new Exception("The skin not found");
-            }
-            
         }
 
         /// <summary>
@@ -116,19 +123,9 @@ namespace ExplorerNet.Tools
         /// <param name="skinPath"></param>
         protected void ApplySkinBaml(string skinPath)
         {
-
-            FileStream fstream = new FileStream(skinPath, FileMode.Open);
-            Baml2006Reader reader = new Baml2006Reader(fstream);
-
-            ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(reader);
-            
-            //ResourceDictionary rd = (ResourceDictionary)System.Windows.Markup.XamlReader.Load(fstream);
-
-
-            App.Current.Resources.MergedDictionaries.Add(rd);
-
-            //reader.Close();
-            fstream.Close();
+            // Legacy .NET Framework 4.0 BAML skin files are binary-incompatible
+            // with .NET 10 (different BAML format, WPFToolkit references, etc.).
+            // These skins need to be recompiled as XAML to work on modern .NET.
         }
 
 

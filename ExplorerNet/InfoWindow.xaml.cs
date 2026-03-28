@@ -37,12 +37,12 @@ namespace ExplorerNet
 
         private void Paragraph_MouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
         {
-            Process.Start("http://forum.vingrad.ru/forum/forum-635.html");
+            Process.Start(new ProcessStartInfo("http://forum.vingrad.ru/forum/forum-635.html") { UseShellExecute = true });
         }
 
         private void hl_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(hl.NavigateUri.ToString());
+            Process.Start(new ProcessStartInfo(hl.NavigateUri.ToString()) { UseShellExecute = true });
         }
 
         //private void Paragraph_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)

@@ -390,7 +390,7 @@ namespace ExplorerNet.MVVM.ViewModel
         private void OpenLangDir()
         {
             Languages.LanguagesManager lm = new LanguagesManager();
-            System.Diagnostics.Process.Start(lm.LanguagesDirPath);
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(lm.LanguagesDirPath) { UseShellExecute = true });
         }
 
         /// <summary>
@@ -538,7 +538,7 @@ namespace ExplorerNet.MVVM.ViewModel
         private void OpenSkinDirectory()
         {
             SkinManager sm = new SkinManager();
-            System.Diagnostics.Process.Start(sm.SkinDirPath);
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(sm.SkinDirPath) { UseShellExecute = true });
         }
 
         #endregion

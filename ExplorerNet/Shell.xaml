@@ -5,7 +5,7 @@
     xmlns:bi="clr-namespace:ExplorerNet.ButtonIcons"
     Title="ExplorerNet" Height="300" Width="881" Loaded="Window_Loaded" 
         Closing="Window_Closing" 
-        AllowsTransparency="False" Opacity="1" Icon="/Explorer.Net;component/app.ico">
+        AllowsTransparency="False" Opacity="1" Icon="app.ico">
     <Window.Resources>
         <ResourceDictionary x:Key="res" Source="ShellResources.xaml" />
     </Window.Resources>

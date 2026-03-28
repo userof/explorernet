@@ -696,7 +696,10 @@ namespace ExplorerNet.ViewWindowApps
         /// <param name="e"></param>
         private void btnWindowsExplorer_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(this.Path);
+            if (!string.IsNullOrEmpty(this.Path))
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(this.Path) { UseShellExecute = true });
+            }
         }
 
         /// <summary>
@@ -710,7 +713,7 @@ namespace ExplorerNet.ViewWindowApps
 
             if (File.Exists(TotalCommanderPath))
             {
-                System.Diagnostics.Process.Start(TotalCommanderPath, this.Path);
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(TotalCommanderPath, this.Path) { UseShellExecute = true });
             }
             else
             {

@@ -1,37 +1,26 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
-using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Win32;
 
 namespace ExplorerNet
 {
-    class ExplorerNerBootstrapper : UnityBootstrapper
+    /// <summary>
+    /// Application bootstrapper - initializes the shell window.
+    /// Prism dependency removed; modules can be loaded directly if needed.
+    /// </summary>
+    class ExplorerNerBootstrapper
     {
         private StartupEventArgs startupEventArgs = null;
 
         public ExplorerNerBootstrapper(StartupEventArgs e)
-            : base()
         {
             startupEventArgs = e;
-
         }
 
-        protected override IModuleCatalog CreateModuleCatalog()
-        {
-            var moduleCatalog = new DirectoryModuleCatalog();
-            moduleCatalog.ModulePath = @".\Modules";
-            return moduleCatalog;
-        }
-
-        /// <summary>
-        /// Instantiates the Shell window.
-        /// </summary>
-        /// <returns>A new ShellWindow window.</returns>
-        protected override DependencyObject CreateShell()
+        public Window Run()
         {
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
@@ -45,8 +34,6 @@ namespace ExplorerNet
 
             Registry.SetValue(Registry.CurrentUser.ToString() + @"\Software\Classes\.enet", "", "enet_auto",
                  RegistryValueKind.String);
-
-            //MessageBox.Show(e.Args[0]);
 
             ExplorerNet.Shell shell = new Shell();
 
@@ -65,17 +52,6 @@ namespace ExplorerNet
             }
 
             return shell;
-        }
-
-        /// <summary>
-        /// Displays the Shell window to the user.
-        /// </summary>
-        protected override void InitializeShell()
-        {
-            base.InitializeShell();
-
-            App.Current.MainWindow = (Window)this.Shell;
-            App.Current.MainWindow.Show();
         }
     }
 }

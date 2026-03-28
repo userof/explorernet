@@ -137,9 +137,9 @@ namespace ExplorerNet.ViewWindowApps.FilePanelApps
 
             //if (File.si)
 
-            var fs = File.OpenRead(fileName);
+            using var fs = File.OpenRead(fileName);
             byte[] bytes = new byte[maxLoadFileSize];
-            fs.Read(bytes, 0, maxLoadFileSize);
+            fs.ReadExactly(bytes, 0, (int)Math.Min(maxLoadFileSize, fs.Length));
 
             using (MemoryStream ms = new MemoryStream(bytes))
             {
